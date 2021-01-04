@@ -1,0 +1,1 @@
+# sharedservices-azure-platform
