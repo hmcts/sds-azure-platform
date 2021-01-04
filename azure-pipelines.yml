@@ -1,0 +1,56 @@
+name: HMCTS Shared Services AKS Azure Infrastructure Component Deployment Pipeline
+trigger:
+  - none
+
+parameters:
+  - name: components
+    displayName: Component to Run
+    type: object
+    default:
+      - frontdoor
+      - appgateway
+  - name: location
+    displayName: Location
+    type: string
+    default: 'UK South'
+    values:
+      - 'UK South'
+      - 'UK West'
+  - name: env
+    displayName: Environment
+    type: string
+    default: 'SBOX'
+    values:
+      - ITHC
+      - DEV
+      - DEMO
+      - SBOX
+      - TEST
+      - STG
+      - PROD
+
+ variables:
+   - name: tfversion
+     value: 0.13.4
+   - name: project
+     value: application
+   - name: serviceConnection
+     value: OPS-APPROVAL-GATE-${{ parameters.env }}-ENVS
+
+stages:
+- ${{ each component in parameters.components }}
+  - stage: ${{ component }}
+    displayName: ${{ component }}
+    jobs:
+    - job:
+      steps:
+      - template: pipeline-templates/terraform.yaml
+        parameters:
+          environment: ${{ parameters.env }}
+          location: ${{ parameters.location }}
+          stack: ${{ component }}
+          project: $(project)
+          tfversion: $(tfversion)
+          serviceConnection: $(serviceConnection)
+
+

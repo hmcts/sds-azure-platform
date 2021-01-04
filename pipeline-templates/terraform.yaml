@@ -1,0 +1,70 @@
+parameters:
+  environment: ''
+  location: ''
+  stack: ''
+  project: ''
+  tfversion: ''
+
+steps:
+  - template: keyvault-read.yaml
+    parameters:
+      serviceConnection: $(serviceConnection)
+      environment: ${{ parameters.environment }}
+
+  # lowercase $env variable comes from the above template
+
+  - task: Bash@3
+    displayName: 'Subscription Replacement'
+    inputs:
+      targetType: 'inline'
+      workingDirectory: '$(System.DefaultWorkingDirectory)/components/${{parameters.stack}}'
+      script: |
+        sed -i 's|REPLACE_ME|$(ARM_SUBSCRIPTION_ID)|g' '00-init.tf'
+
+  - task: TerraformInstaller@0
+    displayName: 'Install Terraform ${{ parameters.tfversion }}'
+    inputs:
+      terraformVersion: ${{ parameters.tfversion }}
+
+  - task: TerraformCLI@0
+    displayName: terraform init
+    inputs:
+      command: init
+      terraformVersion: ${{ parameters.tfversion }}
+      workingDirectory: '$(System.DefaultWorkingDirectory)/components/${{ parameters.stack }}'
+      backendType: azurerm
+      backendServiceArm: $(serviceconnection)
+      backendAzureRmResourceGroupName: 'azure-control-${{ parameters.environment }}-rg'
+      backendAzureRmResourceGroupLocation: ${{ parameters.location }}
+      backendAzureRmStorageAccountName: $(controlStorageAccount)
+      backendAzureRmStorageAccountSku: Standard_LRS
+      backendAzureRmContainerName: subscription-tfstate
+      backendAzureRmKey: '${{ parameters.location }}/${{ parameters.project }}/$(env)/${{ parameters.stack }}/terraform.tfstate'
+
+
+  - task: TerraformCLI@0
+    displayName: terraform validate
+    inputs:
+      command: validate
+      terraformVersion: ${{ parameters.tfversion }}
+      workingDirectory: $(System.DefaultWorkingDirectory)/components/${{ parameters.stack }}
+
+
+  - task: TerraformCLI@0
+    displayName: terraform plan
+    inputs:
+      command: plan
+      terraformVersion: ${{ parameters.tfversion }}
+      workingDirectory: $(System.DefaultWorkingDirectory)/terraform/${{ parameters.stack }}
+      environmentServiceName: $(serviceconnection)
+      commandOptions: '-out tfplan-${{ parameters.project }}-$(env)-${{ parameters.stack }}  -var environment=$(env) -var project=${{ parameters.project }} -var-file $(System.DefaultWorkingDirectory)/environments/$(env)/$(env).tfvars'
+
+  - task: TerraformCLI@0
+    displayName: Terraform apply
+    condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+    inputs:
+      command: apply
+      terraformVersion: ${{ parameters.tfversion }}
+      workingDirectory: $(System.DefaultWorkingDirectory)/terraform/${{ parameters.stack }}
+      environmentServiceName: $(serviceconnection)
+      commandOptions: '--auto-approve tfplan-${{ parameters.project }}-$(env)-${{ parameters.stack }}'
