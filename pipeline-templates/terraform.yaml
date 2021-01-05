@@ -55,7 +55,7 @@ steps:
     inputs:
       command: plan
       terraformVersion: ${{ parameters.tfversion }}
-      workingDirectory: $(System.DefaultWorkingDirectory)/terraform/${{ parameters.stack }}
+      workingDirectory: $(System.DefaultWorkingDirectory)/components/${{ parameters.stack }}
       environmentServiceName: $(serviceconnection)
       commandOptions: '-out tfplan-${{ parameters.project }}-$(env)-${{ parameters.stack }}  -var environment=$(env) -var project=${{ parameters.project }} -var-file $(System.DefaultWorkingDirectory)/environments/$(env)/$(env).tfvars'
 
