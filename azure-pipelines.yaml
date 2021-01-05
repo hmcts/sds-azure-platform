@@ -52,6 +52,14 @@ variables:
     value: $[eq(variables['Build.SourceBranch'], 'refs/heads/master')]
 
 
+
+
+
+
+
+
+
+
 stages:
 
   - ${{ each parameter in parameters.components }}:
