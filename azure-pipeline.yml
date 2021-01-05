@@ -51,16 +51,26 @@ variables:
   - name: isMaster
     value: $[eq(variables['Build.SourceBranch'], 'refs/heads/master')]
 
+
+
+
 stages:
+  - stage:
+    jobs:
+    - job: Precheck
+      pool:
+        vmImage: 'ubuntu-16.04'
+      steps:
+      - bash: echo " "
+
 
   - ${{ each parameter in parameters.components }}:
       - stage: ${{ parameter.environment }}_${{ parameter.deployment }}
         displayName: ${{ parameter.environment }}_${{ parameter.deployment }}
-#        dependsOn: ${{ parameter.dependsOn }}
         jobs:
           - job:
             pool:
-              vmImage: ${{ variables.agentPool }}
+              vmImage: 'ubuntu-16.04'
             steps:
               - template: pipeline-templates/terraform.yaml
                 parameters:
@@ -70,4 +80,3 @@ stages:
                   project: $(project)
                   tfversion: $(tfversion)
                   serviceConnection: OPS-APPROVAL-GATE-upper(${{ parameter.environment }})-ENVS
-
