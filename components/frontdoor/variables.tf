@@ -37,9 +37,6 @@ variable "environment" {
 variable "control_vault" {
   type = string
 }
-variable "activity_name" {
-  type = string
-}
 
 
 
