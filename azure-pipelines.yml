@@ -1,4 +1,4 @@
-name: HMCTS Shared Services AKS Azure Infrastructure Component Deployment Pipeline
+name: SDS Azure Platform
 trigger:
   - none
 
@@ -54,5 +54,4 @@ stages:
                   project: $(project)
                   tfversion: $(tfversion)
                   serviceConnection: $(serviceConnection)
-
 
