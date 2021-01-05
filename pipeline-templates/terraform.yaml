@@ -13,13 +13,6 @@ steps:
 
   # lowercase $env variable comes from the above template
 
-  - task: Bash@3
-    displayName: 'Subscription Replacement'
-    inputs:
-      targetType: 'inline'
-      workingDirectory: '$(System.DefaultWorkingDirectory)/components/${{parameters.stack}}'
-      script: |
-        sed -i 's|REPLACE_ME|$(ARM_SUBSCRIPTION_ID)|g' '00-init.tf'
 
   - task: TerraformInstaller@0
     displayName: 'Install Terraform ${{ parameters.tfversion }}'
