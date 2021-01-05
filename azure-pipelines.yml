@@ -29,6 +29,7 @@ parameters:
       - STG
       - PROD
 
+
 variables:
   - name: tfversion
     value: 0.13.4
@@ -36,6 +37,7 @@ variables:
     value: application
   - name: serviceConnection
     value: OPS-APPROVAL-GATE-${{ parameters.env }}-ENVS
+
 
 stages:
 - ${{ each component in parameters.components }}
