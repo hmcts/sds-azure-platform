@@ -7,8 +7,28 @@ parameters:
     displayName: Component to Run
     type: object
     default:
-      - frontdoor
-      - appgateway
+      - deployment: 'frontdoor'
+        environment: 'ithc'
+        dependsOn: 'Precheck'
+      - deployment: 'frontdoor'
+        environment: 'dev'
+        dependsOn: 'Precheck'
+      - deployment: 'frontdoor'
+        environment: 'demo'
+        dependsOn: 'Precheck'
+      - deployment: 'frontdoor'
+        environment: 'sbox'
+        dependsOn: 'Precheck'
+      - deployment: 'frontdoor'
+        environment: 'stg'
+        dependsOn: 'Precheck'
+      - deployment: 'frontdoor'
+        environment: 'test'
+        dependsOn: 'Precheck'
+      - deployment: 'frontdoor'
+        environment: 'prod'
+        dependsOn: 'Precheck'
+
   - name: location
     displayName: Location
     type: string
@@ -16,19 +36,6 @@ parameters:
     values:
       - 'UK South'
       - 'UK West'
-  - name: env
-    displayName: Environment
-    type: string
-    default: 'SBOX'
-    values:
-      - ITHC
-      - DEV
-      - DEMO
-      - SBOX
-      - TEST
-      - STG
-      - PROD
-
 
 variables:
   - name: tfversion
@@ -37,18 +44,64 @@ variables:
     value: application
   - name: serviceConnection
     value: OPS-APPROVAL-GATE-${{ parameters.env }}-ENVS
-
+  - name: timeoutInMinutes
+    value: '60'
+  - name: agentPool
+    value: 'ubuntu-18.04'
+  - name: build
+    value: $(Build.BuildNumber)
+  - name: isMaster
+    value: $[eq(variables['Build.SourceBranch'], 'refs/heads/master')]
 
 stages:
+  - stage: Precheck
+    jobs:
+      - job: Validate
+        timeoutInMinutes: ${{ variables.timeoutInMinutes }}
+        pool:
+          vmImage: ${{ variables.agentPool }}
+        steps:
+          - task: TerraformInstaller@0
+            displayName: Terraform install
+            inputs:
+              terraformVersion: ${{ variables.terraformVersion }}
+          - task: AzureKeyVault@1
+            displayName: Retrieve keyvault secret for ADO token
+            inputs:
+              ConnectedServiceName: azurerm-sandbox
+              keyVaultName: infra-vault-nonprod
+              secretsFilter: 'azure-devops-token'
+              runAsPreJob: false
+          - task: Bash@3
+            displayName: Prevent parallel run
+            env:
+              thisbuild: $(Build.BuildId)
+              pipelinedefinition: $(System.DefinitionId)
+              azuredevopstoken: $(azure-devops-token)
+            inputs:
+              filePath: pipeline-scripts/builds-check.sh
+          - task: PowerShell@2
+            displayName: Run tests
+            inputs:
+              targetType: 'filePath'
+              filePath: $(System.DefaultWorkingDirectory)/pipeline-scripts/pester-tests.ps1
+              pwsh: true
+          - task: PublishTestResults@2
+            displayName: 'Publish Test Results **/TEST-*.xml'
+            inputs:
+              testResultsFormat: NUnit
+              failTaskOnFailedTests: true
+            condition: always()
   - ${{ each parameter in parameters.components }}:
       - stage: ${{ parameter }}
         displayName: ${{ parameter }}
+        dependsOn: ${{ parameter.dependsOn }}
         jobs:
           - job:
             steps:
               - template: pipeline-templates/terraform.yaml
                 parameters:
-                  environment: ${{ parameters.env }}
+                  environment: ${{ parameters.environment }}
                   location: ${{ parameters.location }}
                   stack: ${{ parameter }}
                   project: $(project)

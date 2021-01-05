@@ -11,21 +11,6 @@ steps:
       serviceConnection: $(serviceConnection)
       environment: ${{ parameters.environment }}
 
-  # lowercase $env variable comes from the above template
-
-  - task: Bash@3
-    displayName: 'Subscription Replacement'
-    inputs:
-      targetType: 'inline'
-      workingDirectory: '$(System.DefaultWorkingDirectory)/components/${{parameters.stack}}'
-      script: |
-        sed -i 's|REPLACE_ME|$(ARM_SUBSCRIPTION_ID)|g' '00-init.tf'
-
-  - task: TerraformInstaller@0
-    displayName: 'Install Terraform ${{ parameters.tfversion }}'
-    inputs:
-      terraformVersion: ${{ parameters.tfversion }}
-
   - task: TerraformCLI@0
     displayName: terraform init
     inputs:
@@ -41,15 +26,6 @@ steps:
       backendAzureRmContainerName: subscription-tfstate
       backendAzureRmKey: '${{ parameters.location }}/${{ parameters.project }}/$(env)/${{ parameters.stack }}/terraform.tfstate'
 
-
-  - task: TerraformCLI@0
-    displayName: terraform validate
-    inputs:
-      command: validate
-      terraformVersion: ${{ parameters.tfversion }}
-      workingDirectory: $(System.DefaultWorkingDirectory)/components/${{ parameters.stack }}
-
-
   - task: TerraformCLI@0
     displayName: terraform plan
     inputs:
@@ -57,14 +33,45 @@ steps:
       terraformVersion: ${{ parameters.tfversion }}
       workingDirectory: $(System.DefaultWorkingDirectory)/components/${{ parameters.stack }}
       environmentServiceName: $(serviceconnection)
-      commandOptions: '-out tfplan-${{ parameters.project }}-$(env)-${{ parameters.stack }}  -var environment=$(env) -var project=${{ parameters.project }} -var-file $(System.DefaultWorkingDirectory)/environments/$(env)/$(env).tfvars'
+      commandOptions: '-out tfplan-${{ parameters.project }}-$(env)-${{ parameters.stack }}  -var environment=${{ parameters.enviornment }} -var project=${{ parameters.project }} -var-file $(System.DefaultWorkingDirectory)/environments/${{ parameters.enviornment }}/${{ parameters.enviornment }}.tfvars'
 
-  - task: TerraformCLI@0
-    displayName: Terraform apply
-    condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+  - task: Bash@3
+    condition: and(succeeded(), eq(variables.isMaster, true))
+    name: "CheckFileChanges"
+    displayName: "CheckFileChanges"
+    env:
+      files_list: '$(System.DefaultWorkingDirectory)/components/${{ parameters.stack }} $(System.DefaultWorkingDirectory)/environments/${{ parameters.enviornment }}/${{ parameters.enviornment }}.tfvars'
     inputs:
-      command: apply
-      terraformVersion: ${{ parameters.tfversion }}
-      workingDirectory: $(System.DefaultWorkingDirectory)/terraform/${{ parameters.stack }}
-      environmentServiceName: $(serviceconnection)
-      commandOptions: '--auto-approve tfplan-${{ parameters.project }}-$(env)-${{ parameters.stack }}'
+      filePath: pipeline-scripts/file-check-changes.sh
+
+
+
+#
+#  - task: TerraformCLI@0
+#    displayName: Apply -
+#    condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+#    inputs:
+#      command: apply - ${{ parameters.stack }} -
+#      terraformVersion: ${{ parameters.tfversion }}
+#      workingDirectory: $(System.DefaultWorkingDirectory)/terraform/${{ parameters.stack }}
+#      environmentServiceName: $(serviceconnection)
+#      commandOptions: '--auto-approve tfplan-${{ parameters.project }}-${{ parameters.enviornment }}-${{ parameters.stack }}'
+#
+
+  - task: Bash@3
+      displayName: "Remove local tfstate"
+      inputs:
+        targetType: 'inline'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/components/${{ parameters.stack }}'
+        script: |
+          rm -f terraform.tfstate* && rm -rf .terraform/
+
+      - task: AzureCLI@2
+        displayName: 'Unlock TF state if required'
+        condition: always()
+        inputs:
+          scriptType: bash
+          scriptLocation: scriptPath
+          azureSubscription: $(serviceConnection)
+          scriptPath: $(System.DefaultWorkingDirectory)/pipeline-scripts/unlock-tf-state.sh
+          arguments: $(location) ${{ parameters.storage_account_name }}
