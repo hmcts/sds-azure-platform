@@ -61,7 +61,17 @@ variables:
 
 
 stages:
-
+  - stage: Precheck
+    jobs:
+      - job: Validate
+        timeoutInMinutes: ${{ variables.timeoutInMinutes }}
+        pool:
+          vmImage: ${{ variables.agentPool }}
+        steps:
+        - task: TerraformInstaller@0
+          displayName: Terraform install
+          inputs:
+            terraformVersion: ${{ variables.terraformVersion }}
   - ${{ each parameter in parameters.components }}:
       - stage: ${{ parameter.environment }}_${{ parameter.deployment }}
         displayName: ${{ parameter.environment }}_${{ parameter.deployment }}
@@ -77,4 +87,4 @@ stages:
                   stack: ${{ parameter.deployment }}
                   project: $(project)
                   tfversion: $(tfversion)
-                  serviceConnection: OPS-APPROVAL-GATE-upper(${{ parameter.environment }})-ENVS
+                  serviceConnection: OPS-APPROVAL-GATE-${{ upper(parameter.environment) }}-ENVS
