@@ -64,21 +64,21 @@ steps:
 #      environmentServiceName: ${{ parameters.serviceConnection }}
 #      commandOptions: '--auto-approve tfplan-${{ parameters.project }}-${{ parameters.enviornment }}-${{ parameters.stack }}'
 #
-#
-#  - task: Bash@3
-#      displayName: "Remove local tfstate"
-#      inputs:
-#        targetType: 'inline'
-#        workingDirectory: '$(System.DefaultWorkingDirectory)/components/${{ parameters.stack }}'
-#        script: |
-#          rm -f terraform.tfstate* && rm -rf .terraform/
-#
-#      - task: AzureCLI@2
-#        displayName: 'Unlock TF state if required'
-#        condition: always()
-#        inputs:
-#          scriptType: bash
-#          scriptLocation: scriptPath
-#          azureSubscription: ${{ parameters.serviceConnection }}
-#          scriptPath: $(System.DefaultWorkingDirectory)/pipeline-scripts/unlock-tf-state.sh
-#          arguments: $(location) ${{ parameters.storage_account_name }}
+
+  - task: Bash@3
+      displayName: "Remove local tfstate"
+      inputs:
+        targetType: 'inline'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/components/${{ parameters.stack }}'
+        script: |
+          rm -f terraform.tfstate* && rm -rf .terraform/
+
+      - task: AzureCLI@2
+        displayName: 'Unlock TF state if required'
+        condition: always()
+        inputs:
+          scriptType: bash
+          scriptLocation: scriptPath
+          azureSubscription: ${{ parameters.serviceConnection }}
+          scriptPath: $(System.DefaultWorkingDirectory)/pipeline-scripts/unlock-tf-state.sh
+          arguments: ${{ parameters.location }} ${{ parameters.storage_account_name }}
