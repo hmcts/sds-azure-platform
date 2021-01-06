@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -e
+set -eux
 organization="hmcts"
 project="DevOps"
 
