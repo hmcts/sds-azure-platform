@@ -8,7 +8,7 @@ parameters:
 steps:
   - template: keyvault-read.yaml
     parameters:
-      serviceConnection: $(serviceConnection)
+      serviceConnection: ${{ parameters.serviceConnection }}
       environment: ${{ parameters.environment }}
 
   - task: TerraformCLI@0
@@ -18,7 +18,7 @@ steps:
       terraformVersion: ${{ parameters.tfversion }}
       workingDirectory: '$(System.DefaultWorkingDirectory)/components/${{ parameters.stack }}'
       backendType: azurerm
-      backendServiceArm: $(serviceconnection)
+      backendServiceArm: ${{ parameters.serviceConnection }}
       backendAzureRmResourceGroupName: 'azure-control-${{ parameters.environment }}-rg'
       backendAzureRmResourceGroupLocation: ${{ parameters.location }}
       backendAzureRmStorageAccountName: $(controlStorageAccount)
@@ -32,7 +32,7 @@ steps:
       command: plan
       terraformVersion: ${{ parameters.tfversion }}
       workingDirectory: $(System.DefaultWorkingDirectory)/components/${{ parameters.stack }}
-      environmentServiceName: $(serviceconnection)
+      environmentServiceName: ${{ parameters.serviceConnection }}
       commandOptions: '-out tfplan-${{ parameters.project }}-$(env)-${{ parameters.stack }}  -var environment=${{ parameters.enviornment }} -var project=${{ parameters.project }} -var-file $(System.DefaultWorkingDirectory)/environments/${{ parameters.enviornment }}/${{ parameters.enviornment }}.tfvars'
 
   - task: Bash@3
@@ -54,7 +54,7 @@ steps:
 #      command: apply - ${{ parameters.stack }} -
 #      terraformVersion: ${{ parameters.tfversion }}
 #      workingDirectory: $(System.DefaultWorkingDirectory)/terraform/${{ parameters.stack }}
-#      environmentServiceName: $(serviceconnection)
+#      environmentServiceName: ${{ parameters.serviceConnection }}
 #      commandOptions: '--auto-approve tfplan-${{ parameters.project }}-${{ parameters.enviornment }}-${{ parameters.stack }}'
 #
 #
@@ -72,6 +72,6 @@ steps:
 #        inputs:
 #          scriptType: bash
 #          scriptLocation: scriptPath
-#          azureSubscription: $(serviceConnection)
+#          azureSubscription: ${{ parameters.serviceConnection }}
 #          scriptPath: $(System.DefaultWorkingDirectory)/pipeline-scripts/unlock-tf-state.sh
 #          arguments: $(location) ${{ parameters.storage_account_name }}
