@@ -6,13 +6,12 @@ parameters:
   tfversion: ''
   serviceConnection: ''
 
+
 steps:
-  - bash: echo "${{ parameters.serviceConnection }}"
-#steps:
-#  - template: keyvault-read.yaml
-#    parameters:
-#      serviceConnection: ${{ parameters.serviceConnection }}
-#      environment: ${{ parameters.environment }}
+  - template: keyvault-read.yaml
+    parameters:
+      serviceConnection: ${{ parameters.serviceConnection }}
+      environment: ${{ parameters.environment }}
 #
 #  - task: TerraformCLI@0
 #    displayName: terraform init
