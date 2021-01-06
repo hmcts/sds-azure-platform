@@ -6,8 +6,8 @@ parameters:
   tfversion: ''
   serviceConnection: ''
 
-  steps:
-    - bash: echo "${{ parameters.serviceConnection }}"
+steps:
+  - bash: echo "${{ parameters.serviceConnection }}"
 #steps:
 #  - template: keyvault-read.yaml
 #    parameters:
