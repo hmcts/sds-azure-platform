@@ -53,17 +53,17 @@ steps:
 
 
 
-#
-#  - task: TerraformCLI@0
-#    displayName: Apply -
-#    condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
-#    inputs:
-#      command: apply - ${{ parameters.stack }} -
-#      terraformVersion: ${{ parameters.tfversion }}
-#      workingDirectory: $(System.DefaultWorkingDirectory)/terraform/${{ parameters.stack }}
-#      environmentServiceName: ${{ parameters.serviceConnection }}
-#      commandOptions: '--auto-approve tfplan-${{ parameters.project }}-${{ parameters.enviornment }}-${{ parameters.stack }}'
-#
+
+  - task: TerraformCLI@0
+    displayName: Apply-${{ parameters.enviornment }}-${{ parameters.stack }}
+    condition: and(succeeded(), eq(variables.isMaster, true), eq(variables['CheckFileChanges.SOURCE_CODE_CHANGED'], 'true'))
+    inputs:
+      command: apply - ${{ parameters.stack }} -
+      terraformVersion: ${{ parameters.tfversion }}
+      workingDirectory: $(System.DefaultWorkingDirectory)/terraform/${{ parameters.stack }}
+      environmentServiceName: ${{ parameters.serviceConnection }}
+      commandOptions: '--auto-approve tfplan-${{ parameters.project }}-${{ parameters.enviornment }}-${{ parameters.stack }}'
+
 
   - task: Bash@3
     displayName: "Remove local tfstate"
