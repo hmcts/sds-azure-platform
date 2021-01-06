@@ -34,9 +34,7 @@ variable "data_subscription" {
 variable "environment" {
   type = string
 }
-variable "control_vault" {
-  type = string
-}
+
 
 
 
