@@ -70,8 +70,8 @@ steps:
     inputs:
       targetType: 'inline'
       workingDirectory: '$(System.DefaultWorkingDirectory)/components/${{ parameters.stack }}'
-    script: |
-      rm -f terraform.tfstate* && rm -rf .terraform/
+      script: |
+        rm -f terraform.tfstate* && rm -rf .terraform/
 
   - task: AzureCLI@2
     displayName: 'Unlock TF state if required'
