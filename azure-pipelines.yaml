@@ -63,7 +63,7 @@ stages:
         - task: TerraformInstaller@0
           displayName: Terraform install
           inputs:
-            terraformVersion: ${{ variables.terraformVersion }}
+            terraformVersion: ${{ variables.tfversion }}
   - ${{ each parameter in parameters.components }}:
       - stage: ${{ parameter.environment }}_${{ parameter.deployment }}
         displayName: ${{ parameter.environment }}_${{ parameter.deployment }}
