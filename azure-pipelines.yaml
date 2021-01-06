@@ -68,7 +68,7 @@ stages:
           displayName: Retrieve keyvault secret for ADO token
           inputs:
             ConnectedServiceName: DCD-CFT-Sandbox
-            keyVaultName: infra-vault-nonprod
+            keyVaultName: infra-vault-sandbox
             secretsFilter: 'azure-devops-token'
             runAsPreJob: false
         - task: Bash@3
