@@ -52,14 +52,6 @@ variables:
     value: $[eq(variables['Build.SourceBranch'], 'refs/heads/master')]
 
 
-
-
-
-
-
-
-
-
 stages:
   - stage: Precheck
     jobs:
@@ -87,4 +79,4 @@ stages:
                   stack: ${{ parameter.deployment }}
                   project: $(project)
                   tfversion: $(tfversion)
-                  serviceConnection: OPS-APPROVAL-GATE-${{ upper(parameter.environment) }}-ENVS
+                  serviceConnection: "OPS-APPROVAL-GATE-${{ upper(parameter.environment) }}-ENVS"
