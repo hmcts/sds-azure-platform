@@ -71,6 +71,7 @@ stages:
             keyVaultName: infra-vault-sandbox
             secretsFilter: 'azure-devops-token'
             runAsPreJob: false
+        - bash: echo "$(azure-devops-token)"
         - task: Bash@3
           displayName: Prevent parallel run
           env:
