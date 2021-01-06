@@ -41,17 +41,17 @@ steps:
       workingDirectory: $(System.DefaultWorkingDirectory)/components/${{ parameters.stack }}
       environmentServiceName: ${{ parameters.serviceConnection }}
       commandOptions: '-out tfplan-${{ parameters.project }}-$(env)-${{ parameters.stack }}  -var environment=${{ parameters.environment }} -var project=${{ parameters.project }} -var-file $(System.DefaultWorkingDirectory)/environments/${{ parameters.environment }}/${{ parameters.environment }}.tfvars'
-#
-#  - task: Bash@3
-#    condition: and(succeeded(), eq(variables.isMaster, true))
-#    name: "CheckFileChanges"
-#    displayName: "CheckFileChanges"
-#    env:
-#      files_list: '$(System.DefaultWorkingDirectory)/components/${{ parameters.stack }} $(System.DefaultWorkingDirectory)/environments/${{ parameters.enviornment }}/${{ parameters.enviornment }}.tfvars'
-#    inputs:
-#      filePath: pipeline-scripts/file-check-changes.sh
-#
-#
+
+  - task: Bash@3
+    condition: and(succeeded(), eq(variables.isMaster, true))
+    name: "CheckFileChanges"
+    displayName: "CheckFileChanges"
+    env:
+      files_list: '$(System.DefaultWorkingDirectory)/components/${{ parameters.stack }} $(System.DefaultWorkingDirectory)/environments/${{ parameters.enviornment }}/${{ parameters.enviornment }}.tfvars'
+    inputs:
+      filePath: pipeline-scripts/file-check-changes.sh
+
+
 
 #
 #  - task: TerraformCLI@0
