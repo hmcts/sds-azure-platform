@@ -8,6 +8,7 @@ parameters:
 
 
 steps:
+  - bash: echo ${{ parameters.environment }}
   - template: keyvault-read.yaml
     parameters:
       serviceConnection: ${{ parameters.serviceConnection }}
@@ -30,7 +31,7 @@ steps:
       backendAzureRmStorageAccountName: $(controlStorageAccount)
       backendAzureRmStorageAccountSku: Standard_LRS
       backendAzureRmContainerName: subscription-tfstate
-      backendAzureRmKey: '${{ parameters.location }}/${{ parameters.project }}/$(env)/${{ parameters.stack }}/terraform.tfstate'
+      backendAzureRmKey: '${{ parameters.location }}/${{ parameters.project }}/${{ parameters.environment }}/${{ parameters.stack }}/terraform.tfstate'
 
   - task: TerraformCLI@0
     displayName: terraform plan
@@ -39,7 +40,7 @@ steps:
       terraformVersion: ${{ parameters.tfversion }}
       workingDirectory: $(System.DefaultWorkingDirectory)/components/${{ parameters.stack }}
       environmentServiceName: ${{ parameters.serviceConnection }}
-      commandOptions: '-out tfplan-${{ parameters.project }}-$(env)-${{ parameters.stack }}  -var environment=${{ parameters.enviornment }} -var project=${{ parameters.project }} -var-file $(System.DefaultWorkingDirectory)/environments/${{ parameters.enviornment }}/${{ parameters.enviornment }}.tfvars'
+      commandOptions: '-out tfplan-${{ parameters.project }}-$(env)-${{ parameters.stack }}  -var environment=${{ parameters.environment }} -var project=${{ parameters.project }} -var-file $(System.DefaultWorkingDirectory)/environments/${{ parameters.environment }}/${{ parameters.tfversion }}.tfvars'
 #
 #  - task: Bash@3
 #    condition: and(succeeded(), eq(variables.isMaster, true))
