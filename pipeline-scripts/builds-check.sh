@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -eux
 organization="hmcts"
-project="DevOps"
+project="PlatformOperations"
 
 echo "This is build $thisbuild"
 IFS=$'\n'
