@@ -4,7 +4,7 @@ parameters:
   stack: ''
   project: ''
   tfversion: ''
-
+  serviceConnection: ''
 steps:
   - template: keyvault-read.yaml
     parameters:
