@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-set -eux
+set -e
 organization="hmcts"
 project="PlatformOperations"
-echo "$azuredevopstoken"
+
 
 echo "This is build $thisbuild"
 IFS=$'\n'
