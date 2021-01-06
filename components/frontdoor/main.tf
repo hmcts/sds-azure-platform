@@ -1,3 +1,11 @@
+module "logworkspace" {
+  source      = "git::https://github.com/hmcts/terraform-module-log-analytics-workspace-id.git?ref=master"
+  environment = var.environment
+
+}
+
+
+
 module "landing_zone" {
   source = "git::https://github.com/hmcts/terraform-module-frontdoor.git?ref=master"
 
@@ -17,5 +25,5 @@ module "landing_zone" {
   oms_env                    = var.oms_env
   certificate_name_check     = true
   key_vault_resource_group   = var.key_vault_resource_group
-  log_analytics_workspace_id = data.azurerm_log_analytics_workspace.log.id
+  log_analytics_workspace_id = module.logworkspace.workspace_id
 }
