@@ -2,11 +2,13 @@ project                    = "sdshmcts"
 location                   = "uksouth"
 env                        = "dev"
 subscription               = "dev"
-certificate_key_vault_name = "dtssharedservicesdevkv"
-data_subscription          = "867a878b-cb68-4de5-9741-361ac9e178b6"
 oms_env                    = "dev"
+private_ip_address         = "10.140.32.132"
+destinations               = []
+vnet_rg                    = "ss-dev-network-rg"
+vnet_name                  = "ss-dev-vnet"
 key_vault_resource_group   = "genesis-rg"
-subscription_id            = "867a878b-cb68-4de5-9741-361ac9e178b6"
+certificate_key_vault_name = "dtssharedservicesdevkv"
 frontends = [
 
   {
@@ -17,3 +19,4 @@ frontends = [
     disabled_rules   = {}
   }
 ]
+data_subscription = "867a878b-cb68-4de5-9741-361ac9e178b6"
