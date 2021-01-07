@@ -6,7 +6,11 @@ certificate_key_vault_name = "dtssharedservicesithckv"
 data_subscription          = "ba71a911-e0d6-4776-a1a6-079af1df7139"
 oms_env                    = "ithc"
 key_vault_resource_group   = "genesis-rg"
-subscription_id            = "ba71a911-e0d6-4776-a1a6-079af1df7139"
+private_ip_address         = ""
+destinations               = []
+vnet_rg                    = "ss-ithc-network-rg"
+vnet_name                  = "ss-ithc-vnet"
+vault_name                 = ""
 frontends = [
 
   {
@@ -15,5 +19,6 @@ frontends = [
     backend_domain   = ["firewall-ithc-int-palo-sdsithc.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-ithc-platform-hmcts-net"
     disabled_rules   = {}
+    product          = "ss"
   }
 ]
