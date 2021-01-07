@@ -8,10 +8,6 @@ module "logworkspace" {
 module "appgateway" {
   source = "git::https://github.com/hmcts/terraform-module-applicationgateway.git?ref=master"
 
-  providers = {
-    azurerm      = azurerm
-    azurerm.data = azurerm.data
-  }
 
   env                        = var.env
   subscription               = var.subscription
