@@ -30,11 +30,11 @@ variable "data_subscription" {
   type = string
 
 }
-
 variable "environment" {
   type = string
 }
 
-
-
+variable "vnet_rg" {}
+variable "vnet_name" {}
+variable "private_ip_address" {}
 
