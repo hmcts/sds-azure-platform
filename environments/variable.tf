@@ -12,3 +12,4 @@ variable "subscription" {}
 variable "vault_name" {}
 variable "vnet_name" {}
 variable "vnet_rg" {}
+variable "data_subscription" {}
