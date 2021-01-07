@@ -39,7 +39,7 @@ parameters:
 
 variables:
   - name: tfversion
-    value: 0.14.3
+    value: 0.14.4
   - name: project
     value: application
   - name: timeoutInMinutes
