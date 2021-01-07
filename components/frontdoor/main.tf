@@ -11,11 +11,6 @@ module "landing_zone" {
   source = "git::https://github.com/hmcts/terraform-module-frontdoor.git?ref=features/dtspo_242_data_provider"
 
 
-  providers = {
-    azurerm      = azurerm
-    azurerm.data = azurerm.data
-  }
-
   common_tags                = local.common_tags
   env                        = var.env
   subscription               = var.subscription
