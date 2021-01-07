@@ -51,9 +51,6 @@ steps:
     inputs:
       filePath: pipeline-scripts/file-check-changes.sh
 
-
-
-
   - task: TerraformCLI@0
     displayName: Apply-${{ parameters.stack }}
     condition: and(succeeded(), eq(variables.isMaster, true), eq(variables['CheckFileChanges.SOURCE_CODE_CHANGED'], 'true'))
@@ -63,7 +60,6 @@ steps:
       workingDirectory: $(System.DefaultWorkingDirectory)/terraform/${{ parameters.stack }}
       environmentServiceName: ${{ parameters.serviceConnection }}
       commandOptions: '--auto-approve tfplan-${{ parameters.project }}-${{ parameters.enviornment }}-${{ parameters.stack }}'
-
 
   - task: Bash@3
     displayName: "Remove local tfstate"
