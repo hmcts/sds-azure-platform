@@ -40,14 +40,14 @@ steps:
       terraformVersion: ${{ parameters.tfversion }}
       workingDirectory: $(System.DefaultWorkingDirectory)/components/${{ parameters.stack }}
       environmentServiceName: ${{ parameters.serviceConnection }}
-      commandOptions: '-out tfplan-${{ parameters.project }}-$(env)-${{ parameters.stack }}  -var environment=${{ parameters.environment }} -var project=${{ parameters.project }} -var-file $(System.DefaultWorkingDirectory)/environments/${{ parameters.environment }}/${{ parameters.environment }}.tfvars'
+      commandOptions: '-out tfplan-${{ parameters.project }}-${{ parameters.environment }}-${{ parameters.stack }}  -var environment=${{ parameters.environment }} -var project=${{ parameters.project }} -var-file $(System.DefaultWorkingDirectory)/environments/${{ parameters.environment }}/${{ parameters.environment }}.tfvars'
 
   - task: Bash@3
     condition: and(succeeded(), eq(variables.isMaster, true))
     name: "CheckFileChanges"
     displayName: "CheckFileChanges"
     env:
-      files_list: '$(System.DefaultWorkingDirectory)/components/${{ parameters.stack }} $(System.DefaultWorkingDirectory)/environments/${{ parameters.enviornment }}/${{ parameters.enviornment }}.tfvars'
+      files_list: '$(System.DefaultWorkingDirectory)/components/${{ parameters.stack }} $(System.DefaultWorkingDirectory)/environments/${{ parameters.environment }}/${{ parameters.environment }}.tfvars $(System.DefaultWorkingDirectory)/environments/variable.tf'
     inputs:
       filePath: pipeline-scripts/file-check-changes.sh
 
@@ -55,9 +55,9 @@ steps:
     displayName: Apply-${{ parameters.stack }}
     condition: and(succeeded(), eq(variables.isMaster, true), eq(variables['CheckFileChanges.SOURCE_CODE_CHANGED'], 'true'))
     inputs:
-      command: apply - ${{ parameters.stack }} -
+      command: apply
       terraformVersion: ${{ parameters.tfversion }}
-      workingDirectory: $(System.DefaultWorkingDirectory)/terraform/${{ parameters.stack }}
+      workingDirectory: $(System.DefaultWorkingDirectory)/components/${{ parameters.stack }}
       environmentServiceName: ${{ parameters.serviceConnection }}
       commandOptions: '--auto-approve tfplan-${{ parameters.project }}-${{ parameters.enviornment }}-${{ parameters.stack }}'
 
