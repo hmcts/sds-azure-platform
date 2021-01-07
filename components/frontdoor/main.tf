@@ -4,8 +4,6 @@ module "logworkspace" {
 
 }
 
-
-
 module "landing_zone" {
   #source = "git::https://github.com/hmcts/terraform-module-frontdoor.git?ref=master"
   source = "git::https://github.com/hmcts/terraform-module-frontdoor.git?ref=features/dtspo_242_data_provider"

@@ -21,4 +21,3 @@ frontends = [
     product          = "ss"
   }
 ]
-data_subscription = "867a878b-cb68-4de5-9741-361ac9e178b6"
