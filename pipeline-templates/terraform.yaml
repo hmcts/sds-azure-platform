@@ -55,7 +55,7 @@ steps:
     displayName: Apply-${{ parameters.stack }}
     condition: and(succeeded(), eq(variables.isMaster, true), eq(variables['CheckFileChanges.SOURCE_CODE_CHANGED'], 'true'))
     inputs:
-      command: apply - ${{ parameters.stack }}
+      command: apply
       terraformVersion: ${{ parameters.tfversion }}
       workingDirectory: $(System.DefaultWorkingDirectory)/components/${{ parameters.stack }}
       environmentServiceName: ${{ parameters.serviceConnection }}
