@@ -6,13 +6,14 @@ terraform {
   }
   required_providers {
     azurerm = {
-      source  = "hashicorp/azurerm"
-      version = "2.41.0"
+      source = "hashicorp/azurerm"
+      # https://github.com/terraform-providers/terraform-provider-azurerm/issues/8208
+      version = "2.23.0"
     }
   }
 }
 
 provider "azurerm" {
   features {}
-}
 
+}
