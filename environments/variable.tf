@@ -1,0 +1,14 @@
+variable "certificate_key_vault_name" {}
+variable "destinations" {}
+variable "env" {}
+variable "environment" {}
+variable "frontends" {}
+variable "key_vault_resource_group" {}
+variable "location" {}
+variable "oms_env" {}
+variable "private_ip_address" {}
+variable "project" {}
+variable "subscription" {}
+variable "vault_name" {}
+variable "vnet_name" {}
+variable "vnet_rg" {}

@@ -1,0 +1,112 @@
+name: SDS Azure Platform
+trigger:
+  - none
+
+parameters:
+  - name: components
+    displayName: Component to Run
+    type: object
+    default:
+      - deployment: 'appgateway'
+        environment: 'sbox'
+        dependsOn: 'Precheck'
+      - deployment: 'frontdoor'
+        environment: 'sbox'
+        dependsOn: 'Precheck'
+      - deployment: 'frontdoor'
+        environment: 'dev'
+        dependsOn: 'Precheck'
+      - deployment: 'frontdoor'
+        environment: 'stg'
+        dependsOn: 'Precheck'
+      - deployment: 'frontdoor'
+        environment: 'ithc'
+        dependsOn: 'Precheck'
+      - deployment: 'frontdoor'
+        environment: 'test'
+        dependsOn: 'Precheck'
+      - deployment: 'frontdoor'
+        environment: 'prod'
+        dependsOn: 'Precheck'
+
+  - name: location
+    displayName: Location
+    type: string
+    default: 'UK South'
+    values:
+      - 'UK South'
+      - 'UK West'
+
+variables:
+  - name: tfversion
+    value: 0.14.4
+  - name: project
+    value: application
+  - name: timeoutInMinutes
+    value: '60'
+  - name: agentPool
+    value: 'ubuntu-18.04'
+  - name: build
+    value: $(Build.BuildNumber)
+  - name: isMaster
+    value: $[eq(variables['Build.SourceBranch'], 'refs/heads/master')]
+
+
+stages:
+  - stage: Precheck
+    jobs:
+      - job: Validate
+        timeoutInMinutes: ${{ variables.timeoutInMinutes }}
+        pool:
+          vmImage: ${{ variables.agentPool }}
+        steps:
+        - task: TerraformInstaller@0
+          displayName: Terraform install
+          inputs:
+            terraformVersion: ${{ variables.tfversion }}
+        - task: AzureKeyVault@1
+          displayName: Retrieve keyvault secret for ADO token
+          inputs:
+            ConnectedServiceName: DCD-CFT-Sandbox
+            keyVaultName: infra-vault-sandbox
+            secretsFilter: 'azure-devops-token'
+            runAsPreJob: false
+
+        - task: Bash@3
+          displayName: Prevent parallel run
+          env:
+            thisbuild: $(Build.BuildId)
+            pipelinedefinition: $(System.DefinitionId)
+            azuredevopstoken: $(azure-devops-token)
+          inputs:
+            filePath: pipeline-scripts/builds-check.sh
+        - task: PowerShell@2
+          displayName: Run tests
+          inputs:
+            targetType: 'filePath'
+            filePath: $(System.DefaultWorkingDirectory)/pipeline-scripts/pester-tests.ps1
+            pwsh: true
+        - task: PublishTestResults@2
+          displayName: 'Publish Test Results **/TEST-*.xml'
+          inputs:
+            testResultsFormat: NUnit
+            failTaskOnFailedTests: true
+          condition: always()
+
+
+  - ${{ each parameter in parameters.components }}:
+      - stage: ${{ parameter.environment }}_${{ parameter.deployment }}
+        displayName: ${{ parameter.environment }}_${{ parameter.deployment }}
+        jobs:
+          - job:
+            pool:
+              vmImage: 'ubuntu-16.04'
+            steps:
+              - template: pipeline-templates/terraform.yaml
+                parameters:
+                  environment: ${{ parameter.environment }}
+                  location: ${{ parameters.location }}
+                  stack: ${{ parameter.deployment }}
+                  project: $(project)
+                  tfversion: $(tfversion)
+                  serviceConnection: "OPS-APPROVAL-GATE-${{ upper(parameter.environment) }}-ENVS"

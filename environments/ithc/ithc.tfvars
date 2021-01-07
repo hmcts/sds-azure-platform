@@ -1,0 +1,23 @@
+project                    = "sdshmcts"
+location                   = "uksouth"
+env                        = "ithc"
+subscription               = "ithc"
+certificate_key_vault_name = "dtssharedservicesithckv"
+oms_env                    = "ithc"
+key_vault_resource_group   = "genesis-rg"
+private_ip_address         = ""
+destinations               = []
+vnet_rg                    = "ss-ithc-network-rg"
+vnet_name                  = "ss-ithc-vnet"
+vault_name                 = ""
+frontends = [
+
+  {
+    name             = "toffee"
+    custom_domain    = "toffee.ithc.platform.hmcts.net"
+    backend_domain   = ["firewall-ithc-int-palo-sdsithc.uksouth.cloudapp.azure.com"]
+    certificate_name = "wildcard-ithc-platform-hmcts-net"
+    disabled_rules   = {}
+    product          = "ss"
+  }
+]
