@@ -47,7 +47,7 @@ steps:
     name: "CheckFileChanges"
     displayName: "CheckFileChanges"
     env:
-      files_list: '$(System.DefaultWorkingDirectory)/components/${{ parameters.stack }} $(System.DefaultWorkingDirectory)/environments/${{ parameters.environment }}/${{ parameters.environment }}.tfvars $(System.DefaultWorkingDirectory)/environments/variable.tf'
+      files_list: 'components/${{ parameters.stack }} environments/${{ parameters.environment }}/${{ parameters.environment }}.tfvars  environments/variable.tf'
     inputs:
       filePath: pipeline-scripts/file-check-changes.sh
 

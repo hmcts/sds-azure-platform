@@ -5,12 +5,12 @@ FILES=($files_list)
 CHANGED_FILES=$(git diff HEAD HEAD~ --name-only)
 MATCH_COUNT=0
 echo "Changed files are $CHANGED_FILES"
-echo " path(s) to check are $FILES"
+echo "=========================="
 echo " path(s) to check are ${FILES[@]}"
 for PATH_FILTER in ${FILES[@]}
 do
 
-echo "Checking for changes in in $PATH_FILTER"
+echo "Checking for changes in  $PATH_FILTER"
 for FILE in $CHANGED_FILES
 do
 if [[ $FILE == *$PATH_FILTER* ]]; then
