@@ -6,6 +6,7 @@ CHANGED_FILES=$(git diff HEAD HEAD~ --name-only)
 MATCH_COUNT=0
 echo "Changed files are $CHANGED_FILES"
 echo " path(s) to check are $FILES"
+echo " path(s) to check are ${FILES[@]}"
 for PATH_FILTER in ${FILES[@]}
 do
 
