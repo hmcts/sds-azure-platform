@@ -4,7 +4,7 @@ set -e
 FILES=($files_list)
 CHANGED_FILES=$(git diff HEAD HEAD~ --name-only)
 MATCH_COUNT=0
-echo "List of changed files are: $CHANGED_FILES "
+echo "List of changed files: $CHANGED_FILES "
 for PATH_FILTER in ${FILES[@]}
 do
 
