@@ -59,7 +59,7 @@ steps:
       terraformVersion: ${{ parameters.tfversion }}
       workingDirectory: $(System.DefaultWorkingDirectory)/components/${{ parameters.stack }}
       environmentServiceName: ${{ parameters.serviceConnection }}
-      commandOptions: '--auto-approve tfplan-${{ parameters.project }}-${{ parameters.enviornment }}-${{ parameters.stack }}'
+      commandOptions: '--auto-approve tfplan-${{ parameters.project }}-${{ parameters.environment }}-${{ parameters.stack }}'
 
   - task: Bash@3
     displayName: "Remove local tfstate"
