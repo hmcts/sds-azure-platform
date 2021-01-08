@@ -43,7 +43,7 @@ steps:
       commandOptions: '-out tfplan-${{ parameters.project }}-${{ parameters.environment }}-${{ parameters.stack }}  -var environment=${{ parameters.environment }} -var project=${{ parameters.project }} -var-file $(System.DefaultWorkingDirectory)/environments/${{ parameters.environment }}/${{ parameters.environment }}.tfvars'
 
   - task: Bash@3
-    condition: and(succeeded(), eq(variables.isMaster, true))
+#    condition: and(succeeded(), eq(variables.isMaster, true))
     name: "CheckFileChanges"
     displayName: "CheckFileChanges"
     env:
