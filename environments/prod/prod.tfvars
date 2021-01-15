@@ -69,6 +69,11 @@ frontends = [
         match_variable = "RequestBodyPostArgNames"
         operator       = "Equals"
         selector       = "ddlTax3"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "ddlTax2"
       }
     ]
   },
