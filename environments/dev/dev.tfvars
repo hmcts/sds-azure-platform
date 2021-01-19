@@ -20,13 +20,5 @@ frontends = [
     certificate_name = "wildcard-dev-platform-hmcts-net"
     disabled_rules   = {}
     product          = "ss"
-  },
-  {
-    name             = "vh-user-api-dev"
-    custom_domain    = "vh-user-api-dev.hearings.reform.hmcts.net"
-    backend_domain   = ["firewall-dev-int-palo-sdsdev.uksouth.cloudapp.azure.com"]
-    certificate_name = "wildcard-hearings-reform-hmcts-net"
-    disabled_rules   = {}
-    product          = "vh"
   }
 ]
