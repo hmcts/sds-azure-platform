@@ -41,7 +41,7 @@ parameters:
         environment: 'test'
         dependsOn: 'Precheck'
       - deployment: 'appgateway'
-        environment: 'test'
+        environment: 'prod'
         dependsOn: 'Precheck'
       - deployment: 'frontdoor'
         environment: 'prod'
