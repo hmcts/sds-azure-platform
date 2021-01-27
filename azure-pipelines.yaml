@@ -97,6 +97,7 @@ stages:
   - ${{ each parameter in parameters.components }}:
       - stage: ${{ parameter.environment }}_${{ parameter.deployment }}
         displayName: ${{ parameter.environment }}_${{ parameter.deployment }}
+        dependsOn: ${{ parameter.dependsOn }}
         jobs:
           - job:
             pool:
