@@ -1,4 +1,4 @@
-name: SDS Azure Platform
+name: SDS Azure Platform - frontdoor
 trigger:
   batch: true
   branches:
@@ -10,22 +10,22 @@ parameters:
     displayName: Component to Run
     type: object
     default:
-      - deployment: 'appgateway'
+      - deployment: 'frontdoor'
         environment: 'sbox'
         dependsOn: 'Precheck'
-      - deployment: 'appgateway'
+      - deployment: 'frontdoor'
         environment: 'dev'
         dependsOn: 'Precheck'
-      - deployment: 'appgateway'
+      - deployment: 'frontdoor'
         environment: 'stg'
         dependsOn: 'Precheck'
-      - deployment: 'appgateway'
+      - deployment: 'frontdoor'
         environment: 'ithc'
         dependsOn: 'Precheck'
-      - deployment: 'appgateway'
+      - deployment: 'frontdoor'
         environment: 'test'
         dependsOn: 'Precheck'
-      - deployment: 'appgateway'
+      - deployment: 'frontdoor'
         environment: 'prod'
         dependsOn: 'Precheck'
 
@@ -43,9 +43,9 @@ variables:
   - name: project
     value: application
   - name: timeoutInMinutes
-    value: '60'
+    value: '360'
   - name: agentPool
-    value: 'ubuntu-18.04'
+    value: 'hmcts-cftptl-agent-pool'
   - name: build
     value: $(Build.BuildNumber)
   - name: isMaster
@@ -58,7 +58,7 @@ stages:
       - job: Validate
         timeoutInMinutes: ${{ variables.timeoutInMinutes }}
         pool:
-          vmImage: ${{ variables.agentPool }}
+          name: ${{ variables.agentPool }}
         steps:
         - task: TerraformInstaller@0
           displayName: Terraform install
@@ -97,11 +97,10 @@ stages:
   - ${{ each parameter in parameters.components }}:
       - stage: ${{ parameter.environment }}_${{ parameter.deployment }}
         displayName: ${{ parameter.environment }}_${{ parameter.deployment }}
-        dependsOn: ${{ parameter.dependsOn }}
         jobs:
           - job:
             pool:
-              vmImage: ${{ variables.agentPool }}
+              name: ${{ variables.agentPool }}
             steps:
               - template: pipeline-templates/terraform.yaml
                 parameters:
