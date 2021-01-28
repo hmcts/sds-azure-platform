@@ -101,7 +101,7 @@ stages:
         jobs:
           - job:
             pool:
-              vmImage: 'ubuntu-16.04'
+              vmImage: ${{ variables.agentPool }}
             steps:
               - template: pipeline-templates/terraform.yaml
                 parameters:
