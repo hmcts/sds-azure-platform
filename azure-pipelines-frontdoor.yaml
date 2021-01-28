@@ -45,7 +45,7 @@ variables:
   - name: timeoutInMinutes
     value: '360'
   - name: agentPool
-    value: 'hmcts-agent-pool'
+    value: 'hmcts-cftptl-agent-pool'
   - name: build
     value: $(Build.BuildNumber)
   - name: isMaster
