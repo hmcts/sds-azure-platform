@@ -58,7 +58,7 @@ stages:
       - job: Validate
         timeoutInMinutes: ${{ variables.timeoutInMinutes }}
         pool:
-          vmImage: ${{ variables.agentPool }}
+          name: ${{ variables.agentPool }}
         steps:
         - task: TerraformInstaller@0
           displayName: Terraform install
@@ -100,7 +100,7 @@ stages:
         jobs:
           - job:
             pool:
-              vmImage: ${{ variables.agentPool }}
+              name: ${{ variables.agentPool }}
             steps:
               - template: pipeline-templates/terraform.yaml
                 parameters:
