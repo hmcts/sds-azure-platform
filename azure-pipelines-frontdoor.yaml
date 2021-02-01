@@ -99,6 +99,7 @@ stages:
         displayName: ${{ parameter.environment }}_${{ parameter.deployment }}
         jobs:
           - job:
+            timeoutInMinutes: ${{ variables.timeoutInMinutes }}
             pool:
               name: ${{ variables.agentPool }}
             steps:
