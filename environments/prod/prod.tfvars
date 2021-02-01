@@ -10,7 +10,7 @@ destinations               = ["10.144.15.250", "10.144.31.250"]
 vnet_rg                    = "ss-prod-network-rg"
 vnet_name                  = "ss-prod-vnet"
 vault_name                 = ""
-log_analytics_workspace_id = "hmcts-prod"
+log_analytics_workspace_id = "/subscriptions/8999dec3-0104-4a27-94ee-6588559729d1/resourcegroups/oms-automation/providers/microsoft.operationalinsights/workspaces/hmcts-prod"
 
 frontends = [
   {
