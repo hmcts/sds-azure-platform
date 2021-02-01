@@ -10,6 +10,7 @@ destinations               = ["10.144.15.250", "10.144.31.250"]
 vnet_rg                    = "ss-prod-network-rg"
 vnet_name                  = "ss-prod-vnet"
 vault_name                 = ""
+log_analytics_workspace_id = "hmcts-prod"
 
 frontends = [
   {
