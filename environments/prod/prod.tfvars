@@ -139,6 +139,13 @@ frontends = [
     custom_domain    = "financeandtax.decisions.tribunals.gov.uk"
     backend_domain   = ["34.243.192.28"]
     certificate_name = "decisions-tribunals-gov-uk"
+    global_exclusions = [
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "btnSearch"
+      }
+    ]
   },
   {
     name             = "trib-employment-appeals"
