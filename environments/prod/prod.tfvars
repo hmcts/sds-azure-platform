@@ -141,9 +141,9 @@ frontends = [
     certificate_name = "decisions-tribunals-gov-uk"
     global_exclusions = [
       {
-        match_variable = "PostParamValue:btnSearch"
+        match_variable = "RequestBodyPostArgNames"
         operator       = "Equals"
-        selector       = "Search >>"
+        selector       = "btnSearch"
       }
     ]
   },
