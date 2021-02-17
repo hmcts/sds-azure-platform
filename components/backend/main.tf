@@ -4,7 +4,7 @@ module "logworkspace" {
 }
 
 
-module "backend" {
+module "backend_app_gateway" {
   source = "git::https://github.com/hmcts/terraform-module-application-backend.git?ref=master"
 
   env                        = var.env
