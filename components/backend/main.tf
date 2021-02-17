@@ -1,13 +1,11 @@
 module "logworkspace" {
   source      = "git::https://github.com/hmcts/terraform-module-log-analytics-workspace-id.git?ref=master"
   environment = var.environment
-
 }
 
 
 module "backend" {
   source = "git::https://github.com/hmcts/terraform-module-application-backend.git?ref=master"
-
 
   env                        = var.env
   subscription               = var.subscription
