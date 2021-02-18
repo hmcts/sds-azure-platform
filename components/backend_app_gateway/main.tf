@@ -16,6 +16,6 @@ module "backend_app_gateway" {
   backend_pool_ip_addresses  = var.ss_apps_cluster_ips
   private_ip_address         = var.private_ip_address
   oms_env                    = var.oms_env
-  log_analytics_workspace_id = module.logworkspace.workspace_id
+  log_analytics = module.logworkspace.workspace_id
 
 }
