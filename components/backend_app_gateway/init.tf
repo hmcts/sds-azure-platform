@@ -6,9 +6,9 @@ terraform {
   }
 
   provider "azurerm" {
-  features {}
+    features {}
 
-}
+  }
 
   required_providers {
     azurerm = {
