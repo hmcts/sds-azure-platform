@@ -16,4 +16,4 @@ variable "vault_name" {}
 variable "vnet_name" {}
 variable "vnet_rg" {}
 //variable "backend_pool_ip_addresses" {}
-variable "yaml_path" {}
+//variable "yaml_path" {}
