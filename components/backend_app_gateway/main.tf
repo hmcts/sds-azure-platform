@@ -7,7 +7,7 @@ module "logworkspace" {
 module "backend_app_gateway" {
   source = "git::https://github.com/hmcts/terraform-module-application-backend.git?ref=master"
 
-  yaml_path = "../../components/backend_app_gateway/backend_lb_config.yaml"
+  yaml_path = "${path.cwd}/backend_lb_config.yaml"
 
   env                       = var.env
   subscription              = var.subscription
