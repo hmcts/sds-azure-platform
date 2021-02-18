@@ -18,3 +18,5 @@ module "backend_app_gateway" {
   // log_analytics_workspace_id = module.logworkspace.workspace_id
 
 }
+
+yaml_path = "${path.cwd}${local.env}/backend_lb_config.yaml"
