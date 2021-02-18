@@ -11,7 +11,7 @@ module "backend_app_gateway" {
   subscription = var.subscription
   vault_name   = var.vault_name
   location     = var.location
-  // ip_addresses       = var.backend_pool_ip_addresses
+  ip_addresses       = var.backend_pool_ip_addresses
   private_ip_address = var.private_ip_address
   yaml_path          = var.yaml_path
   oms_env            = var.oms_env
