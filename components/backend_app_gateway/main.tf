@@ -14,7 +14,7 @@ module "backend_app_gateway" {
   backend_pool_ip_addresses = var.backend_pool_ip_addresses
   private_ip_address        = var.private_ip_address
   oms_env                   = var.oms_env
-  //yaml_path                 = var.yaml_path
+  yaml_path                 = var.yaml_path
   // log_analytics_workspace_id = module.logworkspace.workspace_id
 
 }
