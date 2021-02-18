@@ -13,11 +13,8 @@ module "backend_app_gateway" {
   location                   = var.location
   backend_pool_ip_addresses  = var.backend_pool_ip_addresses
   private_ip_address         = var.private_ip_address
-  destinations               = var.destinations
-  frontends                  = var.frontends
-  common_tags                = local.common_tags
+  yaml_path                  = var.yaml_path
   oms_env                    = var.oms_env
-  project                    = var.project
   log_analytics_workspace_id = module.logworkspace.workspace_id
 
 }
