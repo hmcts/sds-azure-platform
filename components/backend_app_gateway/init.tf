@@ -13,6 +13,7 @@ terraform {
 }
 
 provider "azurerm" {
+  alias = "data"
   features {}
 }
 
