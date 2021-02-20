@@ -4,7 +4,7 @@ module "logworkspace" {
 }
 
 
-module "backend_app_gateway" {
+module "backendappgateway" {
   source = "git::https://github.com/hmcts/terraform-module-application-backend.git?ref=master"
 
   yaml_path = "${path.cwd}/backend_lb_config.yaml"
@@ -17,6 +17,5 @@ module "backend_app_gateway" {
   private_ip_address         = var.private_ip_address
   oms_env                    = var.oms_env
   log_analytics_workspace_id = module.logworkspace.workspace_id
-  appgwbackends              = var.appgwbackends
 
 } 

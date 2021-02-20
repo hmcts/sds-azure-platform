@@ -10,7 +10,7 @@ parameters:
     displayName: Component to Run
     type: object
     default:
-      - deployment: 'backend_app_gateway'
+      - deployment: 'backendappgateway'
         environment: 'sbox'
         dependsOn: 'Precheck'
       - deployment: 'appgateway'
