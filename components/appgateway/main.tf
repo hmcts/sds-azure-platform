@@ -22,6 +22,5 @@ module "appgateway" {
   vnet_rg                    = var.vnet_rg
   vnet_name                  = var.vnet_name
   log_analytics_workspace_id = module.logworkspace.workspace_id
-  appgwbackends              = var.appgwbackends
 
 }

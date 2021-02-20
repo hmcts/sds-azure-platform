@@ -42,7 +42,7 @@ frontends = [
   }
 ]
 
-appgwbackends = [
+/* appgwbackends = [
 
   {
     name             = "toffee"
@@ -52,4 +52,4 @@ appgwbackends = [
     disabled_rules   = {}
     product          = "ss"
   }
-]
+] */
