@@ -16,4 +16,3 @@ variable "vault_name" {}
 variable "vnet_name" {}
 variable "vnet_rg" {}
 variable "ss_apps_cluster_ips" {}
-// variable "appgwbackends" {}
