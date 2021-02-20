@@ -22,4 +22,5 @@ module "landing_zone" {
   certificate_name_check     = true
   key_vault_resource_group   = var.key_vault_resource_group
   log_analytics_workspace_id = module.logworkspace.workspace_id
+  appgwbackends              = var.appgwbackends
 }

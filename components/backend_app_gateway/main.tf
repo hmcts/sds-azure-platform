@@ -19,4 +19,4 @@ module "backend_app_gateway" {
   log_analytics_workspace_id = module.logworkspace.workspace_id
   appgwbackends              = var.appgwbackends
 
-}
+} 
