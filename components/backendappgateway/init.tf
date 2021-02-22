@@ -9,6 +9,10 @@ terraform {
       source  = "hashicorp/azurerm"
       version = "2.41.0"
     }
+    local = {
+      source  = "hashicorp/local"
+      version = "=1.3.0"
+    }
   }
 }
 
@@ -18,8 +22,6 @@ provider "azurerm" {
 }
 
 provider "local" {
-  version = "=1.3.0"
-  features {}
 }
 
 // provider "azurerm" {
