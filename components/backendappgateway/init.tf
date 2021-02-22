@@ -9,19 +9,15 @@ terraform {
       source  = "hashicorp/azurerm"
       version = "2.41.0"
     }
-    local = {
-      source  = "hashicorp/local"
-      version = "1.3.0"
-    }
   }
 }
-
 provider "azurerm" {
   alias = "data"
+  subscription_id = "b72ab7b7-723f-4b18-b6f6-03b0f2c6a1bb"
   features {}
 }
-
-provider "local" {
+provider "azurerm" {
+  features {}
 }
 
 provider "azurerm" {
