@@ -14,6 +14,7 @@ terraform {
 provider "azurerm" {
   alias           = "data"
   subscription_id = var.backend_cert_kv_sub_id
+  skip_credentials_validation = true
   features {}
 }
 provider "azurerm" {
