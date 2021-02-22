@@ -11,7 +11,7 @@ terraform {
     }
     local = {
       source  = "hashicorp/local"
-      version = "=1.3.0"
+      version = "1.3.0"
     }
   }
 }
@@ -24,8 +24,8 @@ provider "azurerm" {
 provider "local" {
 }
 
-// provider "azurerm" {
-//  features {}
-//  alias           = "loganalytics"
-//  subscription_id = local.log_analytics_workspace[[for x in keys(local.log_analytics_env_mapping) : x if contains(local.log_analytics_env_mapping[x], var.env)][0]].subscription_id
-//}
+provider "azurerm" {
+  features {}
+  alias           = "loganalytics"
+  subscription_id = local.log_analytics_workspace[[for x in keys(local.log_analytics_env_mapping) : x if contains(local.log_analytics_env_mapping[x], var.env)][0]].subscription_id
+}
