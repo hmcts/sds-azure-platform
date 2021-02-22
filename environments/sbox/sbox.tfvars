@@ -11,6 +11,7 @@ vnet_name                  = "ss-sbox-vnet"
 key_vault_resource_group   = "genesis-rg"
 certificate_key_vault_name = "dtssharedservicessboxkv"
 vault_name                 = "cftapps-sbox"
+backend_cert_kv_sub_id     = "b72ab7b7-723f-4b18-b6f6-03b0f2c6a1bb"
 
 frontends = [
   {
