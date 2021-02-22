@@ -7,7 +7,6 @@ module "logworkspace" {
 module "backendappgateway" {
   source = "git::https://github.com/hmcts/terraform-module-application-backend.git?ref=DTSPO-658-fix-features-issue"
   providers = {
-    azurerm      = azurerm
     azurerm.data = azurerm.data
   }
 
