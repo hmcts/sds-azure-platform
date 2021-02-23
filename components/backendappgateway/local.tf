@@ -34,8 +34,8 @@ locals {
     "dataClassification" = "Internal"
     "automation"         = ""
     "costCentre"         = "10245117"
-    "environment" = local.env_display_names[var.env]
-    "criticality" = local.criticality[var.env]
+    "environment"        = local.env_display_names[var.env]
+    "criticality"        = local.criticality[var.env]
   }
 
 }
