@@ -11,14 +11,9 @@ terraform {
     }
   }
 }
-# provider "azurerm" {
-#   alias           = "data"
-#   subscription_id = var.backend_cert_kv_sub_id
-#   features {}
-# }
 provider "azurerm" {
   features {}
-  subscription_id = var.backend_cert_kv_sub_id
+  #subscription_id = var.backend_cert_kv_sub_id
 }
 
 provider "azurerm" {
