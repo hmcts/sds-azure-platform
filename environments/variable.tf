@@ -15,5 +15,4 @@ variable "subscription" {}
 variable "vault_name" {}
 variable "vnet_name" {}
 variable "vnet_rg" {}
-variable "backend_cert_kv_sub_id" {}
 // variable "ss_apps_cluster_ips" {}
