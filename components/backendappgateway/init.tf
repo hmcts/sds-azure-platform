@@ -18,6 +18,7 @@ terraform {
 # }
 provider "azurerm" {
   features {}
+  subscription_id = var.backend_cert_kv_sub_id
 }
 
 provider "azurerm" {
