@@ -13,7 +13,7 @@ module "appgateway" {
   subscription               = var.subscription
   vault_name                 = var.vault_name
   location                   = var.location
-  private_ip_address         = var.fe_private_ip_address
+  private_ip_address         = var.private_ip_address
   destinations               = var.destinations
   frontends                  = var.frontends
   common_tags                = local.common_tags
