@@ -15,7 +15,4 @@ variable "subscription" {}
 variable "vault_name" {}
 variable "vnet_name" {}
 variable "vnet_rg" {}
-<<<<<<< HEAD
 variable "backends" {}
-=======
->>>>>>> a6c6abf7143ed75870e5e67e853a834de8cb14f3
