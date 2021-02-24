@@ -21,4 +21,4 @@ module "backendappgateway" {
   vnet_name                  = var.vnet_name
   key_vault_resource_group   = var.key_vault_resource_group
   common_tags                = local.common_tags
-} 
+}
