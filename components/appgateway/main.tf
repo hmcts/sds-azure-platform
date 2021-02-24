@@ -16,7 +16,6 @@ module "appgateway" {
   private_ip_address         = var.private_ip_address
   destinations               = var.destinations
   frontends                  = var.frontends
-  backends                   = var.backends
   common_tags                = local.common_tags
   oms_env                    = var.oms_env
   project                    = var.project
