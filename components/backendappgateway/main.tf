@@ -3,7 +3,6 @@ module "logworkspace" {
   environment = var.environment
 }
 
-
 module "backendappgateway" {
   source = "git::https://github.com/hmcts/terraform-module-application-backend.git?ref=DTSPO-658-fix-features-issue"
 
