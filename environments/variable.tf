@@ -9,7 +9,8 @@ variable "frontends" {}
 variable "key_vault_resource_group" {}
 variable "location" {}
 variable "oms_env" {}
-variable "private_ip_address" {}
+variable "be_private_ip_address" {}
+variable "fe_private_ip_address" {}
 variable "project" {}
 variable "subscription" {}
 variable "vault_name" {}
