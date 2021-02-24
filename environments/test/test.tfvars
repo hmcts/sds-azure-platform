@@ -6,6 +6,7 @@ certificate_key_vault_name = "dtssharedservicestestkv"
 oms_env                    = "test"
 key_vault_resource_group   = "genesis-rg"
 private_ip_address         = "10.141.32.132"
+be_private_ip_address      = ""
 destinations               = ["10.141.15.250", "10.141.31.250"]
 vnet_rg                    = "ss-test-network-rg"
 vnet_name                  = "ss-test-vnet"

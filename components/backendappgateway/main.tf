@@ -13,7 +13,7 @@ module "backendappgateway" {
   vault_name                 = var.vault_name
   location                   = var.location
   backend_pool_ip_addresses  = var.destinations
-  private_ip_address         = var.private_ip_address
+  private_ip_address         = var.be_private_ip_address
   oms_env                    = var.oms_env
   log_analytics_workspace_id = module.logworkspace.workspace_id
   frontends                  = var.frontends
