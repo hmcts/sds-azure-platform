@@ -18,7 +18,6 @@ module "backendappgateway" {
   oms_env                    = var.oms_env
   log_analytics_workspace_id = module.logworkspace.workspace_id
   frontends                  = var.frontends
-  backends                   = var.backends
   vnet_rg                    = var.vnet_rg
   vnet_name                  = var.vnet_name
   key_vault_resource_group   = var.key_vault_resource_group

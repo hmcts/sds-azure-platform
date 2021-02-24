@@ -41,14 +41,3 @@ frontends = [
   }
 ]
 
-backends = [
-  {
-    name             = "toffee"
-    custom_domain    = "toffee.sandbox.platform.hmcts.net"
-    backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
-    certificate_name = "STAR-sandbox-platform-hmcts-net"
-    disabled_rules   = {}
-    product          = "ss"
-  }
-]
-
