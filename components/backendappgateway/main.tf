@@ -6,10 +6,6 @@ module "logworkspace" {
 
 module "backendappgateway" {
   source = "git::https://github.com/hmcts/terraform-module-application-backend.git?ref=DTSPO-658-fix-features-issue"
-  providers = {
-    azurerm = azurerm
-    azurerm.data = azurerm.data
-  }
 
   yaml_path = "${path.cwd}/backend_lb_config.yaml"
 
@@ -22,6 +18,13 @@ module "backendappgateway" {
   oms_env                    = var.oms_env
   log_analytics_workspace_id = module.logworkspace.workspace_id
   frontends                  = var.frontends
+<<<<<<< HEAD
   backends                  = var.backends
 
+=======
+  vnet_rg                    = var.vnet_rg
+  vnet_name                  = var.vnet_name
+  key_vault_resource_group   = var.key_vault_resource_group
+  common_tags                = local.common_tags
+>>>>>>> a6c6abf7143ed75870e5e67e853a834de8cb14f3
 } 
