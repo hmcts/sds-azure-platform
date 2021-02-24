@@ -4,7 +4,7 @@ module "logworkspace" {
 }
 
 module "backendappgateway" {
-  source = "git::https://github.com/hmcts/terraform-module-application-backend.git?ref=DTSPO-658-fix-features-issue"
+  source = "git::https://github.com/hmcts/terraform-module-application-backend.git?ref=master"
 
   yaml_path = "${path.cwd}/backend_lb_config.yaml"
 
