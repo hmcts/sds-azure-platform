@@ -10,7 +10,7 @@ vnet_rg                    = "ss-dev-network-rg"
 vnet_name                  = "ss-dev-vnet"
 key_vault_resource_group   = "genesis-rg"
 certificate_key_vault_name = "dtssharedservicesdevkv"
-vault_name                 = ""
+vault_name                 = "dtssharedservicesdevkv"
 
 frontends = [
 
