@@ -9,3 +9,7 @@ gateways:
     # Toffee
       - product: toffee
         component: backend
+    # VH
+      - product: vh
+        component: user-api
+        ssl_enabled: true
