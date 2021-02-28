@@ -3,7 +3,6 @@
 gateways:
   - gateway_configuration:
       host_name_suffix: sandbox.platform.hmcts.net
-      ssl_host_name_suffix: sandbox.platform.hmcts.net
       certificate_name: STAR-sandbox-platform-hmcts-net
     app_configuration:
     # Toffee
@@ -13,3 +12,7 @@ gateways:
       - product: vh
         component: user-api
         ssl_enabled: true
+    # test
+      - product: test
+        component: override
+        host_name_suffix_override: service.core-compute-sandbox.internal
