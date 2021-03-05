@@ -2,15 +2,16 @@ project                    = "sdshmcts"
 location                   = "uksouth"
 env                        = "test"
 subscription               = "test"
-certificate_key_vault_name = "dtssharedservicestestkv"
 oms_env                    = "test"
-key_vault_resource_group   = "genesis-rg"
 private_ip_address         = "10.141.32.132"
-be_private_ip_address      = ""
+be_private_ip_address      = ["10.160.32.134"]
 destinations               = ["10.141.15.250", "10.141.31.250"]
 vnet_rg                    = "ss-test-network-rg"
 vnet_name                  = "ss-test-vnet"
-vault_name                 = ""
+key_vault_resource_group   = "genesis-rg"
+certificate_key_vault_name = "dtssharedservicestestkv"
+vault_name                 = "dtssharedservicestestkv"
+
 frontends = [
 
   {
