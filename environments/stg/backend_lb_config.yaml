@@ -1,0 +1,11 @@
+---
+
+gateways:
+  - gateway_configuration:
+      host_name_suffix: staging.platform.hmcts.net
+      ssl_host_name_suffix: staging.platform.hmcts.net
+      certificate_name: wildcard-staging-platform-hmcts-net
+    app_configuration:
+    # Toffee
+      - product: toffee
+        component: backend
