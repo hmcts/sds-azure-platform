@@ -11,6 +11,7 @@ vnet_name                  = "ss-test-vnet"
 key_vault_resource_group   = "genesis-rg"
 certificate_key_vault_name = "dtssharedservicestestkv"
 vault_name                 = "dtssharedservicestestkv"
+
 frontends = [
 
   {
