@@ -4,7 +4,7 @@ module "logworkspace" {
 }
 
 module "backendappgateway" {
-  source = "git::https://github.com/hmcts/terraform-module-application-backend.git?ref=DTSPO-658-enable-https"
+  source = "git::https://github.com/hmcts/terraform-module-application-backend.git?ref=DTSPO-1355"
 
   yaml_path = "${path.cwd}/../../environments/${var.env}/backend_lb_config.yaml"
 
@@ -16,9 +16,9 @@ module "backendappgateway" {
   private_ip_address         = var.be_private_ip_address
   oms_env                    = var.oms_env
   log_analytics_workspace_id = module.logworkspace.workspace_id
-  frontends                  = var.frontends
-  vnet_rg                    = var.vnet_rg
-  vnet_name                  = var.vnet_name
-  key_vault_resource_group   = var.key_vault_resource_group
-  common_tags                = local.common_tags
+  # frontends                  = var.frontends
+  vnet_rg                  = var.vnet_rg
+  vnet_name                = var.vnet_name
+  key_vault_resource_group = var.key_vault_resource_group
+  common_tags              = local.common_tags
 }
