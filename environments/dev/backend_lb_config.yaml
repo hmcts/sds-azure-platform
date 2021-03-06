@@ -12,7 +12,6 @@ gateways:
       - product: vh
         component: user-api
         ssl_enabled: true
-        health_path_override: /healthcheck/health
       - product: vh
         component: video-web
         ssl_enabled: true
