@@ -4,7 +4,7 @@ gateways:
   - gateway_configuration:
       host_name_suffix: ithc.platform.hmcts.net
       ssl_host_name_suffix: ithc.platform.hmcts.net
-      certificate_name: wildcard-test-platform-hmcts-net
+      certificate_name: wildcard-ithc-platform-hmcts-net
     app_configuration:
     # Toffee
       - product: toffee
