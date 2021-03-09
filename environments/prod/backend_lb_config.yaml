@@ -2,9 +2,9 @@
 
 gateways:
   - gateway_configuration:
-      # host_name_suffix:
-      # ssl_host_name_suffix:
-      # certificate_name: 
+      # host_name_suffix: decisions.tribunals.gov.uk
+      # ssl_host_name_suffix: decisions.tribunals.gov.uk
+      # certificate_name: decisions-tribunals-gov-uk
     app_configuration:
     # Toffee
       # - product: toffee
