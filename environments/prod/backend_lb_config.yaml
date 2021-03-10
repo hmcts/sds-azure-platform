@@ -2,7 +2,10 @@
 
 gateways:
   - gateway_configuration:
-      host_name_suffix: decisions.tribunals.gov.uk
-      ssl_host_name_suffix: decisions.tribunals.gov.uk
-      certificate_name: decisions-tribunals-gov-uk
-    app_configuration: []
+      host_name_suffix: platform.hmcts.net
+      ssl_host_name_suffix: platform.hmcts.net
+      certificate_name: wildcard-platform-hmcts-net
+    app_configuration:
+  # Toffee  
+  - product: toffee
+    component: backend
