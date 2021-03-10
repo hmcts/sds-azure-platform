@@ -6,4 +6,3 @@ gateways:
       # ssl_host_name_suffix: decisions.tribunals.gov.uk
       # certificate_name: decisions-tribunals-gov-uk
     app_configuration: []
-    
