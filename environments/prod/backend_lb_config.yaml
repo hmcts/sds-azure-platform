@@ -7,5 +7,5 @@ gateways:
       certificate_name: wildcard-platform-hmcts-net
     app_configuration:
   # Toffee  
-  - product: toffee
-    component: backend
+      - product: toffee
+        component: backend
