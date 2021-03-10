@@ -192,5 +192,13 @@ frontends = [
         selector       = "__VIEWSTATE"
       }
     ]
-  }
+  },
+    {
+    name             = "toffee"
+    custom_domain    = "toffee.platform.hmcts.net"
+    backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    certificate_name = "wildcard-platform-hmcts-net"
+    disabled_rules   = {}
+    product          = "ss"
+      }
 ]
