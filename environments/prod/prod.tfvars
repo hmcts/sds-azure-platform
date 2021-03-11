@@ -94,7 +94,7 @@ frontends = [
       {
         match_variable = "RequestBodyPostArgNames"
         operator       = "Equals"
-        selector       = "btnSearch"
+        selector       = "_btnSearch"
       }
     ]
   },
