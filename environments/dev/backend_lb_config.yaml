@@ -9,7 +9,7 @@ gateways:
     # Toffee
       - product: toffee
         component: backend
-    # VH
+    # Video Hearings
       - product: vh
         component: user-api
         ssl_enabled: true
