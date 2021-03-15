@@ -145,6 +145,12 @@ frontends = [
     custom_domain    = "financeandtax.decisions.tribunals.gov.uk"
     backend_domain   = ["34.243.192.28"]
     certificate_name = "decisions-tribunals-gov-uk"
+    disabled_rules = {
+      SQLI = []
+      LFI = [
+        "930110", // false positive on multi-part uploads
+      ]
+    }
     global_exclusions = [
       {
         match_variable = "RequestBodyPostArgNames"
