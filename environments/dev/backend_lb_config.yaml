@@ -43,5 +43,3 @@ gateways:
       - product: vh
         component: test-web
         ssl_enabled: true
-
-      
