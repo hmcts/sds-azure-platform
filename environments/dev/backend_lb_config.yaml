@@ -6,7 +6,7 @@ gateways:
       ssl_host_name_suffix: dev.platform.hmcts.net
       certificate_name: wildcard-dev-platform-hmcts-net
     app_configuration:
-    # Toffee
+    # Toffee application
       - product: toffee
         component: backend
     # Video Hearings
