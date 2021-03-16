@@ -9,6 +9,7 @@ gateways:
     # Toffee application
       - product: toffee
         component: backend
+        exclude_env_in_app_name: true
     # Video Hearings
       - product: vh
         component: user-api
