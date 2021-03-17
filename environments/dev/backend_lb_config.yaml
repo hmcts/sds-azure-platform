@@ -9,7 +9,7 @@ gateways:
     app_configuration:
     # Toffee application
       - product: toffee
-        component: backend
+        component: recipe-backend
     # Video Hearings
       - product: vh
         component: user-api
