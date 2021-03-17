@@ -8,7 +8,7 @@ gateways:
     app_configuration:
     # Toffee
       - product: toffee
-        component: backend
+        component: recipe-backend
     # VH
     # VH
       - product: vh
