@@ -4,6 +4,12 @@ module "logworkspace" {
 
 }
 
+module "ctags" {
+  source      = "git::https://github.com/hmcts/terraform-module-common-tags.git?ref=master"
+  environment = var.environment
+  product     = var.product
+  builtFrom   = var.builtFrom
+}
 
 module "appgateway" {
   source = "git::https://github.com/hmcts/terraform-module-applicationgateway.git?ref=master"
@@ -16,7 +22,7 @@ module "appgateway" {
   private_ip_address         = var.private_ip_address
   destinations               = var.destinations
   frontends                  = var.frontends
-  common_tags                = local.common_tags
+  common_tags                = module.ctags.common_tags
   oms_env                    = var.oms_env
   project                    = var.project
   vnet_rg                    = var.vnet_rg

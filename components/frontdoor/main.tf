@@ -4,10 +4,17 @@ module "logworkspace" {
 
 }
 
+module "ctags" {
+  source      = "git::https://github.com/hmcts/terraform-module-common-tags.git?ref=master"
+  environment = var.environment
+  product     = var.product
+  builtFrom   = var.builtFrom
+}
+
 module "landing_zone" {
   source = "git::https://github.com/hmcts/terraform-module-frontdoor.git?ref=master"
 
-  common_tags                = local.common_tags
+  common_tags                = module.ctags.common_tags
   env                        = var.env
   subscription               = var.subscription
   project                    = var.project

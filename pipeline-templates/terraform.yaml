@@ -40,7 +40,7 @@ steps:
       terraformVersion: ${{ parameters.tfversion }}
       workingDirectory: $(System.DefaultWorkingDirectory)/components/${{ parameters.stack }}
       environmentServiceName: ${{ parameters.serviceConnection }}
-      commandOptions: '-out tfplan-${{ parameters.project }}-${{ parameters.environment }}-${{ parameters.stack }}  -var environment=${{ parameters.environment }} -var project=${{ parameters.project }} -var-file $(System.DefaultWorkingDirectory)/environments/${{ parameters.environment }}/${{ parameters.environment }}.tfvars -lock=false'
+      commandOptions: '-out tfplan-${{ parameters.project }}-${{ parameters.environment }}-${{ parameters.stack }}  -var environment=${{ parameters.environment }} -var project=${{ parameters.project }} -var builtFrom=$(Build.Repository.Name) -var-file $(System.DefaultWorkingDirectory)/environments/${{ parameters.environment }}/${{ parameters.environment }}.tfvars -lock=false'
 
   - task: Bash@3
     condition: and(succeeded(), eq(variables.isMaster, true))
