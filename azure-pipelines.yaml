@@ -69,7 +69,7 @@ variables:
   - name: isMaster
     value: $[eq(variables['Build.SourceBranch'], 'refs/heads/master')]
   - name: product
-    value 'sds-platform'
+    value: 'sds-platform'
 
 stages:
   - stage: Precheck
