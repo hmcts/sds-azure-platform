@@ -50,6 +50,8 @@ variables:
     value: $(Build.BuildNumber)
   - name: isMaster
     value: $[eq(variables['Build.SourceBranch'], 'refs/heads/master')]
+  - name: product
+    value 'sds-platform'
 
 
 stages:
@@ -111,3 +113,4 @@ stages:
                   project: $(project)
                   tfversion: $(tfversion)
                   serviceConnection: "OPS-APPROVAL-GATE-${{ upper(parameter.environment) }}-ENVS"
+                  product: $(product)
