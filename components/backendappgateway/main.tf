@@ -2,6 +2,12 @@ module "logworkspace" {
   source      = "git::https://github.com/hmcts/terraform-module-log-analytics-workspace-id.git?ref=master"
   environment = var.environment
 }
+module "ctags" {
+  source      = "git::https://github.com/hmcts/terraform-module-common-tags.git?ref=master"
+  environment = var.environment
+  product     = var.product
+  builtFrom   = var.builtFrom
+}
 
 module "backendappgateway" {
   source = "git::https://github.com/hmcts/terraform-module-application-backend.git?ref=master"
@@ -17,5 +23,5 @@ module "backendappgateway" {
   vnet_rg                    = var.vnet_rg
   vnet_name                  = var.vnet_name
   key_vault_resource_group   = var.key_vault_resource_group
-  common_tags                = local.common_tags
+  common_tags                = module.ctags.common_tags
 }
