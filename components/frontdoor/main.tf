@@ -20,7 +20,6 @@ module "landing_zone" {
   project                    = var.project
   location                   = var.location
   frontends                  = var.frontends
-  enable_ssl                 = true
   ssl_mode                   = "AzureKeyVault"
   resource_group             = azurerm_resource_group.fd_rg.name
   subscription_id            = data.azurerm_subscription.current.subscription_id
