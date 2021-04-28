@@ -133,4 +133,4 @@ stages:
                   tfversion: $(tfversion)
                   serviceConnection: "OPS-APPROVAL-GATE-${{ upper(parameter.environment) }}-ENVS"
                   product: $(product)
-                  tfInitSub: $(tfInitSub)
+                  tfInitSub: ${{ variables.tfInitSub }}
