@@ -70,6 +70,8 @@ variables:
     value: $[eq(variables['Build.SourceBranch'], 'refs/heads/master')]
   - name: product
     value: 'sds-platform'
+  - name: tfInitSub
+    value: "04d27a32-7a07-48b3-95b8-3c8691e1a263"
 
 stages:
   - stage: Precheck
@@ -131,3 +133,4 @@ stages:
                   tfversion: $(tfversion)
                   serviceConnection: "OPS-APPROVAL-GATE-${{ upper(parameter.environment) }}-ENVS"
                   product: $(product)
+                  tfInitSub: ${{ variables.tfInitSub }}
