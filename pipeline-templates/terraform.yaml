@@ -5,6 +5,7 @@ parameters:
   project: ''
   tfversion: ''
   serviceConnection: ''
+  tfInitSub: ''
 
 
 steps:
@@ -32,6 +33,7 @@ steps:
       backendAzureRmStorageAccountSku: Standard_LRS
       backendAzureRmContainerName: subscription-tfstate
       backendAzureRmKey: '${{ parameters.location }}/${{ parameters.project }}/${{ parameters.environment }}/${{ parameters.stack }}/terraform.tfstate'
+      commandOptions: '-backend-config=subscription_id=${{ parameters.tfInitSub }}'
 
   - task: TerraformCLI@0
     displayName: terraform plan
