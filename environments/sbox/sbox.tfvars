@@ -15,12 +15,12 @@ vault_name                 = "dtssharedservicessboxkv"
 frontends = [
   {
 
-    name             = "toffee"
-    custom_domain    = "toffee.sandbox.platform.hmcts.net"
-    backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
-    disabled_rules   = {}
-    product          = "ss"
-    ssl_mode         = "FrontDoor"
+    name           = "toffee"
+    custom_domain  = "toffee.sandbox.platform.hmcts.net"
+    backend_domain = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
+    disabled_rules = {}
+    product        = "ss"
+
     custom_rules = [
       {
         name     = "IPMatchWhitelist"
