@@ -18,7 +18,7 @@ frontends = [
     name             = "toffee"
     custom_domain    = "toffee.staging.platform.hmcts.net"
     backend_domain   = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
-    certificate_name = "wildcard-staging-platform-hmcts-net"
+    ssl_mode         = "FrontDoor"
     disabled_rules   = {}
     product          = "ss"
   }
