@@ -15,11 +15,11 @@ vault_name                 = "dtssharedservicesithckv"
 frontends = [
 
   {
-    name             = "toffee"
-    custom_domain    = "toffee.ithc.platform.hmcts.net"
-    backend_domain   = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
-    ssl_mode         = "FrontDoor"
-    disabled_rules   = {}
-    product          = "ss"
+    name           = "toffee"
+    custom_domain  = "toffee.ithc.platform.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
+
+    disabled_rules = {}
+    product        = "ss"
   }
 ]

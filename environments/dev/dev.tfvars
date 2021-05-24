@@ -15,11 +15,11 @@ vault_name                 = "dtssharedservicesdevkv"
 frontends = [
 
   {
-    name             = "toffee"
-    custom_domain    = "toffee.dev.platform.hmcts.net"
-    backend_domain   = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
-    ssl_mode         = "FrontDoor"
-    disabled_rules   = {}
-    product          = "ss"
+    name           = "toffee"
+    custom_domain  = "toffee.dev.platform.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
+
+    disabled_rules = {}
+    product        = "ss"
   }
 ]
