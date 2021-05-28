@@ -174,6 +174,20 @@ frontends = [
       }
     ]
   },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "clean car"
+      }
+    ]
+  },
+        {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "standard bank"
+      }
+    ]
+  },
   {
     name           = "trib-employment-appeals"
     product        = "ss"
