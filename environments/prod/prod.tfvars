@@ -177,17 +177,10 @@ frontends = [
       {
         match_variable = "RequestBodyPostArgNames"
         operator       = "Equals"
-        selector       = "clean car"
+        selector       = "txtClaimant"
       }
     ]
-  },
-        {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "standard bank"
-      }
-    ]
-  },
+},
   {
     name           = "trib-employment-appeals"
     product        = "ss"
