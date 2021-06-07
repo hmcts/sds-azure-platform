@@ -8,9 +8,7 @@ be_private_ip_address      = ""
 destinations               = ["10.51.79.250"]
 vnet_rg                    = "ss-demo-network-rg"
 vnet_name                  = "ss-demo-vnet"
-key_vault_resource_group   = "genesis-rg"
-certificate_key_vault_name = "dtssharedservicesdemokv"
-vault_name                 = ""
+
 frontends = [
 
   {

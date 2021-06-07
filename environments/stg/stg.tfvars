@@ -8,9 +8,6 @@ be_private_ip_address      = ["10.142.32.138"]
 destinations               = ["10.142.15.250", "10.142.31.250"]
 vnet_rg                    = "ss-stg-network-rg"
 vnet_name                  = "ss-stg-vnet"
-key_vault_resource_group   = "genesis-rg"
-certificate_key_vault_name = "dtssharedservicesstgkv"
-vault_name                 = "dtssharedservicesstgkv"
 
 frontends = [
 

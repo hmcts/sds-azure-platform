@@ -8,9 +8,6 @@ be_private_ip_address      = ["10.140.32.134"]
 destinations               = ["10.140.15.250", "10.140.31.250"]
 vnet_rg                    = "ss-sbox-network-rg"
 vnet_name                  = "ss-sbox-vnet"
-key_vault_resource_group   = "genesis-rg"
-certificate_key_vault_name = "dtssharedservicessboxkv"
-vault_name                 = "dtssharedservicessboxkv"
 
 frontends = [
   {
