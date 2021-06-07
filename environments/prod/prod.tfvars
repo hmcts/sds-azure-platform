@@ -170,6 +170,11 @@ frontends = [
       {
         match_variable = "RequestBodyPostArgNames"
         operator       = "Equals"
+        selector       = "txtClaimant"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
         selector       = "__VIEWSTATE"
       }
     ]
