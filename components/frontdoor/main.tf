@@ -13,7 +13,7 @@ module "ctags" {
 
 locals {
   subscription_short_name = replace(lower(data.azurerm_subscription.current.display_name), "sharedservices", "sds")
-  vault_name = "acme${replace(local.subscription_short_name, "-", "")}"
+  vault_name              = "acme${replace(local.subscription_short_name, "-", "")}"
 }
 
 module "landing_zone" {
