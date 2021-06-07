@@ -55,7 +55,7 @@ steps:
 
   - task: TerraformCLI@0
     displayName: Apply-${{ parameters.stack }}
-    condition: and(succeeded(), eq(variables.isMaster, true), eq(variables['CheckFileChanges.SOURCE_CODE_CHANGED'], 'true'))
+    condition: and(succeeded(), eq(variables.isMaster, true))
     inputs:
       command: apply
       terraformVersion: ${{ parameters.tfversion }}
