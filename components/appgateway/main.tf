@@ -17,7 +17,6 @@ module "appgateway" {
 
   env                        = var.env
   subscription               = var.subscription
-  vault_name                 = var.vault_name
   location                   = var.location
   private_ip_address         = var.private_ip_address
   destinations               = var.destinations
@@ -28,5 +27,4 @@ module "appgateway" {
   vnet_rg                    = var.vnet_rg
   vnet_name                  = var.vnet_name
   log_analytics_workspace_id = module.logworkspace.workspace_id
-
 }

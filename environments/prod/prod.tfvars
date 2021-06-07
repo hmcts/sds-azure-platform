@@ -1,16 +1,13 @@
-project                    = "sdshmcts"
-location                   = "uksouth"
-env                        = "prod"
-subscription               = "prod"
-oms_env                    = "prod"
-private_ip_address         = "10.144.32.132"
-be_private_ip_address      = ["10.144.32.136"]
-destinations               = ["10.144.15.250", "10.144.31.250"]
-vnet_rg                    = "ss-prod-network-rg"
-vnet_name                  = "ss-prod-vnet"
-key_vault_resource_group   = "genesis-rg"
-certificate_key_vault_name = "dtssharedservicesprodkv"
-vault_name                 = "dtssharedservicesprodkv"
+project               = "sdshmcts"
+location              = "uksouth"
+env                   = "prod"
+subscription          = "prod"
+oms_env               = "prod"
+private_ip_address    = "10.144.32.132"
+be_private_ip_address = ["10.144.32.136"]
+destinations          = ["10.144.15.250", "10.144.31.250"]
+vnet_rg               = "ss-prod-network-rg"
+vnet_name             = "ss-prod-vnet"
 
 frontends = [
   {
