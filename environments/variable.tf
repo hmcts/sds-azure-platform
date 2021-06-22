@@ -15,3 +15,5 @@ variable "vnet_name" {}
 variable "vnet_rg" {}
 variable "product" {}
 variable "builtFrom" {}
+variable "traffic_manager_endpoints" {}
+variable "traffic_manager_profiles" {}
