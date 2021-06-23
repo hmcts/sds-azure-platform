@@ -12,10 +12,8 @@ module "traffic_manager" {
   }
   source = "git::https://github.com/hmcts/terraform-module-frontdoor.git?ref=master"
 
-  # General
   common_tags = module.ctags.common_tags
 
-  # Traffic Manager Endpoints
   traffic_manager_endpoints = var.traffic_manager_endpoints
 
   # Traffic Manager Profiles
