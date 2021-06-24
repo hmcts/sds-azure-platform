@@ -10,53 +10,53 @@ parameters:
     displayName: Component to Run
     type: object
     default:
-      - deployment: "backendappgateway"
-        environment: "sbox"
-        dependsOn: "Precheck"
-      - deployment: "backendappgateway"
-        environment: "dev"
-        dependsOn: "Precheck"
-      - deployment: "backendappgateway"
-        environment: "stg"
-        dependsOn: "Precheck"
-      - deployment: "backendappgateway"
-        environment: "ithc"
-        dependsOn: "Precheck"
-      - deployment: "backendappgateway"
-        environment: "test"
-        dependsOn: "Precheck"
-      - deployment: "backendappgateway"
-        environment: "prod"
-        dependsOn: "Precheck"
-      - deployment: "appgateway"
-        environment: "sbox"
-        dependsOn: "Precheck"
-      - deployment: "appgateway"
-        environment: "dev"
-        dependsOn: "Precheck"
-      - deployment: "appgateway"
-        environment: "stg"
-        dependsOn: "Precheck"
-      - deployment: "appgateway"
-        environment: "ithc"
-        dependsOn: "Precheck"
-      - deployment: "appgateway"
-        environment: "test"
-        dependsOn: "Precheck"
-      - deployment: "appgateway"
-        environment: "prod"
-        dependsOn: "Precheck"
-      - deployment: "trafficmanager"
-        environment: "dev"
-        dependsOn: "Precheck"
+      - deployment: 'backendappgateway'
+        environment: 'sbox'
+        dependsOn: 'Precheck'
+      - deployment: 'backendappgateway'
+        environment: 'dev'
+        dependsOn: 'Precheck'
+      - deployment: 'backendappgateway'
+        environment: 'stg'
+        dependsOn: 'Precheck'
+      - deployment: 'backendappgateway'
+        environment: 'ithc'
+        dependsOn: 'Precheck'
+      - deployment: 'backendappgateway'
+        environment: 'test'
+        dependsOn: 'Precheck'
+      - deployment: 'backendappgateway'
+        environment: 'prod'
+        dependsOn: 'Precheck'
+      - deployment: 'appgateway'
+        environment: 'sbox'
+        dependsOn: 'Precheck'
+      - deployment: 'appgateway'
+        environment: 'dev'
+        dependsOn: 'Precheck'
+      - deployment: 'appgateway'
+        environment: 'stg'
+        dependsOn: 'Precheck'
+      - deployment: 'appgateway'
+        environment: 'ithc'
+        dependsOn: 'Precheck'
+      - deployment: 'appgateway'
+        environment: 'test'
+        dependsOn: 'Precheck'
+      - deployment: 'appgateway'
+        environment: 'prod'
+        dependsOn: 'Precheck'
+      - deployment: 'trafficmanager'
+        environment: 'dev'
+        dependsOn: 'Precheck'
 
   - name: location
     displayName: Location
     type: string
-    default: "UK South"
+    default: 'UK South'
     values:
-      - "UK South"
-      - "UK West"
+      - 'UK South'
+      - 'UK West'
 
 variables:
   - name: tfversion
@@ -64,15 +64,15 @@ variables:
   - name: project
     value: application
   - name: timeoutInMinutes
-    value: "60"
+    value: '60'
   - name: agentPool
-    value: "ubuntu-18.04"
+    value: 'ubuntu-18.04'
   - name: build
     value: $(Build.BuildNumber)
   - name: isMaster
     value: $[eq(variables['Build.SourceBranch'], 'refs/heads/master')]
   - name: product
-    value: "sds-platform"
+    value: 'sds-platform'
   - name: tfInitSub
     value: "04d27a32-7a07-48b3-95b8-3c8691e1a263"
 
@@ -84,38 +84,39 @@ stages:
         pool:
           vmImage: ${{ variables.agentPool }}
         steps:
-          - task: TerraformInstaller@0
-            displayName: Terraform install
-            inputs:
-              terraformVersion: ${{ variables.tfversion }}
-          - task: AzureKeyVault@1
-            displayName: Retrieve keyvault secret for ADO token
-            inputs:
-              ConnectedServiceName: DCD-CFT-Sandbox
-              keyVaultName: infra-vault-sandbox
-              secretsFilter: "azure-devops-token"
-              runAsPreJob: false
+        - task: TerraformInstaller@0
+          displayName: Terraform install
+          inputs:
+            terraformVersion: ${{ variables.tfversion }}
+        - task: AzureKeyVault@1
+          displayName: Retrieve keyvault secret for ADO token
+          inputs:
+            ConnectedServiceName: DCD-CFT-Sandbox
+            keyVaultName: infra-vault-sandbox
+            secretsFilter: 'azure-devops-token'
+            runAsPreJob: false
 
-          - task: Bash@3
-            displayName: Prevent parallel run
-            env:
-              thisbuild: $(Build.BuildId)
-              pipelinedefinition: $(System.DefinitionId)
-              azuredevopstoken: $(azure-devops-token)
-            inputs:
-              filePath: pipeline-scripts/builds-check.sh
-          - task: PowerShell@2
-            displayName: Run tests
-            inputs:
-              targetType: "filePath"
-              filePath: $(System.DefaultWorkingDirectory)/pipeline-scripts/pester-tests.ps1
-              pwsh: true
-          - task: PublishTestResults@2
-            displayName: "Publish Test Results **/TEST-*.xml"
-            inputs:
-              testResultsFormat: NUnit
-              failTaskOnFailedTests: true
-            condition: always()
+        - task: Bash@3
+          displayName: Prevent parallel run
+          env:
+            thisbuild: $(Build.BuildId)
+            pipelinedefinition: $(System.DefinitionId)
+            azuredevopstoken: $(azure-devops-token)
+          inputs:
+            filePath: pipeline-scripts/builds-check.sh
+        - task: PowerShell@2
+          displayName: Run tests
+          inputs:
+            targetType: 'filePath'
+            filePath: $(System.DefaultWorkingDirectory)/pipeline-scripts/pester-tests.ps1
+            pwsh: true
+        - task: PublishTestResults@2
+          displayName: 'Publish Test Results **/TEST-*.xml'
+          inputs:
+            testResultsFormat: NUnit
+            failTaskOnFailedTests: true
+          condition: always()
+
 
   - ${{ each parameter in parameters.components }}:
       - stage: ${{ parameter.environment }}_${{ parameter.deployment }}
