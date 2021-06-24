@@ -10,7 +10,7 @@ module "traffic_manager" {
     azurerm      = azurerm
     azurerm.data = azurerm.data
   }
-  source = "git::https://github.com/hmcts/terraform-module-frontdoor.git?ref=master"
+  source = "git::https://github.com/hmcts/terraform-module-trafficmanager.git?ref=master"
 
   common_tags = module.ctags.common_tags
 
