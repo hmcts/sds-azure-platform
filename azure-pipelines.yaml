@@ -46,6 +46,9 @@ parameters:
       - deployment: 'appgateway'
         environment: 'prod'
         dependsOn: 'Precheck'
+      - deployment: 'trafficmanager'
+        environment: 'dev'
+        dependsOn: 'Precheck'
 
   - name: location
     displayName: Location
