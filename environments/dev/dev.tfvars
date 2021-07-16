@@ -21,7 +21,7 @@ frontends = [
   },
 
   {
-    name           = "jd-public"
+    name           = "jd-dev"
     custom_domain  = "jdbureau-dev.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
 
@@ -56,7 +56,7 @@ frontends = [
   },
 
   {
-    name           = "jd-dev"
+    name           = "jd-public"
     custom_domain  = "jdfrontend-dev.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
 
