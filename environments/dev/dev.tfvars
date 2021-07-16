@@ -18,6 +18,76 @@ frontends = [
 
     disabled_rules = {}
     product        = "ss"
+  },
+
+  {
+    name           = "jd-public"
+    custom_domain  = "jdbureau-dev.platform.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
+
+    disabled_rules = {}
+    product        = "ss"
+        custom_rules = [
+      {
+        name     = "IPMatchWhitelist"
+        priority = 1
+        type     = "MatchRule"
+        action   = "Block"
+        match_conditions = [
+          {
+            match_variable     = "RemoteAddr"
+            operator           = "IPMatch"
+            negation_condition = true
+            match_values = [
+              "81.134.202.29/32",
+              "51.145.6.230/32",
+              "194.33.192.0/25",
+              "194.33.196.0/25",
+              "195.59.75.0/24",
+              "158.234.251.0/24",
+              "158.234.250.0/24",
+              "213.121.161.124/32",
+              "51.145.4.100/32"
+            ]
+          }
+        ]
+      },
+    ],
+  },
+
+  {
+    name           = "jd-dev"
+    custom_domain  = "jdfrontend-dev.platform.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
+
+    disabled_rules = {}
+    product        = "ss"
+        custom_rules = [
+      {
+        name     = "IPMatchWhitelist"
+        priority = 1
+        type     = "MatchRule"
+        action   = "Block"
+        match_conditions = [
+          {
+            match_variable     = "RemoteAddr"
+            operator           = "IPMatch"
+            negation_condition = true
+            match_values = [
+              "81.134.202.29/32",
+              "51.145.6.230/32",
+              "194.33.192.0/25",
+              "194.33.196.0/25",
+              "195.59.75.0/24",
+              "158.234.251.0/24",
+              "158.234.250.0/24",
+              "213.121.161.124/32",
+              "51.145.4.100/32"
+            ]
+          }
+        ]
+      },
+    ],
   }
 ]
 
