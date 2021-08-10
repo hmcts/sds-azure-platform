@@ -21,7 +21,7 @@ frontends = [
   },
 
   {
-    name           = "jd"
+    name           = "jd-bureau"
     custom_domain  = "jdbureau.dev.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
 
