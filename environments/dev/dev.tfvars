@@ -21,8 +21,8 @@ frontends = [
   },
 
   {
-    name           = "jd-dev"
-    custom_domain  = "jdbureau-dev.platform.hmcts.net"
+    name           = "jd-bureau"
+    custom_domain  = "jdbureau.dev.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
 
     disabled_rules = {}
@@ -57,7 +57,7 @@ frontends = [
 
   {
     name           = "jd-public"
-    custom_domain  = "jdfrontend-dev.platform.hmcts.net"
+    custom_domain  = "jdfrontend.dev.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
 
     disabled_rules = {}
