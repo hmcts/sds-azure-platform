@@ -24,7 +24,7 @@ frontends = [
     name           = "jd-bureau"
     custom_domain  = "jdbureau.dev.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
-
+    mode           = "Detection"
     health_path = "/"
     disabled_rules = {}
     product        = "ss"
@@ -60,7 +60,7 @@ frontends = [
     name           = "jd-public"
     custom_domain  = "jdfrontend.dev.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
-
+    mode           = "Detection"
     health_path = "/"
     disabled_rules = {}
     product        = "ss"
