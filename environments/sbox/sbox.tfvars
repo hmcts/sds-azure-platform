@@ -8,10 +8,10 @@ be_private_ip_address      = ["10.140.32.134"]
 destinations               = ["10.140.15.250", "10.140.31.250"]
 vnet_rg                    = "ss-sbox-network-rg"
 vnet_name                  = "ss-sbox-vnet"
-shutter_rg                 = "shutter-app-sbox-rg"
+shutter_rg                 = "sds-platform-sbox-rg"
 certificate_key_vault_name = "acmedtssdssbox"
 cdn_sku                    = "Standard_Verizon"
-resource_group_name        = "shutter-app-rg"
+resource_group_name        = "sds-platform-sbox-rg"
 
 frontends = [
   {
