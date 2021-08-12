@@ -22,7 +22,7 @@ steps:
   - task: TerraformCLI@0
     displayName: terraform init
     inputs:
-      command: init
+      command: init -reconfigure
       terraformVersion: ${{ parameters.tfversion }}
       workingDirectory: '$(System.DefaultWorkingDirectory)/components/${{ parameters.stack }}'
       backendType: azurerm
