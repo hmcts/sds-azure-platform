@@ -17,3 +17,8 @@ variable "product" {}
 variable "builtFrom" {}
 variable "traffic_manager_endpoints" { default = {} }
 variable "traffic_manager_profiles" { default = {} }
+variable "shutter_page" {}
+variable "shutter_rg" {}
+variable "resource_group_name" {}
+variable "certificate_key_vault_name" {}
+variable "cdn_sku" {}
