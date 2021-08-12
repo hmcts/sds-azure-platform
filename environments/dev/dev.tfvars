@@ -25,10 +25,11 @@ frontends = [
     custom_domain  = "jdbureau.dev.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
 
+    mode           = "Detection"
     health_path    = "/"
     disabled_rules = {}
     product        = "ss"
-    custom_rules = [
+    custom_rules   = [
       {
         name     = "IPMatchWhitelist"
         priority = 1
@@ -61,10 +62,11 @@ frontends = [
     custom_domain  = "jdfrontend.dev.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
 
+    mode           = "Detection"
     health_path    = "/"
     disabled_rules = {}
     product        = "ss"
-    custom_rules = [
+    custom_rules   = [
       {
         name     = "IPMatchWhitelist"
         priority = 1
