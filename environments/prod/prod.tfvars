@@ -220,5 +220,30 @@ frontends = [
         selector       = "__VIEWSTATE"
       }
     ]
+  },
+  {
+    name             = "jd-bureau"
+    custom_domain    = "juror-bureau.justice.gov.uk"
+    backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    ssl_mode         = "AzureKeyVault"
+    certificate_name = "juror-bureau-justice-gov-uk"
+    
+    mode = "Detection"
+    health_path    = "/"
+    disabled_rules = {}
+    product        = "ss"
+  },
+
+  {
+    name             = "jd-reply-jury-summons"
+    custom_domain    = "reply-jury-summons.service.gov.uk"
+    backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    ssl_mode         = "AzureKeyVault"
+    certificate_name = "reply-jury-summons-service-gov-uk"
+
+    mode = "Detection"
+    health_path    = "/"
+    disabled_rules = {}
+    product        = "ss"
   }
 ]
