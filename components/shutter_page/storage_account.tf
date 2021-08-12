@@ -1,4 +1,4 @@
-  
+
 resource "azurerm_storage_account" "shutter_store" {
   for_each = { for frontend in var.shutter_apps : frontend.name => frontend
   }
