@@ -1,6 +1,6 @@
 module "shutter_page" {
   source      = "git::https://github.com/hmcts/azure-platform-terraform/modules/shutter_page.git?ref=master"
-  env = var.environment
+  env         = var.environment
   common_tags = module.ctags.common_tags
 
 }
