@@ -49,7 +49,7 @@ parameters:
       - deployment: 'trafficmanager'
         environment: 'dev'
         dependsOn: 'Precheck'
-      - deployment: 'shutter'
+      - deployment: 'shutter_page'
         environment: 'sbox'
         dependsOn: 'Precheck'
 
