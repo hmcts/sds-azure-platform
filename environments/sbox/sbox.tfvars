@@ -11,6 +11,7 @@ vnet_name                  = "ss-sbox-vnet"
 shutter_rg                 = "shutter-app-sbox-rg"
 certificate_key_vault_name = "acmedtssdssbox"
 cdn_sku                    = "Standard_Verizon"
+resource_group_name        = "shutter-app-rg"
 
 frontends = [
   {
