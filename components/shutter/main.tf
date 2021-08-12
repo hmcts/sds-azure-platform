@@ -1,10 +1,11 @@
 locals {
-  key_vault_name = "acmedtssdssbox"
+  key_vault_name      = "acmedtssdssbox"
+  resource_group_name = "sds-platform-sbox-rg"
 }
 
 module "shutter" {
   source                     = "git::https://github.com/hmcts/azure-platform-terraform.git//modules/shutter_page?ref=master"
-  resource_group_name        = var.shutter_rg
+  resource_group_name        = local.resource_group_name
   env                        = var.env
   shutter_apps               = var.frontends
   common_tags                = module.ctags.common_tags
