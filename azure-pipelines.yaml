@@ -49,6 +49,9 @@ parameters:
       - deployment: 'trafficmanager'
         environment: 'dev'
         dependsOn: 'Precheck'
+      - deployment: 'shuttering'
+        environment: 'sbox'
+        dependsOn: 'Precheck'
 
   - name: location
     displayName: Location
