@@ -8,6 +8,9 @@ be_private_ip_address = ["10.145.32.134"]
 destinations          = ["10.145.15.250"]
 vnet_rg               = "ss-dev-network-rg"
 vnet_name             = "ss-dev-vnet"
+certificate_key_vault_name = "acmedtssdsdev"
+cdn_sku                    = "Standard_Verizon"
+resource_group_name        = "sds-platform-dev-rg"
 
 frontends = [
 
