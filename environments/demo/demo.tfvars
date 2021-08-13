@@ -8,9 +8,9 @@ be_private_ip_address = ""
 destinations          = ["10.51.79.250"]
 vnet_rg               = "ss-demo-network-rg"
 vnet_name             = "ss-demo-vnet"
-shutter_rg                 = "sds-platform-demo-rg"
+#shutter_rg                 = "sds-platform-demo-rg"
 certificate_key_vault_name = "acmedtssdsdemo"
-cdn_sku                    = "Standard_Verizon"
+#cdn_sku                    = "Standard_Verizon"
 resource_group_name        = "sds-platform-demo-rg"
 
 frontends = [
