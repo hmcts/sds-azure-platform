@@ -6,7 +6,7 @@ locals {
 }
 
 module "shutter" {
-  source                     = "../shutter_page"
+  source                     = "../../modules/shutter_page"
   resource_group_name        = var.shutter_rg
   env                        = var.env
   shutter_apps               = var.frontends
