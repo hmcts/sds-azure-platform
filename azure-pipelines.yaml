@@ -136,10 +136,10 @@ stages:
                   location: ${{ parameters.location }}
                   stack: ${{ parameter.deployment }}
                   project: $(project) 
-                ${{ if eq(parameters['components.deployment'], 'shutter') }}:
-                  tfversion: "1.0.4"
-                ${{ if ne(parameters['components.deployment'], 'shutter') }}:
-                  tfversion: $(tfversion)
+                  ${{ if eq(parameters['components.deployment'], 'shutter') }}:
+                    tfversion: "1.0.4"
+                  ${{ if ne(parameters['components.deployment'], 'shutter') }}:
+                    tfversion: $(tfversion)
                   serviceConnection: "OPS-APPROVAL-GATE-${{ upper(parameter.environment) }}-ENVS"
                   product: $(product)
                   tfInitSub: ${{ variables.tfInitSub }}
