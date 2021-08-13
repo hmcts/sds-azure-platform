@@ -24,11 +24,12 @@ frontends = [
     name           = "jd-bureau"
     custom_domain  = "jdbureau.dev.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
+
     mode           = "Detection"
-    health_path = "/"
+    health_path    = "/"
     disabled_rules = {}
     product        = "ss"
-        custom_rules = [
+    custom_rules   = [
       {
         name     = "IPMatchWhitelist"
         priority = 1
@@ -60,11 +61,12 @@ frontends = [
     name           = "jd-public"
     custom_domain  = "jdfrontend.dev.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
+
     mode           = "Detection"
-    health_path = "/"
+    health_path    = "/"
     disabled_rules = {}
     product        = "ss"
-        custom_rules = [
+    custom_rules   = [
       {
         name     = "IPMatchWhitelist"
         priority = 1
@@ -94,10 +96,10 @@ frontends = [
 ]
 
 traffic_manager_endpoints = {
-  fw-uksouth-nonprodi-palo-mailrelay0-pip = { profile_name = "ss-dev-mailrelay-tm", resource_group_name = "ss-dev-network-rg", target_resource_id = "/subscriptions/fb084706-583f-4c9a-bdab-949aac66ba5c/resourceGroups/hmcts-hub-nonprodi/providers/Microsoft.Network/publicIPAddresses/fw-uksouth-nonprodi-palo-mailrelay0-pip", type = "azureEndpoints", weight = "50"},
-  fw-uksouth-nonprodi-palo-mailrelay1-pip = { profile_name = "ss-dev-mailrelay-tm", resource_group_name = "ss-dev-network-rg", target_resource_id = "/subscriptions/fb084706-583f-4c9a-bdab-949aac66ba5c/resourceGroups/hmcts-hub-nonprodi/providers/Microsoft.Network/publicIPAddresses/fw-uksouth-nonprodi-palo-mailrelay1-pip", type = "azureEndpoints", weight = "50"}
+  fw-uksouth-nonprodi-palo-mailrelay0-pip = { profile_name = "ss-dev-mailrelay-tm", resource_group_name = "ss-dev-network-rg", target_resource_id = "/subscriptions/fb084706-583f-4c9a-bdab-949aac66ba5c/resourceGroups/hmcts-hub-nonprodi/providers/Microsoft.Network/publicIPAddresses/fw-uksouth-nonprodi-palo-mailrelay0-pip", type = "azureEndpoints", weight = "50" },
+  fw-uksouth-nonprodi-palo-mailrelay1-pip = { profile_name = "ss-dev-mailrelay-tm", resource_group_name = "ss-dev-network-rg", target_resource_id = "/subscriptions/fb084706-583f-4c9a-bdab-949aac66ba5c/resourceGroups/hmcts-hub-nonprodi/providers/Microsoft.Network/publicIPAddresses/fw-uksouth-nonprodi-palo-mailrelay1-pip", type = "azureEndpoints", weight = "50" }
 }
 
 traffic_manager_profiles = {
-  ss-dev-mailrelay-tm = { protocol = "TCP", port = "587", relative_name = "ss-dev-mailrelay", resource_group_name = "ss-dev-network-rg", traffic_routing_method = "Weighted", ttl = "180"}
+  ss-dev-mailrelay-tm = { protocol = "TCP", port = "587", relative_name = "ss-dev-mailrelay", resource_group_name = "ss-dev-network-rg", traffic_routing_method = "Weighted", ttl = "180" }
 }
