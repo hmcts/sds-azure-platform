@@ -2,7 +2,8 @@
 data "azurerm_subscription" "current" {}
 
 locals {
-  key_vault_name = "acme${replace(lower(data.azurerm_subscription.current.display_name), "-", "")}"
+  subscription_short_name = replace(lower(data.azurerm_subscription.current.display_name), "sharedservices", "sds")
+  key_vault_name = "acme${replace(lower(local.subscription_short_name), "-", "")}"
 }
 
 module "shutter" {
