@@ -9,6 +9,7 @@ destinations          = ["10.143.15.250", "10.143.31.250"]
 vnet_rg               = "ss-ithc-network-rg"
 vnet_name             = "ss-ithc-vnet"
 
+
 frontends = [
 
   {

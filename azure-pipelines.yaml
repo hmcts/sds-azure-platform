@@ -49,6 +49,9 @@ parameters:
       - deployment: 'trafficmanager'
         environment: 'dev'
         dependsOn: 'Precheck'
+      - deployment: 'shutter'
+        environment: 'sbox'
+        dependsOn: 'Precheck'
 
   - name: location
     displayName: Location
@@ -60,7 +63,7 @@ parameters:
 
 variables:
   - name: tfversion
-    value: 0.15.1
+    value: 1.0.4
   - name: project
     value: application
   - name: timeoutInMinutes
