@@ -52,6 +52,9 @@ parameters:
       - deployment: 'shutter'
         environment: 'sbox'
         dependsOn: 'Precheck'
+      - deployment: 'shutter'
+        environment: 'prod'
+        dependsOn: 'Precheck'
 
   - name: location
     displayName: Location
