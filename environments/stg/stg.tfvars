@@ -8,8 +8,6 @@ be_private_ip_address = ["10.148.32.138"]
 destinations          = ["10.148.15.250", "10.148.31.250"]
 vnet_rg               = "ss-stg-network-rg"
 vnet_name             = "ss-stg-vnet"
-certificate_key_vault_name = "acmedtssdsstg"
-resource_group_name        = "sds-platform-stg-rg"
 
 frontends = [
 

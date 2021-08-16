@@ -9,9 +9,7 @@ destinations          = ["10.144.15.250", "10.144.31.250"]
 vnet_rg               = "ss-prod-network-rg"
 vnet_name             = "ss-prod-vnet"
 shutter_rg                 = "sds-platform-prod-rg"
-certificate_key_vault_name = "acmedtssdsprod"
 cdn_sku                    = "Standard_Verizon"
-resource_group_name        = "sds-platform-prod-rg"
 
 frontends = [
   {
