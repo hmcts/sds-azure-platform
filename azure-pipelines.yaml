@@ -94,7 +94,7 @@ stages:
         - task: AzureKeyVault@1
           displayName: Retrieve keyvault secret for ADO token
           inputs:
-            ConnectedServiceNameARM: DCD-CFT-Sandbox
+            ConnectedServiceName: DCD-CFT-Sandbox
             keyVaultName: infra-vault-sandbox
             secretsFilter: 'azure-devops-token'
             runAsPreJob: false
@@ -137,5 +137,6 @@ stages:
                   stack: ${{ parameter.deployment }}
                   project: $(project)
                   tfversion : $(tfversion)
+                  serviceConnection: "OPS-APPROVAL-GATE-${{ upper(parameter.environment) }}-ENVS"
                   product: $(product)
                   tfInitSub: ${{ variables.tfInitSub }}
