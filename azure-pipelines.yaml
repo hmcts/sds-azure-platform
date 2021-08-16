@@ -63,7 +63,10 @@ parameters:
 
 variables:
   - name: tfversion
-    value: 0.15.1
+    ${{ if ne(parameters['components.deployment'], 'shutter') }}:
+      value: 0.15.1
+    ${{ if eq(parameters['components.deployment'], 'shutter') }}:
+      value: 1.0.4
   - name: project
     value: application
   - name: timeoutInMinutes
@@ -136,10 +139,6 @@ stages:
                   location: ${{ parameters.location }}
                   stack: ${{ parameter.deployment }}
                   project: $(project)
-                  ${{ if eq(parameters['components.deployment'], 'shutter') }}:
-                    tfversion : 1.0.4
-                  ${{ if ne(parameters['components.deployment'], 'shutter') }}:
-                    tfversion: $(tfversion)
-                  serviceConnection: "OPS-APPROVAL-GATE-${{ upper(parameter.environment) }}-ENVS"
+                  tfversion : $(tfversion)
                   product: $(product)
                   tfInitSub: ${{ variables.tfInitSub }}
