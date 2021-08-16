@@ -63,9 +63,9 @@ parameters:
 
 variables:
   - name: tfversion
-    ${{ if ne(parameters['components.deployment'], 'shutter') }}:
+    ${{ if ne(parameters['deployment'], 'shutter') }}:
       value: 0.15.1
-    ${{ if eq(parameters['components.deployment'], 'shutter') }}:
+    ${{ if eq(parameters['deployment'], 'shutter') }}:
       value: 1.0.4
   - name: project
     value: application
