@@ -18,6 +18,7 @@ frontends = [
     mode           = "Prevention"
     custom_domain  = "landregistrationdivision.decisions.tribunals.gov.uk"
     backend_domain = ["34.243.192.28"]
+    shutter_app    = false
 
     global_exclusions = [
       {
@@ -38,6 +39,7 @@ frontends = [
     mode           = "Prevention"
     custom_domain  = "immigrationservices.decisions.tribunals.gov.uk"
     backend_domain = ["34.243.192.28"]
+    shutter_app    = false
 
     global_exclusions = [
       {
@@ -53,6 +55,7 @@ frontends = [
     mode           = "Prevention"
     custom_domain  = "informationrights.decisions.tribunals.gov.uk"
     backend_domain = ["34.243.192.28"]
+    shutter_app    = false
 
     global_exclusions = [
       {
@@ -83,6 +86,7 @@ frontends = [
     mode           = "Prevention"
     custom_domain  = "administrativeappeals.decisions.tribunals.gov.uk"
     backend_domain = ["34.243.192.28"]
+    shutter_app    = false
 
     global_exclusions = [
       {
@@ -103,6 +107,7 @@ frontends = [
     mode           = "Prevention"
     custom_domain  = "carestandards.decisions.tribunals.gov.uk"
     backend_domain = ["34.243.192.28"]
+    shutter_app    = false
 
     global_exclusions = [
       {
@@ -133,6 +138,7 @@ frontends = [
     mode           = "Prevention"
     custom_domain  = "landschamber.decisions.tribunals.gov.uk"
     backend_domain = ["34.243.192.28"]
+    shutter_app    = false
 
     global_exclusions = [
       {
@@ -148,6 +154,7 @@ frontends = [
     mode           = "Prevention"
     custom_domain  = "financeandtax.decisions.tribunals.gov.uk"
     backend_domain = ["34.243.192.28"]
+    shutter_app    = false
 
     disabled_rules = {
       SQLI = []
@@ -184,6 +191,7 @@ frontends = [
     mode           = "Prevention"
     custom_domain  = "employmentappeals.decisions.tribunals.gov.uk"
     backend_domain = ["34.243.192.28"]
+    shutter_app    = false
 
     global_exclusions = [
       {
@@ -199,6 +207,7 @@ frontends = [
     mode           = "Prevention"
     custom_domain  = "transportappeals.decisions.tribunals.gov.uk"
     backend_domain = ["34.243.192.28"]
+    shutter_app    = false
 
     global_exclusions = [
       {
@@ -214,6 +223,7 @@ frontends = [
     mode           = "Prevention"
     custom_domain  = "cicap.decisions.tribunals.gov.uk"
     backend_domain = ["34.243.192.28"]
+    shutter_app    = false
 
     global_exclusions = [
       {
