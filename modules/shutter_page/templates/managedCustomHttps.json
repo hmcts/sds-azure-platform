@@ -1,0 +1,8 @@
+{
+    "certificateSource": "Cdn",
+    "certificateSourceParameters": {
+      "@odata.type": "#Microsoft.Azure.Cdn.Models.CdnCertificateSourceParameters",
+      "certificateType": "Dedicated"
+    },
+    "protocolType": "ServerNameIndication"
+  }
