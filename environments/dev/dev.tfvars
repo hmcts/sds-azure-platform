@@ -29,7 +29,7 @@ frontends = [
     health_path    = "/"
     disabled_rules = {}
     product        = "ss"
-    custom_rules   = [
+    custom_rules = [
       {
         name     = "IPMatchWhitelist"
         priority = 1
@@ -66,7 +66,7 @@ frontends = [
     health_path    = "/"
     disabled_rules = {}
     product        = "ss"
-    custom_rules   = [
+    custom_rules = [
       {
         name     = "IPMatchWhitelist"
         priority = 1

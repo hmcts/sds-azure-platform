@@ -17,5 +17,4 @@ resource "azurerm_cdn_endpoint" "shutter_endpoint" {
 
   tags = var.common_tags
 
-  depends_on = [azurerm_cdn_profile.main]
 }
