@@ -1,5 +1,5 @@
 resource "azurerm_cdn_profile" "main" {
-  for_each = toset(distinct([for frontend in var.shutter_apps : frontend.product]))
+  for_each = toset(distinct([for frontend in var.shutter_apps : frontend.name]))
 
   name                = "hmcts-shutter-${each.value}"
   location            = "West US"
