@@ -8,4 +8,3 @@ variable "shutter_apps" {
 }
 variable "shutter_rg" {}
 variable "cdn_sku" {}
-variable "ssl_mode" {}
