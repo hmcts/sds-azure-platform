@@ -17,7 +17,6 @@ frontends = [
     backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
 
     disabled_rules = {}
-    product        = "ss"
   },
 
   {
@@ -159,7 +158,6 @@ frontends = [
         "921110",
       ],
     }
-    product        = "ss"
     custom_rules = [
       {
         name     = "IPMatchWhitelist"
@@ -196,7 +194,6 @@ frontends = [
     mode           = "Detection"
     health_path    = "/"
     disabled_rules = {}
-    product        = "ss"
     custom_rules = [
       {
         name     = "IPMatchWhitelist"
