@@ -1,7 +1,7 @@
 data "azurerm_client_config" "current" {}
 
 data "azurerm_key_vault_secret" "certificate" {
-  for_each = { for frontend in var.shutter_apps : frontend.name => frontend if lookup(frontend, "ssl_mode", var.ssl_mode) == "AzureKeyVault"
+  for_each = { for frontend in var.shutter_apps : frontend.name => frontend
   }
 
   name         = each.value.certificate_name
@@ -9,7 +9,7 @@ data "azurerm_key_vault_secret" "certificate" {
 }
 
 resource "null_resource" "enable_custom_https_cmd" {
-  for_each = { for frontend in var.shutter_apps : frontend.name => frontend if lookup(frontend, "ssl_mode", var.ssl_mode) == "AzureKeyVault"
+  for_each = { for frontend in var.shutter_apps : frontend.name => frontend
   }
 
   triggers = {
@@ -32,22 +32,5 @@ az rest --method POST \
  --body "$json" || true # this can only be run if it's not been run before or its in the completed state.
 EOF
 }
-
-}
-
-
-resource "null_resource" "enable_cdn_managed_custom_https_cmd" {
-  for_each = { for frontend in var.shutter_apps : frontend.name => frontend if lookup(frontend, "ssl_mode", var.ssl_mode) == "CDNManaged"
-  }
-  provisioner "local-exec" {
-
-    command = <<EOF
-json='
-${file("${path.module}/templates/managedCustomHttps.json")}'
-az rest --method POST \
- --uri "https://management.azure.com/subscriptions/${data.azurerm_client_config.current.subscription_id}/resourceGroups/${data.azurerm_resource_group.shutter.name}/providers/Microsoft.Cdn/profiles/${azurerm_cdn_profile.main["${each.value.product}"].name}/endpoints/${azurerm_cdn_endpoint.shutter_endpoint["${each.value.name}"].name}/customDomains/${replace("${each.value.custom_domain}", ".", "-")}/enableCustomHttps?api-version=2019-12-31" \
- --body "$json" || true # this can only be run if it's not been run before or its in the completed state.
-EOF
-  }
 
 }
