@@ -25,7 +25,7 @@ frontends = [
     custom_domain  = "jdbureau.dev.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
 
-    mode           = "Detection"
+    mode           = "Prevention"
     health_path    = "/"
     disabled_rules = {
       JAVA = [
