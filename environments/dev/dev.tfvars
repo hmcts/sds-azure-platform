@@ -23,6 +23,8 @@ frontends = [
     name           = "jd-bureau"
     custom_domain  = "jdbureau.dev.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
+    session_affinity = true
+    session_affinity_ttl_seconds = 14400
 
     mode           = "Prevention"
     health_path    = "/"
