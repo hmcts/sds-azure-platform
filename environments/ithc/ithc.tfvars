@@ -18,6 +18,5 @@ frontends = [
     backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
 
     disabled_rules = {}
-    product        = "ss"
   }
 ]
