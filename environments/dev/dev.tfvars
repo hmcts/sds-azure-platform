@@ -24,11 +24,11 @@ frontends = [
     custom_domain  = "jdbureau.dev.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
 
-    mode           = "Prevention"
-    health_path    = "/"
-    session_affinity = true
+    mode                         = "Prevention"
+    health_path                  = "/"
+    session_affinity             = true
     session_affinity_ttl_seconds = 14400
-    
+
     disabled_rules = {
       JAVA = [
         "944250",
@@ -195,10 +195,10 @@ frontends = [
     name           = "jd-public"
     custom_domain  = "jdfrontend.dev.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
-    
-    mode           = "Detection"
-    health_path    = "/"
-    session_affinity = true
+
+    mode                         = "Detection"
+    health_path                  = "/"
+    session_affinity             = true
     session_affinity_ttl_seconds = 14400
 
     disabled_rules = {}
