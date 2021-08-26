@@ -406,3 +406,12 @@ frontends = [
     disabled_rules = {}
   }
 ]
+
+traffic_manager_endpoints = {
+  fw-uksouth-prod-int-palo-mailrelay0-pip = { profile_name = "ss-prod-mailrelay-tm", resource_group_name = "ss-prod-network-rg", target_resource_id = "/subscriptions/0978315c-75fe-4ada-9d11-1eb5e0e0b214/resourceGroups/hmcts-hub-prod-int/providers/Microsoft.Network/publicIPAddresses/fw-uksouth-prod-int-palo-mailrelay0-pip", type = "azureEndpoints", weight = "50" },
+  fw-uksouth-prod-int-palo-mailrelay1-pip = { profile_name = "ss-prod-mailrelay-tm", resource_group_name = "ss-prod-network-rg", target_resource_id = "/subscriptions/0978315c-75fe-4ada-9d11-1eb5e0e0b214/resourceGroups/hmcts-hub-prod-int/providers/Microsoft.Network/publicIPAddresses/fw-uksouth-prod-int-palo-mailrelay1-pip", type = "azureEndpoints", weight = "50" }
+}
+
+traffic_manager_profiles = {
+  ss-prod-mailrelay-tm = { protocol = "TCP", port = "587", relative_name = "ss-prod-mailrelay", resource_group_name = "ss-prod-network-rg", traffic_routing_method = "Weighted", ttl = "180" }
+}
