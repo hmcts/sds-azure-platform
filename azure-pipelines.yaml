@@ -48,6 +48,7 @@ parameters:
         dependsOn: "Precheck"
       - deployment: "trafficmanager"
         environment: "dev"
+        dependsOn: "Precheck"
       - deployment: "trafficmanager"
         environment: "prod"
         dependsOn: "Precheck"
