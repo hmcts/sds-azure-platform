@@ -413,5 +413,5 @@ traffic_manager_endpoints = {
 }
 
 traffic_manager_profiles = {
-  ss-dev-mailrelay-tm = { protocol = "TCP", port = "587", relative_name = "ss-prod-mailrelay", resource_group_name = "ss-prod-network-rg", traffic_routing_method = "Weighted", ttl = "180" }
+  ss-prod-mailrelay-tm = { protocol = "TCP", port = "587", relative_name = "ss-prod-mailrelay", resource_group_name = "ss-prod-network-rg", traffic_routing_method = "Weighted", ttl = "180" }
 }
