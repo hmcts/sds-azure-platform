@@ -406,3 +406,12 @@ frontends = [
     disabled_rules = {}
   }
 ]
+
+traffic_manager_endpoints = {
+  ? = { profile_name = "ss-prod-mailrelay-tm", resource_group_name = "ss-prod-network-rg", target_resource_id = "?", type = "azureEndpoints", weight = "50" },
+  ? = { profile_name = "ss-prod-mailrelay-tm", resource_group_name = "ss-prod-network-rg", target_resource_id = "?", type = "azureEndpoints", weight = "50" }
+}
+
+traffic_manager_profiles = {
+  ss-dev-mailrelay-tm = { protocol = "TCP", port = "587", relative_name = "ss-prod-mailrelay", resource_group_name = "ss-prod-network-rg", traffic_routing_method = "Weighted", ttl = "180" }
+}
