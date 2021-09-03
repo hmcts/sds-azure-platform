@@ -228,6 +228,14 @@ frontends = [
         ]
       },
     ],
+  },
+
+  {
+    name           = "pip-frontend"
+    custom_domain  = "pip-frontend.dev.platform.hmcts.net"
+    backend_domain = ["firewall-prod-int-palo-sdsdev.uksouth.cloudapp.azure.com"]
+
+    disabled_rules = {}
   }
 ]
 
