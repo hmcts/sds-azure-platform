@@ -38,13 +38,5 @@ frontends = [
         ]
       },
     ],
-  },
-
-  {
-    name           = "pip-frontend"
-    custom_domain  = "pip-frontend.sbox.platform.hmcts.net"
-    backend_domain = ["firewall-prod-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
-
-    disabled_rules = {}
   }
 ]
