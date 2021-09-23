@@ -31,5 +31,12 @@ frontends = [
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
 
     disabled_rules = {}
+  },
+  {
+    name           = "hmi-case-hq-emulator"
+    custom_domain  = "hmi-case-hq-emulator.staging.platform.hmcts.net"
+    backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
+
+    disabled_rules = {}
   }
 ]
