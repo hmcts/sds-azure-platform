@@ -18,10 +18,23 @@ frontends = [
 
     disabled_rules = {}
   },
-
   {
     name           = "pip-frontend"
     custom_domain  = "pip-frontend.staging.platform.hmcts.net"
+    backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
+
+    disabled_rules = {}
+  },
+  {
+    name           = "pip-business-rules"
+    custom_domain  = "pip-business-rules.staging.platform.hmcts.net"
+    backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
+
+    disabled_rules = {}
+  },
+  {
+    name           = "hmi-case-hq-emulator"
+    custom_domain  = "hmi-case-hq-emulator.staging.platform.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
 
     disabled_rules = {}
