@@ -44,3 +44,21 @@ gateways:
       - product: vh
         component: test-web
         ssl_enabled: true
+      - product: pip
+        component: pip-business-rules
+        ssl_enabled: true
+      - product: pip
+        component: pip-publication-services
+        ssl_enabled: true
+      - product: pip
+        component: pip-data-management
+        ssl_enabled: true
+      - product: pip
+        component: pip-channel-management
+        ssl_enabled: true
+      - product: pip
+        component: pip-subscription-management
+        ssl_enabled: true
+      - product: pip
+        component: pip-account-management
+        ssl_enabled: true
