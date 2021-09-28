@@ -38,5 +38,40 @@ frontends = [
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
 
     disabled_rules = {}
+  },
+  {
+    name           = "pip-publication-services"
+    custom_domain  = "pip-publication-services.staging.platform.hmcts.net"
+    backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
+
+    disabled_rules = {}
+  },
+  {
+    name           = "pip-data-management"
+    custom_domain  = "pip-data-management.staging.platform.hmcts.net"
+    backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
+
+    disabled_rules = {}
+  },
+  {
+    name           = "pip-channel-management"
+    custom_domain  = "pip-channel-management.staging.platform.hmcts.net"
+    backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
+
+    disabled_rules = {}
+  },
+  {
+    name           = "pip-subscription-management"
+    custom_domain  = "pip-subscription-management.staging.platform.hmcts.net"
+    backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
+
+    disabled_rules = {}
+  },
+  {
+    name           = "pip-account-management"
+    custom_domain  = "pip-account-management.staging.platform.hmcts.net"
+    backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
+
+    disabled_rules = {}
   }
 ]
