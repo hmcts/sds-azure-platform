@@ -46,20 +46,20 @@ gateways:
         component: test-web
         ssl_enabled: true
       - product: pip
-        component: pip-business-rules
+        component: business-rules
         ssl_enabled: true
       - product: pip
-        component: pip-publication-services
+        component: publication-services
         ssl_enabled: true
       - product: pip
-        component: pip-data-management
+        component: data-management
         ssl_enabled: true
       - product: pip
-        component: pip-channel-management
+        component: channel-management
         ssl_enabled: true
       - product: pip
-        component: pip-subscription-management
+        component: subscription-management
         ssl_enabled: true
       - product: pip
-        component: pip-account-management
+        component: account-management
         ssl_enabled: true
