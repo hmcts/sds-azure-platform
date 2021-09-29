@@ -36,4 +36,5 @@ module "privatedns" {
   env                 = var.env
   resource_group_name = "core-infra-intsvc-rg"
   zone_name           = local.dns_zone
+  create_zone         = false
 }
