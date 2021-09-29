@@ -1,13 +1,12 @@
-project               = "sdshmcts"
-location              = "uksouth"
-env                   = "dev"
-subscription          = "dev"
-oms_env               = "dev"
-private_ip_address    = "10.145.32.132"
-be_private_ip_address = ["10.145.32.134"]
-destinations          = ["10.145.15.250"]
-vnet_rg               = "ss-dev-network-rg"
-vnet_name             = "ss-dev-vnet"
+project            = "sdshmcts"
+location           = "uksouth"
+env                = "dev"
+subscription       = "dev"
+oms_env            = "dev"
+private_ip_address = "10.145.32.132"
+destinations       = ["10.145.15.250"]
+vnet_rg            = "ss-dev-network-rg"
+vnet_name          = "ss-dev-vnet"
 
 frontends = [
 

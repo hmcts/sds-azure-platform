@@ -25,7 +25,7 @@ module "backendappgateway" {
   vault_name                 = local.vault_name
   location                   = var.location
   backend_pool_ip_addresses  = var.destinations
-  private_ip_address         = var.be_private_ip_address
+  private_ip_address         = local.gateways[*].gateway_configuration.private_ip_address
   log_analytics_workspace_id = module.logworkspace.workspace_id
   vnet_rg                    = var.vnet_rg
   vnet_name                  = var.vnet_name

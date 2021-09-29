@@ -7,7 +7,6 @@ variable "environment" {}
 variable "frontends" {}
 variable "location" {}
 variable "oms_env" {}
-variable "be_private_ip_address" {}
 variable "private_ip_address" {}
 variable "project" {}
 variable "subscription" {}
