@@ -1,15 +1,14 @@
-project               = "sdshmcts"
-location              = "uksouth"
-env                   = "prod"
-subscription          = "prod"
-oms_env               = "prod"
-private_ip_address    = "10.144.32.132"
-be_private_ip_address = ["10.144.32.136"]
-destinations          = ["10.144.15.250", "10.144.31.250"]
-vnet_rg               = "ss-prod-network-rg"
-vnet_name             = "ss-prod-vnet"
-shutter_rg            = "sds-platform-prod-rg"
-cdn_sku               = "Standard_Verizon"
+project            = "sdshmcts"
+location           = "uksouth"
+env                = "prod"
+subscription       = "prod"
+oms_env            = "prod"
+private_ip_address = "10.144.32.132"
+destinations       = ["10.144.15.250", "10.144.31.250"]
+vnet_rg            = "ss-prod-network-rg"
+vnet_name          = "ss-prod-vnet"
+shutter_rg         = "sds-platform-prod-rg"
+cdn_sku            = "Standard_Verizon"
 
 frontends = [
   {
@@ -230,8 +229,8 @@ frontends = [
     ssl_mode         = "AzureKeyVault"
     certificate_name = "juror-bureau-justice-gov-uk"
 
-    mode           = "Prevention"
-    health_path    = "/"
+    mode        = "Prevention"
+    health_path = "/"
     disabled_rules = {
       JAVA = [
         "944250",
