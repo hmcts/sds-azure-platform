@@ -1,7 +1,7 @@
 locals {
   dns_zone_label_1 = var.env == "sbox" ? "sandbox" : var.env
   dns_zone_label   = var.env == "stg" ? "staging" : local.dns_zone_label_1
-  dns_zone = var.env == "prod" ? "platform.hmcts.net" : "${local.dns_zone_label}.platform.hmcts.net"
+  dns_zone         = var.env == "prod" ? "platform.hmcts.net" : "${local.dns_zone_label}.platform.hmcts.net"
 
   gateways = yamldecode(data.local_file.configuration.content).gateways
 

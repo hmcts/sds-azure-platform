@@ -1,12 +1,12 @@
-project               = "sdshmcts"
-location              = "uksouth"
-env                   = "stg"
-subscription          = "stg"
-oms_env               = "stg"
-private_ip_address    = "10.148.32.132"
-destinations          = ["10.148.15.250", "10.148.31.250"]
-vnet_rg               = "ss-stg-network-rg"
-vnet_name             = "ss-stg-vnet"
+project            = "sdshmcts"
+location           = "uksouth"
+env                = "stg"
+subscription       = "stg"
+oms_env            = "stg"
+private_ip_address = "10.148.32.132"
+destinations       = ["10.148.15.250", "10.148.31.250"]
+vnet_rg            = "ss-stg-network-rg"
+vnet_name          = "ss-stg-vnet"
 
 frontends = [
 
