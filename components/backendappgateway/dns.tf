@@ -1,6 +1,7 @@
 locals {
-  dns_zone_1 = var.env == "sbox" ? "sandbox" : var.env
-  dns_zone   = var.env == "stg" ? "staging" : local.dns_zone_1
+  dns_zone_label_1 = var.env == "sbox" ? "sandbox" : var.env
+  dns_zone_label   = var.env == "stg" ? "staging" : local.dns_zone_label_1
+  dns_zone = var.env == "prod" ? "platform.hmcts.net" : "${local.dns_zone_label}.platform.hmcts.net"
 
   gateways = yamldecode(data.local_file.configuration.content).gateways
 
@@ -24,5 +25,5 @@ module "privatedns" {
   a_recordsets        = local.a_records
   env                 = var.env
   resource_group_name = "core-infra-intsvc-rg"
-  zone_name           = "${local.dns_zone}.platform.hmcts.net"
+  zone_name           = local.dns_zone
 }
