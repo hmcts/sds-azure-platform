@@ -20,7 +20,17 @@ data "local_file" "configuration" {
   filename = "${path.cwd}/../../environments/${var.env}/backend_lb_config.yaml"
 }
 
+provider "azurerm" {
+  features {}
+  alias           = "dns"
+  subscription_id = var.env == "sbox" ? "1497c3d7-ab6d-4bb7-8a10-b51d03189ee3" : "1baf5470-1c3e-40d3-a6f7-74bfbce4b348"
+}
+
 module "privatedns" {
+  providers = {
+    azurerm = azurerm.dns
+  }
+
   source              = "git::https://github.com/hmcts/azure-private-dns.git//modules/azure-private-dns?ref=master"
   a_recordsets        = local.a_records
   env                 = var.env
