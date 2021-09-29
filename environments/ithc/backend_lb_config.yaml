@@ -6,6 +6,7 @@ gateways:
       ssl_host_name_suffix: ithc.platform.hmcts.net
       certificate_name: wildcard-ithc-platform-hmcts-net
       exclude_env_in_app_name: true
+      private_ip_address: 10.143.32.136
     app_configuration:
     # Toffee
       - product: toffee
