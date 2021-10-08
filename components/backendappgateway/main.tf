@@ -32,5 +32,5 @@ module "backendappgateway" {
   key_vault_resource_group   = "sds-platform-${var.environment}-rg"
   common_tags                = module.ctags.common_tags
 
-  # enable_multiple_availability_zones = true
+  enable_multiple_availability_zones = true
 }
