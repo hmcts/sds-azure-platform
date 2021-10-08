@@ -17,7 +17,7 @@ locals {
 }
 
 module "backendappgateway" {
-  source = "git::https://github.com/hmcts/terraform-module-application-backend.git?ref=DTSPO-4790"
+  source = "git::https://github.com/hmcts/terraform-module-application-backend.git?ref=master"
 
   yaml_path = "${path.cwd}/../../environments/${var.env}/backend_lb_config.yaml"
 
