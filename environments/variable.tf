@@ -18,4 +18,4 @@ variable "traffic_manager_endpoints" { default = {} }
 variable "traffic_manager_profiles" { default = {} }
 variable "shutter_rg" { default = "" }
 variable "cdn_sku" { default = "" }
-variable "availability_zones" { default = "" }
+variable "availability_zones" { default = [] }
