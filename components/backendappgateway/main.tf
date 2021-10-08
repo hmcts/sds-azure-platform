@@ -31,6 +31,5 @@ module "backendappgateway" {
   vnet_name                          = var.vnet_name
   key_vault_resource_group           = "sds-platform-${var.environment}-rg"
   common_tags                        = module.ctags.common_tags
-  enable_multiple_availability_zones = true
   availability_zones                 = var.availability_zones
 }
