@@ -6,7 +6,7 @@ module "ctags" {
 }
 
 module "api-mgmt" {
-  source             = "git::https://github.com/hmcts/cnp-module-api-mgmt-private.git?ref=main"
+  source             = "git::https://github.com/hmcts/cnp-module-api-mgmt-private.git?ref=to-parameters-tpl"
   location           = var.location
   sku_name           = "Developer"
   vnet_rg            = var.vnet_rg
