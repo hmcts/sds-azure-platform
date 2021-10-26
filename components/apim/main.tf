@@ -12,7 +12,7 @@ module "ctags" {
 }
 
 module "api-mgmt-private" {
-  source             = "git@github.com:hmcts/cnp-module-api-mgmt-private"
+  source             = "git@github.com:hmcts/cnp-module-api-mgmt-private.git?ref=master"
   location           = var.location
   sku_name           = "Developer"
   vnet_rg                    = var.vnet_rg
