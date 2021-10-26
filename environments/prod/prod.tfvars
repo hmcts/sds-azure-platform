@@ -231,6 +231,7 @@ frontends = [
 
     session_affinity             = true
     session_affinity_ttl_seconds = 14400
+    appgw_cookie_based_affinity  = "Enabled"
 
     mode        = "Prevention"
     health_path = "/"
@@ -405,6 +406,7 @@ frontends = [
 
     session_affinity             = true
     session_affinity_ttl_seconds = 14400
+    appgw_cookie_based_affinity  = "Enabled"
 
     mode           = "Detection"
     health_path    = "/"
