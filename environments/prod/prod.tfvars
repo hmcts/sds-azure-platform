@@ -229,6 +229,9 @@ frontends = [
     ssl_mode         = "AzureKeyVault"
     certificate_name = "juror-bureau-justice-gov-uk"
 
+    session_affinity             = true
+    session_affinity_ttl_seconds = 14400
+
     mode        = "Prevention"
     health_path = "/"
     disabled_rules = {
@@ -399,6 +402,9 @@ frontends = [
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     ssl_mode         = "AzureKeyVault"
     certificate_name = "reply-jury-summons-service-gov-uk"
+
+    session_affinity             = true
+    session_affinity_ttl_seconds = 14400
 
     mode           = "Detection"
     health_path    = "/"
