@@ -1,5 +1,5 @@
 // terraform doesn't let you have undeclared vars used from a tfvars file
-// We link this file using a symbolic link  (`ln -s ../../environments/variables.tf variables.tf`) in each component directory
+// We link this file using a symbolic link  (`ln -s ../../environments/variable.tf variable.tf`) in each component directory
 
 variable "destinations" {}
 variable "env" {}
