@@ -5,7 +5,7 @@ module "ctags" {
   builtFrom   = var.builtFrom
 }
 
-module "api-mgmt-private" {
+module "api-mgmt" {
   source             = "git::https://github.com/hmcts/cnp-module-api-mgmt-private.git?ref=main"
   location           = var.location
   sku_name           = "Developer"
@@ -20,7 +20,7 @@ module "api-mgmt-private" {
 resource "azurerm_api_management_named_value" "environment" {
   name                = "environment"
   resource_group_name = var.vnet_rg
-  api_management_name = module.api-mgmt-private.api_mgmt_name
+  api_management_name = module.api-mgmt.name
   display_name        = "environment"
   value               = var.env
 }
