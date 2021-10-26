@@ -9,7 +9,6 @@ vnet_rg            = "ss-sbox-network-rg"
 vnet_name          = "ss-sbox-vnet"
 shutter_rg         = "sds-platform-sbox-rg"
 cdn_sku            = "Standard_Verizon"
-department         = "sds"
 
 frontends = [
   {
