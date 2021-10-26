@@ -17,7 +17,7 @@ module "api-mgmt-private" {
   common_tags        = module.ctags.common_tags
 }
 
-resource "azurerm_api_management_named_value" "environment-named-value-private" {
+resource "azurerm_api_management_named_value" "environment" {
   name                = "environment"
   resource_group_name = var.vnet_rg
   api_management_name = module.api-mgmt-private.api_mgmt_name
