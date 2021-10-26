@@ -12,15 +12,15 @@ module "ctags" {
 }
 
 module "api-mgmt-private" {
-  source             = "git@github.com:hmcts/cnp-module-api-mgmt-private.git?ref=master"
-  location           = var.location
-  sku_name           = "Developer"
+  source                     = "git@github.com:hmcts/cnp-module-api-mgmt-private.git?ref=master"
+  location                   = var.location
+  sku_name                   = "Developer"
   vnet_rg                    = var.vnet_rg
   vnet_name                  = var.vnet_name
   apim_subnet_address_prefix = azurerm_subnet.aksappgw.address_prefixes
-  env                = var.env
-  virtualNetworkType = "Internal"
-  common_tags        = module.ctags.common_tags
+  env                        = var.env
+  virtualNetworkType         = "Internal"
+  common_tags                = module.ctags.common_tags
 }
 
 resource "azurerm_api_management_named_value" "environment-named-value-private" {
