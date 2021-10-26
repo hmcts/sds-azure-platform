@@ -17,7 +17,7 @@ module "api-mgmt-private" {
   sku_name                   = "Developer"
   vnet_rg                    = var.vnet_rg
   vnet_name                  = var.vnet_name
-  apim_subnet_address_prefix = azurerm_subnet.aksappgw.address_prefixes
+  apim_subnet_address_prefix = data.azurerm_subnet.aksappgw.address_prefixes
   env                        = var.env
   virtualNetworkType         = "Internal"
   common_tags                = module.ctags.common_tags
