@@ -1,7 +1,7 @@
 data "azurerm_subnet" "aksappgw" {
   name                 = "aks-appgw"
   virtual_network_name = var.vnet_rg
-  resource_group_name  = "networking"
+  resource_group_name  = var.vnet_name
 }
 
 module "ctags" {
@@ -20,6 +20,7 @@ module "api-mgmt-private" {
   apim_subnet_address_prefix = data.azurerm_subnet.aksappgw.address_prefixes
   env                        = var.env
   virtualNetworkType         = "Internal"
+  department                 = var.department
   common_tags                = module.ctags.common_tags
 }
 
