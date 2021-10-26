@@ -1,8 +1,4 @@
-data "azurerm_subnet" "aksappgw" {
-  name                 = "aks-appgw"
-  virtual_network_name = var.vnet_rg
-  resource_group_name  = var.vnet_name
-}
+
 
 module "ctags" {
   source      = "git::https://github.com/hmcts/terraform-module-common-tags.git?ref=master"
@@ -17,7 +13,6 @@ module "api-mgmt-private" {
   sku_name                   = "Developer"
   vnet_rg                    = var.vnet_rg
   vnet_name                  = var.vnet_name
-  apim_subnet_address_prefix = data.azurerm_subnet.aksappgw.address_prefixes
   env                        = var.env
   virtualNetworkType         = "Internal"
   department                 = var.department
