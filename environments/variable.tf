@@ -19,3 +19,4 @@ variable "traffic_manager_profiles" { default = {} }
 variable "shutter_rg" { default = "" }
 variable "cdn_sku" { default = "" }
 variable "department" { default = "sds" }
+variable "apim_sku_name" { default = "Developer" }
