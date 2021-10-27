@@ -27,6 +27,7 @@ frontends = [
     health_path                  = "/"
     session_affinity             = true
     session_affinity_ttl_seconds = 14400
+    appgw_cookie_based_affinity  = "Enabled"
 
     disabled_rules = {
       JAVA = [
@@ -199,6 +200,7 @@ frontends = [
     health_path                  = "/"
     session_affinity             = true
     session_affinity_ttl_seconds = 14400
+    appgw_cookie_based_affinity  = "Enabled"
 
     disabled_rules = {}
     custom_rules = [
