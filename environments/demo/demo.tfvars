@@ -17,5 +17,12 @@ frontends = [
     certificate_name = "wildcard-demo-platform-hmcts-net"
     disabled_rules   = {}
     product          = "ss"
+  },
+  {
+    name           = "pip-frontend"
+    custom_domain  = "pip-frontend.staging.platform.hmcts.net"
+    backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
+
+    disabled_rules = {}
   }
 ]
