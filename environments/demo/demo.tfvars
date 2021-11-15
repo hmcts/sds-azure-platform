@@ -20,8 +20,8 @@ frontends = [
   },
   {
     name           = "pip-frontend"
-    custom_domain  = "pip-frontend.staging.platform.hmcts.net"
-    backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
+    custom_domain  = "pip-frontend.demo.platform.hmcts.net"
+    backend_domain = ["firewall-prod-int-palo-sdsdemo.uksouth.cloudapp.azure.com"]
 
     disabled_rules = {}
   }
