@@ -6,8 +6,24 @@ gateways:
       ssl_host_name_suffix: demo.platform.hmcts.net
       certificate_name: wildcard-demo-platform-hmcts-net
       exclude_env_in_app_name: true
-      private_ip_address: 10.51.96.132
+      private_ip_address: 10.51.32.121
     app_configuration:
-    # Toffee application
-      - product: toffee
-        component: recipe-backend
+    # PIP application
+      - product: pip
+        component: business-rules
+        ssl_enabled: true
+      - product: pip
+        component: publication-services
+        ssl_enabled: true
+      - product: pip
+        component: data-management
+        ssl_enabled: true
+      - product: pip
+        component: channel-management
+        ssl_enabled: true
+      - product: pip
+        component: subscription-management
+        ssl_enabled: true
+      - product: pip
+        component: account-management
+        ssl_enabled: true

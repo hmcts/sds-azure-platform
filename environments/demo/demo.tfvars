@@ -9,13 +9,11 @@ vnet_rg            = "ss-demo-network-rg"
 vnet_name          = "ss-demo-vnet"
 
 frontends = [
-
   {
-    name             = "toffee"
-    custom_domain    = "toffee.demo.platform.hmcts.net"
-    backend_domain   = ["firewall-demo-int-palo-sdsdemo.uksouth.cloudapp.azure.com"]
-    certificate_name = "wildcard-demo-platform-hmcts-net"
-    disabled_rules   = {}
-    product          = "ss"
+    name           = "pip-frontend"
+    custom_domain  = "pip-frontend.demo.platform.hmcts.net"
+    backend_domain = ["firewall-prod-int-palo-sdsdemo.uksouth.cloudapp.azure.com"]
+
+    disabled_rules = {}
   }
 ]
