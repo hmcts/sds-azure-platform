@@ -52,6 +52,5 @@ frontends = [
     custom_domain    = "labs-mokainos.sandbox.platform.hmcts.net"
     backend_domain   = ["firewall-sbox-int-palo-sdsapimgmt.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-sandbox-platform-hmcts-net"
-    cache_enabled    = "false"
   }
 ]
