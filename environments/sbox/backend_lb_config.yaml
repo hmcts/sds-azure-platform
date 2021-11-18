@@ -46,6 +46,9 @@ gateways:
       - product: vh
         component: test-web
         ssl_enabled: true
+    #labs
+      - product: labs
+        component: mokainos
     # test
       - product: test
         component: override
