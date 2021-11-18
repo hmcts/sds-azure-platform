@@ -49,7 +49,6 @@ gateways:
     #labs
       - product: labs
         component: mokainos
-        ssl_enabled: true
     # test
       - product: test
         component: override
