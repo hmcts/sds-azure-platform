@@ -226,7 +226,7 @@ frontends = [
     name             = "jd-bureau"
     custom_domain    = "juror-bureau.justice.gov.uk"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-    ssl_mode         = "FrontDoor"
+    ssl_mode         = "AzureKeyVault"
     certificate_name = "juror-bureau-justice-gov-uk"
 
     session_affinity             = true
@@ -401,7 +401,7 @@ frontends = [
     name             = "jd-reply-jury-summons"
     custom_domain    = "reply-jury-summons.service.gov.uk"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-    ssl_mode         = "FrontDoor"
+    ssl_mode         = "AzureKeyVault"
     certificate_name = "reply-jury-summons-service-gov-uk"
 
     session_affinity             = true
