@@ -12,6 +12,50 @@ cdn_sku            = "Standard_Verizon"
 
 frontends = [
   {
+    name           = "dts-legacy-apps---certificatedbailiffs"
+    mode           = "Detection" #detection config set and PR raised 17 Dec 2021
+    custom_domain  = "certificatedbailiffs.justice.gov.uk"
+    backend_domain = ["dualstack.certi-loadb-q2s48nuaqsc6-1478330638.eu-west-2.elb.amazonaws.com"]
+    shutter_app    = false
+  },
+  {
+    name           = "dts-legacy-apps---civilappeals-casetracker"
+    mode           = "Detection" #detection config set and PR raised 17 Dec 2021
+    custom_domain  = "casetracker.justice.gov.uk"
+    backend_domain = ["dualstack.civil-loadb-qvbu457dp1b-1835055660.eu-west-2.elb.amazonaws.com"]
+    shutter_app    = false
+  },
+  {
+    name           = "dts-legacy-apps---courtfines"
+    mode           = "Detection" #detection config set and PR raised 17 Dec 2021
+    custom_domain  = "courtfines.direct.gov.uk"
+    backend_domain = ["dualstack.court-loadb-8mcola2l2by0-173012739.eu-west-2.elb.amazonaws.com"]
+    shutter_app    = false
+  },
+  {
+    name           = "dts-legacy-apps---immigration-appeals-iacfees"
+    mode           = "Detection" #detection config set and PR raised 17 Dec 2021
+    custom_domain  = "immigrationappealsonline.justice.gov.uk"
+    backend_domain = ["dualstack.iacfees-p-elbhmcts-6jxi2y1j3cgc-1579084157.eu-west-1.elb.amazonaws.com"]
+    shutter_app    = false
+  },
+  {
+    name           = "dts-legacy-apps---redirect-service"
+    mode           = "Detection" #detection config set and PR raised 17 Dec 2021
+    custom_domain  = "proxy.digital.justice.gov.uk"
+    backend_domain = ["52.30.196.9"]
+    shutter_app    = false
+  },
+  {
+    name           = "dts-legacy-apps---utiac"
+    mode           = "Detection" #detection config set and PR raised 17 Dec 2021
+    custom_domain  = "tribunalsdecisions.service.gov.uk"
+    backend_domain = ["dualstack.dsd-apps-lb-01-1379550980.eu-west-1.elb.amazonaws.com"]
+    shutter_app    = false
+  },
+
+
+  {
     name           = "trib-land-reg-division"
     mode           = "Prevention"
     custom_domain  = "landregistrationdivision.decisions.tribunals.gov.uk"
