@@ -54,6 +54,7 @@ frontends = [
     shutter_app    = false
   },
 
+  
 
   {
     name           = "trib-land-reg-division"
