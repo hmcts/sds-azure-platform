@@ -1,1 +1,1 @@
-# sharedservices-azure-platform
+# sds-azure-platform
