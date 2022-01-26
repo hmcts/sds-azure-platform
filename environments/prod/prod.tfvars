@@ -460,6 +460,13 @@ frontends = [
     mode           = "Detection"
     health_path    = "/"
     disabled_rules = {}
+  },
+  {
+    name           = "pip-frontend"
+    custom_domain  = "pip-frontend.platform.hmcts.net"
+    backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    shutter_app    = false
+    disabled_rules = {}
   }
 ]
 
