@@ -12,49 +12,49 @@ cdn_sku            = "Standard_Verizon"
 
 frontends = [
   {
-    name           = "dts-legacy-apps---certificatedbailiffs"
+    name           = "dts-legacy-apps-certificatedbailiffs"
     mode           = "Detection"
     custom_domain  = "certificatedbailiffs.justice.gov.uk"
     backend_domain = ["dualstack.certi-loadb-q2s48nuaqsc6-1478330638.eu-west-2.elb.amazonaws.com"]
     shutter_app    = false
   },
   {
-    name           = "dts-legacy-apps---civilappeals-casetracker"
+    name           = "dts-legacy-apps-civilappeals-casetracker"
     mode           = "Detection"
     custom_domain  = "casetracker.justice.gov.uk"
     backend_domain = ["dualstack.civil-loadb-qvbu457dp1b-1835055660.eu-west-2.elb.amazonaws.com"]
     shutter_app    = false
   },
   {
-    name           = "dts-legacy-apps---courtfines"
+    name           = "dts-legacy-apps-courtfines"
     mode           = "Detection"
     custom_domain  = "courtfines.direct.gov.uk"
     backend_domain = ["dualstack.court-loadb-8mcola2l2by0-173012739.eu-west-2.elb.amazonaws.com"]
     shutter_app    = false
   },
   {
-    name           = "dts-legacy-apps---immigration-appeals-iacfees"
+    name           = "dts-legacy-apps-immigration-appeals-iacfees"
     mode           = "Detection"
     custom_domain  = "immigrationappealsonline.justice.gov.uk"
     backend_domain = ["dualstack.iacfees-p-elbhmcts-6jxi2y1j3cgc-1579084157.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
   },
   {
-    name           = "dts-legacy-apps---utiac"
+    name           = "dts-legacy-apps-utiac"
     mode           = "Detection"
     custom_domain  = "waf.tribunalsdecisions.service.gov.uk"
     backend_domain = ["dualstack.dtsla-utiac-lb-prod-1989357889.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
   },
   {
-    name           = "dts-legacy-apps---redirect-service"
+    name           = "dts-legacy-apps-redirect-service"
     mode           = "Detection"
     custom_domain  = "proxy.digital.justice.gov.uk"
     backend_domain = ["52.30.196.9"]
     shutter_app    = false
   },
   {
-    name           = "dts-legacy-apps---redirect-service-waf"
+    name           = "dts-legacy-apps-redirect-service-waf"
     mode           = "Detection"
     custom_domain  = "proxywaf.digital.justice.gov.uk"
     backend_domain = ["52.30.196.9"]
