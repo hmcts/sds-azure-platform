@@ -36,5 +36,12 @@ frontends = [
     backend_domain = ["firewall-prod-int-palo-sdsdemo.uksouth.cloudapp.azure.com"]
 
     disabled_rules = {}
+  },
+  {
+    name           = "vh-service-web"
+    custom_domain  = "vh-service-web.demo.platform.hmcts.net"
+    backend_domain = ["firewall-prod-int-palo-sdsdemo.uksouth.cloudapp.azure.com"]
+
+    disabled_rules = {}
   }
 ]
