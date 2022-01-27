@@ -467,6 +467,27 @@ frontends = [
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     shutter_app    = false
     disabled_rules = {}
+  },
+  {
+    name           = "vh-test-web"
+    custom_domain  = "vh-test-web.demo.platform.hmcts.net"
+    backend_domain = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+
+    disabled_rules = {}
+  },
+  {
+    name           = "vh-video-web"
+    custom_domain  = "vh-video-web.demo.platform.hmcts.net"
+    backend_domain = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+
+    disabled_rules = {}
+  },
+  {
+    name           = "vh-admin-web"
+    custom_domain  = "vh-admin-web.demo.platform.hmcts.net"
+    backend_domain = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+
+    disabled_rules = {}
   }
 ]
 
