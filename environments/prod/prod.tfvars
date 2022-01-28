@@ -465,7 +465,7 @@ frontends = [
     name           = "pip-frontend"
     custom_domain  = "pip-frontend.platform.hmcts.net"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-    shutter_app    = false
+    shutter_app    = true
     disabled_rules = {}
   },
   {
