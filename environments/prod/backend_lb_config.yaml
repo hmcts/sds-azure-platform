@@ -11,6 +11,7 @@ gateways:
   # Toffee
       - product: toffee
         component: backend
+    # Publication and Information
       - product: pip
         component: business-rules
         ssl_enabled: true
@@ -28,4 +29,26 @@ gateways:
         ssl_enabled: true
       - product: pip
         component: account-management
+        ssl_enabled: true
+    # Video Hearings
+      - product: vh
+        component: user-api
+        ssl_enabled: true
+      - product: vh
+        component: video-api
+        ssl_enabled: true
+      - product: vh
+        component: test-api
+        ssl_enabled: true
+      - product: vh
+        component: scheduler-jobs
+        ssl_enabled: true
+      - product: vh
+        component: notification-api
+        ssl_enabled: true
+      - product: vh
+        component: bookings-api
+        ssl_enabled: true
+      - product: vh
+        component: booking-queue-subscriber
         ssl_enabled: true

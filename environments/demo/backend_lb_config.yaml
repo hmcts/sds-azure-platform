@@ -27,3 +27,5 @@ gateways:
       - product: pip
         component: account-management
         ssl_enabled: true
+    # Video Hearings
+
