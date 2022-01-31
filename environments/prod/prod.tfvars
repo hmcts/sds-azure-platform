@@ -465,6 +465,7 @@ frontends = [
     name           = "pip-frontend"
     custom_domain  = "pip-frontend.platform.hmcts.net"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    certificate_name = "wildcard-platform-hmcts-net"
     shutter_app    = true
     disabled_rules = {}
   },
@@ -472,28 +473,28 @@ frontends = [
     name           = "vh-test-web"
     custom_domain  = "vh-test-web.platform.hmcts.net"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-
+    certificate_name = "wildcard-platform-hmcts-net"
     disabled_rules = {}
   },
   {
     name           = "vh-video-web"
     custom_domain  = "vh-video-web.platform.hmcts.net"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-
+    certificate_name = "wildcard-platform-hmcts-net"
     disabled_rules = {}
   },
   {
     name           = "vh-admin-web"
     custom_domain  = "vh-admin-web.platform.hmcts.net"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-
+    certificate_name = "wildcard-platform-hmcts-net"
     disabled_rules = {}
   },
   {
     name           = "vh-service-web"
     custom_domain  = "vh-service-web.platform.hmcts.net"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-
+    certificate_name = "wildcard-platform-hmcts-net"
     disabled_rules = {}
   }
 ]
