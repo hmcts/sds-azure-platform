@@ -9,23 +9,5 @@ gateways:
       private_ip_address: 10.51.32.121
     app_configuration:
     # PIP application
-      - product: pip
-        component: business-rules
-        ssl_enabled: true
-      - product: pip
-        component: publication-services
-        ssl_enabled: true
-      - product: pip
-        component: data-management
-        ssl_enabled: true
-      - product: pip
-        component: channel-management
-        ssl_enabled: true
-      - product: pip
-        component: subscription-management
-        ssl_enabled: true
-      - product: pip
-        component: account-management
-        ssl_enabled: true
     # Video Hearings
 
