@@ -2,7 +2,9 @@
 // We link this file using a symbolic link  (`ln -s ../../environments/variable.tf variable.tf`) in each component directory
 
 variable "destinations" {}
-variable "env" {}
+variable "env" {
+  default = "demo"
+}
 variable "environment" {}
 variable "frontends" {}
 variable "location" {}
