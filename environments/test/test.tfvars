@@ -24,7 +24,6 @@ frontends = [
     backend_domain = ["firewall-prod-int-palo-sdstest.uksouth.cloudapp.azure.com"]
 
     disabled_rules = {}
-    shutter_app    = false
   },
   {
     name           = "vh-test-web"
@@ -32,7 +31,6 @@ frontends = [
     backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
 
     disabled_rules = {}
-    shutter_app    = false
   },
   {
     name           = "vh-video-web"
@@ -40,7 +38,6 @@ frontends = [
     backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
 
     disabled_rules = {}
-    shutter_app    = false
   },
   {
     name           = "vh-admin-web"
@@ -48,7 +45,6 @@ frontends = [
     backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
 
     disabled_rules = {}
-    shutter_app    = false
   },
   {
     name           = "vh-service-web"
@@ -56,6 +52,5 @@ frontends = [
     backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
 
     disabled_rules = {}
-    shutter_app    = false
   }
 ]
