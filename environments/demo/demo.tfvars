@@ -15,5 +15,6 @@ frontends = [
     backend_domain = ["firewall-prod-int-palo-sdsdemo.uksouth.cloudapp.azure.com"]
 
     disabled_rules = {}
+    shutter_app    = false
   }
 ]
