@@ -455,44 +455,44 @@ frontends = [
     disabled_rules = {}
   },
   {
-    name           = "pip-frontend"
-    custom_domain  = "pip-frontend.platform.hmcts.net"
+    name             = "pip-frontend"
+    custom_domain    = "pip-frontend.platform.hmcts.net"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-platform-hmcts-net"
-    shutter_app    = true
-    disabled_rules = {}
+    shutter_app      = true
+    disabled_rules   = {}
   },
   {
-    name           = "vh-test-web"
-    custom_domain  = "vh-test-web.platform.hmcts.net"
+    name             = "vh-test-web"
+    custom_domain    = "vh-test-web.platform.hmcts.net"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-platform-hmcts-net"
-    disabled_rules = {}
-    shutter_app    = false
+    disabled_rules   = {}
+    shutter_app      = false
   },
   {
-    name           = "vh-video-web"
-    custom_domain  = "vh-video-web.platform.hmcts.net"
+    name             = "vh-video-web"
+    custom_domain    = "vh-video-web.platform.hmcts.net"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-platform-hmcts-net"
-    disabled_rules = {}
-    shutter_app    = false
+    disabled_rules   = {}
+    shutter_app      = false
   },
   {
-    name           = "vh-admin-web"
-    custom_domain  = "vh-admin-web.platform.hmcts.net"
+    name             = "vh-admin-web"
+    custom_domain    = "vh-admin-web.platform.hmcts.net"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-platform-hmcts-net"
-    disabled_rules = {}
-    shutter_app    = false
+    disabled_rules   = {}
+    shutter_app      = false
   },
   {
-    name           = "vh-service-web"
-    custom_domain  = "vh-service-web.platform.hmcts.net"
+    name             = "vh-service-web"
+    custom_domain    = "vh-service-web.platform.hmcts.net"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-platform-hmcts-net"
-    disabled_rules = {}
-    shutter_app    = false
+    disabled_rules   = {}
+    shutter_app      = false
   }
 ]
 
