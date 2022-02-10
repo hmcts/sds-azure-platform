@@ -8,6 +8,5 @@ gateways:
       exclude_env_in_app_name: true
       private_ip_address: 10.51.32.121
     app_configuration:
-    # PIP application
-    # Video Hearings
-
+      - product: dummy
+        component: app
