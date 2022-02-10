@@ -47,31 +47,35 @@ frontends = [
     cache_enabled    = "false"
   },
   {
-    name           = "vh-test-web"
-    custom_domain  = "vh-test-web.sandbox.platform.hmcts.net"
+    name             = "vh-test-web"
+    custom_domain    = "vh-test-web.sandbox.platform.hmcts.net"
     backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-sandbox-platform-hmcts-net"
-    disabled_rules = {}
+    disabled_rules   = {}
+    shutter_app      = false
   },
   {
-    name           = "vh-video-web"
-    custom_domain  = "vh-video-web.sandbox.platform.hmcts.net"
+    name             = "vh-video-web"
+    custom_domain    = "vh-video-web.sandbox.platform.hmcts.net"
     backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-sandbox-platform-hmcts-net"
-    disabled_rules = {}
+    disabled_rules   = {}
+    shutter_app      = false
   },
   {
-    name           = "vh-admin-web"
-    custom_domain  = "vh-admin-web.sandbox.platform.hmcts.net"
+    name             = "vh-admin-web"
+    custom_domain    = "vh-admin-web.sandbox.platform.hmcts.net"
     backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-sandbox-platform-hmcts-net"
-    disabled_rules = {}
+    disabled_rules   = {}
+    shutter_app      = false
   },
   {
-    name           = "vh-service-web"
-    custom_domain  = "vh-service-web.sandbox.platform.hmcts.net"
+    name             = "vh-service-web"
+    custom_domain    = "vh-service-web.sandbox.platform.hmcts.net"
     backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-sandbox-platform-hmcts-net"
-    disabled_rules = {}
+    disabled_rules   = {}
+    shutter_app      = false
   }
 ]
