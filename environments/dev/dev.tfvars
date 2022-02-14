@@ -257,6 +257,13 @@ frontends = [
     backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
 
     disabled_rules = {}
+  },
+  {
+    name           = "dev-casetracker"
+    mode           = "Detection"
+    custom_domain  = "dev-casetracker.justice.gov.uk"
+    backend_domain = ["civil-loadb-y5o7jqurq76d-2065714619.eu-west-2.elb.amazonaws.com"]
+    shutter_app    = false
   }
 ]
 
