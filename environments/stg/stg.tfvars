@@ -57,7 +57,6 @@ frontends = [
     mode           = "Detection"
     custom_domain  = "staging-casetracker.justice.gov.uk"
     backend_domain = ["civil-loadb-105un4gbv5077-2040046462.eu-west-2.elb.amazonaws.com"]
-    enable_ssl     = false
     shutter_app    = false
   }
 ]
