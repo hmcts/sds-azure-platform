@@ -58,5 +58,10 @@ frontends = [
     custom_domain  = "staging-casetracker.justice.gov.uk"
     backend_domain = ["civil-loadb-105un4gbv5077-2040046462.eu-west-2.elb.amazonaws.com"]
     shutter_app    = false
+    ssl_mode         = "AzureKeyVault"
+    certificate_name = "staging-casetracker-justice-gov-uk"
+    session_affinity             = true
+    session_affinity_ttl_seconds = 14400
+
   }
 ]
