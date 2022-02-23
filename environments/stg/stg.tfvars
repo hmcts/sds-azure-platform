@@ -62,6 +62,5 @@ frontends = [
     certificate_name = "staging-casetracker-justice-gov-uk"
     session_affinity             = true
     session_affinity_ttl_seconds = 14400
-
   }
 ]
