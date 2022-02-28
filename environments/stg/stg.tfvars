@@ -59,7 +59,7 @@ frontends = [
     backend_domain = ["civil-loadb-105un4gbv5077-2040046462.eu-west-2.elb.amazonaws.com"]
     
     shutter_app    = false
-    enable_ssl     = false
+    enable_ssl     = true
     ssl_mode         = "AzureKeyVault"
     certificate_name = "staging-casetracker-justice-gov-uk"
   }
