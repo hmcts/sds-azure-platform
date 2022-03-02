@@ -23,6 +23,20 @@ frontends = [
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
 
     disabled_rules = {}
+    
+    global_exclusions = [
+      ## Open ID response parameters
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "state"
+      }
+    ]
   },
   {
     name           = "vh-test-web"
