@@ -461,6 +461,19 @@ frontends = [
     certificate_name = "wildcard-platform-hmcts-net"
     shutter_app      = true
     disabled_rules   = {}
+    global_exclusions = [
+      ## Open ID response parameters
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "state"
+      }
+    ]
   },
   {
     name             = "vh-test-web"
