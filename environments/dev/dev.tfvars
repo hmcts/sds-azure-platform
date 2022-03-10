@@ -266,7 +266,6 @@ frontends = [
     shutter_app    = false
     enable_ssl     = true
     ssl_mode         = "AzureKeyVault"
-    certificate_name = "dev-casetracker-justice-gov-uk"
   },
   {
     name           = "dev-certificatedbailiffs"
@@ -276,7 +275,6 @@ frontends = [
     shutter_app    = false
     enable_ssl     = true
     ssl_mode         = "AzureKeyVault"
-    certificate_name = "dev-certificatedbailiffs-justice-gov-uk"
   },
   {
     name           = "dev-courtfines"
@@ -286,7 +284,6 @@ frontends = [
     shutter_app    = false
     enable_ssl     = true
     ssl_mode         = "AzureKeyVault"
-    certificate_name = "dev-courtfines-direct-gov-uk"
   },
   {
     name           = "dev-immigrationappealsonline"
@@ -296,7 +293,6 @@ frontends = [
     shutter_app    = false
     enable_ssl     = true
     ssl_mode         = "AzureKeyVault"
-    certificate_name = "dev-immigrationappealsonline-justice-gov-uk"
   }
 ]
 
