@@ -472,12 +472,12 @@ frontends = [
         match_variable = "RequestBodyPostArgNames"
         operator       = "Equals"
         selector       = "state"
-      }
+      },
       {
         match_variable = "RequestCookieName"
         operator       = "Equals"
         selector       = "formCookie"
-      }
+      },
       {
         match_variable = "RequestCookieName"
         operator       = "Equals"
