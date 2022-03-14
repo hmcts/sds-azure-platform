@@ -42,6 +42,11 @@ frontends = [
         operator       = "Equals"
         selector       = "formCookie"
       }
+      {
+        match_variable = "RequestCookieName"
+        operator       = "Equals"
+        selector       = "session"
+      }
     ]
   },
   {
