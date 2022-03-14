@@ -37,12 +37,12 @@ frontends = [
         selector       = "state"
       },
       {
-        match_variable = "RequestCookieName"
+        match_variable = "RequestCookieNames"
         operator       = "Equals"
         selector       = "formCookie"
       },
       {
-        match_variable = "RequestCookieName"
+        match_variable = "RequestCookieNames"
         operator       = "Equals"
         selector       = "session"
       }
