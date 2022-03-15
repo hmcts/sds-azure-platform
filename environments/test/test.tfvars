@@ -21,7 +21,7 @@ frontends = [
   {
     name           = "pip-frontend"
     custom_domain  = "pip-frontend.test.platform.hmcts.net"
-    backend_domain = ["firewall-prod-int-palo-sdstest.uksouth.cloudapp.azure.com"]
+    backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
 
     disabled_rules = {}
     
