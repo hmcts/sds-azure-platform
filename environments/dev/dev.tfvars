@@ -7,6 +7,7 @@ private_ip_address = "10.145.32.132"
 destinations       = ["10.145.15.250", "10.145.31.250"]
 vnet_rg            = "ss-dev-network-rg"
 vnet_name          = "ss-dev-vnet"
+hub                = "nonprod"
 
 frontends = [
 
@@ -293,6 +294,13 @@ frontends = [
     shutter_app    = false
     enable_ssl     = true
     ssl_mode         = "AzureKeyVault"
+  },
+  {
+    name             = "sds-api-mgmt"
+    custom_domain    = "sds-api-mgmt.dev.platform.hmcts.net"
+    backend_domain   = ["firewall-nonprodi-palo-sdsapimgmtdev.uksouth.cloudapp.azure.com"]
+    certificate_name = "wildcard-dev-platform-hmcts-net"
+    cache_enabled    = "false"
   }
 ]
 

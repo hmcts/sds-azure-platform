@@ -7,6 +7,7 @@ private_ip_address = "10.148.32.132"
 destinations       = ["10.148.15.250", "10.148.31.250"]
 vnet_rg            = "ss-stg-network-rg"
 vnet_name          = "ss-stg-vnet"
+hub                = "prod"
 
 frontends = [
 
@@ -35,6 +36,21 @@ frontends = [
         match_variable = "RequestBodyPostArgNames"
         operator       = "Equals"
         selector       = "state"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "formCookie"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "session"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "dtSa"
       }
     ]
   },
