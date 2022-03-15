@@ -7,7 +7,6 @@ private_ip_address = "10.141.32.132"
 destinations       = ["10.141.15.250", "10.141.31.250"]
 vnet_rg            = "ss-test-network-rg"
 vnet_name          = "ss-test-vnet"
-hub                = "prod"
 
 frontends = [
 
