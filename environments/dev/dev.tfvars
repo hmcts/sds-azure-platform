@@ -265,6 +265,13 @@ frontends = [
     custom_domain  = "dev-casetracker.justice.gov.uk"
     backend_domain = ["civil-loadb-y5o7jqurq76d-2065714619.eu-west-2.elb.amazonaws.com"]
     shutter_app    = false
+  },
+  {
+    name             = "sds-api-mgmt"
+    custom_domain    = "sds-api-mgmt.dev.platform.hmcts.net"
+    backend_domain   = ["firewall-nonprodi-palo-sdsapimgmtdev.uksouth.cloudapp.azure.com"]
+    certificate_name = "wildcard-dev-platform-hmcts-net"
+    cache_enabled    = "false"
   }
 ]
 
