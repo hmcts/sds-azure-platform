@@ -89,7 +89,6 @@ frontends = [
     backend_domain = ["dualstack.civil-loadb-105un4gbv5077-2040046462.eu-west-2.elb.amazonaws.com"]
     shutter_app    = false
     enable_ssl     = true
-    ssl_mode         = "AzureKeyVault"
   },
   {
     name           = "staging.certificatedbailiffs"
@@ -98,7 +97,6 @@ frontends = [
     backend_domain = ["dualstack.certi-loadb-vzujs6ulbuut-415542592.eu-west-2.elb.amazonaws.com"]
     shutter_app    = false
     enable_ssl     = true
-    ssl_mode         = "AzureKeyVault"
   },
   {
     name           = "staging.courtfines"
@@ -107,7 +105,6 @@ frontends = [
     backend_domain = ["dualstack.court-loadb-qpahtenf925i-482204730.eu-west-2.elb.amazonaws.com"]
     shutter_app    = false
     enable_ssl     = true
-    ssl_mode         = "AzureKeyVault"
   },
   {
     name           = "staging.immigrationappealsonline"
@@ -116,6 +113,5 @@ frontends = [
     backend_domain = ["dualstack.iacfees-s-ELBhmcts-DGD2EJ56UXEF-715536071.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
     enable_ssl     = true
-    ssl_mode         = "AzureKeyVault"
   }
 ]

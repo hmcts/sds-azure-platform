@@ -266,7 +266,6 @@ frontends = [
     backend_domain = ["civil-loadb-y5o7jqurq76d-2065714619.eu-west-2.elb.amazonaws.com"]
     shutter_app    = false
     enable_ssl     = true
-    ssl_mode         = "AzureKeyVault"
   },
   {
     name           = "dev.certificatedbailiffs"
@@ -275,7 +274,6 @@ frontends = [
     backend_domain = ["certi-loadb-a49bsydpgeb7-1204811385.eu-west-2.elb.amazonaws.com"]
     shutter_app    = false
     enable_ssl     = true
-    ssl_mode         = "AzureKeyVault"
   },
   {
     name           = "dev.courtfines"
@@ -284,7 +282,6 @@ frontends = [
     backend_domain = ["court-loadb-118vi6sleq8ii-1970392396.eu-west-2.elb.amazonaws.com"]
     shutter_app    = false
     enable_ssl     = true
-    ssl_mode         = "AzureKeyVault"
   },
   {
     name           = "dev.immigrationappealsonline"
@@ -293,7 +290,6 @@ frontends = [
     backend_domain = ["iacfe-loadb-p3eli3f0pz30-1245399594.eu-west-2.elb.amazonaws.com"]
     shutter_app    = false
     enable_ssl     = true
-    ssl_mode         = "AzureKeyVault"
   },
   {
     name             = "sds-api-mgmt"
