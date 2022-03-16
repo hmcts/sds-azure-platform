@@ -81,37 +81,5 @@ frontends = [
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
 
     disabled_rules = {}
-  },
-  {
-    name           = "staging-casetracker"
-    mode           = "Detection"
-    custom_domain  = "staging.casetracker.justice.gov.uk"
-    backend_domain = ["dualstack.civil-loadb-105un4gbv5077-2040046462.eu-west-2.elb.amazonaws.com"]
-    shutter_app    = false
-    enable_ssl     = true
-  },
-  {
-    name           = "staging-certificatedbailiffs"
-    mode           = "Detection"
-    custom_domain  = "staging.certificatedbailiffs.justice.gov.uk"
-    backend_domain = ["dualstack.certi-loadb-vzujs6ulbuut-415542592.eu-west-2.elb.amazonaws.com"]
-    shutter_app    = false
-    enable_ssl     = true
-  },
-  {
-    name           = "staging-courtfines"
-    mode           = "Detection"
-    custom_domain  = "staging.courtfines.direct.gov.uk"
-    backend_domain = ["dualstack.court-loadb-qpahtenf925i-482204730.eu-west-2.elb.amazonaws.com"]
-    shutter_app    = false
-    enable_ssl     = true
-  },
-  {
-    name           = "staging-immigrationappealsonline"
-    mode           = "Detection"
-    custom_domain  = "staging.immigrationappealsonline.justice.gov.uk"
-    backend_domain = ["dualstack.iacfees-s-ELBhmcts-DGD2EJ56UXEF-715536071.eu-west-1.elb.amazonaws.com"]
-    shutter_app    = false
-    enable_ssl     = true
   }
 ]
