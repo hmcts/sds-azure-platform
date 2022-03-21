@@ -81,5 +81,12 @@ frontends = [
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
 
     disabled_rules = {}
+  },
+  {
+    name             = "sds-api-mgmt"
+    custom_domain    = "sds-api-mgmt.staging.platform.hmcts.net"
+    backend_domain   = ["firewall-prod-int-palo-sdsapimgmtstg.uksouth.cloudapp.azure.com"]
+    certificate_name = "wildcard-stg-platform-hmcts-net"
+    cache_enabled    = "false"
   }
 ]
