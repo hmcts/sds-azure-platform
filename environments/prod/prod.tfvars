@@ -241,7 +241,9 @@ frontends = [
     shutter_app    = false
 
     disabled_rules = {
-      SQLI = []
+      SQLI = [
+        "942430",  // false positive on /Admin/Commissioners.aspx
+      ]
       LFI = [
         "930110", // false positive on multi-part uploads
       ]
