@@ -95,7 +95,6 @@ frontends = [
     backend_domain = ["dualstack.certi-loadb-vzujs6ulbuut-415542592.eu-west-2.elb.amazonaws.com"]
     shutter_app    = false
     enable_ssl     = true
-    session_affinity = true
   },
   {
     name           = "staging-courtfines"
