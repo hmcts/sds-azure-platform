@@ -35,9 +35,6 @@ gateways:
         ssl_enabled: true
     # Publication and Information
       - product: pip
-        component: frontend
-        ssl_enabled: true
-      - product: pip
         component: business-rules
         ssl_enabled: true
       - product: pip
