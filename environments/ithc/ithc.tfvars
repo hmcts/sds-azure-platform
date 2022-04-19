@@ -48,8 +48,8 @@ frontends = [
   },
   {
     name             = "pip-frontend"
-    custom_domain    = "pip-frontend.platform.hmcts.net"
-    backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    custom_domain    = "pip-frontend.ithc.platform.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-platform-hmcts-net"
     shutter_app      = true
     disabled_rules   = {}
