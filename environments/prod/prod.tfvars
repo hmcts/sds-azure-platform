@@ -508,7 +508,7 @@ frontends = [
   },
   {
     name             = "pip-frontend"
-    custom_domain    = "pip-frontend.platform.hmcts.net"
+    custom_domain    = "www.court-tribunal-hearings.service.gov.uk"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-platform-hmcts-net"
     shutter_app      = true
