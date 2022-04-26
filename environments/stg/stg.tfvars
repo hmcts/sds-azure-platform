@@ -116,5 +116,228 @@ frontends = [
     backend_domain   = ["firewall-prod-int-palo-sdsapimgmtstg.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-stg-platform-hmcts-net"
     cache_enabled    = "false"
+  },
+  {
+    name           = "staging-trib-land-reg-division"
+    mode           = "Prevention"
+    custom_domain  = "staging.landregistrationdivision.dsd.io"
+    backend_domain = ["54.75.182.4"]
+    shutter_app    = false
+    enable_ssl     = false
+
+    global_exclusions = [
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "ddlScat1"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "__EVENTVALIDATION"
+      }
+    ]
+  },
+  {
+    name           = "staging-trib-immigration-svcs"
+    mode           = "Prevention"
+    custom_domain  = "staging.immigrationservices.dsd.io"
+    backend_domain = ["54.75.182.4"]
+    shutter_app    = false
+    enable_ssl     = false
+
+    global_exclusions = [
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "btnSearch"
+      }
+    ]
+  },
+  {
+    name           = "staging-trib-info-rights"
+    mode           = "Prevention"
+    custom_domain  = "staging.informationrights.dsd.io"
+    backend_domain = ["54.75.182.4"]
+    shutter_app    = false
+    enable_ssl     = false
+
+    global_exclusions = [
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "__VIEWSTATE"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "__EVENTVALIDATION"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "ddlTax3"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "ddlTax2"
+      }
+    ]
+  },
+  {
+    name           = "staging-trib-admin-appeals"
+    mode           = "Prevention"
+    custom_domain  = "staging.administrativeappeals.dsd.io"
+    backend_domain = ["54.75.182.4"]
+    shutter_app    = false
+    enable_ssl     = false
+
+    global_exclusions = [
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "__VIEWSTATE"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "btnSearch"
+      }
+    ]
+  },
+  {
+    name           = "staging-trib-care-standards"
+    mode           = "Prevention"
+    custom_domain  = "staging.carestandards.dsd.io"
+    backend_domain = ["54.75.182.4"]
+    shutter_app    = false
+    enable_ssl     = false
+
+    global_exclusions = [
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "__VIEWSTATE"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "__EVENTVALIDATION"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "drpMainCategory"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "InitialBodyContents"
+      }
+    ]
+  },
+  {
+    name           = "staging-trib-lands-chamber"
+    mode           = "Prevention"
+    custom_domain  = "staging.landschamber.dsd.io"
+    backend_domain = ["54.75.182.4"]
+    shutter_app    = false
+    enable_ssl     = false
+
+    global_exclusions = [
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "btnSearch"
+      }
+    ]
+  },
+  {
+    name           = "staging-trib-finance-tax"
+    mode           = "Prevention"
+    custom_domain  = "staging.financeandtax.dsd.io"
+    backend_domain = ["54.75.182.4"]
+    shutter_app    = false
+    enable_ssl     = false
+
+    disabled_rules = {
+      SQLI = [
+        "942430",  // false positive on /Admin/Commissioners.aspx
+      ]
+      LFI = [
+        "930110", // false positive on multi-part uploads
+      ]
+    }
+    global_exclusions = [
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "btnSearch"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "InitialBodyContents"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "txtClaimant"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "__VIEWSTATE"
+      }
+    ]
+  },
+  {
+    name           = "staging-trib-employment-appeals"
+    mode           = "Prevention"
+    custom_domain  = "staging.employmentappeals.dsd.io"
+    backend_domain = ["54.75.182.4"]
+    shutter_app    = false
+    enable_ssl     = false
+
+    global_exclusions = [
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "__VIEWSTATE"
+      }
+    ]
+  },
+  {
+    name           = "staging-trib-tansport-appeals"
+    mode           = "Prevention"
+    custom_domain  = "staging.transportappeals.dsd.io"
+    backend_domain = ["54.75.182.4"]
+    shutter_app    = false
+    enable_ssl     = false
+
+    global_exclusions = [
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "btnSearch"
+      }
+    ]
+  },
+  {
+    name           = "staging-trib-cicap"
+    mode           = "Prevention"
+    custom_domain  = "staging.cicap.dsd.io"
+    backend_domain = ["54.75.182.4"]
+    shutter_app    = false
+    enable_ssl     = false
+
+    global_exclusions = [
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "__VIEWSTATE"
+      }
+    ]
   }
 ]
