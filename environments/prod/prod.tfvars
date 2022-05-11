@@ -107,7 +107,7 @@ frontends = [
     name           = "trib-land-reg-division"
     mode           = "Prevention"
     custom_domain  = "landregistrationdivision.decisions.tribunals.gov.uk"
-    backend_domain = ["34.243.192.28"]
+    backend_domain = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
 
     global_exclusions = [
@@ -127,7 +127,7 @@ frontends = [
     name           = "trib-immigration-svcs"
     mode           = "Prevention"
     custom_domain  = "immigrationservices.decisions.tribunals.gov.uk"
-    backend_domain = ["34.243.192.28"]
+    backend_domain = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
 
     global_exclusions = [
@@ -142,7 +142,7 @@ frontends = [
     name           = "trib-info-rights"
     mode           = "Prevention"
     custom_domain  = "informationrights.decisions.tribunals.gov.uk"
-    backend_domain = ["34.243.192.28"]
+    backend_domain = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
 
     global_exclusions = [
@@ -172,7 +172,7 @@ frontends = [
     name           = "trib-admin-appeals"
     mode           = "Prevention"
     custom_domain  = "administrativeappeals.decisions.tribunals.gov.uk"
-    backend_domain = ["34.243.192.28"]
+    backend_domain = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
 
     global_exclusions = [
@@ -192,7 +192,7 @@ frontends = [
     name           = "trib-care-standards"
     mode           = "Prevention"
     custom_domain  = "carestandards.decisions.tribunals.gov.uk"
-    backend_domain = ["34.243.192.28"]
+    backend_domain = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
 
     global_exclusions = [
@@ -222,7 +222,7 @@ frontends = [
     name           = "trib-lands-chamber"
     mode           = "Prevention"
     custom_domain  = "landschamber.decisions.tribunals.gov.uk"
-    backend_domain = ["34.243.192.28"]
+    backend_domain = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
 
     global_exclusions = [
@@ -237,7 +237,7 @@ frontends = [
     name           = "trib-finance-tax"
     mode           = "Prevention"
     custom_domain  = "financeandtax.decisions.tribunals.gov.uk"
-    backend_domain = ["34.243.192.28"]
+    backend_domain = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
 
     disabled_rules = {
@@ -275,7 +275,7 @@ frontends = [
     name           = "trib-employment-appeals"
     mode           = "Prevention"
     custom_domain  = "employmentappeals.decisions.tribunals.gov.uk"
-    backend_domain = ["34.243.192.28"]
+    backend_domain = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
 
     global_exclusions = [
@@ -290,7 +290,7 @@ frontends = [
     name           = "trib-tansport-appeals"
     mode           = "Prevention"
     custom_domain  = "transportappeals.decisions.tribunals.gov.uk"
-    backend_domain = ["34.243.192.28"]
+    backend_domain = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
 
     global_exclusions = [
@@ -305,7 +305,7 @@ frontends = [
     name           = "trib-cicap"
     mode           = "Prevention"
     custom_domain  = "cicap.decisions.tribunals.gov.uk"
-    backend_domain = ["34.243.192.28"]
+    backend_domain = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
 
     global_exclusions = [
