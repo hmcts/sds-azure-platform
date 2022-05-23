@@ -9,6 +9,8 @@ vnet_rg            = "ss-prod-network-rg"
 vnet_name          = "ss-prod-vnet"
 shutter_rg         = "sds-platform-prod-rg"
 cdn_sku            = "Standard_Verizon"
+hub                = "prod"
+apim_sku_name      = "Premium"
 
 frontends = [
   {
