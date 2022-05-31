@@ -92,5 +92,12 @@ frontends = [
     backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
 
     disabled_rules = {}
+  },
+  {
+    name             = "sds-api-mgmt"
+    custom_domain    = "sds-api-mgmt.test.platform.hmcts.net"
+    backend_domain   = ["firewall-nonprodi-palo-hmiapimtest.uksouth.cloudapp.azure.com"]
+    certificate_name = "wildcard-test-platform-hmcts-net"
+    cache_enabled    = "false"
   }
 ]
