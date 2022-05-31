@@ -96,7 +96,7 @@ frontends = [
   {
     name             = "sds-api-mgmt"
     custom_domain    = "sds-api-mgmt.test.platform.hmcts.net"
-    backend_domain   = ["firewall-nonprodi-palo-hmiapimtest.uksouth.cloudapp.azure.com"]
+    backend_domain   = ["firewall-nonprodi-palo-sdsapimgmttest.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-test-platform-hmcts-net"
     cache_enabled    = "false"
   }
