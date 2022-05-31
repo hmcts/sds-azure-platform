@@ -76,6 +76,9 @@ parameters:
       - deployment: "apim"
         environment: "prod"
         dependsOn: "Precheck"
+      - deployment: "apim"
+        environment: "test"
+        dependsOn: "Precheck"
 
   - name: location
     displayName: Location
