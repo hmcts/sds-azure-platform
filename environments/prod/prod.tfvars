@@ -547,7 +547,7 @@ frontends = [
   {
     name             = "pip-frontend-b2c-sign-in"
     custom_domain    = "sign-in.court-tribunal-hearings.service.gov.uk"
-    backend_domain   = ["hmctspipprod.b2clogin.com"]
+    backend_domain   = ["hmctspipprod.onmicrosoft.com"]
     certificate_name = "wildcard-platform-hmcts-net"
     shutter_app      = false
     disabled_rules   = {}
@@ -583,7 +583,7 @@ frontends = [
   {
     name             = "pip-frontend-b2c-staff"
     custom_domain    = "staff.court-tribunal-hearings.service.gov.uk"
-    backend_domain   = ["hmctspipprod.b2clogin.com"]
+    backend_domain   = ["hmctspipprod.onmicrosoft.com"]
     certificate_name = "wildcard-platform-hmcts-net"
     shutter_app      = false
     disabled_rules   = {}
