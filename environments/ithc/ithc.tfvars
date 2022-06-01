@@ -19,6 +19,15 @@ frontends = [
     disabled_rules = {}
   },
   {
+    name             = "pip-frontend"
+    custom_domain    = "pip-frontend.platform.hmcts.net"
+    backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    certificate_name = "wildcard-platform-hmcts-net"
+    shutter_app      = true
+    disabled_rules   = {}
+    global_exclusions = []
+  },
+  {
     name           = "vh-test-web"
     custom_domain  = "vh-test-web.ithc.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
