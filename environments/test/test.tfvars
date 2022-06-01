@@ -7,6 +7,7 @@ private_ip_address = "10.141.32.132"
 destinations       = ["10.141.15.250", "10.141.31.250"]
 vnet_rg            = "ss-test-network-rg"
 vnet_name          = "ss-test-vnet"
+hub                = "nonprod"
 
 frontends = [
 
@@ -91,5 +92,12 @@ frontends = [
     backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
 
     disabled_rules = {}
+  },
+  {
+    name             = "sds-api-mgmt"
+    custom_domain    = "sds-api-mgmt.test.platform.hmcts.net"
+    backend_domain   = ["firewall-nonprodi-palo-sdsapimgmttest.uksouth.cloudapp.azure.com"]
+    certificate_name = "wildcard-test-platform-hmcts-net"
+    cache_enabled    = "false"
   }
 ]
