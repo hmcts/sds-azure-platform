@@ -79,7 +79,13 @@ parameters:
       - deployment: "apim"
         environment: "test"
         dependsOn: "Precheck"
-
+      - deployment: "apim"
+        environment: "demo"
+        dependsOn: "Precheck"
+      - deployment: "apim"
+        environment: "ithc"
+        dependsOn: "Precheck"
+        
   - name: location
     displayName: Location
     type: string
