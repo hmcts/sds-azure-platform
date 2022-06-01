@@ -7,7 +7,7 @@ private_ip_address = "10.143.32.132"
 destinations       = ["10.143.15.250", "10.143.31.250"]
 vnet_rg            = "ss-ithc-network-rg"
 vnet_name          = "ss-ithc-vnet"
-
+hub                = "nonprod"
 
 frontends = [
 
