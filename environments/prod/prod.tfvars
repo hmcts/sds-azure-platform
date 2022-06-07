@@ -588,7 +588,7 @@ frontends = [
         selector       = "dtSa"
       }
     ]
-  },,
+  },
   {
     name             = "pip-frontend-b2c-staff"
     custom_domain    = "staff.court-tribunal-hearings.service.gov.uk"
