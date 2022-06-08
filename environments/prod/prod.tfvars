@@ -554,10 +554,50 @@ frontends = [
     ]
   },
   {
+    name             = "pip-frontend-b2c-sign-in"
+    custom_domain    = "sign-in.court-tribunal-hearings.service.gov.uk"
+    backend_domain      = ["hmctspipprod.b2clogin.com"]
+    host_header         = "hmctspipprod.b2clogin.com"
+    forwarding_protocol = "HttpsOnly"
+    certificate_name = "wildcard-court-tribunal-hearings-service-gov-uk"
+    shutter_app      = false
+    disabled_rules   = {}
+    global_exclusions = [
+      ## Open ID response parameters
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "state"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "formCookie"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "session"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "dtSa"
+      }
+    ]
+  },
+  {
     name             = "pip-frontend-b2c-staff"
     custom_domain    = "staff.court-tribunal-hearings.service.gov.uk"
-    backend_domain   = ["hmctspipprod.b2clogin.com"]
-    certificate_name = "wildcard-platform-hmcts-net"
+    backend_domain      = ["hmctspipprod.b2clogin.com"]
+    host_header         = "hmctspipprod.b2clogin.com"
+    forwarding_protocol = "HttpsOnly"
+    certificate_name = "wildcard-court-tribunal-hearings-service-gov-uk"
     shutter_app      = false
     disabled_rules   = {}
     global_exclusions = [
