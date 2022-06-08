@@ -65,6 +65,40 @@ frontends = [
     ]
   },
   {
+    name             = "pip-frontend-b2c-sign-in"
+    custom_domain    = "sign-in.staging.court-tribunal-hearings.service.gov.uk"
+    backend_domain   = ["hmctspipnonprod.b2clogin.com"]
+    disabled_rules   = {}
+    global_exclusions = [
+      ## Open ID response parameters
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "state"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "formCookie"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "session"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "dtSa"
+      }
+    ]
+  },
+  {
     name           = "vh-test-web"
     custom_domain  = "vh-test-web.staging.platform.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
