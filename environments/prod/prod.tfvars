@@ -556,7 +556,9 @@ frontends = [
   {
     name             = "pip-frontend-b2c-sign-in"
     custom_domain    = "sign-in.court-tribunal-hearings.service.gov.uk"
-    backend_domain   = ["hmctspipprod.b2clogin.com"]
+    backend_domain      = ["hmctspipprod.b2clogin.com"]
+    host_header         = "hmctspipprod.b2clogin.com"
+    forwarding_protocol = "HttpsOnly"
     certificate_name = "wildcard-court-tribunal-hearings-service-gov-uk"
     shutter_app      = false
     disabled_rules   = {}
