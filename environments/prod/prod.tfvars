@@ -564,36 +564,15 @@ frontends = [
     shutter_app         = false
     disabled_rules      = {}
     global_exclusions = [
-      ## Open ID response parameters
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "code"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "state"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "formCookie"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "session"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "dtSa"
-      },
       {
         match_variable = "QueryStringArgNames"
         operator       = "Equals"
         selector       = "redirect_uri"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "desc"
       }
     ]
   },
@@ -608,36 +587,15 @@ frontends = [
     shutter_app         = false
     disabled_rules      = {}
     global_exclusions = [
-      ## Open ID response parameters
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "code"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "state"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "formCookie"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "session"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "dtSa"
-      },
       {
         match_variable = "QueryStringArgNames"
         operator       = "Equals"
         selector       = "redirect_uri"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "desc"
       }
     ]
   },
