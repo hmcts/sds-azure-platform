@@ -591,7 +591,7 @@ frontends = [
         selector       = "dtSa"
       },
       {
-        match_variable = "Query string args name"
+        match_variable = "QueryStringArgNames"
         operator       = "Equals"
         selector       = "redirect_uri"
       }
@@ -635,7 +635,7 @@ frontends = [
         selector       = "dtSa"
       },
       {
-        match_variable = "Query string args name"
+        match_variable = "QueryStringArgNames"
         operator       = "Equals"
         selector       = "redirect_uri"
       }
