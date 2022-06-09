@@ -71,7 +71,7 @@ frontends = [
     host_header         = "hmctspipprod.b2clogin.com"
     disabled_rules      = {}
     cache_enabled       = false
-    forwarding_protocol = "MatchRequest"
+    forwarding_protocol = "HttpsOnly"
     ssl_mode            = "FrontDoor"
     global_exclusions = [
       ## Open ID response parameters
