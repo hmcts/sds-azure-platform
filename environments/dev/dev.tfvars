@@ -440,7 +440,7 @@ frontends = [
 
     disabled_rules = {
       SQLI = [
-        "942430",  // false positive on /Admin/Commissioners.aspx
+        "942430", // false positive on /Admin/Commissioners.aspx
       ]
       LFI = [
         "930110", // false positive on multi-part uploads
