@@ -67,8 +67,8 @@ frontends = [
   {
     name                = "pip-frontend-b2c-sign-in"
     custom_domain       = "login.stg.court-tribunal-hearings.service.gov.uk"
-    backend_domain      = ["hmctspipnonprod.b2clogin.com"]
-    host_header         = "hmctspipnonprod.b2clogin.com"
+    backend_domain      = ["hmctspipprod.b2clogin.com"]
+    host_header         = "hmctspipprod.b2clogin.com"
     disabled_rules      = {}
     cache_enabled       = false
     forwarding_protocol = "MatchRequest"
