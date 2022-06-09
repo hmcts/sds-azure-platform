@@ -72,6 +72,7 @@ frontends = [
     disabled_rules      = {}
     cache_enabled       = false
     forwarding_protocol = "MatchRequest"
+    ssl_mode            = "FrontDoor"
     global_exclusions = [
       ## Open ID response parameters
       {
