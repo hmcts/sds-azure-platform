@@ -595,31 +595,7 @@ frontends = [
       {
         match_variable = "QueryStringArgNames"
         operator       = "Equals"
-<<<<<<< HEAD
         selector       = "desc"
-=======
-        selector       = "state"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "formCookie"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "session"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "dtSa"
-      },
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "redirect_uri"
->>>>>>> master
       }
     ]
   },
