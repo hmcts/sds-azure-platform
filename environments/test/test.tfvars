@@ -25,7 +25,7 @@ frontends = [
     backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
 
     disabled_rules = {}
-    
+
     global_exclusions = [
       ## Open ID response parameters
       {

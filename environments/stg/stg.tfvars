@@ -24,7 +24,7 @@ frontends = [
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
 
     disabled_rules = {}
-    
+
     global_exclusions = [
       ## Open ID response parameters
       {
@@ -65,10 +65,13 @@ frontends = [
     ]
   },
   {
-    name             = "pip-frontend-b2c-sign-in"
-    custom_domain    = "sign-in.staging.court-tribunal-hearings.service.gov.uk"
-    backend_domain   = ["hmctspipnonprod.b2clogin.com"]
-    disabled_rules   = {}
+    name                = "pip-frontend-b2c-sign-in"
+    custom_domain       = "login.stg.court-tribunal-hearings.service.gov.uk"
+    backend_domain      = ["hmctspipnonprod.b2clogin.com"]
+    host_header         = "hmctspipnonprod.b2clogin.com"
+    disabled_rules      = {}
+    cache_enabled       = false
+    forwarding_protocol = "MatchRequest"
     global_exclusions = [
       ## Open ID response parameters
       {
@@ -307,7 +310,7 @@ frontends = [
 
     disabled_rules = {
       SQLI = [
-        "942430",  // false positive on /Admin/Commissioners.aspx
+        "942430", // false positive on /Admin/Commissioners.aspx
       ]
       LFI = [
         "930110", // false positive on multi-part uploads
