@@ -99,6 +99,11 @@ frontends = [
         match_variable = "RequestCookieNames"
         operator       = "Equals"
         selector       = "dtSa"
+      },
+      {
+        match_variable = "Query string args name"
+        operator       = "Equals"
+        selector       = "redirect_uri"
       }
     ]
   },
