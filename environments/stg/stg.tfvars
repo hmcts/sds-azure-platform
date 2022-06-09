@@ -66,9 +66,12 @@ frontends = [
   },
   {
     name             = "pip-frontend-b2c-sign-in"
-    custom_domain    = "sign-in.staging.court-tribunal-hearings.service.gov.uk"
+    custom_domain    = "login.stg.court-tribunal-hearings.service.gov.uk"
     backend_domain   = ["hmctspipnonprod.b2clogin.com"]
+    host_header      = "hmctspipnonprod.b2clogin.com"
     disabled_rules   = {}
+    cache_enabled    = false
+    forwarding_protocol = "MatchRequest"
     global_exclusions = [
       ## Open ID response parameters
       {
