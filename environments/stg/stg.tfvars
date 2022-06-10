@@ -64,7 +64,7 @@ frontends = [
       }
     ]
   },
-  {
+ /*  {
     name                = "pip-frontend-b2c-sign-in"
     custom_domain       = "sign.stg.court-tribunal-hearings.service.gov.uk"
     backend_domain      = ["hmctspipprod.b2clogin.com"]
@@ -85,7 +85,7 @@ frontends = [
         selector       = "desc"
       }
     ]
-  },
+  }, */
   {
     name           = "vh-test-web"
     custom_domain  = "vh-test-web.staging.platform.hmcts.net"
