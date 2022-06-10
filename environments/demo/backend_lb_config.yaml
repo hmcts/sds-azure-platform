@@ -8,6 +8,5 @@ gateways:
       exclude_env_in_app_name: true
       private_ip_address: 10.51.96.132
     app_configuration:
-    # Toffee
-      - product: toffee
-        component: recipe-backend
+      - product: dummy
+        component: app
