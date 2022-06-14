@@ -518,7 +518,7 @@ frontends = [
     global_exclusions = []
   },
   {
-    name             = "pip-frontend-custom"
+    name             = "court-tribunal-hearings"
     custom_domain    = "www.court-tribunal-hearings.service.gov.uk"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-platform-hmcts-net"
@@ -554,7 +554,7 @@ frontends = [
     ]
   },
   {
-    name                = "pip-frontend-b2c-sign-in"
+    name                = "court-tribunal-hearings-b2c-sign-in"
     custom_domain       = "sign-in.court-tribunal-hearings.service.gov.uk"
     backend_domain      = ["hmctspipprod.b2clogin.com"]
     host_header         = "hmctspipprod.b2clogin.com"
@@ -577,7 +577,7 @@ frontends = [
     ]
   },
   {
-    name                = "pip-frontend-b2c-staff"
+    name                = "court-tribunal-hearings-b2c-staff"
     custom_domain       = "staff.court-tribunal-hearings.service.gov.uk"
     backend_domain      = ["hmctspipprod.b2clogin.com"]
     host_header         = "hmctspipprod.b2clogin.com"
