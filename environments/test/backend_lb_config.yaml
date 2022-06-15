@@ -11,47 +11,62 @@ gateways:
     # Toffee
       - product: toffee
         component: recipe-backend
+        priority: 10
     # Video Hearings
       - product: vh
         component: user-api
         ssl_enabled: true
+        priority: 20
       - product: vh
         component: video-api
         ssl_enabled: true
+        priority: 30
       - product: vh
         component: test-api
         ssl_enabled: true
+        priority: 40
       - product: vh
         component: scheduler-jobs
         ssl_enabled: true
+        priority: 50
       - product: vh
         component: notification-api
         ssl_enabled: true
+        priority: 60
       - product: vh
         component: bookings-api
         ssl_enabled: true
+        priority: 70
       - product: vh
         component: booking-queue-subscriber
         ssl_enabled: true
+        priority: 80
     # Publication and Information
       - product: pip
         component: frontend
         ssl_enabled: true
+        priority: 90
       - product: pip
         component: business-rules
         ssl_enabled: true
+        priority: 100
       - product: pip
         component: publication-services
         ssl_enabled: true
+        priority: 110
       - product: pip
         component: data-management
         ssl_enabled: true
+        priority: 120
       - product: pip
         component: channel-management
         ssl_enabled: true
+        priority: 130
       - product: pip
         component: subscription-management
         ssl_enabled: true
+        priority: 140
       - product: pip
         component: account-management
         ssl_enabled: true
+        priority: 150

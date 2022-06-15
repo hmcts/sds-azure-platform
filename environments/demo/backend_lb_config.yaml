@@ -10,3 +10,4 @@ gateways:
     app_configuration:
       - product: dummy
         component: app
+        priority: 10        
