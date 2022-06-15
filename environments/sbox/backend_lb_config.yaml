@@ -32,21 +32,21 @@ gateways:
       - product: vh
         component: notification-api
         ssl_enabled: true
-        priority: 50
+        priority: 60
       - product: vh
         component: bookings-api
         ssl_enabled: true
-        priority: 60
+        priority: 70
       - product: vh
         component: booking-queue-subscriber
         ssl_enabled: true
-        priority: 70
+        priority: 80
     #labs
       - product: labs
         component: mokainos
-        priority: 80
+        priority: 90
     # test
       - product: test
         component: override
         host_name_suffix_override: service.core-compute-sandbox.internal
-        priority: 90
+        priority: 100
