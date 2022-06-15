@@ -11,32 +11,42 @@ gateways:
     # Toffee
       - product: toffee
         component: recipe-backend
+        priority: 10
     # Video Hearings
       - product: vh
         component: user-api
         ssl_enabled: true
+        priority: 20
       - product: vh
         component: video-api
         ssl_enabled: true
+        priority: 30
       - product: vh
         component: test-api
         ssl_enabled: true
+        priority: 40
       - product: vh
         component: scheduler-jobs
         ssl_enabled: true
+        priority: 50
       - product: vh
         component: notification-api
         ssl_enabled: true
+        priority: 50
       - product: vh
         component: bookings-api
         ssl_enabled: true
+        priority: 60
       - product: vh
         component: booking-queue-subscriber
         ssl_enabled: true
+        priority: 70
     #labs
       - product: labs
         component: mokainos
+        priority: 80
     # test
       - product: test
         component: override
         host_name_suffix_override: service.core-compute-sandbox.internal
+        priority: 90
