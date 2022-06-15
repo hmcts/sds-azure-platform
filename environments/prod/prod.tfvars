@@ -517,7 +517,7 @@ frontends = [
     disabled_rules    = {}
     global_exclusions = []
   },
-  {
+  /* {
     name             = "court-tribunal-hearings"
     custom_domain    = "www.court-tribunal-hearings.service.gov.uk"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
@@ -598,7 +598,7 @@ frontends = [
         selector       = "desc"
       }
     ]
-  },
+  }, */
   {
     name             = "vh-test-web"
     custom_domain    = "vh-test-web.platform.hmcts.net"
