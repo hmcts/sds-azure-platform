@@ -15,6 +15,7 @@ frontends = [
     name           = "toffee"
     custom_domain  = "toffee.staging.platform.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
+    priority       = 10
 
     disabled_rules = {}
   },
@@ -22,6 +23,7 @@ frontends = [
     name           = "pip-frontend"
     custom_domain  = "pip-frontend.staging.platform.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
+    priority       = 20
 
     disabled_rules = {}
 
@@ -64,7 +66,7 @@ frontends = [
       }
     ]
   },
- /*  {
+  /*  {
     name                = "pip-frontend-b2c-sign-in"
     custom_domain       = "sign.stg.court-tribunal-hearings.service.gov.uk"
     backend_domain      = ["hmctspipprod.b2clogin.com"]
@@ -90,6 +92,7 @@ frontends = [
     name           = "vh-test-web"
     custom_domain  = "vh-test-web.staging.platform.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
+    priority       = 30
 
     disabled_rules = {}
   },
@@ -97,6 +100,7 @@ frontends = [
     name           = "vh-video-web"
     custom_domain  = "vh-video-web.staging.platform.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
+    priority       = 40
 
     disabled_rules = {}
   },
@@ -104,6 +108,7 @@ frontends = [
     name           = "vh-admin-web"
     custom_domain  = "vh-admin-web.staging.platform.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
+    priority       = 50
 
     disabled_rules = {}
   },
@@ -111,6 +116,7 @@ frontends = [
     name           = "vh-service-web"
     custom_domain  = "vh-service-web.staging.platform.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
+    priority       = 60
 
     disabled_rules = {}
   },
@@ -118,6 +124,7 @@ frontends = [
     name           = "staging-casetracker"
     custom_domain  = "staging.casetracker.justice.gov.uk"
     backend_domain = ["dualstack.civil-loadb-105un4gbv5077-2040046462.eu-west-2.elb.amazonaws.com"]
+    priority       = 70
     shutter_app    = false
     enable_ssl     = true
   },
@@ -125,6 +132,7 @@ frontends = [
     name           = "staging-certificatedbailiffs"
     custom_domain  = "staging.certificatedbailiffs.justice.gov.uk"
     backend_domain = ["dualstack.certi-loadb-vzujs6ulbuut-415542592.eu-west-2.elb.amazonaws.com"]
+    priority       = 80
     shutter_app    = false
     enable_ssl     = true
   },
@@ -132,6 +140,7 @@ frontends = [
     name           = "staging-courtfines"
     custom_domain  = "staging.courtfines.direct.gov.uk"
     backend_domain = ["dualstack.court-loadb-qpahtenf925i-482204730.eu-west-2.elb.amazonaws.com"]
+    priority       = 90
     shutter_app    = false
     enable_ssl     = true
   },
@@ -139,6 +148,7 @@ frontends = [
     name           = "staging-immigrationappealsonline"
     custom_domain  = "staging.immigrationappealsonline.justice.gov.uk"
     backend_domain = ["dualstack.iacfees-s-ELBhmcts-DGD2EJ56UXEF-715536071.eu-west-1.elb.amazonaws.com"]
+    priority       = 100
     shutter_app    = false
     enable_ssl     = true
   },
@@ -146,6 +156,7 @@ frontends = [
     name             = "sds-api-mgmt"
     custom_domain    = "sds-api-mgmt.staging.platform.hmcts.net"
     backend_domain   = ["firewall-prod-int-palo-sdsapimgmtstg.uksouth.cloudapp.azure.com"]
+    priority         = 110
     certificate_name = "wildcard-stg-platform-hmcts-net"
     cache_enabled    = "false"
   },
@@ -154,6 +165,7 @@ frontends = [
     mode           = "Prevention"
     custom_domain  = "staging.landregistrationdivision.dsd.io"
     backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
+    priority       = 120
     shutter_app    = false
     enable_ssl     = false
 
@@ -175,6 +187,7 @@ frontends = [
     mode           = "Prevention"
     custom_domain  = "staging.immigrationservices.dsd.io"
     backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
+    priority       = 130
     shutter_app    = false
     enable_ssl     = false
 
@@ -191,6 +204,7 @@ frontends = [
     mode           = "Prevention"
     custom_domain  = "staging.informationrights.dsd.io"
     backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
+    priority       = 140
     shutter_app    = false
     enable_ssl     = false
 
@@ -222,6 +236,7 @@ frontends = [
     mode           = "Prevention"
     custom_domain  = "staging.administrativeappeals.dsd.io"
     backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
+    priority       = 150
     shutter_app    = false
     enable_ssl     = false
 
@@ -243,6 +258,7 @@ frontends = [
     mode           = "Prevention"
     custom_domain  = "staging.carestandards.dsd.io"
     backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
+    priority       = 160
     shutter_app    = false
     enable_ssl     = false
 
@@ -274,6 +290,7 @@ frontends = [
     mode           = "Prevention"
     custom_domain  = "staging.landschamber.dsd.io"
     backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
+    priority       = 170
     shutter_app    = false
     enable_ssl     = false
 
@@ -290,6 +307,7 @@ frontends = [
     mode           = "Prevention"
     custom_domain  = "staging.financeandtax.dsd.io"
     backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
+    priority       = 180
     shutter_app    = false
     enable_ssl     = false
 
@@ -329,6 +347,7 @@ frontends = [
     mode           = "Prevention"
     custom_domain  = "staging.employmentappeals.dsd.io"
     backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
+    priority       = 190
     shutter_app    = false
     enable_ssl     = false
 
@@ -345,6 +364,7 @@ frontends = [
     mode           = "Prevention"
     custom_domain  = "staging.transportappeals.dsd.io"
     backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
+    priority       = 200
     shutter_app    = false
     enable_ssl     = false
 
@@ -361,6 +381,7 @@ frontends = [
     mode           = "Prevention"
     custom_domain  = "staging.cicap.dsd.io"
     backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
+    priority       = 210
     shutter_app    = false
     enable_ssl     = false
 

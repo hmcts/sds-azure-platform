@@ -15,6 +15,7 @@ frontends = [
     name           = "toffee"
     custom_domain  = "toffee.test.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
+    priority       = 10
 
     disabled_rules = {}
   },
@@ -23,6 +24,7 @@ frontends = [
     name           = "pip-frontend"
     custom_domain  = "pip-frontend.test.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
+    priority       = 20
 
     disabled_rules = {}
 
@@ -69,6 +71,7 @@ frontends = [
     name           = "vh-test-web"
     custom_domain  = "vh-test-web.test.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
+    priority       = 30
 
     disabled_rules = {}
   },
@@ -76,6 +79,7 @@ frontends = [
     name           = "vh-video-web"
     custom_domain  = "vh-video-web.test.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
+    priority       = 40
 
     disabled_rules = {}
   },
@@ -83,6 +87,7 @@ frontends = [
     name           = "vh-admin-web"
     custom_domain  = "vh-admin-web.test.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
+    priority       = 50
 
     disabled_rules = {}
   },
@@ -90,6 +95,7 @@ frontends = [
     name           = "vh-service-web"
     custom_domain  = "vh-service-web.test.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
+    priority       = 60
 
     disabled_rules = {}
   },
@@ -97,6 +103,7 @@ frontends = [
     name             = "sds-api-mgmt"
     custom_domain    = "sds-api-mgmt.test.platform.hmcts.net"
     backend_domain   = ["firewall-nonprodi-palo-sdsapimgmttest.uksouth.cloudapp.azure.com"]
+    priority         = 70
     certificate_name = "wildcard-test-platform-hmcts-net"
     cache_enabled    = "false"
   }
