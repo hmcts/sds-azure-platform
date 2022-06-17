@@ -16,6 +16,5 @@ frontends = [
     backend_domain   = ["firewall-nonprodi-palo-sdsapimgmtdemo.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-demo-platform-hmcts-net"
     cache_enabled    = "false"
-    priority         = 10
   }
 ]
