@@ -605,7 +605,7 @@ frontends = [
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-platform-hmcts-net"
     disabled_rules   = {}
-    shutter_app      = false
+    shutter_app      = true
   },
   {
     name             = "vh-video-web"
@@ -613,7 +613,7 @@ frontends = [
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-platform-hmcts-net"
     disabled_rules   = {}
-    shutter_app      = false
+    shutter_app      = true
   },
   {
     name             = "vh-admin-web"
@@ -621,7 +621,7 @@ frontends = [
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-platform-hmcts-net"
     disabled_rules   = {}
-    shutter_app      = false
+    shutter_app      = true
   },
   {
     name             = "vh-service-web"
