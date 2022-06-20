@@ -64,7 +64,7 @@ frontends = [
       }
     ]
   },
- /*  {
+  /*  {
     name                = "pip-frontend-b2c-sign-in"
     custom_domain       = "sign.stg.court-tribunal-hearings.service.gov.uk"
     backend_domain      = ["hmctspipprod.b2clogin.com"]
