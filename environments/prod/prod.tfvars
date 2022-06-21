@@ -618,9 +618,9 @@ frontends = [
         selector       = "x-ms-cpim-"
       },
       {
-      match_variable = "QueryStringArgNames"
-      operator       = "Equals"
-      selector       = "diags"
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "diags"
       }
     ]
   },
