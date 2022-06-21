@@ -583,6 +583,11 @@ frontends = [
         match_variable = "RequestCookieNames"
         operator       = "StartsWith"
         selector       = "x-ms-cpim-"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "diags"
       }
     ]
   },
@@ -611,6 +616,11 @@ frontends = [
         match_variable = "RequestCookieNames"
         operator       = "StartsWith"
         selector       = "x-ms-cpim-"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "diags"
       }
     ]
   },
