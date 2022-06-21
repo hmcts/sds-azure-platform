@@ -655,6 +655,13 @@ frontends = [
     certificate_name = "wildcard-platform-hmcts-net"
     disabled_rules   = {}
     shutter_app      = false
+  },
+  {
+    name             = "sds-api-mgmt"
+    custom_domain    = "sds-api-mgmt.platform.hmcts.net"
+    backend_domain   = ["firewall-prod-int-palo-sdsapimgmtprod.uksouth.cloudapp.azure.com"]
+    certificate_name = "wildcard-platform-hmcts-net"
+    cache_enabled    = "false"
   }
 ]
 
