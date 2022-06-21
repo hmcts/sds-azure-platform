@@ -46,7 +46,7 @@ frontends = [
     backend_domain   = ["firewall-sbox-int-palo-sdsapimgmt.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-sandbox-platform-hmcts-net"
     cache_enabled    = "false"
-    enable_ssl       = true
+    enable_ssl       = "true"
   },
   {
     name             = "vh-test-web"
@@ -55,6 +55,7 @@ frontends = [
     certificate_name = "wildcard-sandbox-platform-hmcts-net"
     disabled_rules   = {}
     shutter_app      = false
+    enable_ssl       = "true"
   },
   {
     name             = "vh-video-web"
@@ -63,7 +64,7 @@ frontends = [
     certificate_name = "wildcard-sandbox-platform-hmcts-net"
     disabled_rules   = {}
     shutter_app      = false
-    enable_ssl       = true
+    enable_ssl       = "true"
   },
   {
     name             = "vh-admin-web"
@@ -72,7 +73,7 @@ frontends = [
     certificate_name = "wildcard-sandbox-platform-hmcts-net"
     disabled_rules   = {}
     shutter_app      = false
-    enable_ssl       = true
+    enable_ssl       = "true"
   },
   {
     name             = "vh-service-web"
@@ -81,6 +82,6 @@ frontends = [
     certificate_name = "wildcard-sandbox-platform-hmcts-net"
     disabled_rules   = {}
     shutter_app      = false
-    enable_ssl       = true
+    enable_ssl       = "true"
   }
 ]
