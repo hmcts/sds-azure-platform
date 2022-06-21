@@ -555,6 +555,11 @@ frontends = [
         match_variable = "RequestCookieNames"
         operator       = "Equals"
         selector       = "cookiePolicy"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "createAdminAccount"
       }
     ]
   },
@@ -583,6 +588,26 @@ frontends = [
         match_variable = "RequestCookieNames"
         operator       = "StartsWith"
         selector       = "x-ms-cpim-"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "diags"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "redirect_uri"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "error_description"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "code"
       }
     ]
   },
@@ -611,6 +636,26 @@ frontends = [
         match_variable = "RequestCookieNames"
         operator       = "StartsWith"
         selector       = "x-ms-cpim-"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "diags"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "redirect_uri"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "error_description"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "code"
       }
     ]
   },
@@ -645,6 +690,13 @@ frontends = [
     certificate_name = "wildcard-platform-hmcts-net"
     disabled_rules   = {}
     shutter_app      = false
+  },
+  {
+    name             = "sds-api-mgmt"
+    custom_domain    = "sds-api-mgmt.platform.hmcts.net"
+    backend_domain   = ["firewall-prod-int-palo-sdsapimgmtprod.uksouth.cloudapp.azure.com"]
+    certificate_name = "wildcard-platform-hmcts-net"
+    cache_enabled    = "false"
   }
 ]
 
