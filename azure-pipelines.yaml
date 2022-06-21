@@ -1,6 +1,6 @@
 name: SDS Azure Platform
 trigger:
-  batch: true
+  batch: false
   branches:
     include:
       - master
