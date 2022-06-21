@@ -581,7 +581,7 @@ frontends = [
       },
       {
         match_variable = "RequestCookieNames"
-        operator       = "starts with"
+        operator       = "StartsWith"
         selector       = "x-ms-cpim-"
       }
     ]
@@ -609,7 +609,7 @@ frontends = [
       },
       {
         match_variable = "RequestCookieNames"
-        operator       = "starts with"
+        operator       = "StartsWith"
         selector       = "x-ms-cpim-"
       }
     ]
