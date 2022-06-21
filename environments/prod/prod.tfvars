@@ -590,12 +590,12 @@ frontends = [
         selector       = "diags"
       },
       {
-        match_variable = "RequestBodyPostArgsName"
+        match_variable = "RequestBodyPostArgNames"
         operator       = "Equals"
         selector       = "redirect_uri"
       },
       {
-        match_variable = "RequestBodyPostArgsName"
+        match_variable = "RequestBodyPostArgNames"
         operator       = "Equals"
         selector       = "error_description"
       }
@@ -633,12 +633,12 @@ frontends = [
         selector       = "diags"
       },
       {
-        match_variable = "RequestBodyPostArgsName"
+        match_variable = "RequestBodyPostArgNames"
         operator       = "Equals"
         selector       = "redirect_uri"
       },
       {
-        match_variable = "RequestBodyPostArgsName"
+        match_variable = "RequestBodyPostArgNames"
         operator       = "Equals"
         selector       = "error_description"
       }
