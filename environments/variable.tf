@@ -22,3 +22,4 @@ variable "department" { default = "sds" }
 variable "apim_sku_name" { default = "Developer" }
 variable "hub" { default = "sbox" }
 variable "public_ip_enable_multiple_availability_zones" { default = false }
+variable "enable_multiple_availability_zones" { default = false }
