@@ -28,4 +28,5 @@ module "appgateway" {
   vnet_name                                    = var.vnet_name
   log_analytics_workspace_id                   = module.logworkspace.workspace_id
   public_ip_enable_multiple_availability_zones = var.public_ip_enable_multiple_availability_zones
+  enable_multiple_availability_zones           = var.enable_multiple_availability_zones
 }
