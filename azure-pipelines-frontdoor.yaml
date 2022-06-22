@@ -12,25 +12,6 @@ parameters:
     default:
       - deployment: 'frontdoor'
         environment: 'sbox'
-        dependsOn: 'Precheck'
-      - deployment: 'frontdoor'
-        environment: 'dev'
-        dependsOn: 'Precheck'
-      - deployment: 'frontdoor'
-        environment: 'stg'
-        dependsOn: 'Precheck'
-      - deployment: 'frontdoor'
-        environment: 'demo'
-        dependsOn: 'Precheck'
-      - deployment: 'frontdoor'
-        environment: 'ithc'
-        dependsOn: 'Precheck'
-      - deployment: 'frontdoor'
-        environment: 'test'
-        dependsOn: 'Precheck'
-      - deployment: 'frontdoor'
-        environment: 'prod'
-        dependsOn: 'Precheck'
 
   - name: location
     displayName: Location
