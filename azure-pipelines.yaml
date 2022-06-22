@@ -37,7 +37,7 @@ variables:
   - name: build
     value: $(Build.BuildNumber)
   - name: isMaster
-    value: $[eq(variables['Build.SourceBranch'], 'refs/heads/master')]
+    value: $[eq(variables['Build.SourceBranch'], 'refs/heads/DTSPO-8837/test-appgw-2')]
   - name: product
     value: "sds-platform"
   - name: tfInitSub
