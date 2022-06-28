@@ -16,9 +16,9 @@ resource "azurerm_cdn_endpoint_custom_domain" "this" {
     }
   }
   dynamic "user_managed_https" {
-    for_each = lookup(each.value, "ssl_mode", "") == "AzureKeyVault" ? { key_vault_certificate_id = data.azurerm_key_vault_secret.certificate[each.value["name"]].id } : {}
+    for_each = lookup(each.value, "ssl_mode", "") == "AzureKeyVault" ? { key_vault_certificate_id = "" } : {}
     content {
-      key_vault_certificate_id = user_managed_https.key_vault_certificate_id
+      key_vault_certificate_id = data.azurerm_key_vault_secret.certificate[each.value["name"]].id
       tls_version              = "TLS12"
     }
   }
