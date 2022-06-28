@@ -13,6 +13,7 @@ module "shutter" {
   shutter_apps               = local.shutter_apps
   common_tags                = module.ctags.common_tags
   certificate_key_vault_name = local.key_vault_name
+  key_vault_resource_group   = "sds-platform-${var.environment}-rg"
   subscription               = var.subscription
   shutter_rg                 = var.shutter_rg
   cdn_sku                    = var.cdn_sku

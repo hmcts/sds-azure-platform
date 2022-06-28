@@ -1,7 +1,3 @@
-data "azurerm_key_vault" "certificate_vault" {
-  name                = var.certificate_key_vault_name
-  resource_group_name = "sds-platform-${var.subscription}-rg"
-}
 
 resource "azurerm_role_assignment" "cdn" {
   role_definition_name = "Key Vault Secrets User"
