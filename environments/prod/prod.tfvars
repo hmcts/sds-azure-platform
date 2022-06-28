@@ -554,7 +554,7 @@ frontends = [
       {
         match_variable = "RequestCookieNames"
         operator       = "Equals"
-        selector       = "cookiePolicy"
+        selector       = "court-and-tribunal-hearings-cookie-preferences"
       },
       {
         match_variable = "RequestCookieNames"
