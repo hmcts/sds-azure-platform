@@ -11,7 +11,7 @@ resource "azurerm_cdn_endpoint_custom_domain" "this" {
     for_each = lookup(each.value, "ssl_mode", "") == "AzureKeyVault" ? {} : { type = "Dedicated" }
     content {
       certificate_type = "Dedicated"
-      protocol_type    = "ServerNameIndication "
+      protocol_type    = "ServerNameIndication"
       tls_version      = "TLS12"
     }
   }
