@@ -327,8 +327,6 @@ frontends = [
     name             = "jd-bureau"
     custom_domain    = "juror-bureau.justice.gov.uk"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-    ssl_mode         = "AzureKeyVault"
-    cdn_ssl_mode     = "AzureKeyVault"
     certificate_name = "juror-bureau-justice-gov-uk"
 
     session_affinity             = true
@@ -498,13 +496,10 @@ frontends = [
       },
     ],
   },
-
   {
     name             = "jd-reply-jury-summons"
     custom_domain    = "reply-jury-summons.service.gov.uk"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-    ssl_mode         = "AzureKeyVault"
-    cdn_ssl_mode     = "AzureKeyVault"
     certificate_name = "reply-jury-summons-service-gov-uk"
 
     session_affinity             = true
@@ -676,7 +671,6 @@ frontends = [
     name             = "vh-test-web"
     custom_domain    = "vh-test-web.platform.hmcts.net"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-    certificate_name = "wildcard-platform-hmcts-net"
     disabled_rules   = {}
     shutter_app      = true
   },
@@ -684,7 +678,6 @@ frontends = [
     name             = "vh-video-web"
     custom_domain    = "vh-video-web.platform.hmcts.net"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-    certificate_name = "wildcard-platform-hmcts-net"
     disabled_rules   = {}
     shutter_app      = true
   },
@@ -692,7 +685,6 @@ frontends = [
     name             = "vh-admin-web"
     custom_domain    = "vh-admin-web.platform.hmcts.net"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-    certificate_name = "wildcard-platform-hmcts-net"
     disabled_rules   = {}
     shutter_app      = true
   },
