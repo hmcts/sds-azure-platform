@@ -63,6 +63,7 @@ frontends = [
     shutter_app      = false
     enable_ssl       = true
     ssl_mode         = "AzureKeyVault"
+    cdn_ssl_mode     = "AzureKeyVault"
     certificate_name = "casetracker-justice-gov-uk"
   },
   {
@@ -73,6 +74,7 @@ frontends = [
     shutter_app      = false
     enable_ssl       = true
     ssl_mode         = "AzureKeyVault"
+    cdn_ssl_mode     = "AzureKeyVault"
     certificate_name = "certificatedbailiffs-justice-gov-uk"
   },
   {
@@ -83,6 +85,7 @@ frontends = [
     shutter_app      = false
     enable_ssl       = true
     ssl_mode         = "AzureKeyVault"
+    cdn_ssl_mode     = "AzureKeyVault"
     certificate_name = "courtfines-direct-gov-uk"
   },
   {
@@ -93,6 +96,7 @@ frontends = [
     shutter_app      = false
     enable_ssl       = true
     ssl_mode         = "AzureKeyVault"
+    cdn_ssl_mode     = "AzureKeyVault"
     certificate_name = "immigrationappealsonline-justice-gov-uk"
   },
   {
@@ -103,6 +107,7 @@ frontends = [
     shutter_app      = false
     enable_ssl       = true
     ssl_mode         = "AzureKeyVault"
+    cdn_ssl_mode     = "AzureKeyVault"
     certificate_name = "tribunalsdecisions-service-gov-uk"
   },
   {
@@ -323,6 +328,7 @@ frontends = [
     custom_domain    = "juror-bureau.justice.gov.uk"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     ssl_mode         = "AzureKeyVault"
+    cdn_ssl_mode     = "AzureKeyVault"
     certificate_name = "juror-bureau-justice-gov-uk"
 
     session_affinity             = true
@@ -498,6 +504,7 @@ frontends = [
     custom_domain    = "reply-jury-summons.service.gov.uk"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     ssl_mode         = "AzureKeyVault"
+    cdn_ssl_mode     = "AzureKeyVault"
     certificate_name = "reply-jury-summons-service-gov-uk"
 
     session_affinity             = true
