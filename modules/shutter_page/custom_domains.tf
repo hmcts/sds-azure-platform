@@ -8,7 +8,7 @@ resource "azurerm_cdn_endpoint_custom_domain" "this" {
 
 
   dynamic "cdn_managed_https" {
-    for_each = lookup(each.value, "cdn_ssl_mode", var.ssl_mode) == "Cdn" ? {} : { type = "Dedicated" }
+    for_each = lookup(each.value, "cdn_ssl_mode", var.ssl_mode) == "Cdn" ? { type = "Dedicated" } : {}
     content {
       certificate_type = "Dedicated"
       protocol_type    = "ServerNameIndication"
