@@ -43,7 +43,7 @@ steps:
       workingDirectory: $(System.DefaultWorkingDirectory)/components/${{ parameters.stack }}
       environmentServiceName: ${{ parameters.serviceConnection }}
       commandOptions: '-out tfplan-${{ parameters.project }}-${{ parameters.environment }}-${{ parameters.stack }}  -var environment=${{ parameters.environment }} -var project=${{ parameters.project }} -var builtFrom=$(Build.Repository.Name) -var product=${{ parameters.product }} -var-file $(System.DefaultWorkingDirectory)/environments/${{ parameters.environment }}/${{ parameters.environment }}.tfvars -lock=false'
-      publishPlanResults: ''${{ parameters.environment }}/${{ parameters.stack }}'
+      publishPlanResults: ''${{ parameters.environment }}-${{ parameters.stack }}'
 
   - task: Bash@3
     condition: and(succeeded(), eq(variables.isMaster, true))
@@ -68,7 +68,7 @@ steps:
     displayName: "Remove local tfstate"
     inputs:
       targetType: 'inline'
-      workingDirectory: '$(System.DefaultWorkingDirectory)-components/${{ parameters.stack }}'
+      workingDirectory: '$(System.DefaultWorkingDirectory)/components/${{ parameters.stack }}'
       script: |
         rm -f terraform.tfstate* && rm -rf .terraform/
 
