@@ -68,7 +68,7 @@ steps:
     displayName: "Remove local tfstate"
     inputs:
       targetType: 'inline'
-      workingDirectory: '$(System.DefaultWorkingDirectory)/components/${{ parameters.stack }}'
+      workingDirectory: '$(System.DefaultWorkingDirectory)-components/${{ parameters.stack }}'
       script: |
         rm -f terraform.tfstate* && rm -rf .terraform/
 
