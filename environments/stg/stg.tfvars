@@ -61,7 +61,12 @@ frontends = [
         match_variable = "RequestCookieNames"
         operator       = "Equals"
         selector       = "createAdminAccount"
-      }
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "error_description"
+      },
     ]
   },
   /*  {
