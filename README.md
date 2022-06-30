@@ -70,10 +70,3 @@ If you would like to use a certificate from the ACME Key Vaults managed by Platf
   cdn_ssl_mode     = "AzureKeyVault"
 }
 ```
-If you would like to use a certificate generated and managed by the CDN, then you can add the following properties:
-```terraform
-{
-  cdn_ssl_mode     = "Cdn"
-}
-```
-
