@@ -61,12 +61,9 @@ The storage account name will remove the `-` and take the first `8` characters o
 You can then forward the website manually to the shutter by setting the `shutter: true` in the `azure-public-dns` repository.
 
 ### TLS
-By default it will not set any SSL so you will need to set the below to configure them.
-
 If you would like to use a certificate from the ACME Key Vaults managed by Platform Operations, then you can set add following properties:
 ```terraform
 {
   certificate_name = "{Certificate Name}"
-  ssl_mode         = "AzureKeyVault"
 }
 ```
