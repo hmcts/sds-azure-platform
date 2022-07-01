@@ -70,4 +70,3 @@ If you would like to use a certificate from the ACME Key Vaults managed by Platf
   cdn_ssl_mode     = "AzureKeyVault"
 }
 ```
-
