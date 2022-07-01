@@ -16,6 +16,7 @@ frontends = [
     name             = "toffee"
     custom_domain    = "toffee.sandbox.platform.hmcts.net"
     certificate_name = "wildcard-sandbox-platform-hmcts-net"
+    cdn_ssl_mode     = "AzureKeyVault"
     backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
     disabled_rules   = {}
 
@@ -44,6 +45,7 @@ frontends = [
     custom_domain    = "sds-api-mgmt.sandbox.platform.hmcts.net"
     backend_domain   = ["firewall-sbox-int-palo-sdsapimgmt.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-sandbox-platform-hmcts-net"
+    cdn_ssl_mode     = "AzureKeyVault"
     cache_enabled    = "false"
   },
   {
@@ -75,6 +77,7 @@ frontends = [
     custom_domain    = "vh-service-web.sandbox.platform.hmcts.net"
     backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-sandbox-platform-hmcts-net"
+    cdn_ssl_mode     = "AzureKeyVault"
     disabled_rules   = {}
     shutter_app      = true
   }
