@@ -51,7 +51,7 @@ parameters:
         dependsOn: "sbox_appgateway"
       - deployment: "appgateway"
         environment: "prod"
-        dependsOn: "Precheck"
+        dependsOn: "sbox_appgateway"
       - deployment: "trafficmanager"
         environment: "dev"
         dependsOn: "Precheck"
