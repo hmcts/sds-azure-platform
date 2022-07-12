@@ -561,7 +561,13 @@ frontends = [
         match_variable = "RequestCookieNames"
         operator       = "Equals"
         selector       = "createAdminAccount"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "session.sig"
       }
+      
     ]
   },
   {
