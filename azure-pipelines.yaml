@@ -5,6 +5,14 @@ trigger:
     include:
       - master
 
+resources:
+  repositories:
+  - repository: pre-commit-hooks
+    type: github
+    ref: refs/heads/master
+    name: hmcts/pre-commit-hooks
+    endpoint: 'hmcts'
+
 parameters:
   - name: components
     displayName: Component to Run
@@ -120,6 +128,7 @@ stages:
         pool:
           vmImage: ${{ variables.agentPool }}
         steps:
+          - checkout: pre-commit-hooks
           - task: TerraformInstaller@0
             displayName: Terraform install
             inputs:
@@ -152,6 +161,12 @@ stages:
               testResultsFormat: NUnit
               failTaskOnFailedTests: true
             condition: always()
+          - task: Bash@3
+            displayName: "Application Gateway Backend Check"
+            inputs:
+              targetType: 'inline'
+              script: cd sds-azure-platforms && ../pre-commit-hooks/pre-commit-hooks/app_gateway_backend_check.sh
+              failOnStderr: true
 
   - ${{ each parameter in parameters.components }}:
       - stage: ${{ parameter.environment }}_${{ parameter.deployment }}
