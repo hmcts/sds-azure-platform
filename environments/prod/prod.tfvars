@@ -567,7 +567,7 @@ frontends = [
         operator       = "Equals"
         selector       = "session.sig"
       }
-      
+
     ]
   },
   {
