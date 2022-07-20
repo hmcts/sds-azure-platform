@@ -11,7 +11,7 @@ resources:
     type: github
     ref: refs/heads/master
     name: hmcts/pre-commit-hooks
-    endpoint: 'hmcts'
+    endpoint: 'hmcts (1)'
 
 parameters:
   - name: components
