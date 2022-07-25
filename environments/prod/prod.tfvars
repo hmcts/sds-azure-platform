@@ -646,7 +646,7 @@ frontends = [
         match_variable = "RequestBodyPostArgNames"
         operator       = "Equals"
         selector       = "post_logout_redirect_uri"
-      },
+      }
     ]
   },
   {
@@ -725,7 +725,7 @@ frontends = [
         match_variable = "RequestBodyPostArgNames"
         operator       = "Equals"
         selector       = "post_logout_redirect_uri"
-      },
+      }
     ]
   },
   {
