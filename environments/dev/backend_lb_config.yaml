@@ -33,3 +33,7 @@ gateways:
       - product: vh
         component: booking-queue-subscriber
         ssl_enabled: true
+      # DTS Legacy Apps
+      - product: lgy-iac
+        component: web
+        ssl_enabled: true
