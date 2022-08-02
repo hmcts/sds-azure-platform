@@ -264,6 +264,7 @@ frontends = [
     custom_domain       = "vh-wowza.dev.platform.hmcts.net"
     backend_domain      = ["20.68.204.210"]
     forwarding_protocol = "HttpsOnly"
+    certificate_name    = "wildcard-platform-hmcts-net"
     disabled_rules      = {}
     global_exclusions   = []
   },

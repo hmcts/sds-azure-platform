@@ -21,6 +21,7 @@ frontends = [
     name                = "vh-wowza"
     custom_domain       = "vh-wowza.demo.platform.hmcts.net"
     backend_domain      = ["20.77.78.162"]
+    certificate_name    = "wildcard-platform-hmcts-net"
     forwarding_protocol = "HttpsOnly"
     disabled_rules      = {}
     global_exclusions   = []
