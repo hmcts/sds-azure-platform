@@ -265,7 +265,7 @@ frontends = [
     backend_domain      = ["20.68.204.210"]
     forwarding_protocol = "HttpsOnly"
     disabled_rules      = {}
-    global_exclusions = []
+    global_exclusions   = []
   },
   {
     name           = "dev-casetracker"

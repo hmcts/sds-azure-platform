@@ -24,7 +24,7 @@ frontends = [
     backend_domain      = ["20.254.40.90"]
     forwarding_protocol = "HttpsOnly"
     disabled_rules      = {}
-    global_exclusions = []
+    global_exclusions   = []
   },
   {
     name           = "pip-frontend"

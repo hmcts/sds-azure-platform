@@ -23,6 +23,6 @@ frontends = [
     backend_domain      = ["20.77.78.162"]
     forwarding_protocol = "HttpsOnly"
     disabled_rules      = {}
-    global_exclusions = []
+    global_exclusions   = []
   }
 ]

@@ -734,7 +734,7 @@ frontends = [
     backend_domain      = ["51.142.236.29"]
     forwarding_protocol = "HttpsOnly"
     disabled_rules      = {}
-    global_exclusions = []
+    global_exclusions   = []
   },
   {
     name             = "vh-test-web"
