@@ -729,6 +729,14 @@ frontends = [
     ]
   },
   {
+    name                = "vh-wowza"
+    custom_domain       = "vh-wowza.prod.platform.hmcts.net"
+    backend_domain      = ["51.142.236.29"]
+    forwarding_protocol = "HttpsOnly"
+    disabled_rules      = {}
+    global_exclusions = []
+  },
+  {
     name             = "vh-test-web"
     custom_domain    = "vh-test-web.platform.hmcts.net"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
