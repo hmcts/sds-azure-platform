@@ -260,6 +260,15 @@ frontends = [
     disabled_rules = {}
   },
   {
+    name                = "vh-wowza"
+    custom_domain       = "vh-wowza.dev.platform.hmcts.net"
+    backend_domain      = ["20.68.204.210"]
+    forwarding_protocol = "HttpsOnly"
+    certificate_name    = "wildcard-platform-hmcts-net"
+    disabled_rules      = {}
+    global_exclusions   = []
+  },
+  {
     name           = "dev-casetracker"
     custom_domain  = "dev.casetracker.justice.gov.uk"
     backend_domain = ["civil-loadb-y5o7jqurq76d-2065714619.eu-west-2.elb.amazonaws.com"]

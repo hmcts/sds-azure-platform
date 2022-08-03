@@ -19,6 +19,15 @@ frontends = [
     disabled_rules = {}
   },
   {
+    name                = "vh-wowza"
+    custom_domain       = "vh-wowza.stg.platform.hmcts.net"
+    certificate_name    = "wildcard-platform-hmcts-net"
+    backend_domain      = ["20.254.40.90"]
+    forwarding_protocol = "HttpsOnly"
+    disabled_rules      = {}
+    global_exclusions   = []
+  },
+  {
     name           = "pip-frontend"
     custom_domain  = "pip-frontend.staging.platform.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
