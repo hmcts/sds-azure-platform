@@ -109,14 +109,14 @@ frontends = [
   },
   {
     name           = "vh-video-web"
-    custom_domain  = "vh-video-web.staging.platform.hmcts.net"
+    custom_domain  = "video.staging.hearings.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
 
     disabled_rules = {}
   },
   {
     name           = "vh-admin-web"
-    custom_domain  = "vh-admin-web.staging.platform.hmcts.net"
+    custom_domain  = "admin.staging.hearings.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
 
     disabled_rules = {}
