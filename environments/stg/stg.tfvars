@@ -98,7 +98,7 @@ frontends = [
 
     disabled_rules = {}
   },
-  /*{
+  {
     name           = "vh-video-web"
     custom_domain  = "video.staging.hearings.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
@@ -111,7 +111,7 @@ frontends = [
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
 
     disabled_rules = {}
-  },*/
+  },
   {
     name           = "vh-service-web"
     custom_domain  = "vh-service-web.staging.platform.hmcts.net"
