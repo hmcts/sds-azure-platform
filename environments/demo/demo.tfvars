@@ -16,14 +16,5 @@ frontends = [
     backend_domain   = ["firewall-nonprodi-palo-sdsapimgmtdemo.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-demo-platform-hmcts-net"
     cache_enabled    = "false"
-  },
-  {
-    name                = "vh-wowza"
-    custom_domain       = "vh-wowza.demo.platform.hmcts.net"
-    backend_domain      = ["20.77.78.162"]
-    certificate_name    = "wildcard-platform-hmcts-net"
-    forwarding_protocol = "HttpsOnly"
-    disabled_rules      = {}
-    global_exclusions   = []
   }
 ]
