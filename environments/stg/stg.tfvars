@@ -227,28 +227,6 @@ frontends = [
       }
     ]
   },
-  /*  {
-    name                = "pip-frontend-b2c-sign-in"
-    custom_domain       = "sign.stg.court-tribunal-hearings.service.gov.uk"
-    backend_domain      = ["hmctspipprod.b2clogin.com"]
-    host_header         = "hmctspipprod.b2clogin.com"
-    disabled_rules      = {}
-    cache_enabled       = false
-    forwarding_protocol = "HttpsOnly"
-    ssl_mode            = "FrontDoor"
-    global_exclusions = [
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "redirect_uri"
-      },
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "desc"
-      }
-    ]
-  }, */
   {
     name           = "vh-test-web"
     custom_domain  = "vh-test-web.staging.platform.hmcts.net"
