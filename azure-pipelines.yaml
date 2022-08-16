@@ -213,7 +213,6 @@ stages:
               pool:
                 vmImage: ${{ variables.agentPool }}
               timeoutInMinutes: ${{ variables.timeoutInMinutes }}
-              dependsOn: TerraformPlanApply
               steps:
                 - template: steps/pipeline-tests-jest.yaml@cnp-azuredevops-libraries
                   parameters:
