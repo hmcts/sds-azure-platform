@@ -123,8 +123,6 @@ variables:
   - name: timeoutInMinutes
     value: "60"
   - name: agentPool
-    value: "ubuntu-18.04"
-  - name: vmImage
     value: 'ubuntu-latest'
   - name: build
     value: $(Build.BuildNumber)
@@ -183,7 +181,7 @@ stages:
         displayName: ${{ deployment.environment }}_${{ deployment.deployment }}
         dependsOn: ${{ deployment.dependsOn }}
         jobs:
-          - job:
+          - job: TerraformPlanApply
             pool:
               vmImage: ${{ variables.agentPool }}
             steps:
@@ -200,8 +198,9 @@ stages:
           - ${{ if eq(deployment.pipeline_tests, true) }}:
             - job: PipelineTests
               pool:
-                vmImage: ${{ variables.vmImage }}
+                vmImage: ${{ variables.agentPool }}
               timeoutInMinutes: ${{ variables.timeoutInMinutes }}
+              dependsOn: TerraformPlanApply
               steps:
                 - template: steps/pipeline-tests-jest.yaml@cnp-azuredevops-libraries
                   parameters:
