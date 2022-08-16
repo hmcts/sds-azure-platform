@@ -18,6 +18,7 @@ frontends = [
     certificate_name = "wildcard-sandbox-platform-hmcts-net"
     backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
     disabled_rules   = {}
+    enable_ssl       = true
   },
   {
     product          = "sds-api-mgmt"
