@@ -22,7 +22,6 @@ parameters:
         environment: "sbox"
         dependsOn: "Precheck"
         pipeline_tests: true
-        dns_zone: sandbox.platform.hmcts.net
       - deployment: "backendappgateway"
         environment: "dev"
         dependsOn: "sbox_backendappgateway"
@@ -30,7 +29,6 @@ parameters:
         environment: "stg"
         dependsOn: "sbox_backendappgateway"
         pipeline_tests: true
-        dns_zone: staging.platform.hmcts.net
       - deployment: "backendappgateway"
         environment: "demo"
         dependsOn: "sbox_backendappgateway"
@@ -38,12 +36,10 @@ parameters:
         environment: "ithc"
         dependsOn: "sbox_backendappgateway"
         pipeline_tests: true
-        dns_zone: ithc.platform.hmcts.net
       - deployment: "backendappgateway"
         environment: "test"
         dependsOn: "sbox_backendappgateway"
         pipeline_tests: true
-        dns_zone: test.platform.hmcts.net
       - deployment: "backendappgateway"
         environment: "prod"
         dependsOn: "sbox_backendappgateway"
@@ -51,7 +47,6 @@ parameters:
         environment: "sbox"
         dependsOn: "Precheck"
         pipeline_tests: true
-        dns_zone: sandbox.platform.hmcts.net
       - deployment: "appgateway"
         environment: "dev"
         dependsOn: "sbox_appgateway"
@@ -59,7 +54,6 @@ parameters:
         environment: "stg"
         dependsOn: "sbox_appgateway"
         pipeline_tests: true
-        dns_zone: staging.platform.hmcts.net
       - deployment: "appgateway"
         environment: "demo"
         dependsOn: "sbox_appgateway"
@@ -67,12 +61,10 @@ parameters:
         environment: "ithc"
         dependsOn: "sbox_appgateway"
         pipeline_tests: true
-        dns_zone: ithc.platform.hmcts.net
       - deployment: "appgateway"
         environment: "test"
         dependsOn: "sbox_appgateway"
         pipeline_tests: true
-        dns_zone: test.platform.hmcts.net
       - deployment: "appgateway"
         environment: "prod"
         dependsOn: "sbox_appgateway"
@@ -86,7 +78,6 @@ parameters:
         environment: "sbox"
         dependsOn: "Precheck"
         pipeline_tests: true
-        dns_zone: sandbox.platform.hmcts.net
       - deployment: "shutter"
         environment: "prod"
         dependsOn: "sbox_shutter"
@@ -94,7 +85,6 @@ parameters:
         environment: "sbox"
         dependsOn: "Precheck"
         pipeline_tests: true
-        dns_zone: sandbox.platform.hmcts.net
       - deployment: "apim"
         environment: "dev"
         dependsOn: "sbox_apim"
@@ -102,7 +92,6 @@ parameters:
         environment: "stg"
         dependsOn: "sbox_apim"
         pipeline_tests: true
-        dns_zone: staging.platform.hmcts.net
       - deployment: "apim"
         environment: "prod"
         dependsOn: "sbox_apim"
@@ -110,7 +99,6 @@ parameters:
         environment: "test"
         dependsOn: "sbox_apim"
         pipeline_tests: true
-        dns_zone: test.platform.hmcts.net
       - deployment: "apim"
         environment: "demo"
         dependsOn: "sbox_apim"
@@ -118,7 +106,6 @@ parameters:
         environment: "ithc"
         dependsOn: "sbox_apim"
         pipeline_tests: true
-        dns_zone: ithc.platform.hmcts.net
         
   - name: location
     displayName: Location
@@ -191,10 +178,10 @@ stages:
               failTaskOnFailedTests: true
             condition: always()
 
-  - ${{ each parameter in parameters.components }}:
-      - stage: ${{ parameter.environment }}_${{ parameter.deployment }}
-        displayName: ${{ parameter.environment }}_${{ parameter.deployment }}
-        dependsOn: ${{ parameter.dependsOn }}
+  - ${{ each deployment in parameters.components }}:
+      - stage: ${{ deployment.environment }}_${{ deployment.deployment }}
+        displayName: ${{ deployment.environment }}_${{ deployment.deployment }}
+        dependsOn: ${{ deployment.dependsOn }}
         jobs:
           - job:
             pool:
@@ -202,15 +189,15 @@ stages:
             steps:
               - template: pipeline-templates/terraform.yaml
                 parameters:
-                  environment: ${{ parameter.environment }}
+                  environment: ${{ deployment.environment }}
                   location: ${{ parameters.location }}
-                  stack: ${{ parameter.deployment }}
+                  stack: ${{ deployment.deployment }}
                   project: $(project)
                   tfversion: $(tfversion)
-                  serviceConnection: "OPS-APPROVAL-GATE-${{ upper(parameter.environment) }}-ENVS"
+                  serviceConnection: "OPS-APPROVAL-GATE-${{ upper(deployment.environment) }}-ENVS"
                   product: $(product)
                   tfInitSub: ${{ variables.tfInitSub }}
-          - ${{ if eq(parameter.pipeline_tests, true) }}:
+          - ${{ if eq(deployment.pipeline_tests, true) }}:
             - job: PipelineTests
               pool:
                 vmImage: ${{ variables.vmImage }}
@@ -219,7 +206,7 @@ stages:
                 - template: steps/pipeline-tests-jest.yaml@cnp-azuredevops-libraries
                   parameters:
                     workingDirectory: $(Pipeline.Workspace)/s/sds-azure-platform/scripts
-                    junit_output_dir: $(Pipeline.Workspace)/s/sds-azure-platform/environments/${{ parameter.environment }}/junit
-                    environment: ${{ parameter.environment }}
+                    junit_output_dir: $(Pipeline.Workspace)/s/sds-azure-platform/environments/${{ deployment.environment }}/junit
+                    environment: ${{ deployment.environment }}
                     product: ${{ variables.product }}
-                    test_title: '${{ parameter.environment }}_${{ parameter.component }}'
+                    test_title: '${{ deployment.environment }}_${{ deployment.component }}'
