@@ -9,30 +9,30 @@ const TEST_URL =
   process.env.TEST_URL
 
 describe("Smoke Test", () => {
-  describe(`Test case: ${APP_NAME} endpoints`, () => {
-    test(`Test http redirect (${APP_NAME})`, async () => {
-      try {
-        const url = `http://${TEST_URL}/`;
-        const response: AxiosResponse = await axios
-          .request({
-            method: "GET",
-            url: url,
-            headers: {
-              Accept: "application/json, text/plain, */*",
-              "Accept-Encoding": "gzip",
-            },
-            maxRedirects: 0,
-            validateStatus: false,
-          })
+  // describe(`Test case: ${APP_NAME} endpoints`, () => {
+  //   test(`Test http redirect (${APP_NAME})`, async () => {
+  //     try {
+  //       const url = `http://${TEST_URL}/`;
+  //       const response: AxiosResponse = await axios
+  //         .request({
+  //           method: "GET",
+  //           url: url,
+  //           headers: {
+  //             Accept: "application/json, text/plain, */*",
+  //             "Accept-Encoding": "gzip",
+  //           },
+  //           maxRedirects: 0,
+  //           validateStatus: false,
+  //         })
 
-        expect(response.status).toBe(301);
-        expect(response.headers.location).toBe(
-          `https://${TEST_URL}/`
-        );
-      } catch(error) {
-        fail(error.stack);
-      }
-    });
+  //       expect(response.status).toBe(301);
+  //       expect(response.headers.location).toBe(
+  //         `https://${TEST_URL}/`
+  //       );
+  //     } catch(error) {
+  //       fail(error.stack);
+  //     }
+  //   });
     test(`Test http response (${APP_NAME}/health)`, async () => {
       try {
         const url = `https://${TEST_URL}/health`;
