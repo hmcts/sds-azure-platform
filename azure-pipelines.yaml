@@ -137,6 +137,8 @@ variables:
     value: "60"
   - name: agentPool
     value: "ubuntu-18.04"
+  - name: vmImage
+    value: 'ubuntu-latest'
   - name: build
     value: $(Build.BuildNumber)
   - name: isMaster
@@ -211,7 +213,7 @@ stages:
           - ${{ if eq(parameter.pipeline_tests, true) }}:
             - job: PipelineTests
               pool:
-                vmImage: ${{ variables.agentPool }}
+                vmImage: ${{ variables.vmImage }}
               timeoutInMinutes: ${{ variables.timeoutInMinutes }}
               steps:
                 - template: steps/pipeline-tests-jest.yaml@cnp-azuredevops-libraries
