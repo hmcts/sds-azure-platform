@@ -144,6 +144,6 @@ stages:
                   parameters:
                     workingDirectory: $(Pipeline.Workspace)/s/sds-azure-platform/scripts
                     junit_output_dir: $(Pipeline.Workspace)/s/sds-azure-platform/environments/${{ parameter.environment }}/junit
-                    environment: ${{ deployment.environment }}
+                    environment: ${{ parameter.environment }}
                     product: ${{ variables.product }}
                     test_title: '${{ parameter.environment }}_${{ parameter.component }}'
