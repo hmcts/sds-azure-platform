@@ -22,7 +22,6 @@ parameters:
         environment: 'sbox'
         dependsOn: 'Precheck'
         pipeline_tests: true
-        dns_zone: sandbox.platform.hmcts.net
       - deployment: 'frontdoor'
         environment: 'dev'
         dependsOn: 'sbox_frontdoor'
@@ -30,7 +29,6 @@ parameters:
         environment: 'stg'
         dependsOn: 'sbox_frontdoor'
         pipeline_tests: true
-        dns_zone: staging.platform.hmcts.net
       - deployment: 'frontdoor'
         environment: 'demo'
         dependsOn: 'sbox_frontdoor'
@@ -38,12 +36,10 @@ parameters:
         environment: 'ithc'
         dependsOn: 'sbox_frontdoor'
         pipeline_tests: true
-        dns_zone: ithc.platform.hmcts.net
       - deployment: 'frontdoor'
         environment: 'test'
         dependsOn: 'sbox_frontdoor'
         pipeline_tests: true
-        dns_zone: test.platform.hmcts.net
       - deployment: 'frontdoor'
         environment: 'prod'
         dependsOn: 'sbox_frontdoor'
@@ -75,8 +71,6 @@ variables:
     value: 'sds-platform'
   - name: tfInitSub
     value: "04d27a32-7a07-48b3-95b8-3c8691e1a263"
-  - name: appName
-    value: toffee
 
 stages:
   - stage: Precheck
@@ -148,8 +142,8 @@ stages:
               steps:
                 - template: steps/pipeline-tests-jest.yaml@cnp-azuredevops-libraries
                   parameters:
-                    workingDirectory: $(Pipeline.Workspace)/s/scripts
-                    junit_output_dir: $(Pipeline.Workspace)/s/environments/${{ parameter.environment }}/junit
-                    dns_zone: ${{ parameter.dns_zone }}
-                    app_name: ${{ variables.appName }}
+                    workingDirectory: $(Pipeline.Workspace)/s/sds-azure-platform/scripts
+                    junit_output_dir: $(Pipeline.Workspace)/s/sds-azure-platform/environments/${{ parameter.environment }}/junit
+                    environment: ${{ deployment.environment }}
+                    product: ${{ variables.product }}
                     test_title: '${{ parameter.environment }}_${{ parameter.component }}'
