@@ -114,7 +114,7 @@ stages:
           condition: always()
 
 
-  - ${{ each parameter in parameters.components }}:
+  - ${{ each deployment in parameters.components }}:
       - stage: ${{ deployment.environment }}_${{ deployment.deployment }}
         displayName: ${{ deployment.environment }}_${{ deployment.deployment }}
         dependsOn: ${{ deployment.dependsOn }}
