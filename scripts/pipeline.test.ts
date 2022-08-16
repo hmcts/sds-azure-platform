@@ -9,7 +9,7 @@ const TEST_URL =
   process.env.TEST_URL
 
 describe("Smoke Test", () => {
-  // describe(`Test case: ${APP_NAME} endpoints`, () => {
+  describe(`Test case: ${APP_NAME} endpoints`, () => {
   //   test(`Test http redirect (${APP_NAME})`, async () => {
   //     try {
   //       const url = `http://${TEST_URL}/`;
