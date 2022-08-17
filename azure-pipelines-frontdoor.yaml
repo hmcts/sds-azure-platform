@@ -114,10 +114,10 @@ stages:
           condition: always()
 
 
-  - ${{ each deployment in parameters.components }}:
-      - stage: ${{ deployment.environment }}_${{ deployment.deployment }}
-        displayName: ${{ deployment.environment }}_${{ deployment.deployment }}
-        dependsOn: ${{ deployment.dependsOn }}
+  - ${{ each parameter in parameters.components }}:
+      - stage: ${{ parameter.environment }}_${{ parameter.deployment }}
+        displayName: ${{ parameter.environment }}_${{ parameter.deployment }}
+        dependsOn: ${{ parameter.dependsOn }}
         jobs:
           - job: TerraformPlanApply
             timeoutInMinutes: ${{ variables.timeoutInMinutes }}
@@ -126,15 +126,15 @@ stages:
             steps:
               - template: pipeline-templates/terraform.yaml
                 parameters:
-                  environment: ${{ deployment.environment }}
+                  environment: ${{ parameter.environment }}
                   location: ${{ parameters.location }}
-                  stack: ${{ deployment.deployment }}
+                  stack: ${{ parameter.deployment }}
                   project: $(project)
                   tfversion: $(tfversion)
-                  serviceConnection: "OPS-APPROVAL-GATE-${{ upper(deployment.environment) }}-ENVS"
+                  serviceConnection: "OPS-APPROVAL-GATE-${{ upper(parameter.environment) }}-ENVS"
                   product: $(product)
                   tfInitSub: ${{ variables.tfInitSub }}
-          - ${{ if eq(deployment.pipeline_tests, true) }}:
+          - ${{ if eq(parameter.pipeline_tests, true) }}:
             - job: PipelineTests
               pool:
                 vmImage: ${{ variables.vmImage }}
@@ -144,7 +144,7 @@ stages:
                 - template: steps/pipeline-tests-jest.yaml@cnp-azuredevops-libraries
                   parameters:
                     workingDirectory: $(Pipeline.Workspace)/s/sds-azure-platform/scripts
-                    junit_output_dir: $(Pipeline.Workspace)/s/sds-azure-platform/environments/${{ deployment.environment }}/junit
-                    environment: ${{ deployment.environment }}
+                    junit_output_dir: $(Pipeline.Workspace)/s/sds-azure-platform/environments/${{ parameter.environment }}/junit
+                    environment: ${{ parameter.environment }}
                     product: ${{ variables.product }}
-                    test_title: '${{ deployment.environment }}_${{ deployment.component }}'
+                    test_title: '${{ parameter.environment }}_${{ parameter.component }}'
