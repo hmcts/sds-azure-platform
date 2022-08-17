@@ -33,6 +33,17 @@ gateways:
       - product: vh
         component: booking-queue-subscriber
         ssl_enabled: true
+      - product: vh
+        component: admin-web
+        ssl_enabled: true
+      - product: vh
+        component: video-web
+        ssl_enabled: true
+      - product: vh
+        component: service-web
+        ssl_enabled: true
+      - product: vh
+        component: test-web
     # Publication and Information
       - product: pip
         component: frontend
