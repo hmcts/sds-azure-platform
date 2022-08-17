@@ -1,7 +1,7 @@
 {
   "license": "MIT",
   "scripts": {
-    "test": "jest --ci --reporters=default --reporters=jest-junit"
+    "test": "jest --ci --reporters=default --testResultsProcessor=jest-junit"
   },
   "dependencies": {
     "@babel/preset-env": "^7.18.9",
