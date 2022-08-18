@@ -39,7 +39,6 @@ parameters:
       - deployment: "backendappgateway"
         environment: "test"
         dependsOn: "sbox_backendappgateway"
-        pipeline_tests: true
       - deployment: "backendappgateway"
         environment: "prod"
         dependsOn: "sbox_backendappgateway"
@@ -64,7 +63,6 @@ parameters:
       - deployment: "appgateway"
         environment: "test"
         dependsOn: "sbox_appgateway"
-        pipeline_tests: true
       - deployment: "appgateway"
         environment: "prod"
         dependsOn: "sbox_appgateway"
@@ -98,7 +96,6 @@ parameters:
       - deployment: "apim"
         environment: "test"
         dependsOn: "sbox_apim"
-        pipeline_tests: true
       - deployment: "apim"
         environment: "demo"
         dependsOn: "sbox_apim"
