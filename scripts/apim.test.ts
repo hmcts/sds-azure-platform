@@ -11,9 +11,9 @@ const APP_NAME =
 const TEST_URL =
   process.env.TEST_URL
 
-describe("Give your collection of tests a name", () => {
-  describe(`Give your specific test a name`, () => {
-    test(`Enter some text here to indicate a successful test`, async () => {
+describe("Test Name", () => {
+  describe(`Test case`, () => {
+    test(`Success message`, async () => {
       try {
 
         // Placeholder test to check TEST_URL is defined
