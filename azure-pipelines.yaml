@@ -97,9 +97,11 @@ parameters:
       - deployment: "apim"
         environment: "test"
         dependsOn: "sbox_apim"
+        pipeline_tests: true
       - deployment: "apim"
         environment: "demo"
         dependsOn: "sbox_apim"
+        pipeline_tests: true
       - deployment: "apim"
         environment: "ithc"
         dependsOn: "sbox_apim"

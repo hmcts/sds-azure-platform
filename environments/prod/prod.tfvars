@@ -761,6 +761,14 @@ frontends = [
     shutter_app      = false
   },
   {
+    name             = "toffee"
+    custom_domain    = "toffee.platform.hmcts.net"
+    backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    certificate_name = "wildcard-platform-hmcts-net"
+    disabled_rules   = {}
+    shutter_app      = false
+  },
+  {
     name             = "sds-api-mgmt"
     custom_domain    = "sds-api-mgmt.platform.hmcts.net"
     backend_domain   = ["firewall-prod-int-palo-sdsapimgmtprod.uksouth.cloudapp.azure.com"]
