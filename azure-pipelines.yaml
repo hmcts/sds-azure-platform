@@ -9,7 +9,7 @@ resources:
   repositories:
   - repository: cnp-azuredevops-libraries
     type: github
-    ref: refs/heads/master
+    ref: refs/heads/DTSPO-9055/test_pattern_component
     name: hmcts/cnp-azuredevops-libraries
     endpoint: 'hmcts (1)'
 
@@ -129,8 +129,6 @@ variables:
     value: "sds-platform"
   - name: tfInitSub
     value: "04d27a32-7a07-48b3-95b8-3c8691e1a263"
-  - name: appName
-    value: toffee
 
 stages:
   - stage: Precheck
@@ -206,6 +204,7 @@ stages:
                     environment: ${{ parameter.environment }}
                     product: ${{ variables.product }}
                     test_title: '${{ parameter.environment }}_${{ parameter.deployment }}'
+                    component: ${{ parameter.deployment }}
                     ${{ if eq(parameter.deployment, 'apim') }}:
                       test_pattern: apim.test.ts
                     ${{ else }}:
