@@ -11,7 +11,7 @@ const TEST_URL =
 
 describe("Smoke Test", () => {
   describe(`Test case: apim test`, () => {
-    test(`expected content loads (${APP_NAME}/)`, async () => {
+    test(`expected content loads (${APP_NAME})`, async () => {
       try {
         const url = `https://${TEST_URL}/health/liveness`;
         const response: AxiosResponse = await axios
