@@ -93,6 +93,7 @@ parameters:
       - deployment: "apim"
         environment: "prod"
         dependsOn: "sbox_apim"
+        pipeline_tests: true
       - deployment: "apim"
         environment: "test"
         dependsOn: "sbox_apim"
