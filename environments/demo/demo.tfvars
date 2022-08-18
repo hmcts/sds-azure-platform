@@ -16,5 +16,12 @@ frontends = [
     backend_domain   = ["firewall-nonprodi-palo-sdsapimgmtdemo.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-demo-platform-hmcts-net"
     cache_enabled    = "false"
+  },
+  {
+    name             = "c100-application"
+    custom_domain    = "c100-application.demo.platform.hmcts.net"
+    backend_domain   = ["firewall-nonprodi-palo-sdsapimgmtdemo.uksouth.cloudapp.azure.com"]
+    certificate_name = "wildcard-demo-platform-hmcts-net"
+    cache_enabled    = "false"
   }
 ]
