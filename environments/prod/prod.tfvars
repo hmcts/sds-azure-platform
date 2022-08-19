@@ -773,6 +773,13 @@ frontends = [
     backend_domain   = ["firewall-prod-int-palo-sdsapimgmtprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-platform-hmcts-net"
     cache_enabled    = "false"
+  },
+  {
+    name             = "c100-application"
+    custom_domain    = "c100-application.platform.hmcts.net"
+    backend_domain   = ["firewall-prod-int-palo-sdsapimgmtprod.uksouth.cloudapp.azure.com"]
+    certificate_name = "wildcard-platform-hmcts-net"
+    shutter_app      = false
   }
 ]
 
