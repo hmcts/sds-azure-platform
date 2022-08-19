@@ -18,7 +18,7 @@ frontends = [
     disabled_rules = {}
   },
   {
-    name           = "c100-application" 
+    name           = "c100-application"
     custom_domain  = "c100-application.ithc.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
     disabled_rules = {}
