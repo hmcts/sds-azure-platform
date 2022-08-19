@@ -5,6 +5,14 @@ trigger:
     include:
       - master
 
+resources:
+  repositories:
+  - repository: cnp-azuredevops-libraries
+    type: github
+    ref: refs/heads/master
+    name: hmcts/cnp-azuredevops-libraries
+    endpoint: 'hmcts (1)'
+
 parameters:
   - name: components
     displayName: Component to Run
@@ -13,18 +21,21 @@ parameters:
       - deployment: 'frontdoor'
         environment: 'sbox'
         dependsOn: 'Precheck'
+        pipeline_tests: true
       - deployment: 'frontdoor'
         environment: 'dev'
         dependsOn: 'sbox_frontdoor'
       - deployment: 'frontdoor'
         environment: 'stg'
         dependsOn: 'sbox_frontdoor'
+        pipeline_tests: true
       - deployment: 'frontdoor'
         environment: 'demo'
         dependsOn: 'sbox_frontdoor'
       - deployment: 'frontdoor'
         environment: 'ithc'
         dependsOn: 'sbox_frontdoor'
+        pipeline_tests: true
       - deployment: 'frontdoor'
         environment: 'test'
         dependsOn: 'sbox_frontdoor'
@@ -49,6 +60,8 @@ variables:
     value: '360'
   - name: agentPool
     value: 'hmcts-cftptl-agent-pool'
+  - name: vmImage
+    value: 'ubuntu-latest'
   - name: build
     value: $(Build.BuildNumber)
   - name: isMaster
@@ -57,7 +70,6 @@ variables:
     value: 'sds-platform'
   - name: tfInitSub
     value: "04d27a32-7a07-48b3-95b8-3c8691e1a263"
-
 
 stages:
   - stage: Precheck
@@ -106,7 +118,7 @@ stages:
         displayName: ${{ parameter.environment }}_${{ parameter.deployment }}
         dependsOn: ${{ parameter.dependsOn }}
         jobs:
-          - job:
+          - job: TerraformPlanApply
             timeoutInMinutes: ${{ variables.timeoutInMinutes }}
             pool:
               name: ${{ variables.agentPool }}
@@ -121,3 +133,18 @@ stages:
                   serviceConnection: "OPS-APPROVAL-GATE-${{ upper(parameter.environment) }}-ENVS"
                   product: $(product)
                   tfInitSub: ${{ variables.tfInitSub }}
+          - ${{ if eq(parameter.pipeline_tests, true) }}:
+            - job: PipelineTests
+              pool:
+                vmImage: ${{ variables.vmImage }}
+              timeoutInMinutes: ${{ variables.timeoutInMinutes }}
+              dependsOn: TerraformPlanApply
+              steps:
+                - template: steps/pipeline-tests-jest.yaml@cnp-azuredevops-libraries
+                  parameters:
+                    workingDirectory: $(Pipeline.Workspace)/s/sds-azure-platform/scripts
+                    junit_output_dir: $(Pipeline.Workspace)/s/sds-azure-platform/environments/${{ parameter.environment }}/junit
+                    environment: ${{ parameter.environment }}
+                    product: ${{ variables.product }}
+                    test_title: '${{ parameter.environment }}_${{ parameter.component }}'
+                    test_pattern: pipeline.test.ts

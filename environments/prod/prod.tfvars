@@ -522,7 +522,6 @@ frontends = [
     custom_domain    = "www.court-tribunal-hearings.service.gov.uk"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-platform-hmcts-net"
-    ssl_mode         = "AzureKeyVault"
     shutter_app      = true
     disabled_rules   = {}
     global_exclusions = [
@@ -755,6 +754,14 @@ frontends = [
   {
     name             = "vh-service-web"
     custom_domain    = "vh-service-web.platform.hmcts.net"
+    backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    certificate_name = "wildcard-platform-hmcts-net"
+    disabled_rules   = {}
+    shutter_app      = false
+  },
+  {
+    name             = "toffee"
+    custom_domain    = "toffee.platform.hmcts.net"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-platform-hmcts-net"
     disabled_rules   = {}
