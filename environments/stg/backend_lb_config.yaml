@@ -58,5 +58,5 @@ gateways:
         ssl_enabled: true
       # PET team
       - product: c100
-        component: c100-application
+        component: application
         ssl_enabled: true
