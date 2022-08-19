@@ -56,3 +56,7 @@ gateways:
       - product: lgy-iac
         component: web
         ssl_enabled: true
+      # PET team
+      - product: c100
+        component: application
+        ssl_enabled: true
