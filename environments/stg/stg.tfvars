@@ -24,57 +24,57 @@ frontends = [
     disabled_rules = {}
     health_path    = "/status"
   },
-  # {
-  #   name           = "pip-frontend"
-  #   custom_domain  = "pip-frontend.staging.platform.hmcts.net"
-  #   backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
+  {
+    name           = "pip-frontend"
+    custom_domain  = "pip-frontend.staging.platform.hmcts.net"
+    backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
 
-  #   disabled_rules = {}
+    disabled_rules = {}
 
-  #   global_exclusions = [
-  #     ## Open ID response parameters
-  #     {
-  #       match_variable = "RequestBodyPostArgNames"
-  #       operator       = "Equals"
-  #       selector       = "code"
-  #     },
-  #     {
-  #       match_variable = "RequestBodyPostArgNames"
-  #       operator       = "Equals"
-  #       selector       = "state"
-  #     },
-  #     {
-  #       match_variable = "RequestCookieNames"
-  #       operator       = "Equals"
-  #       selector       = "formCookie"
-  #     },
-  #     {
-  #       match_variable = "RequestCookieNames"
-  #       operator       = "Equals"
-  #       selector       = "session"
-  #     },
-  #     {
-  #       match_variable = "RequestCookieNames"
-  #       operator       = "Equals"
-  #       selector       = "dtSa"
-  #     },
-  #     {
-  #       match_variable = "RequestCookieNames"
-  #       operator       = "Equals"
-  #       selector       = "court-and-tribunal-hearings-cookie-preferences"
-  #     },
-  #     {
-  #       match_variable = "RequestCookieNames"
-  #       operator       = "Equals"
-  #       selector       = "createAdminAccount"
-  #     },
-  #     {
-  #       match_variable = "RequestBodyPostArgNames"
-  #       operator       = "Equals"
-  #       selector       = "error_description"
-  #     },
-  #   ]
-  # },
+    global_exclusions = [
+      ## Open ID response parameters
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "state"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "formCookie"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "session"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "dtSa"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "court-and-tribunal-hearings-cookie-preferences"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "createAdminAccount"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "error_description"
+      },
+    ]
+  },
   /*  {
     name                = "pip-frontend-b2c-sign-in"
     custom_domain       = "sign.stg.court-tribunal-hearings.service.gov.uk"
@@ -153,13 +153,13 @@ frontends = [
     shutter_app    = false
     enable_ssl     = true
   },
-  # {
-  #   name             = "sds-api-mgmt"
-  #   custom_domain    = "sds-api-mgmt.staging.platform.hmcts.net"
-  #   backend_domain   = ["firewall-prod-int-palo-sdsapimgmtstg.uksouth.cloudapp.azure.com"]
-  #   certificate_name = "wildcard-stg-platform-hmcts-net"
-  #   cache_enabled    = "false"
-  # },
+  {
+    name             = "sds-api-mgmt"
+    custom_domain    = "sds-api-mgmt.staging.platform.hmcts.net"
+    backend_domain   = ["firewall-prod-int-palo-sdsapimgmtstg.uksouth.cloudapp.azure.com"]
+    certificate_name = "wildcard-stg-platform-hmcts-net"
+    cache_enabled    = "false"
+  },
   {
     name           = "staging-trib-land-reg-division"
     mode           = "Prevention"
