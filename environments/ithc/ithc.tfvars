@@ -17,30 +17,30 @@ frontends = [
     backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
     disabled_rules = {}
   },
-  # {
-  #   name           = "c100-application"
-  #   custom_domain  = "c100-application.ithc.platform.hmcts.net"
-  #   backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
-  #   disabled_rules = {}
-  #   health_path    = "/status"
-  #   mode           = "Detection"
-  #   global_exclusions = [
-  #     {
-  #       match_variable = "RequestCookieNames"
-  #       operator       = "Equals"
-  #       selector       = "_c100_application_session"
-  #     }
-  #   ]
-  # },
-  # {
-  #   name              = "pip-frontend"
-  #   custom_domain     = "pip-frontend.ithc.platform.hmcts.net"
-  #   backend_domain    = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
-  #   certificate_name  = "wildcard-platform-hmcts-net"
-  #   shutter_app       = true
-  #   disabled_rules    = {}
-  #   global_exclusions = []
-  # },
+  {
+    name           = "c100-application"
+    custom_domain  = "c100-application.ithc.platform.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
+    disabled_rules = {}
+    health_path    = "/status"
+    mode           = "Detection"
+    global_exclusions = [
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "_c100_application_session"
+      }
+    ]
+  },
+  {
+    name              = "pip-frontend"
+    custom_domain     = "pip-frontend.ithc.platform.hmcts.net"
+    backend_domain    = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
+    certificate_name  = "wildcard-platform-hmcts-net"
+    shutter_app       = true
+    disabled_rules    = {}
+    global_exclusions = []
+  },
   {
     name           = "vh-test-web"
     custom_domain  = "vh-test-web.ithc.platform.hmcts.net"
@@ -68,12 +68,12 @@ frontends = [
     backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
 
     disabled_rules = {}
-    # },
-    # {
-    #   name             = "sds-api-mgmt"
-    #   custom_domain    = "sds-api-mgmt.ithc.platform.hmcts.net"
-    #   backend_domain   = ["firewall-nonprodi-palo-sdsapimgmtithc.uksouth.cloudapp.azure.com"]
-    #   certificate_name = "wildcard-ithc-platform-hmcts-net"
-    #   cache_enabled    = "false"
+  },
+  {
+    name             = "sds-api-mgmt"
+    custom_domain    = "sds-api-mgmt.ithc.platform.hmcts.net"
+    backend_domain   = ["firewall-nonprodi-palo-sdsapimgmtithc.uksouth.cloudapp.azure.com"]
+    certificate_name = "wildcard-ithc-platform-hmcts-net"
+    cache_enabled    = "false"
   }
 ]
