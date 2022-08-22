@@ -23,6 +23,7 @@ frontends = [
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
     disabled_rules = {}
     health_path    = "/status"
+    mode           = "Detection"
     global_exclusions = [
       {
         match_variable = "RequestCookieNames"
