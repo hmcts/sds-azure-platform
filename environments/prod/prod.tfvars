@@ -780,6 +780,7 @@ frontends = [
     backend_domain   = ["firewall-prod-int-palo-sdsapimgmtprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-platform-hmcts-net"
     shutter_app      = false
+    health_path      = "/status"
     mode             = "Detection"
     global_exclusions = [
       {
