@@ -22,6 +22,7 @@ frontends = [
     custom_domain  = "c100-application.staging.platform.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
     disabled_rules = {}
+    health_path    = "/status"
   },
   {
     name           = "pip-frontend"
