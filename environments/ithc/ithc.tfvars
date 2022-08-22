@@ -31,7 +31,7 @@ frontends = [
         selector       = "_c100_application_session"
       }
     ]
-    enable_ssl = false
+    enable_ssl = true
   },
   {
     name              = "pip-frontend"
