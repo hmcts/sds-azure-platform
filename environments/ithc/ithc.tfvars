@@ -68,12 +68,12 @@ frontends = [
     backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
 
     disabled_rules = {}
-    },
-    {
-      name             = "sds-api-mgmt"
-      custom_domain    = "sds-api-mgmt.ithc.platform.hmcts.net"
-      backend_domain   = ["firewall-nonprodi-palo-sdsapimgmtithc.uksouth.cloudapp.azure.com"]
-      certificate_name = "wildcard-ithc-platform-hmcts-net"
-      cache_enabled    = "false"
+  },
+  {
+    name             = "sds-api-mgmt"
+    custom_domain    = "sds-api-mgmt.ithc.platform.hmcts.net"
+    backend_domain   = ["firewall-nonprodi-palo-sdsapimgmtithc.uksouth.cloudapp.azure.com"]
+    certificate_name = "wildcard-ithc-platform-hmcts-net"
+    cache_enabled    = "false"
   }
 ]
