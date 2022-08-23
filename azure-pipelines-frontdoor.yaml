@@ -42,6 +42,7 @@ parameters:
       - deployment: 'frontdoor'
         environment: 'prod'
         dependsOn: 'sbox_frontdoor'
+        pipeline_tests: true
 
   - name: location
     displayName: Location
