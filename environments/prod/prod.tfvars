@@ -777,9 +777,10 @@ frontends = [
   {
     name             = "c100-application"
     custom_domain    = "c100-application.platform.hmcts.net"
-    backend_domain   = ["firewall-prod-int-palo-sdsapimgmtprod.uksouth.cloudapp.azure.com"]
+    backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-platform-hmcts-net"
     shutter_app      = false
+    health_path      = "/status"
     mode             = "Detection"
     global_exclusions = [
       {
