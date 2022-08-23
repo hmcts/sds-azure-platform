@@ -31,7 +31,6 @@ frontends = [
         selector       = "_c100_application_session"
       }
     ]
-    enable_ssl = true
   },
   {
     name              = "pip-frontend"
@@ -41,7 +40,6 @@ frontends = [
     shutter_app       = true
     disabled_rules    = {}
     global_exclusions = []
-    enable_ssl        = false
   },
   {
     name           = "vh-test-web"
@@ -77,6 +75,5 @@ frontends = [
     backend_domain   = ["firewall-nonprodi-palo-sdsapimgmtithc.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-ithc-platform-hmcts-net"
     cache_enabled    = "false"
-    enable_ssl       = false
   }
 ]
