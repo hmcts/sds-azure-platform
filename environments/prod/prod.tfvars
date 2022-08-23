@@ -565,8 +565,12 @@ frontends = [
         match_variable = "RequestCookieNames"
         operator       = "Equals"
         selector       = "session.sig"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "error_description"
       }
-
     ]
   },
   {
