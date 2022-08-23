@@ -83,15 +83,15 @@ frontends = [
       },
     ]
   },
-  /*  {
+  {
     name                = "pip-frontend-b2c-sign-in"
-    custom_domain       = "sign.stg.court-tribunal-hearings.service.gov.uk"
-    backend_domain      = ["hmctspipprod.b2clogin.com"]
-    host_header         = "hmctspipprod.b2clogin.com"
-    disabled_rules      = {}
-    cache_enabled       = false
+    custom_domain       = "sign-in.pip-frontend.staging.platform.hmcts.net"
+    backend_domain      = ["hmctspipnonprod.b2clogin.com"]
+    host_header         = "hmctspipnonprod.b2clogin.com"
     forwarding_protocol = "HttpsOnly"
-    ssl_mode            = "FrontDoor"
+    cache_enabled       = false
+    shutter_app         = false
+    disabled_rules      = {}
     global_exclusions = [
       {
         match_variable = "QueryStringArgNames"
@@ -102,9 +102,141 @@ frontends = [
         match_variable = "QueryStringArgNames"
         operator       = "Equals"
         selector       = "desc"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "StartsWith"
+        selector       = "x-ms-cpim-"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "diags"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "redirect_uri"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "error_description"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "claim_value"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "ReadOnlyEmail"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "nonce"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "state"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "post_logout_redirect_uri"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "post_logout_redirect_uri"
       }
     ]
-  }, */
+  },
+  {
+    name                = "pip-frontend-b2c-staff"
+    custom_domain       = "staff.pip-frontend.staging.platform.hmcts.net"
+    backend_domain      = ["hmctspipnonprod.b2clogin.com"]
+    host_header         = "hmctspipnonprod.b2clogin.com"
+    forwarding_protocol = "HttpsOnly"
+    cache_enabled       = false
+    shutter_app         = false
+    disabled_rules      = {}
+    global_exclusions = [
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "redirect_uri"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "desc"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "StartsWith"
+        selector       = "x-ms-cpim-"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "diags"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "redirect_uri"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "error_description"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "claim_value"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "ReadOnlyEmail"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "nonce"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "state"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "post_logout_redirect_uri"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "post_logout_redirect_uri"
+      }
+    ]
+  },
   {
     name           = "vh-test-web"
     custom_domain  = "vh-test-web.staging.platform.hmcts.net"
