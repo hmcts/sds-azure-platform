@@ -789,6 +789,22 @@ frontends = [
         selector       = "_c100_application_session"
       }
     ]
+  },
+ {
+    name             = "makeaplea-application"
+    custom_domain    = "makeaplea-application.platform.hmcts.net"
+    backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    certificate_name = "wildcard-platform-hmcts-net"
+    shutter_app      = false
+    health_path      = "/status"
+    mode             = "Detection"
+    global_exclusions = [
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "_makeaplea_application_session"
+      }
+    ]
   }
 ]
 

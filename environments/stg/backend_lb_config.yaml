@@ -60,6 +60,6 @@ gateways:
       - product: makeaplea
         component: makeaplea-application
         ssl_enabled: true
-      - product: mirrorgateway
+      - product: makeaplea
         component: mirrorgateway-application
         ssl_enabled: true

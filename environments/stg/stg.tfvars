@@ -33,6 +33,36 @@ frontends = [
     ]
   },
   {
+    name           = "makeaplea-application"
+    custom_domain  = "makeaplea-application.staging.platform.hmcts.net"
+    backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
+    disabled_rules = {}
+    health_path    = "/status"
+    mode           = "Detection"
+    global_exclusions = [
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "_makeaplea_application_session"
+      }
+    ]
+  },
+   {
+    name           = "mirrorgateway-application"
+    custom_domain  = "mirrorgateway-application.staging.platform.hmcts.net"
+    backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
+    disabled_rules = {}
+    health_path    = "/status"
+    mode           = "Detection"
+    global_exclusions = [
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "_mirrorgateway_application_session"
+      }
+    ]
+  },
+  {
     name           = "pip-frontend"
     custom_domain  = "pip-frontend.staging.platform.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
