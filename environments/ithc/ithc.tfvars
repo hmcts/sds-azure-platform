@@ -42,32 +42,32 @@ frontends = [
     global_exclusions = []
   },
   {
-    name           = "vh-test-web"
-    custom_domain  = "vh-test-web.ithc.platform.hmcts.net"
-    backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
-
-    disabled_rules = {}
+    name            = "vh-test-web"
+    custom_domain   = "vh-test-web.ithc.platform.hmcts.net"
+    backend_domain  = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
+    request_timeout = 60
+    disabled_rules  = {}
   },
   {
-    name           = "vh-video-web"
-    custom_domain  = "vh-video-web.ithc.platform.hmcts.net"
-    backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
-
-    disabled_rules = {}
+    name            = "vh-video-web"
+    custom_domain   = "vh-video-web.ithc.platform.hmcts.net"
+    backend_domain  = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
+    request_timeout = 60
+    disabled_rules  = {}
   },
   {
-    name           = "vh-admin-web"
-    custom_domain  = "vh-admin-web.ithc.platform.hmcts.net"
-    backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
-
-    disabled_rules = {}
+    name            = "vh-admin-web"
+    custom_domain   = "vh-admin-web.ithc.platform.hmcts.net"
+    backend_domain  = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
+    request_timeout = 60
+    disabled_rules  = {}
   },
   {
-    name           = "vh-service-web"
-    custom_domain  = "vh-service-web.ithc.platform.hmcts.net"
-    backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
-
-    disabled_rules = {}
+    name            = "vh-service-web"
+    custom_domain   = "vh-service-web.ithc.platform.hmcts.net"
+    backend_domain  = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
+    request_timeout = 60
+    disabled_rules  = {}
   },
   {
     name             = "sds-api-mgmt"

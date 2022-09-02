@@ -32,6 +32,7 @@ frontends = [
     custom_domain    = "vh-test-web.sandbox.platform.hmcts.net"
     backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-sandbox-platform-hmcts-net"
+    request_timeout  = 60
     disabled_rules   = {}
     shutter_app      = false
   },
@@ -40,6 +41,7 @@ frontends = [
     custom_domain    = "vh-video-web.sandbox.platform.hmcts.net"
     backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-sandbox-platform-hmcts-net"
+    request_timeout  = 60
     disabled_rules   = {}
     shutter_app      = false
   },
@@ -48,6 +50,7 @@ frontends = [
     custom_domain    = "vh-admin-web.sandbox.platform.hmcts.net"
     backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-sandbox-platform-hmcts-net"
+    request_timeout  = 60
     disabled_rules   = {}
     shutter_app      = false
   },
@@ -56,6 +59,7 @@ frontends = [
     custom_domain    = "vh-service-web.sandbox.platform.hmcts.net"
     backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-sandbox-platform-hmcts-net"
+    request_timeout  = 60
     disabled_rules   = {}
     shutter_app      = false
   }

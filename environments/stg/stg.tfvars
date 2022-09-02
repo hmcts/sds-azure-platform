@@ -238,32 +238,32 @@ frontends = [
     ]
   },
   {
-    name           = "vh-test-web"
-    custom_domain  = "vh-test-web.staging.platform.hmcts.net"
-    backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
-
-    disabled_rules = {}
+    name            = "vh-test-web"
+    custom_domain   = "vh-test-web.staging.platform.hmcts.net"
+    backend_domain  = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
+    request_timeout = 60
+    disabled_rules  = {}
   },
   {
-    name           = "vh-videoweb"
-    custom_domain  = "video.staging.hearings.hmcts.net"
-    backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
-
-    disabled_rules = {}
+    name            = "vh-videoweb"
+    custom_domain   = "video.staging.hearings.hmcts.net"
+    backend_domain  = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
+    request_timeout = 60
+    disabled_rules  = {}
   },
   {
-    name           = "vh-adminweb"
-    custom_domain  = "admin.staging.hearings.hmcts.net"
-    backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
-
-    disabled_rules = {}
+    name            = "vh-adminweb"
+    custom_domain   = "admin.staging.hearings.hmcts.net"
+    backend_domain  = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
+    request_timeout = 60
+    disabled_rules  = {}
   },
   {
-    name           = "vh-service-web"
-    custom_domain  = "vh-service-web.staging.platform.hmcts.net"
-    backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
-
-    disabled_rules = {}
+    name            = "vh-service-web"
+    custom_domain   = "vh-service-web.staging.platform.hmcts.net"
+    backend_domain  = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
+    request_timeout = 60
+    disabled_rules  = {}
   },
   {
     name           = "staging-casetracker"

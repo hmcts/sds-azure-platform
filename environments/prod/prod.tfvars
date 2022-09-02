@@ -732,6 +732,7 @@ frontends = [
     custom_domain    = "vh-test-web.platform.hmcts.net"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-platform-hmcts-net"
+    request_timeout  = 60
     disabled_rules   = {}
     shutter_app      = true
   },
@@ -740,6 +741,7 @@ frontends = [
     custom_domain    = "vh-video-web.platform.hmcts.net"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-platform-hmcts-net"
+    request_timeout  = 60
     disabled_rules   = {}
     shutter_app      = true
   },
@@ -748,6 +750,7 @@ frontends = [
     custom_domain    = "vh-admin-web.platform.hmcts.net"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-platform-hmcts-net"
+    request_timeout  = 60
     disabled_rules   = {}
     shutter_app      = true
   },
@@ -756,6 +759,7 @@ frontends = [
     custom_domain    = "vh-service-web.platform.hmcts.net"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-platform-hmcts-net"
+    request_timeout  = 60
     disabled_rules   = {}
     shutter_app      = false
   },
