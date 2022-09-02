@@ -12,7 +12,7 @@ module "ctags" {
 }
 
 module "appgateway" {
-  source = "git::https://github.com/hmcts/terraform-module-applicationgateway.git?ref=terraform-azurerm-v3"
+  source = "git::https://github.com/hmcts/terraform-module-applicationgateway.git?ref=VIH-9273"
 
 
   env                                = var.env
