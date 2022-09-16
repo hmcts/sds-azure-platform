@@ -67,3 +67,6 @@ gateways:
       - product: pip
         component: account-management
         ssl_enabled: true
+      - product: gob
+        component: gateway
+        ssl_enabled: true
