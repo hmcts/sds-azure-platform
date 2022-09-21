@@ -69,4 +69,5 @@ gateways:
         ssl_enabled: true
       - product: gob
         component: gateway
+        host_name_prefix: gobgateway
         ssl_enabled: true
