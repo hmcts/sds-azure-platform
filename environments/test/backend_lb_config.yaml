@@ -69,5 +69,5 @@ gateways:
         ssl_enabled: true
       - product: gob
         component: gateway
-        host_name_prefix: gobgateway
+        host_name_prefix: cloudgobgateway
         ssl_enabled: true
