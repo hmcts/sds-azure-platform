@@ -243,20 +243,44 @@ frontends = [
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
 
     disabled_rules = {}
+
+    global_exclusions = [
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      }
+    ]
   },
   {
-    name           = "vh-videoweb"
+    name           = "vh-video-web"
     custom_domain  = "video.staging.hearings.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
 
     disabled_rules = {}
+
+    global_exclusions = [
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      }
+    ]
   },
   {
-    name           = "vh-adminweb"
+    name           = "vh-admin-web"
     custom_domain  = "admin.staging.hearings.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
 
     disabled_rules = {}
+
+    global_exclusions = [
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      }
+    ]
   },
   {
     name           = "vh-service-web"
