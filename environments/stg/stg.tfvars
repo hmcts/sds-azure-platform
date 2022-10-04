@@ -239,7 +239,7 @@ frontends = [
   },
   {
     name           = "vh-test-web"
-    custom_domain  = "vh-test-web.staging.platform.hmcts.net"
+    custom_domain  = "test.staging.hearings.reform.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
 
     disabled_rules = {}
@@ -254,7 +254,7 @@ frontends = [
   },
   {
     name           = "vh-video-web"
-    custom_domain  = "video.staging.hearings.hmcts.net"
+    custom_domain  = "video.staging.hearings.reform.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
 
     disabled_rules = {}
@@ -269,7 +269,7 @@ frontends = [
   },
   {
     name           = "vh-admin-web"
-    custom_domain  = "admin.staging.hearings.hmcts.net"
+    custom_domain  = "admin.staging.hearings.reform.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
 
     disabled_rules = {}
@@ -281,13 +281,6 @@ frontends = [
         selector       = "code"
       }
     ]
-  },
-  {
-    name           = "vh-service-web"
-    custom_domain  = "vh-service-web.staging.platform.hmcts.net"
-    backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
-
-    disabled_rules = {}
   },
   {
     name           = "staging-casetracker"
