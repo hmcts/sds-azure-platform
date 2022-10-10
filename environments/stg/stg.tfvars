@@ -81,6 +81,11 @@ frontends = [
         operator       = "Equals"
         selector       = "error_description"
       },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "iss"
+      }
     ]
   },
   {
