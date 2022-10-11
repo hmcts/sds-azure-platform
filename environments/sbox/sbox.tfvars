@@ -69,7 +69,7 @@ frontends = [
     disabled_rules   = {}
     shutter_app      = false
     cache_enabled    = "false"
-    
+
     global_exclusions = [
       {
         match_variable = "QueryStringArgNames"
