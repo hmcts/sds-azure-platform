@@ -34,6 +34,7 @@ frontends = [
     certificate_name = "wildcard-sandbox-platform-hmcts-net"
     disabled_rules   = {}
     shutter_app      = false
+    cache_enabled    = "false"
 
     global_exclusions = [
       {
@@ -50,6 +51,7 @@ frontends = [
     certificate_name = "wildcard-sandbox-platform-hmcts-net"
     disabled_rules   = {}
     shutter_app      = false
+    cache_enabled    = "false"
 
     global_exclusions = [
       {
@@ -66,7 +68,8 @@ frontends = [
     certificate_name = "wildcard-sandbox-platform-hmcts-net"
     disabled_rules   = {}
     shutter_app      = false
-
+    cache_enabled    = "false"
+    
     global_exclusions = [
       {
         match_variable = "QueryStringArgNames"
@@ -74,13 +77,5 @@ frontends = [
         selector       = "code"
       }
     ]
-  },
-  {
-    name             = "vh-service-web"
-    custom_domain    = "vh-service-web.sandbox.platform.hmcts.net"
-    backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
-    certificate_name = "wildcard-sandbox-platform-hmcts-net"
-    disabled_rules   = {}
-    shutter_app      = false
   }
 ]

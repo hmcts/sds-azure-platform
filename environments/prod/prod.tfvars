@@ -738,7 +738,7 @@ frontends = [
     certificate_name = "wildcard-platform-hmcts-net"
     disabled_rules   = {}
     shutter_app      = true
-
+    cache_enabled    = "false"
     global_exclusions = [
       {
         match_variable = "QueryStringArgNames"
@@ -754,7 +754,7 @@ frontends = [
     certificate_name = "wildcard-platform-hmcts-net"
     disabled_rules   = {}
     shutter_app      = true
-
+    cache_enabled    = "false"
     global_exclusions = [
       {
         match_variable = "QueryStringArgNames"
@@ -770,7 +770,7 @@ frontends = [
     certificate_name = "wildcard-platform-hmcts-net"
     disabled_rules   = {}
     shutter_app      = true
-
+    cache_enabled    = "false"
     global_exclusions = [
       {
         match_variable = "QueryStringArgNames"
@@ -778,14 +778,6 @@ frontends = [
         selector       = "code"
       }
     ]
-  },
-  {
-    name             = "vh-service-web"
-    custom_domain    = "vh-service-web.platform.hmcts.net"
-    backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-    certificate_name = "wildcard-platform-hmcts-net"
-    disabled_rules   = {}
-    shutter_app      = false
   },
   {
     name             = "toffee"
