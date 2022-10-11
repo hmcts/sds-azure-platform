@@ -235,7 +235,7 @@ frontends = [
     name           = "vh-test-web"
     custom_domain  = "vh-test-web.dev.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
-
+    cache_enabled  = false
     disabled_rules = {}
 
     global_exclusions = [
@@ -250,7 +250,7 @@ frontends = [
     name           = "vh-video-web"
     custom_domain  = "vh-video-web.dev.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
-
+    cache_enabled  = false
     disabled_rules = {}
 
     global_exclusions = [
@@ -265,7 +265,7 @@ frontends = [
     name           = "vh-admin-web"
     custom_domain  = "vh-admin-web.dev.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
-
+    cache_enabled  = false
     disabled_rules = {}
 
     global_exclusions = [
@@ -275,13 +275,6 @@ frontends = [
         selector       = "code"
       }
     ]
-  },
-  {
-    name           = "vh-service-web"
-    custom_domain  = "vh-service-web.dev.platform.hmcts.net"
-    backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
-
-    disabled_rules = {}
   },
   {
     name           = "dev-casetracker"
