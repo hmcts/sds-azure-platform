@@ -82,5 +82,11 @@ frontends = [
     certificate_name = "wildcard-sandbox-platform-hmcts-net"
     disabled_rules   = {}
     shutter_app      = false
+  },
+  {
+    name             = "portal-sbox"
+    mode           =   "Prevention"
+    custom_domain    = "portal-sbox.pre-recorded-evidence.justice.gov.uk"
+    backend_domain   = ["pre-sbox.powerappsportals.com"]
   }
 ]
