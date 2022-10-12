@@ -84,9 +84,9 @@ frontends = [
     shutter_app      = false
   },
   {
-    name             = "portal-sbox"
-    mode           =   "Prevention"
-    custom_domain    = "portal-sbox.pre-recorded-evidence.justice.gov.uk"
-    backend_domain   = ["pre-sbox.powerappsportals.com"]
+    name           = "portal-sbox"
+    mode           = "Prevention"
+    custom_domain  = "portal-sbox.pre-recorded-evidence.justice.gov.uk"
+    backend_domain = ["pre-sbox.powerappsportals.com"]
   }
 ]
