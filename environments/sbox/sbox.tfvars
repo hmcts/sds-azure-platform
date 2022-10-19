@@ -85,7 +85,7 @@ frontends = [
   },
   {
     name             = "portal-sbox"
-    mode           =   "Prevention"
+    mode             = "Prevention"
     custom_domain    = "portal-sbox.pre-recorded-evidence.justice.gov.uk"
     backend_domain   = ["pre-sbox.powerappsportals.com"]
     certificate_name = "portal-sbox.pre-recorded-evidence.justice.gov.uk"
