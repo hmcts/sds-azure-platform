@@ -148,7 +148,7 @@ stages:
             displayName: Terraform install
             inputs:
               terraformVersion: ${{ variables.tfversion }}
-          - task: AzureKeyVault@1
+          - task: AzureKeyVault@2.211.1
             displayName: Retrieve keyvault secret for ADO token
             inputs:
               ConnectedServiceName: DCD-CFT-Sandbox
