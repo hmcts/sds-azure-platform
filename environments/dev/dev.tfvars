@@ -274,7 +274,7 @@ frontends = [
     ]
   },
   {
-    name           = "vh-video-web-pr-1926" # TODO this is for testing changes for Azure Front Door Cache Issues. Will be removed after testing.
+    name           = "vh-video-web-pr-1926" # TODO this is for testing changes for Azure Front Door cache Issues. Will be removed after testing.
     custom_domain  = "vh-video-web-pr-1926.dev.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
     disabled_rules = {}
@@ -288,7 +288,7 @@ frontends = [
     ]
   },
   {
-    name           = "vh-admin-web-pr-989" # TODO this is for testing changes for Azure Front Door Cache Issues. Will be removed after testing.
+    name           = "vh-admin-web-pr-989" # TODO this is for testing changes for Azure Front Door cache Issues. Will be removed after testing.
     custom_domain  = "vh-admin-web-pr-989.dev.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
     disabled_rules = {}
