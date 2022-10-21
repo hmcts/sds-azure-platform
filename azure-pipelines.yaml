@@ -164,7 +164,7 @@ stages:
               azuredevopstoken: $(azure-devops-token)
             inputs:
               filePath: pipeline-scripts/builds-check.sh
-          - task: PowerShell@2
+          - task: PowerShell@2.210.0
             displayName: Run tests
             inputs:
               targetType: "filePath"
