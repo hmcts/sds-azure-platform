@@ -156,7 +156,7 @@ stages:
               secretsFilter: "azure-devops-token"
               runAsPreJob: false
 
-          - task: Bash@3
+          - task: Bash@3.211.0
             displayName: Prevent parallel run
             env:
               thisbuild: $(Build.BuildId)
