@@ -94,5 +94,6 @@ frontends = [
     health_path         = "/SignIn?ReturnUrl=%2F"
     health_protocol     = "Https"
     forwarding_protocol = "HttpsOnly"
+    cache_enabled       = "false"
   }
 ]
