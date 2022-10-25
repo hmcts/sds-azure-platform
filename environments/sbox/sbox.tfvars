@@ -94,8 +94,7 @@ frontends = [
     health_path                   = "/SignIn?ReturnUrl=%2F"
     health_protocol               = "Https"
     forwarding_protocol           = "HttpsOnly"
-    cache_enabled                 = "true"
-    cache_use_dynamic_compression = "true"
+    cache_enabled                 = "false"
 
     custom_rules = [
       {
@@ -108,7 +107,7 @@ frontends = [
           {
             match_variable     = "RemoteAddr"
             operator           = "GeoMatch"
-            negation_condition = false
+            negation_condition = true
             match_values = [
               "GB"
             ]
