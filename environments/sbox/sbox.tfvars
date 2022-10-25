@@ -94,6 +94,25 @@ frontends = [
     health_path         = "/SignIn?ReturnUrl=%2F"
     health_protocol     = "Https"
     forwarding_protocol = "HttpsOnly"
-    cache_enabled       = "false"
+    cache_enabled       = "true"
+    cache_use_dynamic_compression = "true"
+
+    custom_rules = [
+      {
+        name     = "CountryMatchWhitelist"
+        enabled = true
+        priority = 1
+        type     = "MatchRule"
+        action   = "Block"
+        match_conditions = [
+          {
+            match_variable     = "RemoteAddr"
+            operator           = "GeoMatch"
+            negation_condition = false
+            match_values = [
+              "GB"
+            ]
+          }
+        ]
   }
 ]
