@@ -133,7 +133,7 @@ variables:
     value: 'ubuntu-latest'
   - name: build
     value: $(Build.BuildNumber)
-  - name: isMaster
+  - name: isMain
     value: $[eq(variables['Build.SourceBranch'], 'refs/heads/master')]
   - name: product
     value: "sds-platform"
