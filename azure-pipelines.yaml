@@ -22,6 +22,14 @@ parameters:
       - plan
       - apply
 
+  - name: location
+    displayName: Location
+    type: string
+    default: "UK South"
+    values:
+      - "UK South"
+      - "UK West"
+
   - name: components
     displayName: Component to Run
     type: object
@@ -117,14 +125,6 @@ parameters:
         environment: "ithc"
         dependsOn: "sbox_apim"
         pipeline_tests: true
-        
-  - name: location
-    displayName: Location
-    type: string
-    default: "UK South"
-    values:
-      - "UK South"
-      - "UK West"
 
 variables:
   - name: project
