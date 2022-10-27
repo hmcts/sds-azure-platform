@@ -1,4 +1,4 @@
-name: SDS Azure Platform
+name: "${{ parameters.action }} - ${{ parameters.location }} - SDS Azure Platform"
 trigger:
   batch: true
   branches:
