@@ -235,7 +235,6 @@ frontends = [
     name           = "vh-test-web"
     custom_domain  = "vh-test-web.dev.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
-
     disabled_rules = {}
 
     global_exclusions = [
@@ -250,7 +249,6 @@ frontends = [
     name           = "vh-video-web"
     custom_domain  = "vh-video-web.dev.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
-
     disabled_rules = {}
 
     global_exclusions = [
@@ -265,7 +263,6 @@ frontends = [
     name           = "vh-admin-web"
     custom_domain  = "vh-admin-web.dev.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
-
     disabled_rules = {}
 
     global_exclusions = [
@@ -277,11 +274,32 @@ frontends = [
     ]
   },
   {
-    name           = "vh-service-web"
-    custom_domain  = "vh-service-web.dev.platform.hmcts.net"
+    name           = "vh-video-web-pr-1926" # TODO this is for testing changes for Azure Front Door cache Issues. Will be removed after testing.
+    custom_domain  = "vh-video-web-pr-1926.dev.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
-
     disabled_rules = {}
+
+    global_exclusions = [
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      }
+    ]
+  },
+  {
+    name           = "vh-admin-web-pr-989" # TODO this is for testing changes for Azure Front Door cache Issues. Will be removed after testing.
+    custom_domain  = "vh-admin-web-pr-989.dev.platform.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
+    disabled_rules = {}
+
+    global_exclusions = [
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      }
+    ]
   },
   {
     name           = "dev-casetracker"

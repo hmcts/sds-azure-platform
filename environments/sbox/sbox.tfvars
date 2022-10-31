@@ -82,5 +82,38 @@ frontends = [
     certificate_name = "wildcard-sandbox-platform-hmcts-net"
     disabled_rules   = {}
     shutter_app      = false
+  },
+  {
+    name                = "portal-sbox"
+    mode                = "Prevention"
+    custom_domain       = "portal-sbox.pre-recorded-evidence.justice.gov.uk"
+    backend_domain      = ["pre-sbox.powerappsportals.com"]
+    certificate_name    = "portal-sbox-pre-recorded-evidence-justice-gov-uk"
+    disabled_rules      = {}
+    shutter_app         = false
+    health_path         = "/SignIn?ReturnUrl=%2F"
+    health_protocol     = "Https"
+    forwarding_protocol = "HttpsOnly"
+    cache_enabled       = "false"
+
+    custom_rules = [
+      {
+        name     = "CountryMatchWhitelist"
+        enabled  = true
+        priority = 1
+        type     = "MatchRule"
+        action   = "Block"
+        match_conditions = [
+          {
+            match_variable     = "RemoteAddr"
+            operator           = "GeoMatch"
+            negation_condition = true
+            match_values = [
+              "GB"
+            ]
+          }
+        ]
+      }
+    ]
   }
 ]

@@ -15,8 +15,8 @@ else
     Context "Check for non zero length files" {
       It "<Instance> file is greater than 0" -TestCases $TfTestCases {
         Param($Instance)
-        (Get-ChildItem $Instance -Verbose).Length | Should -BeGreaterThan 0
-      }  
+        (Get-ChildItem $Instance -Verbose).Length | should -BeGreaterThan 0
+      }
     }
 
     Context "Do not contain the 'Owner' role" {
