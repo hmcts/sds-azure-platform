@@ -737,22 +737,6 @@ frontends = [
     ]
   },
   {
-    name             = "vh-test-web"
-    custom_domain    = "vh-test-web.platform.hmcts.net"
-    backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-    certificate_name = "wildcard-platform-hmcts-net"
-    disabled_rules   = {}
-    shutter_app      = true
-
-    global_exclusions = [
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "code"
-      }
-    ]
-  },
-  {
     name             = "vh-video-web"
     custom_domain    = "video-sds.hearings.reform.hmcts.net"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
@@ -783,14 +767,6 @@ frontends = [
         selector       = "code"
       }
     ]
-  },
-  {
-    name             = "vh-service-web"
-    custom_domain    = "vh-service-web.platform.hmcts.net"
-    backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-    certificate_name = "wildcard-platform-hmcts-net"
-    disabled_rules   = {}
-    shutter_app      = false
   },
   {
     name             = "toffee"
