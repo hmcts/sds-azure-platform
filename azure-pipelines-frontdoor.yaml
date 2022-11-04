@@ -1,4 +1,4 @@
-name: SDS Azure Platform - frontdoor
+name: "${{ parameters.action }} - ${{ parameters.location }} - SDS Azure Platform - frontdoor"
 trigger:
   batch: true
   branches:
@@ -21,6 +21,14 @@ parameters:
     values:
       - plan
       - apply
+
+  - name: location
+    displayName: Location
+    type: string
+    default: 'UK South'
+    values:
+      - 'UK South'
+      - 'UK West'
 
   - name: components
     displayName: Component to Run
@@ -51,14 +59,6 @@ parameters:
         environment: 'prod'
         dependsOn: 'sbox_frontdoor'
         pipeline_tests: true
-
-  - name: location
-    displayName: Location
-    type: string
-    default: 'UK South'
-    values:
-      - 'UK South'
-      - 'UK West'
 
 variables:
   - name: project
@@ -109,10 +109,9 @@ stages:
                   component: ${{ parameter.deployment }}
                   serviceConnection: "OPS-APPROVAL-GATE-${{ upper(parameter.environment) }}-ENVS"
                   product: $(product)
-                  tfInitSub: ${{ variables.tfInitSub }}
                   terraformInitSubscription: ${{ variables.tfInitSub }}
                   planCommandOptions: >
-                    -var environment=${{ parameters.environment }}
+                    -var environment=${{ parameter.environment }}
                     -var project=$(project)
           - ${{ if eq(parameter.pipeline_tests, true) }}:
             - job: PipelineTests
