@@ -172,7 +172,7 @@ stages:
                   product: $(product)
                   terraformInitSubscription: ${{ variables.tfInitSub }}
                   planCommandOptions: >
-                    -var environment=${{ parameters.environment }}
+                    -var environment=${{ parameter.environment }}
                     -var project=$(project)
           - ${{ if eq(parameter.pipeline_tests, true) }}:
             - job: PipelineTests
