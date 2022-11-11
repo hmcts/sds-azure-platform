@@ -33,24 +33,6 @@ gateways:
       - product: vh
         component: booking-queue-subscriber
         ssl_enabled: true
-      - product: vh
-        component: admin-web
-        ssl_enabled: true
-      - product: vh
-        component: video-web
-        ssl_enabled: true
-      - product: vh
-        component: service-web
-        ssl_enabled: true
-      - product: vh
-        component: test-web
-        ssl_enabled: true
-      - product: vh
-        component: admin-web-pr-989
-        ssl_enabled: true
-      - product: vh
-        component: video-web-pr-1926
-        ssl_enabled: true
       # DTS Legacy Apps
       - product: lgy-iac
         component: web
