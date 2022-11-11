@@ -243,21 +243,6 @@ frontends = [
     ]
   },
   {
-    name           = "vh-test-web"
-    custom_domain  = "test.staging.hearings.reform.hmcts.net"
-    backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
-
-    disabled_rules = {}
-
-    global_exclusions = [
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "code"
-      }
-    ]
-  },
-  {
     name           = "vh-video-web"
     custom_domain  = "video.staging.hearings.reform.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]

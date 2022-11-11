@@ -76,14 +76,6 @@ frontends = [
     ]
   },
   {
-    name             = "vh-service-web"
-    custom_domain    = "vh-service-web.sandbox.platform.hmcts.net"
-    backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
-    certificate_name = "wildcard-sandbox-platform-hmcts-net"
-    disabled_rules   = {}
-    shutter_app      = false
-  },
-  {
     name                = "portal-sbox"
     mode                = "Prevention"
     custom_domain       = "portal-sbox.pre-recorded-evidence.justice.gov.uk"
