@@ -798,6 +798,39 @@ frontends = [
         selector       = "_c100_application_session"
       }
     ]
+  },
+  {
+    name                = "portal"
+    mode                = "Prevention"
+    custom_domain       = "portal.pre-recorded-evidence.justice.gov.uk"
+    backend_domain      = ["pre-prod.powerappsportals.com"]
+    certificate_name    = "portal-pre-recorded-evidence-justice-gov-uk"
+    disabled_rules      = {}
+    shutter_app         = false
+    health_path         = "/SignIn?ReturnUrl=%2F"
+    health_protocol     = "Https"
+    forwarding_protocol = "HttpsOnly"
+    cache_enabled       = "false"
+
+    custom_rules = [
+      {
+        name     = "CountryMatchWhitelist"
+        enabled  = true
+        priority = 1
+        type     = "MatchRule"
+        action   = "Block"
+        match_conditions = [
+          {
+            match_variable     = "RemoteAddr"
+            operator           = "GeoMatch"
+            negation_condition = true
+            match_values = [
+              "GB"
+            ]
+          }
+        ]
+      }
+    ]
   }
 ]
 
