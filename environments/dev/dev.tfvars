@@ -274,34 +274,6 @@ frontends = [
     ]
   },
   {
-    name           = "vh-video-web-pr-1926" # TODO this is for testing changes for Azure Front Door cache Issues. Will be removed after testing.
-    custom_domain  = "vh-video-web-pr-1926.dev.platform.hmcts.net"
-    backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
-    disabled_rules = {}
-
-    global_exclusions = [
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "code"
-      }
-    ]
-  },
-  {
-    name           = "vh-admin-web-pr-989" # TODO this is for testing changes for Azure Front Door cache Issues. Will be removed after testing.
-    custom_domain  = "vh-admin-web-pr-989.dev.platform.hmcts.net"
-    backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
-    disabled_rules = {}
-
-    global_exclusions = [
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "code"
-      }
-    ]
-  },
-  {
     name           = "dev-casetracker"
     custom_domain  = "dev.casetracker.justice.gov.uk"
     backend_domain = ["civil-loadb-y5o7jqurq76d-2065714619.eu-west-2.elb.amazonaws.com"]

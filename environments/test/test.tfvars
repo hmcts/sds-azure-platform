@@ -116,13 +116,6 @@ frontends = [
     disabled_rules = {}
   },
   {
-    name           = "vh-service-web"
-    custom_domain  = "vh-service-web.test.platform.hmcts.net"
-    backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
-
-    disabled_rules = {}
-  },
-  {
     name             = "sds-api-mgmt"
     custom_domain    = "sds-api-mgmt.test.platform.hmcts.net"
     backend_domain   = ["firewall-nonprodi-palo-sdsapimgmttest.uksouth.cloudapp.azure.com"]

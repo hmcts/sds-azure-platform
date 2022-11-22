@@ -243,21 +243,6 @@ frontends = [
     ]
   },
   {
-    name           = "vh-test-web"
-    custom_domain  = "test.staging.hearings.reform.hmcts.net"
-    backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
-
-    disabled_rules = {}
-
-    global_exclusions = [
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "code"
-      }
-    ]
-  },
-  {
     name           = "vh-video-web"
     custom_domain  = "video.staging.hearings.reform.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
@@ -542,6 +527,39 @@ frontends = [
         match_variable = "RequestBodyPostArgNames"
         operator       = "Equals"
         selector       = "__VIEWSTATE"
+      }
+    ]
+  },
+  {
+    name                = "portal-stg"
+    mode                = "Prevention"
+    custom_domain       = "portal-stg.pre-recorded-evidence.justice.gov.uk"
+    backend_domain      = ["pre-stg1.powerappsportals.com"]
+    certificate_name    = "portal-stg-pre-recorded-evidence-justice-gov-uk"
+    disabled_rules      = {}
+    shutter_app         = false
+    health_path         = "/SignIn?ReturnUrl=%2F"
+    health_protocol     = "Https"
+    forwarding_protocol = "HttpsOnly"
+    cache_enabled       = "false"
+
+    custom_rules = [
+      {
+        name     = "CountryMatchWhitelist"
+        enabled  = true
+        priority = 1
+        type     = "MatchRule"
+        action   = "Block"
+        match_conditions = [
+          {
+            match_variable     = "RemoteAddr"
+            operator           = "GeoMatch"
+            negation_condition = true
+            match_values = [
+              "GB"
+            ]
+          }
+        ]
       }
     ]
   }
