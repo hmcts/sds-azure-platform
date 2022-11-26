@@ -738,7 +738,7 @@ frontends = [
   },
   {
     name             = "vh-video-web"
-    custom_domain    = "video.hearings.reform.hmcts.net"
+    custom_domain    = "video-sds.hearings.reform.hmcts.net"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-hearings-reform-hmcts-net"
     disabled_rules   = {}
@@ -754,7 +754,7 @@ frontends = [
   },
   {
     name             = "vh-admin-web"
-    custom_domain    = "admin.hearings.reform.hmcts.net"
+    custom_domain    = "admin-sds.hearings.reform.hmcts.net"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-hearings-reform-hmcts-net"
     disabled_rules   = {}
