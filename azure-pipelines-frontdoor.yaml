@@ -84,7 +84,7 @@ stages:
     jobs:
       - job: Validate
         pool:
-          vmImage: ${{ variables.agentPool }}
+          name: ${{ variables.agentPool }}
         steps:
           - template: steps/terraform-precheck.yaml@cnp-azuredevops-libraries
             parameters:
