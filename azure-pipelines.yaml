@@ -1,4 +1,4 @@
-name: SDS Azure Platform
+name: "${{ parameters.action }} - ${{ parameters.location }} - SDS Azure Platform"
 trigger:
   batch: true
   branches:
@@ -14,6 +14,22 @@ resources:
     endpoint: 'hmcts (1)'
 
 parameters:
+  - name: action
+    displayName: Action
+    type: string
+    default: 'plan'
+    values:
+      - plan
+      - apply
+
+  - name: location
+    displayName: Location
+    type: string
+    default: "UK South"
+    values:
+      - "UK South"
+      - "UK West"
+
   - name: components
     displayName: Component to Run
     type: object
@@ -109,38 +125,24 @@ parameters:
         environment: "ithc"
         dependsOn: "sbox_apim"
         pipeline_tests: true
-        
-  - name: location
-    displayName: Location
-    type: string
-    default: "UK South"
-    values:
-      - "UK South"
-      - "UK West"
 
 variables:
-  - name: tfversion
-    value: 1.0.4
   - name: project
     value: application
-  - name: timeoutInMinutes
-    value: "60"
   - name: agentPool
     value: 'ubuntu-latest'
   - name: build
     value: $(Build.BuildNumber)
-  - name: isMaster
-    value: $[eq(variables['Build.SourceBranch'], 'refs/heads/master')]
   - name: product
     value: "sds-platform"
   - name: tfInitSub
     value: "04d27a32-7a07-48b3-95b8-3c8691e1a263"
+  - template: vars/input-variables.yaml@cnp-azuredevops-libraries
 
 stages:
   - stage: Precheck
     jobs:
-      - job:
-        timeoutInMinutes: ${{ variables.timeoutInMinutes }}
+      - job: Validate
         pool:
           vmImage: ${{ variables.agentPool }}
         steps:
@@ -159,21 +161,22 @@ stages:
             pool:
               vmImage: ${{ variables.agentPool }}
             steps:
-              - template: pipeline-templates/terraform.yaml
+              - template: steps/terraform.yaml@cnp-azuredevops-libraries
                 parameters:
+                  overrideAction: ${{ parameters.action }}
                   environment: ${{ parameter.environment }}
                   location: ${{ parameters.location }}
-                  stack: ${{ parameter.deployment }}
-                  project: $(project)
-                  tfversion: $(tfversion)
+                  component: ${{ parameter.deployment }}
                   serviceConnection: "OPS-APPROVAL-GATE-${{ upper(parameter.environment) }}-ENVS"
                   product: $(product)
-                  tfInitSub: ${{ variables.tfInitSub }}
+                  terraformInitSubscription: ${{ variables.tfInitSub }}
+                  planCommandOptions: >
+                    -var environment=${{ parameter.environment }}
+                    -var project=$(project)
           - ${{ if eq(parameter.pipeline_tests, true) }}:
             - job: PipelineTests
               pool:
                 vmImage: ${{ variables.agentPool }}
-              timeoutInMinutes: ${{ variables.timeoutInMinutes }}
               dependsOn: TerraformPlanApply
               steps:
                 - template: steps/pipeline-tests-jest.yaml@cnp-azuredevops-libraries
