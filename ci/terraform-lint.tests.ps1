@@ -15,14 +15,14 @@ else
     Context "Check for non zero length files" {
       It "<Instance> file is greater than 0" -TestCases $TfTestCases {
         Param($Instance)
-        (Get-ChildItem $Instance -Verbose).Length | Should BeGreaterThan 0
-      }  
+        (Get-ChildItem $Instance -Verbose).Length | should -BeGreaterThan 0
+      }
     }
 
     Context "Do not contain the 'Owner' role" {
       It "<Instance> does not have owner role" -TestCases $TfTestCases {
           Param($Instance)
-           ((Get-Content -raw $Instance) | Select-String -Pattern "role_definition_name.*=.*Owner" ) | should BeNullOrEmpty            
+           ((Get-Content -raw $Instance) | Select-String -Pattern "role_definition_name.*=.*Owner" ) | should -BeNullOrEmpty
       }
     }
 
@@ -31,7 +31,7 @@ else
       Context "Are correctly formatted" {
         It "All files in <Instance> are correctly formatted" -TestCases $TfFolderTestCases {
           Param($Instance)
-          Invoke-Expression "terraform fmt -check=true $Instance"  | should BeNullOrEmpty            
+          Invoke-Expression "terraform fmt -check=true $Instance"  | should -BeNullOrEmpty
       }
     }
   }

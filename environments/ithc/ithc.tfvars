@@ -15,13 +15,27 @@ frontends = [
     name           = "toffee"
     custom_domain  = "toffee.ithc.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
-
     disabled_rules = {}
   },
   {
+    name           = "c100-application"
+    custom_domain  = "c100-application.ithc.platform.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
+    disabled_rules = {}
+    health_path    = "/status"
+    mode           = "Detection"
+    global_exclusions = [
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "_c100_application_session"
+      }
+    ]
+  },
+  {
     name              = "pip-frontend"
-    custom_domain     = "pip-frontend.platform.hmcts.net"
-    backend_domain    = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    custom_domain     = "pip-frontend.ithc.platform.hmcts.net"
+    backend_domain    = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
     certificate_name  = "wildcard-platform-hmcts-net"
     shutter_app       = true
     disabled_rules    = {}
@@ -33,6 +47,14 @@ frontends = [
     backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
 
     disabled_rules = {}
+
+    global_exclusions = [
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      }
+    ]
   },
   {
     name           = "vh-video-web"
@@ -40,6 +62,14 @@ frontends = [
     backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
 
     disabled_rules = {}
+
+    global_exclusions = [
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      }
+    ]
   },
   {
     name           = "vh-admin-web"
@@ -47,6 +77,14 @@ frontends = [
     backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
 
     disabled_rules = {}
+
+    global_exclusions = [
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      }
+    ]
   },
   {
     name           = "vh-service-web"

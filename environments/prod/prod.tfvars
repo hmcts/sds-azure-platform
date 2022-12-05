@@ -518,7 +518,7 @@ frontends = [
     global_exclusions = []
   },
   {
-    name             = "pip-frontend-custom"
+    name             = "court-tribunal-hearings"
     custom_domain    = "www.court-tribunal-hearings.service.gov.uk"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-platform-hmcts-net"
@@ -550,17 +550,43 @@ frontends = [
         match_variable = "RequestCookieNames"
         operator       = "Equals"
         selector       = "dtSa"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "court-and-tribunal-hearings-cookie-preferences"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "createAdminAccount"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "session.sig"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "iss"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "error_description"
       }
     ]
   },
   {
-    name                = "pip-frontend-b2c-sign-in"
+    name                = "court-tribunal-hearings-b2c-sign-in"
     custom_domain       = "sign-in.court-tribunal-hearings.service.gov.uk"
     backend_domain      = ["hmctspipprod.b2clogin.com"]
     host_header         = "hmctspipprod.b2clogin.com"
     forwarding_protocol = "HttpsOnly"
     cache_enabled       = false
     certificate_name    = "wildcard-court-tribunal-hearings-service-gov-uk"
+    ssl_mode            = "AzureKeyVault"
     shutter_app         = false
     disabled_rules      = {}
     global_exclusions = [
@@ -573,17 +599,73 @@ frontends = [
         match_variable = "QueryStringArgNames"
         operator       = "Equals"
         selector       = "desc"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "StartsWith"
+        selector       = "x-ms-cpim-"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "diags"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "redirect_uri"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "error_description"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "claim_value"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "ReadOnlyEmail"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "nonce"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "state"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "post_logout_redirect_uri"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "post_logout_redirect_uri"
       }
     ]
   },
   {
-    name                = "pip-frontend-b2c-staff"
+    name                = "court-tribunal-hearings-b2c-staff"
     custom_domain       = "staff.court-tribunal-hearings.service.gov.uk"
     backend_domain      = ["hmctspipprod.b2clogin.com"]
     host_header         = "hmctspipprod.b2clogin.com"
     forwarding_protocol = "HttpsOnly"
     cache_enabled       = false
     certificate_name    = "wildcard-court-tribunal-hearings-service-gov-uk"
+    ssl_mode            = "AzureKeyVault"
     shutter_app         = false
     disabled_rules      = {}
     global_exclusions = [
@@ -596,40 +678,159 @@ frontends = [
         match_variable = "QueryStringArgNames"
         operator       = "Equals"
         selector       = "desc"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "StartsWith"
+        selector       = "x-ms-cpim-"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "diags"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "redirect_uri"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "error_description"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "claim_value"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "ReadOnlyEmail"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "nonce"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "state"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "post_logout_redirect_uri"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "post_logout_redirect_uri"
       }
     ]
   },
   {
-    name             = "vh-test-web"
-    custom_domain    = "vh-test-web.platform.hmcts.net"
-    backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-    certificate_name = "wildcard-platform-hmcts-net"
-    disabled_rules   = {}
-    shutter_app      = false
-  },
-  {
     name             = "vh-video-web"
-    custom_domain    = "vh-video-web.platform.hmcts.net"
+    custom_domain    = "video-sds.hearings.reform.hmcts.net"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-    certificate_name = "wildcard-platform-hmcts-net"
+    certificate_name = "wildcard-hearings-reform-hmcts-net"
     disabled_rules   = {}
-    shutter_app      = false
+    shutter_app      = true
+
+    global_exclusions = [
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      }
+    ]
   },
   {
     name             = "vh-admin-web"
-    custom_domain    = "vh-admin-web.platform.hmcts.net"
+    custom_domain    = "admin-sds.hearings.reform.hmcts.net"
+    backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    certificate_name = "wildcard-hearings-reform-hmcts-net"
+    disabled_rules   = {}
+    shutter_app      = true
+
+    global_exclusions = [
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      }
+    ]
+  },
+  {
+    name             = "toffee"
+    custom_domain    = "toffee.platform.hmcts.net"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-platform-hmcts-net"
     disabled_rules   = {}
     shutter_app      = false
   },
   {
-    name             = "vh-service-web"
-    custom_domain    = "vh-service-web.platform.hmcts.net"
+    name             = "sds-api-mgmt"
+    custom_domain    = "sds-api-mgmt.platform.hmcts.net"
+    backend_domain   = ["firewall-prod-int-palo-sdsapimgmtprod.uksouth.cloudapp.azure.com"]
+    certificate_name = "wildcard-platform-hmcts-net"
+    cache_enabled    = "false"
+  },
+  {
+    name             = "c100-application"
+    custom_domain    = "c100-application.platform.hmcts.net"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-platform-hmcts-net"
-    disabled_rules   = {}
     shutter_app      = false
+    health_path      = "/status"
+    mode             = "Detection"
+    global_exclusions = [
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "_c100_application_session"
+      }
+    ]
+  },
+  {
+    name                = "portal"
+    mode                = "Prevention"
+    custom_domain       = "portal.pre-recorded-evidence.justice.gov.uk"
+    backend_domain      = ["pre-prod.powerappsportals.com"]
+    certificate_name    = "portal-pre-recorded-evidence-justice-gov-uk"
+    disabled_rules      = {}
+    shutter_app         = false
+    health_path         = "/SignIn?ReturnUrl=%2F"
+    health_protocol     = "Https"
+    forwarding_protocol = "HttpsOnly"
+    cache_enabled       = "false"
+
+    custom_rules = [
+      {
+        name     = "CountryMatchWhitelist"
+        enabled  = true
+        priority = 1
+        type     = "MatchRule"
+        action   = "Block"
+        match_conditions = [
+          {
+            match_variable     = "RemoteAddr"
+            operator           = "GeoMatch"
+            negation_condition = true
+            match_values = [
+              "GB"
+            ]
+          }
+        ]
+      }
+    ]
   }
 ]
 

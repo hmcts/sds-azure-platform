@@ -22,16 +22,10 @@ gateways:
         component: test-api
         ssl_enabled: true
       - product: vh
-        component: scheduler-jobs
-        ssl_enabled: true
-      - product: vh
         component: notification-api
         ssl_enabled: true
       - product: vh
         component: bookings-api
-        ssl_enabled: true
-      - product: vh
-        component: booking-queue-subscriber
         ssl_enabled: true
     # Publication and Information
       - product: pip
@@ -54,4 +48,8 @@ gateways:
         ssl_enabled: true
       - product: pip
         component: account-management
+        ssl_enabled: true
+      - product: gob
+        component: gateway
+        host_name_prefix: cloudgobgateway
         ssl_enabled: true

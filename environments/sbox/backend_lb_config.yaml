@@ -22,16 +22,10 @@ gateways:
         component: test-api
         ssl_enabled: true
       - product: vh
-        component: scheduler-jobs
-        ssl_enabled: true
-      - product: vh
         component: notification-api
         ssl_enabled: true
       - product: vh
         component: bookings-api
-        ssl_enabled: true
-      - product: vh
-        component: booking-queue-subscriber
         ssl_enabled: true
     #labs
       - product: labs

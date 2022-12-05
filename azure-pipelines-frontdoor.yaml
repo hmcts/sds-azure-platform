@@ -1,36 +1,26 @@
-name: SDS Azure Platform - frontdoor
+name: "${{ parameters.action }} - ${{ parameters.location }} - SDS Azure Platform - frontdoor"
 trigger:
   batch: true
   branches:
     include:
       - master
 
+resources:
+  repositories:
+  - repository: cnp-azuredevops-libraries
+    type: github
+    ref: refs/heads/master
+    name: hmcts/cnp-azuredevops-libraries
+    endpoint: 'hmcts (1)'
+
 parameters:
-  - name: components
-    displayName: Component to Run
-    type: object
-    default:
-      - deployment: 'frontdoor'
-        environment: 'sbox'
-        dependsOn: 'Precheck'
-      - deployment: 'frontdoor'
-        environment: 'dev'
-        dependsOn: 'Precheck'
-      - deployment: 'frontdoor'
-        environment: 'stg'
-        dependsOn: 'Precheck'
-      - deployment: 'frontdoor'
-        environment: 'demo'
-        dependsOn: 'Precheck'
-      - deployment: 'frontdoor'
-        environment: 'ithc'
-        dependsOn: 'Precheck'
-      - deployment: 'frontdoor'
-        environment: 'test'
-        dependsOn: 'Precheck'
-      - deployment: 'frontdoor'
-        environment: 'prod'
-        dependsOn: 'Precheck'
+  - name: action
+    displayName: Action
+    type: string
+    default: 'plan'
+    values:
+      - plan
+      - apply
 
   - name: location
     displayName: Location
@@ -40,15 +30,45 @@ parameters:
       - 'UK South'
       - 'UK West'
 
+  - name: components
+    displayName: Component to Run
+    type: object
+    default:
+      - deployment: 'frontdoor'
+        environment: 'sbox'
+        dependsOn: 'Precheck'
+        pipeline_tests: true
+      - deployment: 'frontdoor'
+        environment: 'dev'
+        dependsOn: 'sbox_frontdoor'
+      - deployment: 'frontdoor'
+        environment: 'stg'
+        dependsOn: 'sbox_frontdoor'
+        pipeline_tests: true
+      - deployment: 'frontdoor'
+        environment: 'demo'
+        dependsOn: 'sbox_frontdoor'
+      - deployment: 'frontdoor'
+        environment: 'ithc'
+        dependsOn: 'sbox_frontdoor'
+        pipeline_tests: true
+      - deployment: 'frontdoor'
+        environment: 'test'
+        dependsOn: 'sbox_frontdoor'
+      - deployment: 'frontdoor'
+        environment: 'prod'
+        dependsOn: 'sbox_frontdoor'
+        pipeline_tests: true
+
 variables:
-  - name: tfversion
-    value: 1.0.4
   - name: project
     value: application
   - name: timeoutInMinutes
     value: '360'
   - name: agentPool
     value: 'hmcts-cftptl-agent-pool'
+  - name: vmImage
+    value: 'ubuntu-latest'
   - name: build
     value: $(Build.BuildNumber)
   - name: isMaster
@@ -57,67 +77,55 @@ variables:
     value: 'sds-platform'
   - name: tfInitSub
     value: "04d27a32-7a07-48b3-95b8-3c8691e1a263"
-
+  - template: vars/input-variables.yaml@cnp-azuredevops-libraries
 
 stages:
   - stage: Precheck
     jobs:
       - job: Validate
-        timeoutInMinutes: ${{ variables.timeoutInMinutes }}
         pool:
           name: ${{ variables.agentPool }}
         steps:
-        - task: TerraformInstaller@0
-          displayName: Terraform install
-          inputs:
-            terraformVersion: ${{ variables.tfversion }}
-        - task: AzureKeyVault@1
-          displayName: Retrieve keyvault secret for ADO token
-          inputs:
-            ConnectedServiceName: DCD-CFT-Sandbox
-            keyVaultName: infra-vault-sandbox
-            secretsFilter: 'azure-devops-token'
-            runAsPreJob: false
-
-        - task: Bash@3
-          displayName: Prevent parallel run
-          env:
-            thisbuild: $(Build.BuildId)
-            pipelinedefinition: $(System.DefinitionId)
-            azuredevopstoken: $(azure-devops-token)
-          inputs:
-            filePath: pipeline-scripts/builds-check.sh
-        - task: PowerShell@2
-          displayName: Run tests
-          inputs:
-            targetType: 'filePath'
-            filePath: $(System.DefaultWorkingDirectory)/pipeline-scripts/pester-tests.ps1
-            pwsh: true
-        - task: PublishTestResults@2
-          displayName: 'Publish Test Results **/TEST-*.xml'
-          inputs:
-            testResultsFormat: NUnit
-            failTaskOnFailedTests: true
-          condition: always()
-
+          - template: steps/terraform-precheck.yaml@cnp-azuredevops-libraries
+            parameters:
+              keyvaultName: 'infra-vault-nonprod'
+              keyvaultSecret: 'azure-devops-token'
+              serviceConnection: 'DCD-CFTAPPS-STG'
 
   - ${{ each parameter in parameters.components }}:
       - stage: ${{ parameter.environment }}_${{ parameter.deployment }}
         displayName: ${{ parameter.environment }}_${{ parameter.deployment }}
         dependsOn: ${{ parameter.dependsOn }}
         jobs:
-          - job:
+          - job: TerraformPlanApply
             timeoutInMinutes: ${{ variables.timeoutInMinutes }}
             pool:
               name: ${{ variables.agentPool }}
             steps:
-              - template: pipeline-templates/terraform.yaml
+              - template: steps/terraform.yaml@cnp-azuredevops-libraries
                 parameters:
+                  overrideAction: ${{ parameters.action }}
                   environment: ${{ parameter.environment }}
                   location: ${{ parameters.location }}
-                  stack: ${{ parameter.deployment }}
-                  project: $(project)
-                  tfversion: $(tfversion)
+                  component: ${{ parameter.deployment }}
                   serviceConnection: "OPS-APPROVAL-GATE-${{ upper(parameter.environment) }}-ENVS"
                   product: $(product)
-                  tfInitSub: ${{ variables.tfInitSub }}
+                  terraformInitSubscription: ${{ variables.tfInitSub }}
+                  planCommandOptions: >
+                    -var environment=${{ parameter.environment }}
+                    -var project=$(project)
+          - ${{ if eq(parameter.pipeline_tests, true) }}:
+            - job: PipelineTests
+              pool:
+                vmImage: ${{ variables.vmImage }}
+              timeoutInMinutes: ${{ variables.timeoutInMinutes }}
+              dependsOn: TerraformPlanApply
+              steps:
+                - template: steps/pipeline-tests-jest.yaml@cnp-azuredevops-libraries
+                  parameters:
+                    workingDirectory: $(Pipeline.Workspace)/s/sds-azure-platform/scripts
+                    junit_output_dir: $(Pipeline.Workspace)/s/sds-azure-platform/environments/${{ parameter.environment }}/junit
+                    environment: ${{ parameter.environment }}
+                    product: ${{ variables.product }}
+                    test_title: '${{ parameter.environment }}_${{ parameter.deployment }}'
+                    test_pattern: pipeline.test.ts

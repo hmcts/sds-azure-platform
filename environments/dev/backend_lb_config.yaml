@@ -22,14 +22,12 @@ gateways:
         component: test-api
         ssl_enabled: true
       - product: vh
-        component: scheduler-jobs
-        ssl_enabled: true
-      - product: vh
         component: notification-api
         ssl_enabled: true
       - product: vh
         component: bookings-api
         ssl_enabled: true
-      - product: vh
-        component: booking-queue-subscriber
+      # DTS Legacy Apps
+      - product: lgy-iac
+        component: web
         ssl_enabled: true
