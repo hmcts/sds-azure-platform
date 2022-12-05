@@ -263,7 +263,7 @@ frontends = [
   },
   {
     name                = "vh-video-web-reform"
-    custom_domain       = "vh-video-web-demo.hearings.reform.hmcts.net"
+    custom_domain       = "vh-video-web-dev.hearings.reform.hmcts.net"
     backend_domain      = ["vh-video-web.dev.platform.hmcts.net"]
     host_header         = "vh-video-web.dev.platform.hmcts.net"
     forwarding_protocol = "HttpsOnly"
