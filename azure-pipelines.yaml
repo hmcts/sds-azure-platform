@@ -151,7 +151,7 @@ stages:
               keyvaultName: 'infra-vault-nonprod'
               keyvaultSecret: 'azure-devops-token'
               serviceConnection: 'DCD-CFTAPPS-STG'
-              overrideAction: ${{ parameters.action }}
+              #overrideAction: ${{ parameters.action }}
 
   - ${{ each parameter in parameters.components }}:
       - stage: ${{ parameter.environment }}_${{ parameter.deployment }}
