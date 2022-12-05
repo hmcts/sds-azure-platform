@@ -262,6 +262,24 @@ frontends = [
     ]
   },
   {
+    name                = "vh-video-web-reform"
+    custom_domain       = "vh-video-web-dev.hearings.reform.hmcts.net"
+    backend_domain      = ["vh-video-web.dev.platform.hmcts.net"]
+    host_header         = "vh-video-web.dev.platform.hmcts.net"
+    forwarding_protocol = "HttpsOnly"
+    cache_enabled       = false
+    shutter_app         = false
+    disabled_rules      = {}
+
+    global_exclusions = [
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      }
+    ]
+  },
+  {
     name           = "vh-admin-web"
     custom_domain  = "vh-admin-web.dev.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
