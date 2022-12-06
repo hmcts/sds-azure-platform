@@ -10,7 +10,5 @@ module "traffic_manager" {
 
   common_tags = module.ctags.common_tags
 
-  traffic_manager_endpoints = var.traffic_manager_endpoints
-
   traffic_manager_profiles = var.traffic_manager_profiles
 }
