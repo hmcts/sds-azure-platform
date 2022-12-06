@@ -262,10 +262,10 @@ frontends = [
     ]
   },
   {
-    name                = "vh-video-web-reform"
-    custom_domain       = "vh-video-web-dev.hearings.reform.hmcts.net"
-    backend_domain      = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
-    disabled_rules      = {}
+    name           = "vh-video-web-reform"
+    custom_domain  = "vh-video-web-dev.hearings.reform.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
+    disabled_rules = {}
 
     global_exclusions = [
       {
