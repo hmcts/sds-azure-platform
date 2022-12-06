@@ -9,7 +9,7 @@ resources:
   repositories:
   - repository: cnp-azuredevops-libraries
     type: github
-    ref: refs/heads/master/msl8r-patch-1
+    ref: refs/heads/msl8r-patch-1
     name: hmcts/cnp-azuredevops-libraries
     endpoint: 'hmcts (1)'
 
