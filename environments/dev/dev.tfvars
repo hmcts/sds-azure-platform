@@ -555,20 +555,20 @@ frontends = [
 
 traffic_manager_profiles = {
   ss-dev-mailrelay-tm = {
-    protocol = "TCP",
-    port = "587",
-    relative_name = "ss-dev-mailrelay",
-    resource_group_name = "ss-dev-network-rg",
+    protocol               = "TCP",
+    port                   = "587",
+    relative_name          = "ss-dev-mailrelay",
+    resource_group_name    = "ss-dev-network-rg",
     traffic_routing_method = "Weighted",
-    ttl = "180"
+    ttl                    = "180"
     endpoints = {
       fw-uksouth-nonprodi-palo-mailrelay0-pip = {
         target_resource_id = "/subscriptions/fb084706-583f-4c9a-bdab-949aac66ba5c/resourceGroups/hmcts-hub-nonprodi/providers/Microsoft.Network/publicIPAddresses/fw-uksouth-nonprodi-palo-mailrelay0-pip",
-        weight = "50"
+        weight             = "50"
       },
       fw-uksouth-nonprodi-palo-mailrelay1-pip = {
         target_resource_id = "/subscriptions/fb084706-583f-4c9a-bdab-949aac66ba5c/resourceGroups/hmcts-hub-nonprodi/providers/Microsoft.Network/publicIPAddresses/fw-uksouth-nonprodi-palo-mailrelay1-pip",
-        weight = "50"
+        weight             = "50"
       }
     }
   }
