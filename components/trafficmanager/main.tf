@@ -6,7 +6,7 @@ module "ctags" {
 }
 
 module "traffic_manager" {
-  source = "git::https://github.com/hmcts/terraform-module-trafficmanager.git?ref=terraform-azurerm-v3"
+  source = "git::https://github.com/hmcts/terraform-module-trafficmanager.git?ref=master"
 
   common_tags = module.ctags.common_tags
 
