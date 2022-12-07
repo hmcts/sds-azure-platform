@@ -6,11 +6,9 @@ module "ctags" {
 }
 
 module "traffic_manager" {
-  source = "git::https://github.com/hmcts/terraform-module-trafficmanager.git?ref=terraform-azurerm-v2.99"
+  source = "git::https://github.com/hmcts/terraform-module-trafficmanager.git?ref=master"
 
   common_tags = module.ctags.common_tags
-
-  traffic_manager_endpoints = var.traffic_manager_endpoints
 
   traffic_manager_profiles = var.traffic_manager_profiles
 }
