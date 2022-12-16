@@ -9,6 +9,8 @@ module "ctags" {
   environment = var.environment
   product     = var.product
   builtFrom   = var.builtFrom
+  expiresAfter = "2023-05-15"
+
 }
 
 locals {
