@@ -5,10 +5,10 @@ module "logworkspace" {
 }
 
 module "ctags" {
-  source      = "git::https://github.com/hmcts/terraform-module-common-tags.git?ref=expiretag"
-  environment = var.environment
-  product     = var.product
-  builtFrom   = var.builtFrom
+  source       = "git::https://github.com/hmcts/terraform-module-common-tags.git?ref=expiretag"
+  environment  = var.environment
+  product      = var.product
+  builtFrom    = var.builtFrom
   expiresAfter = "2023-05-15"
 
 }
