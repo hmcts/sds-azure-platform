@@ -11,6 +11,12 @@ hub                = "nonprod"
 
 frontends = [
   {
+    name           = "toffee"
+    custom_domain  = "toffee.demo.platform.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdsdemo.uksouth.cloudapp.azure.com"]
+    disabled_rules = {}
+  },
+  {
     name             = "sds-api-mgmt"
     custom_domain    = "sds-api-mgmt.demo.platform.hmcts.net"
     backend_domain   = ["firewall-nonprodi-palo-sdsapimgmtdemo.uksouth.cloudapp.azure.com"]
