@@ -9,7 +9,7 @@ module "ctags" {
   environment  = var.environment
   product      = var.product
   builtFrom    = var.builtFrom
-  expiresAfter = "2023-05-15"
+  expiresAfter = "3000-01-01" # never expire
 
 }
 
