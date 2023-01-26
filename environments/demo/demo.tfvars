@@ -11,6 +11,34 @@ hub                = "nonprod"
 
 frontends = [
   {
+    name           = "vh-video-web"
+    custom_domain  = "vh-video-web.demo.platform.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdsdemo.uksouth.cloudapp.azure.com"]
+    disabled_rules = {}
+
+    global_exclusions = [
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      }
+    ]
+  },
+  {
+    name           = "vh-admin-web"
+    custom_domain  = "vh-admin-web.demo.platform.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdsdemo.uksouth.cloudapp.azure.com"]
+    disabled_rules = {}
+
+    global_exclusions = [
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      }
+    ]
+  },
+  {
     name             = "sds-api-mgmt"
     custom_domain    = "sds-api-mgmt.demo.platform.hmcts.net"
     backend_domain   = ["firewall-nonprodi-palo-sdsapimgmtdemo.uksouth.cloudapp.azure.com"]
