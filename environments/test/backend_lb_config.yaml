@@ -53,3 +53,4 @@ gateways:
         component: gateway
         host_name_prefix: cloudgobgateway
         ssl_enabled: true
+        health_path_override: "/services/themisgatewayapi?wsdl"
