@@ -10,3 +10,6 @@ gateways:
     app_configuration:
       - product: dummy
         component: app
+      - product: toffee
+        component: recipe-backend
+
