@@ -28,25 +28,25 @@ frontends = [
 
     custom_rules = [
       {
-        name = "Path Traversal Rule - Manual Upload",
-        type = "MatchRule"
+        name   = "Path Traversal Rule - Manual Upload",
+        type   = "MatchRule"
         action = "Allow"
 
         match_conditions = [
           {
             match_variable = "RequestBody"
-            operator = "Contains"
-            match_values = "../"
+            operator       = "Contains"
+            match_values   = "../"
           },
           {
             match_variable = "RequestUri"
-            operator = "EndsWith"
-            match_values = "/manual-upload"
+            operator       = "EndsWith"
+            match_values   = "/manual-upload"
           },
           {
             match_variable = "RequestMethod"
-            operator = "Equals"
-            match_values = "POST"
+            operator       = "Equals"
+            match_values   = "POST"
           }
         ]
       }
