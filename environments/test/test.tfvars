@@ -26,6 +26,32 @@ frontends = [
 
     disabled_rules = {}
 
+    custom_rules = [
+      {
+        name = "Path Traversal Rule - Manual Upload",
+        type = "MatchRule"
+        action = "Allow"
+
+        match_conditions = [
+          {
+            match_variable = "RequestBody"
+            operator = "RegEx"
+            match_values = "(?:(?:^|[\x5c/;])\.{2,3}[\x5c/;]|[\x5c/;]\.{2,3}(?:[\x5c/;]|$))"
+          },
+          {
+            match_variable = "RequestUri"
+            operator = "EndsWith"
+            match_values = "/manual-upload"
+          },
+          {
+            match_variable = "RequestMethod"
+            operator = "Equals"
+            match_values = "POST"
+          }
+        ]
+      }
+    ]
+
     global_exclusions = [
       {
         match_variable = "QueryStringArgNames"
