@@ -28,10 +28,10 @@ frontends = [
 
     custom_rules = [
       {
-        name   = "Path Traversal Rule - Manual Upload",
-        type   = "MatchRule"
+        name     = "Path Traversal Rule - Manual Upload",
+        type     = "MatchRule"
         priority = 10
-        action = "Allow"
+        action   = "Allow"
 
         match_conditions = [
           {
