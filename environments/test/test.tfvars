@@ -48,7 +48,7 @@ frontends = [
           },
           {
             match_variable     = "RequestMethod"
-            operator           = "Equals"
+            operator           = "Equal"
             negation_condition = false
             match_values       = ["POST"]
           }
