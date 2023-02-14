@@ -30,6 +30,7 @@ frontends = [
       {
         name   = "Path Traversal Rule - Manual Upload",
         type   = "MatchRule"
+        priority = 10
         action = "Allow"
 
         match_conditions = [
