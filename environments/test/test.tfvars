@@ -36,16 +36,19 @@ frontends = [
           {
             match_variable = "RequestBody"
             operator = "Contains"
+            negation_condition = false
             match_values = "../"
           },
           {
             match_variable = "RequestUri"
             operator = "EndsWith"
+            negation_condition = false
             match_values = "/manual-upload"
           },
           {
             match_variable = "RequestMethod"
             operator = "Equals"
+            negation_condition = false
             match_values = "POST"
           }
         ]
