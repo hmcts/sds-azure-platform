@@ -35,8 +35,8 @@ frontends = [
         match_conditions = [
           {
             match_variable = "RequestBody"
-            operator = "RegEx"
-            match_values = "(?:(?:^|[\x5c/;])\.{2,3}[\x5c/;]|[\x5c/;]\.{2,3}(?:[\x5c/;]|$))"
+            operator = "Contains"
+            match_values = "../"
           },
           {
             match_variable = "RequestUri"
