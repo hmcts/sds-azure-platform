@@ -35,22 +35,22 @@ frontends = [
 
         match_conditions = [
           {
-            match_variable = "RequestBody"
-            operator = "Contains"
+            match_variable     = "RequestBody"
+            operator           = "Contains"
             negation_condition = false
-            match_values = "../"
+            match_values       = "../"
           },
           {
-            match_variable = "RequestUri"
-            operator = "EndsWith"
+            match_variable     = "RequestUri"
+            operator           = "EndsWith"
             negation_condition = false
-            match_values = "/manual-upload"
+            match_values       = "/manual-upload"
           },
           {
-            match_variable = "RequestMethod"
-            operator = "Equals"
+            match_variable     = "RequestMethod"
+            operator           = "Equals"
             negation_condition = false
-            match_values = "POST"
+            match_values       = "POST"
           }
         ]
       }
