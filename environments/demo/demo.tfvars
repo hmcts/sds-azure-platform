@@ -53,7 +53,7 @@ frontends = [
   {
     product          = "toffee"
     name             = "toffee"
-    custom_domain    = "plum-public.demo.platform.hmcts.net"
+    custom_domain    = "toffee.demo.platform.hmcts.net"
     backend_domain   = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-demo-platform-hmcts-net"
   }
