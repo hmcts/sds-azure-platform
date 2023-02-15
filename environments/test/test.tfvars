@@ -38,7 +38,7 @@ frontends = [
             match_variable     = "RequestBody"
             operator           = "Contains"
             negation_condition = false
-            match_values       = ["../"]
+            match_values       = ["../", "..\\"]
           },
           {
             match_variable     = "RequestUri"
