@@ -37,3 +37,7 @@ gateways:
       - product: vh
         component: video-api
 
+      # My-Time
+      - product: my-time
+        component: api
+
