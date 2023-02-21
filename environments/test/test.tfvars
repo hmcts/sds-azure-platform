@@ -24,13 +24,17 @@ frontends = [
     custom_domain  = "pip-frontend.test.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
 
-    disabled_rules = {}
+    disabled_rules = {
+      LFI = [
+        "930110", // false positive on multi-part uploads
+      ]
+    }
 
     custom_rules = [
       {
-        name     = "ManualUploadPathTraversal",
+        name     = "CreateAccountPathTraversalGeneral",
         type     = "MatchRule"
-        priority = 10
+        priority = 1
         action   = "Allow"
 
         match_conditions = [
@@ -38,7 +42,35 @@ frontends = [
             match_variable     = "RequestBody"
             operator           = "Contains"
             negation_condition = false
+            transforms         = ["UrlDecode"]
             match_values       = ["../", "..\\"]
+          },
+          {
+            match_variable     = "RequestUri"
+            operator           = "EndsWith"
+            negation_condition = false
+            match_values       = ["/manual-upload"]
+          },
+          {
+            match_variable     = "RequestMethod"
+            operator           = "Equal"
+            negation_condition = false
+            match_values       = ["POST"]
+          }
+        ]
+      },
+      {
+        name     = "CreateAccountPathTraversalNonEncode",
+        type     = "MatchRule"
+        priority = 1
+        action   = "Allow"
+
+        match_conditions = [
+          {
+            match_variable     = "RequestBody"
+            operator           = "Contains"
+            negation_condition = false
+            match_values       = ["..%c0%af", "..%c1%9c"]
           },
           {
             match_variable     = "RequestUri"
