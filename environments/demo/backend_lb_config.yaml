@@ -13,3 +13,31 @@ gateways:
       - product: toffee
         component: recipe-backend
 
+      # PIP
+      - product: pip
+        component: account-management
+      - product: pip
+        component: channel-management
+      - product: pip
+        component: data-management
+      - product: pip
+        component: publication-services
+      - product: pip
+        component: subscription-management
+      
+      # VH
+      - product: vh
+        component: bookings-api
+      - product: vh
+        component: notification-api
+      - product: vh
+        component: test-api
+      - product: vh
+        component: user-api
+      - product: vh
+        component: video-api
+
+      # My-Time
+      - product: my-time
+        component: api
+
