@@ -35,7 +35,7 @@ frontends = [
         name     = "CreateAccountPathTraversalGeneral",
         type     = "MatchRule"
         priority = 1
-        action   = "Allow"
+        action   = "Block"
 
         match_conditions = [
           {
@@ -49,7 +49,7 @@ frontends = [
             match_variable     = "RequestUri"
             operator           = "EndsWith"
             negation_condition = false
-            match_values       = ["/manual-upload"]
+            match_values       = ["/create-media-account"]
           },
           {
             match_variable     = "RequestMethod"
@@ -63,7 +63,7 @@ frontends = [
         name     = "CreateAccountPathTraversalNonEncode",
         type     = "MatchRule"
         priority = 1
-        action   = "Allow"
+        action   = "Block"
 
         match_conditions = [
           {
@@ -76,7 +76,7 @@ frontends = [
             match_variable     = "RequestUri"
             operator           = "EndsWith"
             negation_condition = false
-            match_values       = ["/manual-upload"]
+            match_values       = ["/create-media-account"]
           },
           {
             match_variable     = "RequestMethod"
