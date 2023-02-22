@@ -95,7 +95,7 @@ frontends = [
         match_conditions = [
           {
             match_variable     = "RequestBody"
-            operator           = "Regex"
+            operator           = "RegEx"
             negation_condition = false
             transforms         = ["Lowercase"]
             match_values       = ["([a-z]:\\\\)|(%252e|\\.)(%252e|\\.)(%255c|%252f|\\\\|\\/)"]
