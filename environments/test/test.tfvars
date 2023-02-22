@@ -26,7 +26,7 @@ frontends = [
 
     disabled_rules = {
       LFI = [
-        "930110", // false positive on multi-part uploads
+        "930110" // false positive on multi-part uploads
       ]
     }
 
@@ -48,8 +48,8 @@ frontends = [
           {
             match_variable     = "RequestUri"
             operator           = "EndsWith"
-            negation_condition = false
-            match_values       = ["/create-media-account"]
+            negation_condition = true
+            match_values       = ["/manual-upload"]
           },
           {
             match_variable     = "RequestMethod"
@@ -75,8 +75,8 @@ frontends = [
           {
             match_variable     = "RequestUri"
             operator           = "EndsWith"
-            negation_condition = false
-            match_values       = ["/create-media-account"]
+            negation_condition = true
+            match_values       = ["/manual-upload"]
           },
           {
             match_variable     = "RequestMethod"
