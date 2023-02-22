@@ -26,7 +26,7 @@ frontends = [
 
     disabled_rules = {
       LFI = [
-        "930110" // false positive on multi-part uploads
+        "930110"
       ]
     }
 

@@ -18,7 +18,7 @@ locals {
 }
 
 module "landing_zone" {
-  source = "git::https://github.com/hmcts/terraform-module-frontdoor.git?ref=master"
+  source = "git::https://github.com/hmcts/terraform-module-frontdoor.git?ref=PUB-1897-Added-Transforms"
 
   common_tags                = module.ctags.common_tags
   env                        = var.env
