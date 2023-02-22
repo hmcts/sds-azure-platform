@@ -32,7 +32,7 @@ frontends = [
 
     custom_rules = [
       {
-        name     = "CreateAccountPathTraversalGeneral",
+        name     = "ManualUploadPathTraversalGeneral",
         type     = "MatchRule"
         priority = 1
         action   = "Block"
@@ -60,7 +60,7 @@ frontends = [
         ]
       },
       {
-        name     = "CreateAccountPathTraversalNonEncode",
+        name     = "ManualUploadPathTraversalNonEncode",
         type     = "MatchRule"
         priority = 2
         action   = "Block"
