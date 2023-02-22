@@ -62,7 +62,7 @@ frontends = [
       {
         name     = "CreateAccountPathTraversalNonEncode",
         type     = "MatchRule"
-        priority = 1
+        priority = 2
         action   = "Block"
 
         match_conditions = [
