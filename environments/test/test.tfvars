@@ -85,6 +85,34 @@ frontends = [
             match_values       = ["POST"]
           }
         ]
+      },
+      {
+        name     = "ManualUploadPathTraversalRegex",
+        type     = "MatchRule"
+        priority = 3
+        action   = "Block"
+
+        match_conditions = [
+          {
+            match_variable     = "RequestBody"
+            operator           = "RegEx"
+            negation_condition = false
+            transforms         = ["Lowercase"]
+            match_values       = ["([a-z]:\\\\)|(%252e|\\.)(%252e|\\.)(%255c|%252f|\\\\|\\/)"]
+          },
+          {
+            match_variable     = "RequestUri"
+            operator           = "EndsWith"
+            negation_condition = true
+            match_values       = ["/manual-upload"]
+          },
+          {
+            match_variable     = "RequestMethod"
+            operator           = "Equal"
+            negation_condition = false
+            match_values       = ["POST"]
+          }
+        ]
       }
     ]
 
