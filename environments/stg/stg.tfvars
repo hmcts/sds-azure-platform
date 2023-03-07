@@ -558,6 +558,13 @@ frontends = [
     forwarding_protocol = "HttpsOnly"
     cache_enabled       = "false"
 
+    disabled_rules = {
+      SQLI = [
+        "942440",
+        "942450",
+      ],
+    }
+
     custom_rules = [
       {
         name     = "CountryMatchWhitelist"
