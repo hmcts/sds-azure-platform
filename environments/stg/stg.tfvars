@@ -344,18 +344,18 @@ frontends = [
     ]
     custom_rules = [
       {
-        name = "AllowAllAdmin",
-        type = "MatchRule"
+        name     = "AllowAllAdmin",
+        type     = "MatchRule"
         priority = 1
-        action = "Allow"
+        action   = "Allow"
 
         match_conditions = [
           {
-            match_variable = "RequestUri"
-            operator = "Contains"
+            match_variable     = "RequestUri"
+            operator           = "Contains"
             negation_condition = false
             match_values = [
-              "/Admin"]
+            "/Admin"]
           }
         ]
       }
