@@ -137,7 +137,7 @@ frontends = [
             operator           = "Contains"
             negation_condition = false
             match_values = [
-              "/Admin"]
+            "/Admin"]
           }
         ]
       }
