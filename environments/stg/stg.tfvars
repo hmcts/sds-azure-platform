@@ -342,6 +342,24 @@ frontends = [
         selector       = "__EVENTVALIDATION"
       }
     ]
+    custom_rules = [
+      {
+        name     = "AllowAllAdmin",
+        type     = "MatchRule"
+        priority = 1
+        action   = "Allow"
+
+        match_conditions = [
+          {
+            match_variable     = "RequestUri"
+            operator           = "Contains"
+            negation_condition = false
+            match_values = [
+            "/Admin"]
+          }
+        ]
+      }
+    ]
   },
   {
     name           = "staging-trib-immigration-svcs"
