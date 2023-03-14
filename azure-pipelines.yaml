@@ -175,20 +175,20 @@ stages:
                   planCommandOptions: >
                     -var environment=${{ parameter.environment }}
                     -var project=$(project)
-          - ${{ if eq(parameter.pipeline_tests, true) }}:
-            - job: PipelineTests
-              pool:
-                vmImage: ${{ variables.agentPool }}
-              dependsOn: TerraformPlanApply
-              steps:
-                - template: steps/pipeline-tests-jest.yaml@cnp-azuredevops-libraries
-                  parameters:
-                    workingDirectory: $(Pipeline.Workspace)/s/sds-azure-platform/scripts
-                    junit_output_dir: $(Pipeline.Workspace)/s/sds-azure-platform/environments/${{ parameter.environment }}/junit
-                    environment: ${{ parameter.environment }}
-                    product: ${{ variables.product }}
-                    test_title: '${{ parameter.environment }}_${{ parameter.deployment }}'
-                    ${{ if eq(parameter.deployment, 'apim') }}:
-                      test_pattern: apim.test.ts
-                    ${{ else }}:
-                      test_pattern: pipeline.test.ts
+          - job: PipelineTests
+            pool:
+              vmImage: ${{ variables.agentPool }}
+            dependsOn: TerraformPlanApply
+            condition: and(succeeded(), eq(variables['isMain'], true), eq('${{ parameter.pipeline_tests }}', 'true'))
+            steps:
+              - template: steps/pipeline-tests-jest.yaml@cnp-azuredevops-libraries
+                parameters:
+                  workingDirectory: $(Pipeline.Workspace)/s/sds-azure-platform/scripts
+                  junit_output_dir: $(Pipeline.Workspace)/s/sds-azure-platform/environments/${{ parameter.environment }}/junit
+                  environment: ${{ parameter.environment }}
+                  product: ${{ variables.product }}
+                  test_title: '${{ parameter.environment }}_${{ parameter.deployment }}'
+                  ${{ if eq(parameter.deployment, 'apim') }}:
+                    test_pattern: apim.test.ts
+                  ${{ else }}:
+                    test_pattern: pipeline.test.ts
