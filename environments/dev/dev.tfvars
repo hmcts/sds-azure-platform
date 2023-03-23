@@ -315,6 +315,46 @@ frontends = [
     ]
   },
   {
+    name                = "portal-dev"
+    mode                = "Prevention"
+    custom_domain       = "portal-dev.pre-recorded-evidence.justice.gov.uk"
+    backend_domain      = ["pre-dev.powerappsportals.com"]
+    certificate_name    = "portal-dev-pre-recorded-evidence-justice-gov-uk"
+    disabled_rules      = {}
+    shutter_app         = false
+    health_path         = "/SignIn?ReturnUrl=%2F"
+    health_protocol     = "Https"
+    forwarding_protocol = "HttpsOnly"
+    cache_enabled       = "false"
+
+    disabled_rules = {
+      SQLI = [
+        "942440",
+        "942450",
+      ],
+    }
+
+    custom_rules = [
+      {
+        name     = "CountryMatchWhitelist"
+        enabled  = true
+        priority = 1
+        type     = "MatchRule"
+        action   = "Block"
+        match_conditions = [
+          {
+            match_variable     = "RemoteAddr"
+            operator           = "GeoMatch"
+            negation_condition = true
+            match_values = [
+              "GB"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
     name           = "dev-casetracker"
     custom_domain  = "dev.casetracker.justice.gov.uk"
     backend_domain = ["civil-loadb-y5o7jqurq76d-2065714619.eu-west-2.elb.amazonaws.com"]
