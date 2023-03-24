@@ -126,6 +126,10 @@ parameters:
         environment: "ithc"
         dependsOn: "sbox_apim"
         pipeline_tests: true
+      - deployment: 'frontdoor'
+        environment: 'sbox'
+        dependsOn: 'Precheck'
+        pipeline_tests: true
 
 variables:
   - name: project
