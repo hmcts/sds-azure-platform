@@ -611,7 +611,14 @@ frontends = [
         selector       = "__VIEWSTATE"
       }
     ]
-  }
+  },
+  {
+    name           = "darts-portal"
+    custom_domain  = "darts-portal.dev.platform.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
+
+    disabled_rules = {}
+  },
 ]
 
 traffic_manager_profiles = {
