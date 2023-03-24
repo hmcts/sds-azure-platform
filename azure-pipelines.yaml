@@ -126,7 +126,32 @@ parameters:
         environment: "ithc"
         dependsOn: "sbox_apim"
         pipeline_tests: true
-
+      - deployment: 'frontdoor'
+        environment: 'sbox'
+        dependsOn: 'Precheck'
+        pipeline_tests: true
+      - deployment: 'frontdoor'
+        environment: 'dev'
+        dependsOn: 'sbox_frontdoor'
+      - deployment: 'frontdoor'
+        environment: 'stg'
+        dependsOn: 'sbox_frontdoor'
+        pipeline_tests: true
+      - deployment: 'frontdoor'
+        environment: 'demo'
+        dependsOn: 'sbox_frontdoor'
+      - deployment: 'frontdoor'
+        environment: 'ithc'
+        dependsOn: 'sbox_frontdoor'
+        pipeline_tests: true
+      - deployment: 'frontdoor'
+        environment: 'test'
+        dependsOn: 'sbox_frontdoor'
+      - deployment: 'frontdoor'
+        environment: 'prod'
+        dependsOn: 'sbox_frontdoor'
+        pipeline_tests: true
+        
 variables:
   - name: project
     value: application
