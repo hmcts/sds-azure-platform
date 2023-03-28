@@ -45,4 +45,12 @@ gateways:
       # My-Time
       - product: my-time
         component: api
+        
+      # Darts Modernisation
+      - product: darts
+        component: darts-api
+        ssl_enabled: true
+      - product: darts
+        component: darts-gateway
+        ssl_enabled: true
 

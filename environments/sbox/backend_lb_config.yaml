@@ -30,6 +30,13 @@ gateways:
     #labs
       - product: labs
         component: mokainos
+    # Darts Modernisation
+      - product: darts
+        component: darts-api
+        ssl_enabled: true
+      - product: darts
+        component: darts-gateway
+        ssl_enabled: true
     # test
       - product: test
         component: override
