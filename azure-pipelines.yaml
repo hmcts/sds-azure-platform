@@ -40,6 +40,10 @@ parameters:
         dependsOn: "Precheck"
         pipeline_tests: true
       - deployment: "backendappgateway"
+        environment: 'sbox'
+        dependsOn: "Precheck"
+        pipeline_tests: true
+      - deployment: "backendappgateway"
         environment: "dev"
         dependsOn: "sbox_backendappgateway"
       - deployment: "backendappgateway"
