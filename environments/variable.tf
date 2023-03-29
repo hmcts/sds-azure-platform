@@ -21,6 +21,7 @@ variable "cdn_sku" { default = "" }
 variable "department" { default = "sds" }
 variable "apim_sku_name" { default = "Developer" }
 variable "hub" { default = "sbox" }
+variable "ssl_policy" { default = null }
 
 variable "expiresAfter" {
   description = "Date when Sandbox resources can be deleted. Format: YYYY-MM-DD"
