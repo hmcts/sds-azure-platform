@@ -35,10 +35,6 @@ parameters:
     displayName: Component to Run
     type: object
     default:
-      - deployment: "test_backendappgateway"
-        environment: 'sbox'
-        dependsOn: "Precheck"
-        pipeline_tests: true
       - deployment: "backendappgateway"
         environment: 'sbox'
         dependsOn: "Precheck"
