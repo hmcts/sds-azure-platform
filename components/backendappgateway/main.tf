@@ -19,7 +19,7 @@ locals {
 }
 
 module "backendappgateway" {
-  source = "git::https://github.com/hmcts/terraform-module-application-backend.git?ref=master"
+  source = "git::https://github.com/hmcts/terraform-module-application-backend.git?ref=DTSPO-13210-tls-1.2-min"
 
   yaml_path = "${path.cwd}/../../environments/${var.env}/backend_lb_config.yaml"
 
@@ -32,6 +32,7 @@ module "backendappgateway" {
   vnet_rg                    = var.vnet_rg
   vnet_name                  = var.vnet_name
   key_vault_resource_group   = "sds-platform-${var.environment}-rg"
+  ssl_policy                 = var.ssl_policy
   common_tags                = module.ctags.common_tags
 
   enable_multiple_availability_zones = true

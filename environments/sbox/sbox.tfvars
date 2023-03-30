@@ -9,6 +9,11 @@ vnet_rg            = "ss-sbox-network-rg"
 vnet_name          = "ss-sbox-vnet"
 shutter_rg         = "sds-platform-sbox-rg"
 cdn_sku            = "Standard_Verizon"
+ssl_policy = {
+  policy_type          = "Predefined"
+  policy_name          = "AppGwSslPolicy20220101S"
+  min_protocol_version = "TLSv1_2"
+}
 
 frontends = [
   {
