@@ -137,7 +137,7 @@ frontends = [
             operator           = "Contains"
             negation_condition = false
             match_values = [
-            "/Admin"]
+            "/Admin", "/Secure"]
           }
         ]
       }
@@ -155,6 +155,24 @@ frontends = [
         match_variable = "RequestBodyPostArgNames"
         operator       = "Equals"
         selector       = "btnSearch"
+      }
+    ]
+    custom_rules = [
+      {
+        name     = "AllowAllAdmin",
+        type     = "MatchRule"
+        priority = 1
+        action   = "Allow"
+
+        match_conditions = [
+          {
+            match_variable     = "RequestUri"
+            operator           = "Contains"
+            negation_condition = false
+            match_values = [
+              "/Admin", "/Secure"]
+          }
+        ]
       }
     ]
   },
@@ -187,6 +205,24 @@ frontends = [
         selector       = "ddlTax2"
       }
     ]
+    custom_rules = [
+      {
+        name     = "AllowAllAdmin",
+        type     = "MatchRule"
+        priority = 1
+        action   = "Allow"
+
+        match_conditions = [
+          {
+            match_variable     = "RequestUri"
+            operator           = "Contains"
+            negation_condition = false
+            match_values = [
+              "/Admin", "/Secure"]
+          }
+        ]
+      }
+    ]
   },
   {
     name           = "trib-admin-appeals"
@@ -205,6 +241,24 @@ frontends = [
         match_variable = "RequestBodyPostArgNames"
         operator       = "Equals"
         selector       = "btnSearch"
+      }
+    ]
+    custom_rules = [
+      {
+        name     = "AllowAllAdmin",
+        type     = "MatchRule"
+        priority = 1
+        action   = "Allow"
+
+        match_conditions = [
+          {
+            match_variable     = "RequestUri"
+            operator           = "Contains"
+            negation_condition = false
+            match_values = [
+              "/Admin", "/Secure"]
+          }
+        ]
       }
     ]
   },
@@ -237,6 +291,24 @@ frontends = [
         selector       = "InitialBodyContents"
       }
     ]
+    custom_rules = [
+      {
+        name     = "AllowAllAdmin",
+        type     = "MatchRule"
+        priority = 1
+        action   = "Allow"
+
+        match_conditions = [
+          {
+            match_variable     = "RequestUri"
+            operator           = "Contains"
+            negation_condition = false
+            match_values = [
+              "/Admin", "/Secure"]
+          }
+        ]
+      }
+    ]
   },
   {
     name           = "trib-lands-chamber"
@@ -250,6 +322,24 @@ frontends = [
         match_variable = "RequestBodyPostArgNames"
         operator       = "Equals"
         selector       = "btnSearch"
+      }
+    ]
+    custom_rules = [
+      {
+        name     = "AllowAllAdmin",
+        type     = "MatchRule"
+        priority = 1
+        action   = "Allow"
+
+        match_conditions = [
+          {
+            match_variable     = "RequestUri"
+            operator           = "Contains"
+            negation_condition = false
+            match_values = [
+              "/Admin", "/Secure"]
+          }
+        ]
       }
     ]
   },
@@ -290,6 +380,24 @@ frontends = [
         selector       = "__VIEWSTATE"
       }
     ]
+    custom_rules = [
+      {
+        name     = "AllowAllAdmin",
+        type     = "MatchRule"
+        priority = 1
+        action   = "Allow"
+
+        match_conditions = [
+          {
+            match_variable     = "RequestUri"
+            operator           = "Contains"
+            negation_condition = false
+            match_values = [
+              "/Admin", "/Secure"]
+          }
+        ]
+      }
+    ]
   },
   {
     name           = "trib-employment-appeals"
@@ -303,6 +411,24 @@ frontends = [
         match_variable = "RequestBodyPostArgNames"
         operator       = "Equals"
         selector       = "__VIEWSTATE"
+      }
+    ]
+    custom_rules = [
+      {
+        name     = "AllowAllAdmin",
+        type     = "MatchRule"
+        priority = 1
+        action   = "Allow"
+
+        match_conditions = [
+          {
+            match_variable     = "RequestUri"
+            operator           = "Contains"
+            negation_condition = false
+            match_values = [
+              "/Admin", "/Secure"]
+          }
+        ]
       }
     ]
   },
@@ -320,6 +446,24 @@ frontends = [
         selector       = "btnSearch"
       }
     ]
+    custom_rules = [
+      {
+        name     = "AllowAllAdmin",
+        type     = "MatchRule"
+        priority = 1
+        action   = "Allow"
+
+        match_conditions = [
+          {
+            match_variable     = "RequestUri"
+            operator           = "Contains"
+            negation_condition = false
+            match_values = [
+              "/Admin", "/Secure"]
+          }
+        ]
+      }
+    ]
   },
   {
     name           = "trib-cicap"
@@ -333,6 +477,24 @@ frontends = [
         match_variable = "RequestBodyPostArgNames"
         operator       = "Equals"
         selector       = "__VIEWSTATE"
+      }
+    ]
+    custom_rules = [
+      {
+        name     = "AllowAllAdmin",
+        type     = "MatchRule"
+        priority = 1
+        action   = "Allow"
+
+        match_conditions = [
+          {
+            match_variable     = "RequestUri"
+            operator           = "Contains"
+            negation_condition = false
+            match_values = [
+              "/Admin", "/Secure"]
+          }
+        ]
       }
     ]
   },
