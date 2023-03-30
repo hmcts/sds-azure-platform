@@ -170,7 +170,7 @@ frontends = [
             operator           = "Contains"
             negation_condition = false
             match_values = [
-              "/Admin", "/Secure"]
+            "/Admin", "/Secure"]
           }
         ]
       }
@@ -218,7 +218,7 @@ frontends = [
             operator           = "Contains"
             negation_condition = false
             match_values = [
-              "/Admin", "/Secure"]
+            "/Admin", "/Secure"]
           }
         ]
       }
@@ -256,7 +256,7 @@ frontends = [
             operator           = "Contains"
             negation_condition = false
             match_values = [
-              "/Admin", "/Secure"]
+            "/Admin", "/Secure"]
           }
         ]
       }
@@ -304,7 +304,7 @@ frontends = [
             operator           = "Contains"
             negation_condition = false
             match_values = [
-              "/Admin", "/Secure"]
+            "/Admin", "/Secure"]
           }
         ]
       }
@@ -337,7 +337,7 @@ frontends = [
             operator           = "Contains"
             negation_condition = false
             match_values = [
-              "/Admin", "/Secure"]
+            "/Admin", "/Secure"]
           }
         ]
       }
@@ -393,7 +393,7 @@ frontends = [
             operator           = "Contains"
             negation_condition = false
             match_values = [
-              "/Admin", "/Secure"]
+            "/Admin", "/Secure"]
           }
         ]
       }
@@ -426,7 +426,7 @@ frontends = [
             operator           = "Contains"
             negation_condition = false
             match_values = [
-              "/Admin", "/Secure"]
+            "/Admin", "/Secure"]
           }
         ]
       }
@@ -459,7 +459,7 @@ frontends = [
             operator           = "Contains"
             negation_condition = false
             match_values = [
-              "/Admin", "/Secure"]
+            "/Admin", "/Secure"]
           }
         ]
       }
@@ -492,7 +492,7 @@ frontends = [
             operator           = "Contains"
             negation_condition = false
             match_values = [
-              "/Admin", "/Secure"]
+            "/Admin", "/Secure"]
           }
         ]
       }
