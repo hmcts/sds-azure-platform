@@ -54,3 +54,10 @@ gateways:
         host_name_prefix: cloudgobgateway
         ssl_enabled: true
         health_path_override: "/services/themisgatewayapi?wsdl"
+    # Darts Modernisation
+      - product: darts
+        component: darts-api
+        ssl_enabled: true
+      - product: darts
+        component: darts-gateway
+        ssl_enabled: true
