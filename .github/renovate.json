@@ -1,0 +1,6 @@
+{
+  "extends": [
+    "github>hmcts/.github//renovate/global",
+    "github>hmcts/.github//renovate/automerge-minor"
+  ]
+}
