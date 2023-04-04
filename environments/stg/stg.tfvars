@@ -8,6 +8,11 @@ destinations       = ["10.148.15.250", "10.148.31.250"]
 vnet_rg            = "ss-stg-network-rg"
 vnet_name          = "ss-stg-vnet"
 hub                = "prod"
+ssl_policy = {
+  policy_type          = "Predefined"
+  policy_name          = "AppGwSslPolicy20220101S"
+  min_protocol_version = "TLSv1_2"
+}
 
 frontends = [
 
