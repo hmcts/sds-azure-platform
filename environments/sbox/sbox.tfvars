@@ -119,5 +119,12 @@ frontends = [
         ]
       }
     ]
-  }
+  },
+  {
+    name             = "darts-portal"
+    custom_domain    = "darts-portal.sandbox.platform.hmcts.net"
+    certificate_name = "wildcard-sandbox-platform-hmcts-net"
+    backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
+    disabled_rules   = {}
+  },
 ]
