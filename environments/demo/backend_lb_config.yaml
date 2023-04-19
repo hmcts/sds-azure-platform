@@ -48,9 +48,8 @@ gateways:
         
       # Darts Modernisation
       - product: darts
-        component: darts-api
+        component: api
         ssl_enabled: true
       - product: darts
-        component: darts-gateway
+        component: gateway
         ssl_enabled: true
-
