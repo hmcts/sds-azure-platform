@@ -1040,7 +1040,26 @@ frontends = [
         ]
       }
     ]
-  }
+  },
+  {
+    name             = "ejudiciary-home"
+    custom_domain    = "home.ejudiciary.net"
+    redirect         = "judiciary.sharepoint.com"
+    certificate_name = "ejudiciary-net"
+  },
+  # TODO add once DNS is hosted on Azure
+  #  {
+  #    name             = "ejudiciary-home-apex"
+  #    custom_domain    = "ejudiciary.net"
+  #    redirect         = "judiciary.sharepoint.com"
+  #    certificate_name = "ejudiciary-net"
+  #  },
+  {
+    name             = "ejudiciary-home-www"
+    custom_domain    = "www.ejudiciary.net"
+    redirect         = "judiciary.sharepoint.com"
+    certificate_name = "ejudiciary-net"
+  },
 ]
 
 
