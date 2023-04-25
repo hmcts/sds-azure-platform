@@ -1044,6 +1044,7 @@ frontends = [
   {
     name             = "ejudiciary-home"
     custom_domain    = "home.ejudiciary.net"
+    ssl_mode         = "AzureKeyVault"
     redirect         = "judiciary.sharepoint.com"
     certificate_name = "ejudiciary-net"
   },
@@ -1051,12 +1052,14 @@ frontends = [
   #  {
   #    name             = "ejudiciary-home-apex"
   #    custom_domain    = "ejudiciary.net"
+  #    ssl_mode         = "AzureKeyVault"
   #    redirect         = "judiciary.sharepoint.com"
   #    certificate_name = "ejudiciary-net"
   #  },
   {
     name             = "ejudiciary-home-www"
     custom_domain    = "www.ejudiciary.net"
+    ssl_mode         = "AzureKeyVault"
     redirect         = "judiciary.sharepoint.com"
     certificate_name = "ejudiciary-net"
   },
