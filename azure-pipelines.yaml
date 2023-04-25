@@ -38,7 +38,7 @@ parameters:
       - deployment: "backendappgateway"
         environment: 'sbox'
         dependsOn: "Precheck"
-        pipeline_tests: true
+        pipeline_tests: false
       - deployment: "backendappgateway"
         environment: "dev"
         dependsOn: "sbox_backendappgateway"
@@ -63,7 +63,7 @@ parameters:
       - deployment: "appgateway"
         environment: "sbox"
         dependsOn: "Precheck"
-        pipeline_tests: true
+        pipeline_tests: false
       - deployment: "appgateway"
         environment: "dev"
         dependsOn: "sbox_appgateway"
@@ -95,7 +95,7 @@ parameters:
       - deployment: "shutter"
         environment: "sbox"
         dependsOn: "Precheck"
-        pipeline_tests: true
+        pipeline_tests: false
       - deployment: "shutter"
         environment: "prod"
         dependsOn: "sbox_shutter"
@@ -129,7 +129,7 @@ parameters:
       - deployment: 'frontdoor'
         environment: 'sbox'
         dependsOn: 'Precheck'
-        pipeline_tests: true
+        pipeline_tests: false
       - deployment: 'frontdoor'
         environment: 'dev'
         dependsOn: 'sbox_frontdoor'

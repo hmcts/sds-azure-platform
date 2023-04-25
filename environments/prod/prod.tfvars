@@ -11,6 +11,11 @@ shutter_rg         = "sds-platform-prod-rg"
 cdn_sku            = "Standard_Verizon"
 hub                = "prod"
 apim_sku_name      = "Premium"
+ssl_policy = {
+  policy_type          = "Predefined"
+  policy_name          = "AppGwSslPolicy20220101S"
+  min_protocol_version = "TLSv1_2"
+}
 
 frontends = [
   {
@@ -669,9 +674,7 @@ frontends = [
               "185.125.224.42",
               "62.254.63.52",
               "51.149.250.0/24",
-              "51.149.249.0/29",
               "194.33.249.0/29",
-              "51.149.249.32/29",
               "194.33.248.0/29",
               "20.49.214.199/32",
               "20.49.214.228/32",
