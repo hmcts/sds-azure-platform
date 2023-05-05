@@ -324,7 +324,6 @@ frontends = [
     mode                = "Prevention"
     custom_domain       = "portal-dev.pre-recorded-evidence.justice.gov.uk"
     backend_domain      = ["pre-dev.powerappsportals.com"]
-    certificate_name    = "portal-dev-pre-recorded-evidence-justice-gov-uk"
     disabled_rules      = {}
     shutter_app         = false
     health_path         = "/SignIn?ReturnUrl=%2F"
