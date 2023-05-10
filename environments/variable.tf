@@ -23,6 +23,34 @@ variable "apim_sku_name" { default = "Developer" }
 variable "hub" { default = "sbox" }
 variable "ssl_policy" { default = null }
 
+variable "key_vault_subscription" {
+  default = []
+}
+
+variable "hub_app_gw_private_ip_address" {
+  default = []
+}
+
+variable "apim_appgw_backend_pool_ips" {
+  default = []
+}
+
+variable "apim_appgw_backend_pool_fqdns" {
+  default = []
+}
+
+variable "apim_appgw_exclusions" {
+  default = []
+}
+
+variable "waf_mode" {
+  default = "Detection"
+}
+
+variable "route_next_hop_type" {
+  default = "VirtualAppliance"
+}
+
 variable "expiresAfter" {
   description = "Date when Sandbox resources can be deleted. Format: YYYY-MM-DD"
   default     = "3000-01-01"
