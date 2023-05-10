@@ -64,6 +64,10 @@ parameters:
         environment: "sbox"
         dependsOn: "Precheck"
         pipeline_tests: false
+      - deployment: "sbox_apim_appgw"
+        environment: "sbox"
+        dependsOn: "Precheck"
+        pipeline_tests: true
       - deployment: "appgateway"
         environment: "dev"
         dependsOn: "sbox_appgateway"
