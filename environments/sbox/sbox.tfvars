@@ -15,8 +15,8 @@ ssl_policy = {
   min_protocol_version = "TLSv1_2"
 }
 
-key_vault_subscription = "b72ab7b7-723f-4b18-b6f6-03b0f2c6a1bb"
-hub_app_gw_private_ip_address  = ["10.140.35.11"]
+key_vault_subscription        = "b72ab7b7-723f-4b18-b6f6-03b0f2c6a1bb"
+hub_app_gw_private_ip_address = ["10.140.35.11"]
 apim_appgw_backend_pool_fqdns = ["firewall-sbox-int-palo-sdsapimgmt.uksouth.cloudapp.azure.com"]
 
 frontends = [
