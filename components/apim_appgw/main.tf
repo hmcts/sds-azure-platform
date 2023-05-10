@@ -44,6 +44,7 @@ module "app-gw" {
   waf_mode                                     = var.waf_mode
   exclusions                                   = var.apim_appgw_exclusions
   public_ip_enable_multiple_availability_zones = true
+  project_name                                 = var.project
 }
 
 resource "azurerm_route_table" "apim_route_table" {
