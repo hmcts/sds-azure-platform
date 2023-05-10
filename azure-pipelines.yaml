@@ -64,7 +64,7 @@ parameters:
         environment: "sbox"
         dependsOn: "Precheck"
         pipeline_tests: false
-      - deployment: "sbox_apim_appgw"
+      - deployment: "apim-appgw"
         environment: "sbox"
         dependsOn: "Precheck"
         pipeline_tests: true
