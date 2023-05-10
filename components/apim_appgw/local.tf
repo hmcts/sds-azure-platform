@@ -1,8 +1,8 @@
 locals {
   env = var.env == "ithc" || var.env == "perftest" ? "nonprod" : var.env
 
-  vnet_rg     = var.env == "ithc" || var.env == "perftest" ? "hmcts-hub-nonprod-int" : "hmcts-hub-${var.env}-int"
-  vnet_name   = var.env == "ithc" || var.env == "perftest" ? "hmcts-hub-nonprodi" : "hmcts-hub-${var.env}-int"
+  vnet_rg     = var.env == "ithc" || var.env == "perftest" ? "hmcts-hub-nonprod-int" : "ss-${var.env}-network-rg"
+  vnet_name   = var.env == "ithc" || var.env == "perftest" ? "hmcts-hub-nonprodi" : "ss-${var.env}-vnet"
   subnet_name = "hub-appgw"
 
   key_vault_resource_group = "cft-platform-${var.subscription}-rg"
@@ -18,7 +18,7 @@ locals {
 
   hub = {
     sbox = {
-      subscription = "ea3a8c1e-af9d-4108-bc86-a7e2d267f49c"
+      subscription = "a8140a9e-f1b0-481f-a4de-09e2ee23f7ab"
       ukSouth = {
         name              = "hmcts-hub-sbox-int"
         next_hop_ip       = "10.10.200.36"
