@@ -47,10 +47,6 @@ variable "waf_mode" {
   default = "Detection"
 }
 
-variable "route_next_hop_type" {
-  default = "VirtualAppliance"
-}
-
 variable "expiresAfter" {
   description = "Date when Sandbox resources can be deleted. Format: YYYY-MM-DD"
   default     = "3000-01-01"
