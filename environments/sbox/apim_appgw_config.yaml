@@ -13,3 +13,7 @@ gateways:
         ssl_enabled: true
         use_public_ip: true
         health_path_override: "/status-0123456789abcdef"
+        add_ssl_profile: true
+        trusted_client_certificate_names: "wildcard-cert"
+        verify_client_cert_issuer_dn: true
+
