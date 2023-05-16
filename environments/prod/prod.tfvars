@@ -948,6 +948,7 @@ frontends = [
     custom_domain    = "video.hearings.reform.hmcts.net"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-hearings-reform-hmcts-net"
+    cache_enabled    = "false"
     disabled_rules   = {}
     shutter_app      = true
 
@@ -964,6 +965,7 @@ frontends = [
     custom_domain    = "admin.hearings.reform.hmcts.net"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-hearings-reform-hmcts-net"
+    cache_enabled    = "false"
     disabled_rules   = {}
     shutter_app      = true
 
