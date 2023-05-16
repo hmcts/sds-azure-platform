@@ -1047,10 +1047,10 @@ frontends = [
     ]
   },
   {
-    name             = "ejudiciary-home"
-    custom_domain    = "home.ejudiciary.net"
-    shutter_app      = false
-    redirect         = "judiciary.sharepoint.com"
+    name          = "ejudiciary-home"
+    custom_domain = "home.ejudiciary.net"
+    shutter_app   = false
+    redirect      = "judiciary.sharepoint.com"
   },
   {
     name             = "ejudiciary-home-apex"
@@ -1061,10 +1061,10 @@ frontends = [
     certificate_name = "ejudiciary-net"
   },
   {
-    name             = "ejudiciary-home-www"
-    custom_domain    = "www.ejudiciary.net"
-    shutter_app      = false
-    redirect         = "judiciary.sharepoint.com"
+    name          = "ejudiciary-home-www"
+    custom_domain = "www.ejudiciary.net"
+    shutter_app   = false
+    redirect      = "judiciary.sharepoint.com"
   },
 ]
 
