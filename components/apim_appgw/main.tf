@@ -45,7 +45,7 @@ module "app-gw" {
   exclusions                                   = var.apim_appgw_exclusions
   public_ip_enable_multiple_availability_zones = true
   project_name                                 = var.project
-  identity_name                                   = "${var.project}-apim"
+  identity_name                                = "${var.project}-apim"
 }
 
 
