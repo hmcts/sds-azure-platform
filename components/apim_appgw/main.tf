@@ -15,7 +15,7 @@ module "logworkspace" {
 data "azurerm_subscription" "current" {}
 
 locals {
-  key_vault_name = "acmedcdcftapps${var.subscription}"
+  key_vault_name = "acmedtssds${var.subscription}"
   dns_zone       = (var.env == "sbox") ? "sandbox" : var.env
 }
 
@@ -23,7 +23,7 @@ module "app-gw" {
 
   providers = {
     azurerm     = azurerm
-    azurerm.hub = azurerm.hub-sbox
+    azurerm.hub = azurerm.hub
     azurerm.kv  = azurerm.kv
   }
 
@@ -45,7 +45,6 @@ module "app-gw" {
   exclusions                                   = var.apim_appgw_exclusions
   public_ip_enable_multiple_availability_zones = true
   project_name                                 = var.project
-  usage_name                                   = "${var.project}-apim"
 }
 
 

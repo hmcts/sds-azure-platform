@@ -14,6 +14,10 @@ ssl_policy = {
   min_protocol_version = "TLSv1_2"
 }
 
+key_vault_subscription        = "ba71a911-e0d6-4776-a1a6-079af1df7139"
+hub_app_gw_private_ip_address = ["10.11.72.236"]
+apim_appgw_backend_pool_fqdns = ["firewall-nonprodi-palo-sdsapimgmtithc.uksouth.cloudapp.azure.com"]
+
 frontends = [
 
   {
@@ -104,5 +108,13 @@ frontends = [
     backend_domain   = ["firewall-nonprodi-palo-sdsapimgmtithc.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-ithc-platform-hmcts-net"
     cache_enabled    = "false"
+  }
+]
+
+apim_appgw_exclusions = [
+  {
+    match_variable = "RequestArgNames"
+    operator       = "Equals"
+    selector       = "iss"
   }
 ]

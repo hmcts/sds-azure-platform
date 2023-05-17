@@ -71,6 +71,9 @@ parameters:
       - deployment: "appgateway"
         environment: "dev"
         dependsOn: "sbox_appgateway"
+      - deployment: "apim_appgw"
+        environment: "dev"
+        dependsOn: "sbox_apim_appgw"
       - deployment: "appgateway"
         environment: "stg"
         dependsOn: "sbox_appgateway"
@@ -78,13 +81,23 @@ parameters:
       - deployment: "appgateway"
         environment: "demo"
         dependsOn: "sbox_appgateway"
+      - deployment: "apim_appgw"
+        environment: "demo"
+        dependsOn: "sbox_apim_appgw"
       - deployment: "appgateway"
         environment: "ithc"
         dependsOn: "sbox_appgateway"
         pipeline_tests: true
+      - deployment: "apim_appgw"
+        environment: "ithc"
+        dependsOn: "sbox_apim_appgw"
+        pipeline_tests: true
       - deployment: "appgateway"
         environment: "test"
         dependsOn: "sbox_appgateway"
+      - deployment: "apim_appgw"
+        environment: "test"
+        dependsOn: "sbox_apim_appgw"
       - deployment: "appgateway"
         environment: "prod"
         dependsOn: "sbox_appgateway"
@@ -126,9 +139,9 @@ parameters:
         environment: "demo"
         dependsOn: "sbox_apim"
         pipeline_tests: true
-      - deployment: "apim"
-        environment: "ithc"
-        dependsOn: "sbox_apim"
+      - deployment: 'apim'
+        environment: 'ithc'
+        dependsOn: 'sbox_apim'
         pipeline_tests: true
       - deployment: 'frontdoor'
         environment: 'sbox'
