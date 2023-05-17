@@ -945,7 +945,7 @@ frontends = [
   },
   {
     name             = "vh-video-web"
-    custom_domain    = "video-sds.hearings.reform.hmcts.net"
+    custom_domain    = "video.hearings.reform.hmcts.net"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-hearings-reform-hmcts-net"
     disabled_rules   = {}
@@ -961,7 +961,7 @@ frontends = [
   },
   {
     name             = "vh-admin-web"
-    custom_domain    = "admin-sds.hearings.reform.hmcts.net"
+    custom_domain    = "admin.hearings.reform.hmcts.net"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-hearings-reform-hmcts-net"
     disabled_rules   = {}
@@ -1047,26 +1047,24 @@ frontends = [
     ]
   },
   {
-    name             = "ejudiciary-home"
-    custom_domain    = "home.ejudiciary.net"
+    name          = "ejudiciary-home"
+    custom_domain = "home.ejudiciary.net"
+    shutter_app   = false
+    redirect      = "judiciary.sharepoint.com"
+  },
+  {
+    name             = "ejudiciary-home-apex"
+    custom_domain    = "ejudiciary.net"
     ssl_mode         = "AzureKeyVault"
+    shutter_app      = false
     redirect         = "judiciary.sharepoint.com"
     certificate_name = "ejudiciary-net"
   },
-  # TODO add once DNS is hosted on Azure
-  #  {
-  #    name             = "ejudiciary-home-apex"
-  #    custom_domain    = "ejudiciary.net"
-  #    ssl_mode         = "AzureKeyVault"
-  #    redirect         = "judiciary.sharepoint.com"
-  #    certificate_name = "ejudiciary-net"
-  #  },
   {
-    name             = "ejudiciary-home-www"
-    custom_domain    = "www.ejudiciary.net"
-    ssl_mode         = "AzureKeyVault"
-    redirect         = "judiciary.sharepoint.com"
-    certificate_name = "ejudiciary-net"
+    name          = "ejudiciary-home-www"
+    custom_domain = "www.ejudiciary.net"
+    shutter_app   = false
+    redirect      = "judiciary.sharepoint.com"
   },
 ]
 
