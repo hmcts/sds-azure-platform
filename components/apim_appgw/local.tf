@@ -5,7 +5,7 @@ locals {
   vnet_name   = var.env == "ithc" || var.env == "perftest" ? "hmcts-hub-nonprodi" : "hmcts-hub-${var.env}-int"
   subnet_name = "hub-appgw"
 
-  key_vault_resource_group = "cft-platform-${var.subscription}-rg"
+  key_vault_resource_group = "sds-platform-${var.subscription}-rg"
   key_vault_subscription   = var.key_vault_subscription
 
   gateways = yamldecode(data.local_file.configuration.content).gateways

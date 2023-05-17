@@ -14,6 +14,10 @@ ssl_policy = {
   min_protocol_version = "TLSv1_2"
 }
 
+key_vault_subscription        = "867a878b-cb68-4de5-9741-361ac9e178b6"
+hub_app_gw_private_ip_address = ["10.11.72.233"]
+apim_appgw_backend_pool_fqdns = ["firewall-nonprodi-palo-sdsapimgmtdev.uksouth.cloudapp.azure.com"]
+
 frontends = [
 
   {
@@ -619,6 +623,14 @@ frontends = [
 
     disabled_rules = {}
   },
+]
+
+apim_appgw_exclusions = [
+  {
+    match_variable = "RequestArgNames"
+    operator       = "Equals"
+    selector       = "iss"
+  }
 ]
 
 traffic_manager_profiles = {

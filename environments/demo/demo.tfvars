@@ -14,6 +14,10 @@ ssl_policy = {
   min_protocol_version = "TLSv1_2"
 }
 
+key_vault_subscription        = "c68a4bed-4c3d-4956-af51-4ae164c1957c"
+hub_app_gw_private_ip_address = ["10.11.72.230"]
+apim_appgw_backend_pool_fqdns = ["firewall-nonprodi-palo-sdsapimgmtdemo.uksouth.cloudapp.azure.com"]
+
 frontends = [
   {
     name             = "sds-api-mgmt"
@@ -133,4 +137,12 @@ frontends = [
     backend_domain   = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-demo-platform-hmcts-net"
   },
+]
+
+apim_appgw_exclusions = [
+  {
+    match_variable = "RequestArgNames"
+    operator       = "Equals"
+    selector       = "iss"
+  }
 ]
