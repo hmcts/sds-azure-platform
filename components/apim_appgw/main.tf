@@ -15,7 +15,7 @@ module "logworkspace" {
 data "azurerm_subscription" "current" {}
 
 locals {
-  key_vault_name = "acmedcdcftapps${var.subscription}"
+  key_vault_name = "acmedtssds${var.subscription}"
   dns_zone       = (var.env == "sbox") ? "sandbox" : var.env
 }
 
