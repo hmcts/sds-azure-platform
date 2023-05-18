@@ -45,6 +45,8 @@ module "app-gw" {
   exclusions                                   = var.apim_appgw_exclusions
   public_ip_enable_multiple_availability_zones = true
   project_name                                 = var.project
+  min_capacity                                 = var.min_capacity
+  max_capacity                                 = var.max_capacity
 }
 
 

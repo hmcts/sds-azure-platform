@@ -43,6 +43,14 @@ variable "apim_appgw_exclusions" {
   default = []
 }
 
+variable "min_capacity" {
+  default = 2
+}
+
+variable "max_capacity" {
+  default = 10
+}
+
 variable "waf_mode" {
   default = "Detection"
 }
