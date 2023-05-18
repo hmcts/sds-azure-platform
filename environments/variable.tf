@@ -43,11 +43,11 @@ variable "apim_appgw_exclusions" {
   default = []
 }
 
-variable "min_capacity" {
+variable "apim_appgw_min_capacity" {
   default = 2
 }
 
-variable "max_capacity" {
+variable "apim_appgw_max_capacity" {
   default = 10
 }
 
