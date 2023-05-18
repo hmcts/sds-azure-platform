@@ -17,6 +17,8 @@ ssl_policy = {
 key_vault_subscription        = "c68a4bed-4c3d-4956-af51-4ae164c1957c"
 hub_app_gw_private_ip_address = ["10.11.72.230"]
 apim_appgw_backend_pool_fqdns = ["firewall-nonprodi-palo-sdsapimgmtdemo.uksouth.cloudapp.azure.com"]
+apim_appgw_min_capacity       = 1
+apim_appgw_max_capacity       = 2
 
 frontends = [
   {
