@@ -123,14 +123,15 @@ parameters:
       - deployment: "apim"
         environment: "dev"
         dependsOn: "sbox_apim"
-      - deployment: "apim"
-        environment: "stg"
-        dependsOn: "sbox_apim"
-        pipeline_tests: true
-      - deployment: "apim"
-        environment: "prod"
-        dependsOn: "sbox_apim"
-        pipeline_tests: true
+      # Commented Production environment temporarily
+      # - deployment: "apim"
+      #   environment: "stg"
+      #   dependsOn: "sbox_apim"
+      #   pipeline_tests: true
+      # - deployment: "apim"
+      #   environment: "prod"
+      #   dependsOn: "sbox_apim"
+      #   pipeline_tests: true
       - deployment: "apim"
         environment: "test"
         dependsOn: "sbox_apim"
