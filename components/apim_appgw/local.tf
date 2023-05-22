@@ -1,8 +1,8 @@
 locals {
   env = var.env
 
-  vnet_rg     = var.env == "demo" || var.env == "dev" || var.env == "ithc" || var.env == "test" ? "hmcts-hub-nonprodi" : "hmcts-hub-${var.env}-int"
-  vnet_name   = var.env == "demo" || var.env == "dev" || var.env == "ithc" || var.env == "test" ? "hmcts-hub-nonprodi" : "hmcts-hub-${var.env}-int"
+  vnet_rg     = var.env == "demo" || var.env == "dev" || var.env == "ithc" || var.env == "test" ? "hmcts-hub-nonprodi" : (var.env == "stg") ? "hmcts-hub-prod-int" : "hmcts-hub-${var.env}-int"
+  vnet_name   = var.env == "demo" || var.env == "dev" || var.env == "ithc" || var.env == "test" ? "hmcts-hub-nonprodi" : (var.env == "stg") ? "hmcts-hub-prod-int" : "hmcts-hub-${var.env}-int"
   subnet_name = "hub-appgw"
   hub_env     = (var.env == "demo" || var.env == "dev" || var.env == "ithc" || var.env == "test") ? "nonprod" : (var.env == "stg") ? "prod" : var.env
 
