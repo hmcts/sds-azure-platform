@@ -17,6 +17,10 @@ ssl_policy = {
   min_protocol_version = "TLSv1_2"
 }
 
+key_vault_subscription        = "5ca62022-6aa2-4cee-aaa7-e7536c8d566c"
+hub_app_gw_private_ip_address = ["10.11.8.200"]
+apim_appgw_backend_pool_fqdns = ["firewall-prod-int-palo-sdsapimgmtprod.uksouth.cloudapp.azure.com"]
+
 frontends = [
   {
     name           = "dts-legacy-apps---certificatedbailiffs"
@@ -1090,4 +1094,10 @@ traffic_manager_profiles = {
   }
 }
 
-
+apim_appgw_exclusions = [
+  {
+    match_variable = "RequestArgNames"
+    operator       = "Equals"
+    selector       = "iss"
+  }
+]
