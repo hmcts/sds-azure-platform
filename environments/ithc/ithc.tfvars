@@ -56,6 +56,7 @@ frontends = [
     name           = "vh-test-web"
     custom_domain  = "vh-test-web.ithc.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
+    cache_enabled  = "false"
 
     disabled_rules = {}
 
@@ -71,6 +72,7 @@ frontends = [
     name           = "vh-video-web"
     custom_domain  = "vh-video-web.ithc.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
+    cache_enabled  = "false"
 
     disabled_rules = {}
 
@@ -86,6 +88,7 @@ frontends = [
     name           = "vh-admin-web"
     custom_domain  = "vh-admin-web.ithc.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
+    cache_enabled  = "false"
 
     disabled_rules = {}
 
