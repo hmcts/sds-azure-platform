@@ -275,6 +275,7 @@ frontends = [
     name           = "vh-video-web"
     custom_domain  = "video.staging.hearings.reform.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
+    cache_enabled  = "false"
 
     disabled_rules = {}
 
@@ -290,6 +291,7 @@ frontends = [
     name           = "vh-admin-web"
     custom_domain  = "admin.staging.hearings.reform.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
+    cache_enabled  = "false"
 
     disabled_rules = {}
 
