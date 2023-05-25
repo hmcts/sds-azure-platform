@@ -256,7 +256,7 @@ frontends = [
     custom_domain  = "vh-test-web.dev.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
     disabled_rules = {}
-    cache_enabled   = "false"
+    cache_enabled  = "false"
 
     global_exclusions = [
       {
