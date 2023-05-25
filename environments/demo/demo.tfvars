@@ -99,6 +99,7 @@ frontends = [
     custom_domain    = "vh-admin-web.demo.platform.hmcts.net"
     backend_domain   = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-demo-platform-hmcts-net"
+    cache_enabled    = "false"
 
     disabled_rules = {
       SQLI = [
@@ -113,6 +114,7 @@ frontends = [
     custom_domain    = "vh-test-web.demo.platform.hmcts.net"
     backend_domain   = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-demo-platform-hmcts-net"
+    cache_enabled    = "false"
 
     disabled_rules = {
       SQLI = [
@@ -127,6 +129,7 @@ frontends = [
     custom_domain    = "vh-video-web.demo.platform.hmcts.net"
     backend_domain   = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-demo-platform-hmcts-net"
+    cache_enabled    = "false"
 
     disabled_rules = {
       SQLI = [
