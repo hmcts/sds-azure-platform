@@ -43,6 +43,7 @@ frontends = [
     certificate_name = "wildcard-sandbox-platform-hmcts-net"
     disabled_rules   = {}
     shutter_app      = false
+    cache_enabled    = "false"
 
     global_exclusions = [
       {
@@ -59,6 +60,7 @@ frontends = [
     certificate_name = "wildcard-sandbox-platform-hmcts-net"
     disabled_rules   = {}
     shutter_app      = false
+    cache_enabled    = "false"
 
     global_exclusions = [
       {
@@ -75,6 +77,7 @@ frontends = [
     certificate_name = "wildcard-sandbox-platform-hmcts-net"
     disabled_rules   = {}
     shutter_app      = false
+    cache_enabled    = "false"
 
     global_exclusions = [
       {
