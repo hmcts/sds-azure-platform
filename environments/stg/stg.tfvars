@@ -21,18 +21,20 @@ apim_appgw_backend_pool_fqdns = ["firewall-prod-int-palo-sdsapimgmtstg.uksouth.c
 frontends = [
 
   {
-    name           = "toffee"
-    custom_domain  = "toffee.staging.platform.hmcts.net"
-    backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
-    disabled_rules = {}
+    name                  = "toffee"
+    custom_domain         = "toffee.staging.platform.hmcts.net"
+    backend_domain        = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
+    disabled_rules        = {}
+    shutter_name_override = "false"
   },
   {
-    name           = "c100-application"
-    custom_domain  = "c100-application.staging.platform.hmcts.net"
-    backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
-    disabled_rules = {}
-    health_path    = "/status"
-    mode           = "Detection"
+    name                  = "c100-application"
+    custom_domain         = "c100-application.staging.platform.hmcts.net"
+    backend_domain        = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
+    disabled_rules        = {}
+    health_path           = "/status"
+    mode                  = "Detection"
+    shutter_name_override = "false"
     global_exclusions = [
       {
         match_variable = "RequestCookieNames"
@@ -46,7 +48,8 @@ frontends = [
     custom_domain  = "pip-frontend.staging.platform.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
 
-    disabled_rules = {}
+    disabled_rules        = {}
+    shutter_name_override = "false"
 
     global_exclusions = [
       ## Open ID response parameters
@@ -108,14 +111,15 @@ frontends = [
     ]
   },
   {
-    name                = "pip-frontend-b2c-sign-in"
-    custom_domain       = "sign-in.pip-frontend.staging.platform.hmcts.net"
-    backend_domain      = ["hmctspipnonprod.b2clogin.com"]
-    host_header         = "hmctspipnonprod.b2clogin.com"
-    forwarding_protocol = "HttpsOnly"
-    cache_enabled       = false
-    shutter_app         = false
-    disabled_rules      = {}
+    name                  = "pip-frontend-b2c-sign-in"
+    custom_domain         = "sign-in.pip-frontend.staging.platform.hmcts.net"
+    backend_domain        = ["hmctspipnonprod.b2clogin.com"]
+    host_header           = "hmctspipnonprod.b2clogin.com"
+    forwarding_protocol   = "HttpsOnly"
+    cache_enabled         = false
+    shutter_app           = false
+    disabled_rules        = {}
+    shutter_name_override = "false"
     global_exclusions = [
       {
         match_variable = "QueryStringArgNames"
@@ -190,14 +194,15 @@ frontends = [
     ]
   },
   {
-    name                = "pip-frontend-b2c-staff"
-    custom_domain       = "staff.pip-frontend.staging.platform.hmcts.net"
-    backend_domain      = ["hmctspipnonprod.b2clogin.com"]
-    host_header         = "hmctspipnonprod.b2clogin.com"
-    forwarding_protocol = "HttpsOnly"
-    cache_enabled       = false
-    shutter_app         = false
-    disabled_rules      = {}
+    name                  = "pip-frontend-b2c-staff"
+    custom_domain         = "staff.pip-frontend.staging.platform.hmcts.net"
+    backend_domain        = ["hmctspipnonprod.b2clogin.com"]
+    host_header           = "hmctspipnonprod.b2clogin.com"
+    forwarding_protocol   = "HttpsOnly"
+    cache_enabled         = false
+    shutter_app           = false
+    disabled_rules        = {}
+    shutter_name_override = "false"
     global_exclusions = [
       {
         match_variable = "QueryStringArgNames"
@@ -277,7 +282,8 @@ frontends = [
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
 
-    disabled_rules = {}
+    disabled_rules        = {}
+    shutter_name_override = "false"
 
     global_exclusions = [
       {
@@ -293,7 +299,8 @@ frontends = [
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
 
-    disabled_rules = {}
+    disabled_rules        = {}
+    shutter_name_override = "false"
 
     global_exclusions = [
       {
@@ -304,47 +311,53 @@ frontends = [
     ]
   },
   {
-    name           = "staging-casetracker"
-    custom_domain  = "staging.casetracker.justice.gov.uk"
-    backend_domain = ["dualstack.civil-loadb-105un4gbv5077-2040046462.eu-west-2.elb.amazonaws.com"]
-    shutter_app    = false
-    enable_ssl     = true
+    name                  = "staging-casetracker"
+    custom_domain         = "staging.casetracker.justice.gov.uk"
+    backend_domain        = ["dualstack.civil-loadb-105un4gbv5077-2040046462.eu-west-2.elb.amazonaws.com"]
+    shutter_app           = false
+    enable_ssl            = true
+    shutter_name_override = "false"
   },
   {
-    name           = "staging-certificatedbailiffs"
-    custom_domain  = "staging.certificatedbailiffs.justice.gov.uk"
-    backend_domain = ["dualstack.certi-loadb-vzujs6ulbuut-415542592.eu-west-2.elb.amazonaws.com"]
-    shutter_app    = false
-    enable_ssl     = true
+    name                  = "staging-certificatedbailiffs"
+    custom_domain         = "staging.certificatedbailiffs.justice.gov.uk"
+    backend_domain        = ["dualstack.certi-loadb-vzujs6ulbuut-415542592.eu-west-2.elb.amazonaws.com"]
+    shutter_app           = false
+    enable_ssl            = true
+    shutter_name_override = "false"
   },
   {
-    name           = "staging-courtfines"
-    custom_domain  = "staging.courtfines.direct.gov.uk"
-    backend_domain = ["dualstack.court-loadb-qpahtenf925i-482204730.eu-west-2.elb.amazonaws.com"]
-    shutter_app    = false
-    enable_ssl     = true
+    name                  = "staging-courtfines"
+    custom_domain         = "staging.courtfines.direct.gov.uk"
+    backend_domain        = ["dualstack.court-loadb-qpahtenf925i-482204730.eu-west-2.elb.amazonaws.com"]
+    shutter_app           = false
+    enable_ssl            = true
+    shutter_name_override = "false"
   },
   {
-    name           = "staging-immigrationappealsonline"
-    custom_domain  = "staging.immigrationappealsonline.justice.gov.uk"
-    backend_domain = ["dualstack.iacfees-s-ELBhmcts-DGD2EJ56UXEF-715536071.eu-west-1.elb.amazonaws.com"]
-    shutter_app    = false
-    enable_ssl     = true
+    name                  = "staging-immigrationappealsonline"
+    custom_domain         = "staging.immigrationappealsonline.justice.gov.uk"
+    backend_domain        = ["dualstack.iacfees-s-ELBhmcts-DGD2EJ56UXEF-715536071.eu-west-1.elb.amazonaws.com"]
+    shutter_app           = false
+    enable_ssl            = true
+    shutter_name_override = "false"
   },
   {
-    name             = "sds-api-mgmt"
-    custom_domain    = "sds-api-mgmt.staging.platform.hmcts.net"
-    backend_domain   = ["firewall-prod-int-palo-sdsapimgmtstg.uksouth.cloudapp.azure.com"]
-    certificate_name = "wildcard-stg-platform-hmcts-net"
-    cache_enabled    = "false"
+    name                  = "sds-api-mgmt"
+    custom_domain         = "sds-api-mgmt.staging.platform.hmcts.net"
+    backend_domain        = ["firewall-prod-int-palo-sdsapimgmtstg.uksouth.cloudapp.azure.com"]
+    certificate_name      = "wildcard-stg-platform-hmcts-net"
+    cache_enabled         = "false"
+    shutter_name_override = "false"
   },
   {
-    name           = "staging-trib-land-reg-division"
-    mode           = "Prevention"
-    custom_domain  = "staging.landregistrationdivision.dsd.io"
-    backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
-    shutter_app    = false
-    enable_ssl     = false
+    name                  = "staging-trib-land-reg-division"
+    mode                  = "Prevention"
+    custom_domain         = "staging.landregistrationdivision.dsd.io"
+    backend_domain        = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
+    shutter_app           = false
+    enable_ssl            = false
+    shutter_name_override = "false"
 
     global_exclusions = [
       {
@@ -378,12 +391,13 @@ frontends = [
     ]
   },
   {
-    name           = "staging-trib-immigration-svcs"
-    mode           = "Prevention"
-    custom_domain  = "staging.immigrationservices.dsd.io"
-    backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
-    shutter_app    = false
-    enable_ssl     = false
+    name                  = "staging-trib-immigration-svcs"
+    mode                  = "Prevention"
+    custom_domain         = "staging.immigrationservices.dsd.io"
+    backend_domain        = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
+    shutter_app           = false
+    enable_ssl            = false
+    shutter_name_override = "false"
 
     global_exclusions = [
       {
@@ -394,12 +408,13 @@ frontends = [
     ]
   },
   {
-    name           = "staging-trib-info-rights"
-    mode           = "Prevention"
-    custom_domain  = "staging.informationrights.dsd.io"
-    backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
-    shutter_app    = false
-    enable_ssl     = false
+    name                  = "staging-trib-info-rights"
+    mode                  = "Prevention"
+    custom_domain         = "staging.informationrights.dsd.io"
+    backend_domain        = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
+    shutter_app           = false
+    enable_ssl            = false
+    shutter_name_override = "false"
 
     global_exclusions = [
       {
@@ -425,12 +440,13 @@ frontends = [
     ]
   },
   {
-    name           = "staging-trib-admin-appeals"
-    mode           = "Prevention"
-    custom_domain  = "staging.administrativeappeals.dsd.io"
-    backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
-    shutter_app    = false
-    enable_ssl     = false
+    name                  = "staging-trib-admin-appeals"
+    mode                  = "Prevention"
+    custom_domain         = "staging.administrativeappeals.dsd.io"
+    backend_domain        = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
+    shutter_app           = false
+    enable_ssl            = false
+    shutter_name_override = "false"
 
     global_exclusions = [
       {
@@ -446,12 +462,13 @@ frontends = [
     ]
   },
   {
-    name           = "staging-trib-care-standards"
-    mode           = "Prevention"
-    custom_domain  = "staging.carestandards.dsd.io"
-    backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
-    shutter_app    = false
-    enable_ssl     = false
+    name                  = "staging-trib-care-standards"
+    mode                  = "Prevention"
+    custom_domain         = "staging.carestandards.dsd.io"
+    backend_domain        = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
+    shutter_app           = false
+    enable_ssl            = false
+    shutter_name_override = "false"
 
     global_exclusions = [
       {
@@ -477,12 +494,13 @@ frontends = [
     ]
   },
   {
-    name           = "staging-trib-lands-chamber"
-    mode           = "Prevention"
-    custom_domain  = "staging.landschamber.dsd.io"
-    backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
-    shutter_app    = false
-    enable_ssl     = false
+    name                  = "staging-trib-lands-chamber"
+    mode                  = "Prevention"
+    custom_domain         = "staging.landschamber.dsd.io"
+    backend_domain        = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
+    shutter_app           = false
+    enable_ssl            = false
+    shutter_name_override = "false"
 
     global_exclusions = [
       {
@@ -493,12 +511,13 @@ frontends = [
     ]
   },
   {
-    name           = "staging-trib-finance-tax"
-    mode           = "Prevention"
-    custom_domain  = "staging.financeandtax.dsd.io"
-    backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
-    shutter_app    = false
-    enable_ssl     = false
+    name                  = "staging-trib-finance-tax"
+    mode                  = "Prevention"
+    custom_domain         = "staging.financeandtax.dsd.io"
+    backend_domain        = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
+    shutter_app           = false
+    enable_ssl            = false
+    shutter_name_override = "false"
 
     disabled_rules = {
       SQLI = [
@@ -532,12 +551,13 @@ frontends = [
     ]
   },
   {
-    name           = "staging-trib-employment-appeals"
-    mode           = "Prevention"
-    custom_domain  = "staging.employmentappeals.dsd.io"
-    backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
-    shutter_app    = false
-    enable_ssl     = false
+    name                  = "staging-trib-employment-appeals"
+    mode                  = "Prevention"
+    custom_domain         = "staging.employmentappeals.dsd.io"
+    backend_domain        = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
+    shutter_app           = false
+    enable_ssl            = false
+    shutter_name_override = "false"
 
     global_exclusions = [
       {
@@ -548,12 +568,13 @@ frontends = [
     ]
   },
   {
-    name           = "staging-trib-tansport-appeals"
-    mode           = "Prevention"
-    custom_domain  = "staging.transportappeals.dsd.io"
-    backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
-    shutter_app    = false
-    enable_ssl     = false
+    name                  = "staging-trib-tansport-appeals"
+    mode                  = "Prevention"
+    custom_domain         = "staging.transportappeals.dsd.io"
+    backend_domain        = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
+    shutter_app           = false
+    enable_ssl            = false
+    shutter_name_override = "false"
 
     global_exclusions = [
       {
@@ -564,12 +585,13 @@ frontends = [
     ]
   },
   {
-    name           = "staging-trib-cicap"
-    mode           = "Prevention"
-    custom_domain  = "staging.cicap.dsd.io"
-    backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
-    shutter_app    = false
-    enable_ssl     = false
+    name                  = "staging-trib-cicap"
+    mode                  = "Prevention"
+    custom_domain         = "staging.cicap.dsd.io"
+    backend_domain        = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
+    shutter_app           = false
+    enable_ssl            = false
+    shutter_name_override = "false"
 
     global_exclusions = [
       {
@@ -580,17 +602,18 @@ frontends = [
     ]
   },
   {
-    name                = "portal-stg"
-    mode                = "Prevention"
-    custom_domain       = "portal-stg.pre-recorded-evidence.justice.gov.uk"
-    backend_domain      = ["pre-stg1.powerappsportals.com"]
-    certificate_name    = "portal-stg-pre-recorded-evidence-justice-gov-uk"
-    disabled_rules      = {}
-    shutter_app         = false
-    health_path         = "/SignIn?ReturnUrl=%2F"
-    health_protocol     = "Https"
-    forwarding_protocol = "HttpsOnly"
-    cache_enabled       = "false"
+    name                  = "portal-stg"
+    mode                  = "Prevention"
+    custom_domain         = "portal-stg.pre-recorded-evidence.justice.gov.uk"
+    backend_domain        = ["pre-stg1.powerappsportals.com"]
+    certificate_name      = "portal-stg-pre-recorded-evidence-justice-gov-uk"
+    disabled_rules        = {}
+    shutter_app           = false
+    health_path           = "/SignIn?ReturnUrl=%2F"
+    health_protocol       = "Https"
+    forwarding_protocol   = "HttpsOnly"
+    cache_enabled         = "false"
+    shutter_name_override = "false"
 
     disabled_rules = {
       SQLI = [
@@ -624,10 +647,11 @@ frontends = [
     ]
   },
   {
-    name           = "darts-portal"
-    custom_domain  = "darts-portal.staging.platform.hmcts.net"
-    backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
-    disabled_rules = {}
+    name                  = "darts-portal"
+    custom_domain         = "darts-portal.staging.platform.hmcts.net"
+    backend_domain        = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
+    disabled_rules        = {}
+    shutter_name_override = "false"
   },
 ]
 
