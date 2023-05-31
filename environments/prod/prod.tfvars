@@ -204,7 +204,7 @@ frontends = [
     custom_domain         = "informationrights.decisions.tribunals.gov.uk"
     backend_domain        = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
     shutter_app           = false
-    shutter_name_override = false
+    shutter_name_override = "false"
 
     global_exclusions = [
       {
@@ -998,7 +998,7 @@ frontends = [
     certificate_name      = "wildcard-hearings-reform-hmcts-net"
     disabled_rules        = {}
     shutter_app           = true
-    shutter_name_override = "false"
+    shutter_name_override = "vh-admin-web"
 
     global_exclusions = [
       {
