@@ -217,7 +217,7 @@ frontends = [
     cache_enabled  = "false"
 
     disabled_rules = {}
-    
+
     global_exclusions = [
       {
         match_variable = "QueryStringArgNames"
@@ -225,7 +225,7 @@ frontends = [
         selector       = "code"
       }
     ]
-    
+
   },
   {
     name           = "vh-video-web"
@@ -234,7 +234,7 @@ frontends = [
     cache_enabled  = "false"
 
     disabled_rules = {}
-    
+
     global_exclusions = [
       {
         match_variable = "QueryStringArgNames"
@@ -250,7 +250,7 @@ frontends = [
     cache_enabled  = "false"
 
     disabled_rules = {}
-    
+
     global_exclusions = [
       {
         match_variable = "QueryStringArgNames"
