@@ -23,10 +23,10 @@ apim_appgw_max_capacity       = 2
 frontends = [
 
   {
-    name                  = "toffee"
-    custom_domain         = "toffee.dev.platform.hmcts.net"
-    backend_domain        = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
-    disabled_rules        = {}
+    name           = "toffee"
+    custom_domain  = "toffee.dev.platform.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
+    disabled_rules = {}
   },
 
   {
@@ -251,11 +251,11 @@ frontends = [
     ],
   },
   {
-    name                  = "vh-test-web"
-    custom_domain         = "vh-test-web.dev.platform.hmcts.net"
-    backend_domain        = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
-    disabled_rules        = {}
-    cache_enabled         = "false"
+    name           = "vh-test-web"
+    custom_domain  = "vh-test-web.dev.platform.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
+    disabled_rules = {}
+    cache_enabled  = "false"
 
     global_exclusions = [
       {
@@ -266,11 +266,11 @@ frontends = [
     ]
   },
   {
-    name                  = "vh-video-web"
-    custom_domain         = "vh-video-web.dev.platform.hmcts.net"
-    backend_domain        = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
-    disabled_rules        = {}
-    cache_enabled         = "false"
+    name           = "vh-video-web"
+    custom_domain  = "vh-video-web.dev.platform.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
+    disabled_rules = {}
+    cache_enabled  = "false"
 
     global_exclusions = [
       {
