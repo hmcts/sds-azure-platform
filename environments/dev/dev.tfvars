@@ -280,10 +280,10 @@ frontends = [
     ]
   },
   {
-    name                  = "vh-video-web-reform"
-    custom_domain         = "vh-video-web-dev.hearings.reform.hmcts.net"
-    backend_domain        = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
-    disabled_rules        = {}
+    name           = "vh-video-web-reform"
+    custom_domain  = "vh-video-web-dev.hearings.reform.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
+    disabled_rules = {}
 
     global_exclusions = [
       {
@@ -294,10 +294,10 @@ frontends = [
     ]
   },
   {
-    name                  = "vh-video-web-pr-1955" # TO DO: REMOVE AFTER TESTING
-    custom_domain         = "vh-video-web-pr-1955.dev.platform.hmcts.net"
-    backend_domain        = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
-    disabled_rules        = {}
+    name           = "vh-video-web-pr-1955" # TO DO: REMOVE AFTER TESTING
+    custom_domain  = "vh-video-web-pr-1955.dev.platform.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
+    disabled_rules = {}
 
     global_exclusions = [
       {
@@ -308,11 +308,11 @@ frontends = [
     ]
   },
   {
-    name                  = "vh-admin-web"
-    custom_domain         = "vh-admin-web.dev.platform.hmcts.net"
-    backend_domain        = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
-    disabled_rules        = {}
-    cache_enabled         = "false"
+    name           = "vh-admin-web"
+    custom_domain  = "vh-admin-web.dev.platform.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
+    disabled_rules = {}
+    cache_enabled  = "false"
 
     global_exclusions = [
       {
@@ -323,16 +323,16 @@ frontends = [
     ]
   },
   {
-    name                  = "portal-dev"
-    mode                  = "Prevention"
-    custom_domain         = "portal-dev.pre-recorded-evidence.justice.gov.uk"
-    backend_domain        = ["pre-dev.powerappsportals.com"]
-    disabled_rules        = {}
-    shutter_app           = false
-    health_path           = "/SignIn?ReturnUrl=%2F"
-    health_protocol       = "Https"
-    forwarding_protocol   = "HttpsOnly"
-    cache_enabled         = "false"
+    name                = "portal-dev"
+    mode                = "Prevention"
+    custom_domain       = "portal-dev.pre-recorded-evidence.justice.gov.uk"
+    backend_domain      = ["pre-dev.powerappsportals.com"]
+    disabled_rules      = {}
+    shutter_app         = false
+    health_path         = "/SignIn?ReturnUrl=%2F"
+    health_protocol     = "Https"
+    forwarding_protocol = "HttpsOnly"
+    cache_enabled       = "false"
 
     disabled_rules = {
       SQLI = [
@@ -366,47 +366,47 @@ frontends = [
     ]
   },
   {
-    name                  = "dev-casetracker"
-    custom_domain         = "dev.casetracker.justice.gov.uk"
-    backend_domain        = ["civil-loadb-y5o7jqurq76d-2065714619.eu-west-2.elb.amazonaws.com"]
-    shutter_app           = false
-    enable_ssl            = true
+    name           = "dev-casetracker"
+    custom_domain  = "dev.casetracker.justice.gov.uk"
+    backend_domain = ["civil-loadb-y5o7jqurq76d-2065714619.eu-west-2.elb.amazonaws.com"]
+    shutter_app    = false
+    enable_ssl     = true
   },
   {
-    name                  = "dev-certificatedbailiffs"
-    custom_domain         = "dev.certificatedbailiffs.justice.gov.uk"
-    backend_domain        = ["certi-loadb-a49bsydpgeb7-1204811385.eu-west-2.elb.amazonaws.com"]
-    shutter_app           = false
-    enable_ssl            = true
+    name           = "dev-certificatedbailiffs"
+    custom_domain  = "dev.certificatedbailiffs.justice.gov.uk"
+    backend_domain = ["certi-loadb-a49bsydpgeb7-1204811385.eu-west-2.elb.amazonaws.com"]
+    shutter_app    = false
+    enable_ssl     = true
   },
   {
-    name                  = "dev-courtfines"
-    custom_domain         = "dev.courtfines.direct.gov.uk"
-    backend_domain        = ["court-loadb-118vi6sleq8ii-1970392396.eu-west-2.elb.amazonaws.com"]
-    shutter_app           = false
-    enable_ssl            = true
+    name           = "dev-courtfines"
+    custom_domain  = "dev.courtfines.direct.gov.uk"
+    backend_domain = ["court-loadb-118vi6sleq8ii-1970392396.eu-west-2.elb.amazonaws.com"]
+    shutter_app    = false
+    enable_ssl     = true
   },
   {
-    name                  = "dev-immigrationappealsonline"
-    custom_domain         = "dev.immigrationappealsonline.justice.gov.uk"
-    backend_domain        = ["iacfe-loadb-p3eli3f0pz30-1245399594.eu-west-2.elb.amazonaws.com"]
-    shutter_app           = false
-    enable_ssl            = true
+    name           = "dev-immigrationappealsonline"
+    custom_domain  = "dev.immigrationappealsonline.justice.gov.uk"
+    backend_domain = ["iacfe-loadb-p3eli3f0pz30-1245399594.eu-west-2.elb.amazonaws.com"]
+    shutter_app    = false
+    enable_ssl     = true
   },
   {
-    name                  = "sds-api-mgmt"
-    custom_domain         = "sds-api-mgmt.dev.platform.hmcts.net"
-    backend_domain        = ["firewall-nonprodi-palo-sdsapimgmtdev.uksouth.cloudapp.azure.com"]
-    certificate_name      = "wildcard-dev-platform-hmcts-net"
-    cache_enabled         = "false"
+    name             = "sds-api-mgmt"
+    custom_domain    = "sds-api-mgmt.dev.platform.hmcts.net"
+    backend_domain   = ["firewall-nonprodi-palo-sdsapimgmtdev.uksouth.cloudapp.azure.com"]
+    certificate_name = "wildcard-dev-platform-hmcts-net"
+    cache_enabled    = "false"
   },
   {
-    name                  = "dev-trib-land-reg-division"
-    mode                  = "Prevention"
-    custom_domain         = "dev.landregistrationdivision.dsd.io"
-    backend_domain        = ["dts-tribs-dev-317402065.eu-west-1.elb.amazonaws.com"]
-    shutter_app           = false
-    enable_ssl            = false
+    name           = "dev-trib-land-reg-division"
+    mode           = "Prevention"
+    custom_domain  = "dev.landregistrationdivision.dsd.io"
+    backend_domain = ["dts-tribs-dev-317402065.eu-west-1.elb.amazonaws.com"]
+    shutter_app    = false
+    enable_ssl     = false
 
     global_exclusions = [
       {
@@ -422,12 +422,12 @@ frontends = [
     ]
   },
   {
-    name                  = "dev-trib-immigration-svcs"
-    mode                  = "Prevention"
-    custom_domain         = "dev.immigrationservices.dsd.io"
-    backend_domain        = ["dts-tribs-dev-317402065.eu-west-1.elb.amazonaws.com"]
-    shutter_app           = false
-    enable_ssl            = false
+    name           = "dev-trib-immigration-svcs"
+    mode           = "Prevention"
+    custom_domain  = "dev.immigrationservices.dsd.io"
+    backend_domain = ["dts-tribs-dev-317402065.eu-west-1.elb.amazonaws.com"]
+    shutter_app    = false
+    enable_ssl     = false
 
     global_exclusions = [
       {
@@ -438,12 +438,12 @@ frontends = [
     ]
   },
   {
-    name                  = "dev-trib-info-rights"
-    mode                  = "Prevention"
-    custom_domain         = "dev.informationrights.dsd.io"
-    backend_domain        = ["dts-tribs-dev-317402065.eu-west-1.elb.amazonaws.com"]
-    shutter_app           = false
-    enable_ssl            = false
+    name           = "dev-trib-info-rights"
+    mode           = "Prevention"
+    custom_domain  = "dev.informationrights.dsd.io"
+    backend_domain = ["dts-tribs-dev-317402065.eu-west-1.elb.amazonaws.com"]
+    shutter_app    = false
+    enable_ssl     = false
 
     global_exclusions = [
       {
@@ -469,12 +469,12 @@ frontends = [
     ]
   },
   {
-    name                  = "dev-trib-admin-appeals"
-    mode                  = "Prevention"
-    custom_domain         = "dev.administrativeappeals.dsd.io"
-    backend_domain        = ["dts-tribs-dev-317402065.eu-west-1.elb.amazonaws.com"]
-    shutter_app           = false
-    enable_ssl            = false
+    name           = "dev-trib-admin-appeals"
+    mode           = "Prevention"
+    custom_domain  = "dev.administrativeappeals.dsd.io"
+    backend_domain = ["dts-tribs-dev-317402065.eu-west-1.elb.amazonaws.com"]
+    shutter_app    = false
+    enable_ssl     = false
 
     global_exclusions = [
       {
@@ -490,12 +490,12 @@ frontends = [
     ]
   },
   {
-    name                  = "dev-trib-care-standards"
-    mode                  = "Prevention"
-    custom_domain         = "dev.carestandards.dsd.io"
-    backend_domain        = ["dts-tribs-dev-317402065.eu-west-1.elb.amazonaws.com"]
-    shutter_app           = false
-    enable_ssl            = false
+    name           = "dev-trib-care-standards"
+    mode           = "Prevention"
+    custom_domain  = "dev.carestandards.dsd.io"
+    backend_domain = ["dts-tribs-dev-317402065.eu-west-1.elb.amazonaws.com"]
+    shutter_app    = false
+    enable_ssl     = false
 
     global_exclusions = [
       {
@@ -521,12 +521,12 @@ frontends = [
     ]
   },
   {
-    name                  = "dev-trib-lands-chamber"
-    mode                  = "Prevention"
-    custom_domain         = "dev.landschamber.dsd.io"
-    backend_domain        = ["dts-tribs-dev-317402065.eu-west-1.elb.amazonaws.com"]
-    shutter_app           = false
-    enable_ssl            = false
+    name           = "dev-trib-lands-chamber"
+    mode           = "Prevention"
+    custom_domain  = "dev.landschamber.dsd.io"
+    backend_domain = ["dts-tribs-dev-317402065.eu-west-1.elb.amazonaws.com"]
+    shutter_app    = false
+    enable_ssl     = false
 
     global_exclusions = [
       {
@@ -537,12 +537,12 @@ frontends = [
     ]
   },
   {
-    name                  = "dev-trib-finance-tax"
-    mode                  = "Prevention"
-    custom_domain         = "dev.financeandtax.dsd.io"
-    backend_domain        = ["dts-tribs-dev-317402065.eu-west-1.elb.amazonaws.com"]
-    shutter_app           = false
-    enable_ssl            = false
+    name           = "dev-trib-finance-tax"
+    mode           = "Prevention"
+    custom_domain  = "dev.financeandtax.dsd.io"
+    backend_domain = ["dts-tribs-dev-317402065.eu-west-1.elb.amazonaws.com"]
+    shutter_app    = false
+    enable_ssl     = false
 
     disabled_rules = {
       SQLI = [
@@ -576,12 +576,12 @@ frontends = [
     ]
   },
   {
-    name                  = "dev-trib-employment-appeals"
-    mode                  = "Prevention"
-    custom_domain         = "dev.employmentappeals.dsd.io"
-    backend_domain        = ["dts-tribs-dev-317402065.eu-west-1.elb.amazonaws.com"]
-    shutter_app           = false
-    enable_ssl            = false
+    name           = "dev-trib-employment-appeals"
+    mode           = "Prevention"
+    custom_domain  = "dev.employmentappeals.dsd.io"
+    backend_domain = ["dts-tribs-dev-317402065.eu-west-1.elb.amazonaws.com"]
+    shutter_app    = false
+    enable_ssl     = false
 
     global_exclusions = [
       {
@@ -592,12 +592,12 @@ frontends = [
     ]
   },
   {
-    name                  = "dev-trib-tansport-appeals"
-    mode                  = "Prevention"
-    custom_domain         = "dev.transportappeals.dsd.io"
-    backend_domain        = ["dts-tribs-dev-317402065.eu-west-1.elb.amazonaws.com"]
-    shutter_app           = false
-    enable_ssl            = false
+    name           = "dev-trib-tansport-appeals"
+    mode           = "Prevention"
+    custom_domain  = "dev.transportappeals.dsd.io"
+    backend_domain = ["dts-tribs-dev-317402065.eu-west-1.elb.amazonaws.com"]
+    shutter_app    = false
+    enable_ssl     = false
 
     global_exclusions = [
       {
@@ -608,12 +608,12 @@ frontends = [
     ]
   },
   {
-    name                  = "dev-trib-cicap"
-    mode                  = "Prevention"
-    custom_domain         = "dev.cicap.dsd.io"
-    backend_domain        = ["dts-tribs-dev-317402065.eu-west-1.elb.amazonaws.com"]
-    shutter_app           = false
-    enable_ssl            = false
+    name           = "dev-trib-cicap"
+    mode           = "Prevention"
+    custom_domain  = "dev.cicap.dsd.io"
+    backend_domain = ["dts-tribs-dev-317402065.eu-west-1.elb.amazonaws.com"]
+    shutter_app    = false
+    enable_ssl     = false
 
     global_exclusions = [
       {
@@ -624,9 +624,9 @@ frontends = [
     ]
   },
   {
-    name                  = "darts-portal"
-    custom_domain         = "darts-portal.dev.platform.hmcts.net"
-    backend_domain        = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
+    name           = "darts-portal"
+    custom_domain  = "darts-portal.dev.platform.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
 
     disabled_rules = {}
   },

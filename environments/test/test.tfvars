@@ -23,16 +23,16 @@ apim_appgw_max_capacity       = 2
 frontends = [
 
   {
-    name                  = "toffee"
-    custom_domain         = "toffee.test.platform.hmcts.net"
-    backend_domain        = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
-    disabled_rules        = {}
+    name           = "toffee"
+    custom_domain  = "toffee.test.platform.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
+    disabled_rules = {}
   },
 
   {
-    name                  = "pip-frontend"
-    custom_domain         = "pip-frontend.test.platform.hmcts.net"
-    backend_domain        = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
+    name           = "pip-frontend"
+    custom_domain  = "pip-frontend.test.platform.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
 
     disabled_rules = {
       LFI = [
@@ -210,48 +210,48 @@ frontends = [
     ]
   },
   {
-    name                  = "vh-test-web"
-    custom_domain         = "vh-test-web.test.platform.hmcts.net"
-    backend_domain        = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
-    cache_enabled         = "false"
+    name           = "vh-test-web"
+    custom_domain  = "vh-test-web.test.platform.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
+    cache_enabled  = "false"
 
     disabled_rules = {}
   },
   {
-    name                  = "vh-video-web"
-    custom_domain         = "vh-video-web.test.platform.hmcts.net"
-    backend_domain        = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
-    cache_enabled         = "false"
+    name           = "vh-video-web"
+    custom_domain  = "vh-video-web.test.platform.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
+    cache_enabled  = "false"
 
     disabled_rules = {}
   },
   {
-    name                  = "vh-admin-web"
-    custom_domain         = "vh-admin-web.test.platform.hmcts.net"
-    backend_domain        = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
-    cache_enabled         = "false"
+    name           = "vh-admin-web"
+    custom_domain  = "vh-admin-web.test.platform.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
+    cache_enabled  = "false"
 
     disabled_rules = {}
   },
   {
-    name                  = "sds-api-mgmt"
-    custom_domain         = "sds-api-mgmt.test.platform.hmcts.net"
-    backend_domain        = ["firewall-nonprodi-palo-sdsapimgmttest.uksouth.cloudapp.azure.com"]
-    certificate_name      = "wildcard-test-platform-hmcts-net"
-    cache_enabled         = "false"
+    name             = "sds-api-mgmt"
+    custom_domain    = "sds-api-mgmt.test.platform.hmcts.net"
+    backend_domain   = ["firewall-nonprodi-palo-sdsapimgmttest.uksouth.cloudapp.azure.com"]
+    certificate_name = "wildcard-test-platform-hmcts-net"
+    cache_enabled    = "false"
   },
   {
-    name                  = "portal-test"
-    mode                  = "Prevention"
-    custom_domain         = "portal-test.pre-recorded-evidence.justice.gov.uk"
-    backend_domain        = ["pre-testing.powerappsportals.com"]
-    certificate_name      = "portal-test-pre-recorded-evidence-justice-gov-uk"
-    disabled_rules        = {}
-    shutter_app           = false
-    health_path           = "/SignIn?ReturnUrl=%2F"
-    health_protocol       = "Https"
-    forwarding_protocol   = "HttpsOnly"
-    cache_enabled         = "false"
+    name                = "portal-test"
+    mode                = "Prevention"
+    custom_domain       = "portal-test.pre-recorded-evidence.justice.gov.uk"
+    backend_domain      = ["pre-testing.powerappsportals.com"]
+    certificate_name    = "portal-test-pre-recorded-evidence-justice-gov-uk"
+    disabled_rules      = {}
+    shutter_app         = false
+    health_path         = "/SignIn?ReturnUrl=%2F"
+    health_protocol     = "Https"
+    forwarding_protocol = "HttpsOnly"
+    cache_enabled       = "false"
 
     disabled_rules = {
       SQLI = [
