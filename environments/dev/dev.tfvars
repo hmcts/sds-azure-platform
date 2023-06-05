@@ -218,7 +218,6 @@ frontends = [
     session_affinity             = true
     session_affinity_ttl_seconds = 14400
     appgw_cookie_based_affinity  = "Enabled"
-    shutter_name_override        = "false"
 
     disabled_rules = {}
     custom_rules = [
@@ -285,7 +284,6 @@ frontends = [
     custom_domain         = "vh-video-web-dev.hearings.reform.hmcts.net"
     backend_domain        = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
     disabled_rules        = {}
-    shutter_name_override = "false"
 
     global_exclusions = [
       {
@@ -300,7 +298,6 @@ frontends = [
     custom_domain         = "vh-video-web-pr-1955.dev.platform.hmcts.net"
     backend_domain        = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
     disabled_rules        = {}
-    shutter_name_override = "false"
 
     global_exclusions = [
       {
@@ -316,7 +313,6 @@ frontends = [
     backend_domain        = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
     disabled_rules        = {}
     cache_enabled         = "false"
-    shutter_name_override = "false"
 
     global_exclusions = [
       {
@@ -337,7 +333,6 @@ frontends = [
     health_protocol       = "Https"
     forwarding_protocol   = "HttpsOnly"
     cache_enabled         = "false"
-    shutter_name_override = "false"
 
     disabled_rules = {
       SQLI = [
@@ -376,7 +371,6 @@ frontends = [
     backend_domain        = ["civil-loadb-y5o7jqurq76d-2065714619.eu-west-2.elb.amazonaws.com"]
     shutter_app           = false
     enable_ssl            = true
-    shutter_name_override = "false"
   },
   {
     name                  = "dev-certificatedbailiffs"
@@ -384,7 +378,6 @@ frontends = [
     backend_domain        = ["certi-loadb-a49bsydpgeb7-1204811385.eu-west-2.elb.amazonaws.com"]
     shutter_app           = false
     enable_ssl            = true
-    shutter_name_override = "false"
   },
   {
     name                  = "dev-courtfines"
@@ -392,7 +385,6 @@ frontends = [
     backend_domain        = ["court-loadb-118vi6sleq8ii-1970392396.eu-west-2.elb.amazonaws.com"]
     shutter_app           = false
     enable_ssl            = true
-    shutter_name_override = "false"
   },
   {
     name                  = "dev-immigrationappealsonline"
@@ -400,7 +392,6 @@ frontends = [
     backend_domain        = ["iacfe-loadb-p3eli3f0pz30-1245399594.eu-west-2.elb.amazonaws.com"]
     shutter_app           = false
     enable_ssl            = true
-    shutter_name_override = "false"
   },
   {
     name                  = "sds-api-mgmt"
@@ -408,7 +399,6 @@ frontends = [
     backend_domain        = ["firewall-nonprodi-palo-sdsapimgmtdev.uksouth.cloudapp.azure.com"]
     certificate_name      = "wildcard-dev-platform-hmcts-net"
     cache_enabled         = "false"
-    shutter_name_override = "false"
   },
   {
     name                  = "dev-trib-land-reg-division"
@@ -417,7 +407,6 @@ frontends = [
     backend_domain        = ["dts-tribs-dev-317402065.eu-west-1.elb.amazonaws.com"]
     shutter_app           = false
     enable_ssl            = false
-    shutter_name_override = "false"
 
     global_exclusions = [
       {
@@ -439,7 +428,6 @@ frontends = [
     backend_domain        = ["dts-tribs-dev-317402065.eu-west-1.elb.amazonaws.com"]
     shutter_app           = false
     enable_ssl            = false
-    shutter_name_override = "false"
 
     global_exclusions = [
       {
@@ -456,7 +444,6 @@ frontends = [
     backend_domain        = ["dts-tribs-dev-317402065.eu-west-1.elb.amazonaws.com"]
     shutter_app           = false
     enable_ssl            = false
-    shutter_name_override = "false"
 
     global_exclusions = [
       {
@@ -488,7 +475,6 @@ frontends = [
     backend_domain        = ["dts-tribs-dev-317402065.eu-west-1.elb.amazonaws.com"]
     shutter_app           = false
     enable_ssl            = false
-    shutter_name_override = "false"
 
     global_exclusions = [
       {
@@ -510,7 +496,6 @@ frontends = [
     backend_domain        = ["dts-tribs-dev-317402065.eu-west-1.elb.amazonaws.com"]
     shutter_app           = false
     enable_ssl            = false
-    shutter_name_override = "false"
 
     global_exclusions = [
       {
@@ -542,7 +527,6 @@ frontends = [
     backend_domain        = ["dts-tribs-dev-317402065.eu-west-1.elb.amazonaws.com"]
     shutter_app           = false
     enable_ssl            = false
-    shutter_name_override = "false"
 
     global_exclusions = [
       {
@@ -559,7 +543,6 @@ frontends = [
     backend_domain        = ["dts-tribs-dev-317402065.eu-west-1.elb.amazonaws.com"]
     shutter_app           = false
     enable_ssl            = false
-    shutter_name_override = "false"
 
     disabled_rules = {
       SQLI = [
@@ -599,7 +582,6 @@ frontends = [
     backend_domain        = ["dts-tribs-dev-317402065.eu-west-1.elb.amazonaws.com"]
     shutter_app           = false
     enable_ssl            = false
-    shutter_name_override = "false"
 
     global_exclusions = [
       {
@@ -616,7 +598,6 @@ frontends = [
     backend_domain        = ["dts-tribs-dev-317402065.eu-west-1.elb.amazonaws.com"]
     shutter_app           = false
     enable_ssl            = false
-    shutter_name_override = "false"
 
     global_exclusions = [
       {
@@ -633,7 +614,6 @@ frontends = [
     backend_domain        = ["dts-tribs-dev-317402065.eu-west-1.elb.amazonaws.com"]
     shutter_app           = false
     enable_ssl            = false
-    shutter_name_override = "false"
 
     global_exclusions = [
       {
@@ -647,7 +627,6 @@ frontends = [
     name                  = "darts-portal"
     custom_domain         = "darts-portal.dev.platform.hmcts.net"
     backend_domain        = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
-    shutter_name_override = "false"
 
     disabled_rules = {}
   },

@@ -26,7 +26,6 @@ frontends = [
     name                  = "toffee"
     custom_domain         = "toffee.test.platform.hmcts.net"
     backend_domain        = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
-    shutter_name_override = "false"
     disabled_rules        = {}
   },
 
@@ -34,7 +33,6 @@ frontends = [
     name                  = "pip-frontend"
     custom_domain         = "pip-frontend.test.platform.hmcts.net"
     backend_domain        = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
-    shutter_name_override = "false"
 
     disabled_rules = {
       LFI = [
@@ -216,7 +214,6 @@ frontends = [
     custom_domain         = "vh-test-web.test.platform.hmcts.net"
     backend_domain        = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
     cache_enabled         = "false"
-    shutter_name_override = "false"
 
     disabled_rules = {}
   },
@@ -225,7 +222,6 @@ frontends = [
     custom_domain         = "vh-video-web.test.platform.hmcts.net"
     backend_domain        = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
     cache_enabled         = "false"
-    shutter_name_override = "false"
 
     disabled_rules = {}
   },
@@ -234,7 +230,6 @@ frontends = [
     custom_domain         = "vh-admin-web.test.platform.hmcts.net"
     backend_domain        = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
     cache_enabled         = "false"
-    shutter_name_override = "false"
 
     disabled_rules = {}
   },
@@ -244,7 +239,6 @@ frontends = [
     backend_domain        = ["firewall-nonprodi-palo-sdsapimgmttest.uksouth.cloudapp.azure.com"]
     certificate_name      = "wildcard-test-platform-hmcts-net"
     cache_enabled         = "false"
-    shutter_name_override = "false"
   },
   {
     name                  = "portal-test"
@@ -258,7 +252,6 @@ frontends = [
     health_protocol       = "Https"
     forwarding_protocol   = "HttpsOnly"
     cache_enabled         = "false"
-    shutter_name_override = "false"
 
     disabled_rules = {
       SQLI = [
