@@ -517,7 +517,6 @@ frontends = [
     session_affinity             = true
     session_affinity_ttl_seconds = 14400
     appgw_cookie_based_affinity  = "Enabled"
-    shutter_name_override        = "false"
 
     mode        = "Prevention"
     health_path = "/"
