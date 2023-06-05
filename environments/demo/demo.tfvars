@@ -22,24 +22,24 @@ apim_appgw_max_capacity       = 2
 
 frontends = [
   {
-    name                  = "sds-api-mgmt"
-    custom_domain         = "sds-api-mgmt.demo.platform.hmcts.net"
-    backend_domain        = ["firewall-nonprodi-palo-sdsapimgmtdemo.uksouth.cloudapp.azure.com"]
-    certificate_name      = "wildcard-demo-platform-hmcts-net"
-    cache_enabled         = "false"
+    name             = "sds-api-mgmt"
+    custom_domain    = "sds-api-mgmt.demo.platform.hmcts.net"
+    backend_domain   = ["firewall-nonprodi-palo-sdsapimgmtdemo.uksouth.cloudapp.azure.com"]
+    certificate_name = "wildcard-demo-platform-hmcts-net"
+    cache_enabled    = "false"
   },
   {
-    name                  = "portal-demo"
-    mode                  = "Prevention"
-    custom_domain         = "portal-demo.pre-recorded-evidence.justice.gov.uk"
-    backend_domain        = ["pre-demo.powerappsportals.com"]
-    certificate_name      = "portal-demo-pre-recorded-evidence-justice-gov-uk"
-    disabled_rules        = {}
-    shutter_app           = false
-    health_path           = "/SignIn?ReturnUrl=%2F"
-    health_protocol       = "Https"
-    forwarding_protocol   = "HttpsOnly"
-    cache_enabled         = "false"
+    name                = "portal-demo"
+    mode                = "Prevention"
+    custom_domain       = "portal-demo.pre-recorded-evidence.justice.gov.uk"
+    backend_domain      = ["pre-demo.powerappsportals.com"]
+    certificate_name    = "portal-demo-pre-recorded-evidence-justice-gov-uk"
+    disabled_rules      = {}
+    shutter_app         = false
+    health_path         = "/SignIn?ReturnUrl=%2F"
+    health_protocol     = "Https"
+    forwarding_protocol = "HttpsOnly"
+    cache_enabled       = "false"
 
     disabled_rules = {
       SQLI = [
@@ -73,33 +73,33 @@ frontends = [
     ]
   },
   {
-    product               = "toffee"
-    name                  = "toffee"
-    custom_domain         = "toffee.demo.platform.hmcts.net"
-    backend_domain        = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
-    certificate_name      = "wildcard-demo-platform-hmcts-net"
+    product          = "toffee"
+    name             = "toffee"
+    custom_domain    = "toffee.demo.platform.hmcts.net"
+    backend_domain   = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
+    certificate_name = "wildcard-demo-platform-hmcts-net"
   },
   {
-    product               = "pip"
-    name                  = "pip-frontend"
-    custom_domain         = "pip-frontend.demo.platform.hmcts.net"
-    backend_domain        = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
-    certificate_name      = "wildcard-demo-platform-hmcts-net"
+    product          = "pip"
+    name             = "pip-frontend"
+    custom_domain    = "pip-frontend.demo.platform.hmcts.net"
+    backend_domain   = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
+    certificate_name = "wildcard-demo-platform-hmcts-net"
   },
   {
-    product               = "c100"
-    name                  = "c100-application"
-    custom_domain         = "c100-application.demo.platform.hmcts.net"
-    backend_domain        = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
-    certificate_name      = "wildcard-demo-platform-hmcts-net"
+    product          = "c100"
+    name             = "c100-application"
+    custom_domain    = "c100-application.demo.platform.hmcts.net"
+    backend_domain   = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
+    certificate_name = "wildcard-demo-platform-hmcts-net"
   },
   {
-    product               = "vh"
-    name                  = "vh-admin-web"
-    custom_domain         = "vh-admin-web.demo.platform.hmcts.net"
-    backend_domain        = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
-    certificate_name      = "wildcard-demo-platform-hmcts-net"
-    cache_enabled         = "false"
+    product          = "vh"
+    name             = "vh-admin-web"
+    custom_domain    = "vh-admin-web.demo.platform.hmcts.net"
+    backend_domain   = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
+    certificate_name = "wildcard-demo-platform-hmcts-net"
+    cache_enabled    = "false"
 
     disabled_rules = {
       SQLI = [
@@ -109,12 +109,12 @@ frontends = [
     }
   },
   {
-    product               = "vh"
-    name                  = "vh-test-web"
-    custom_domain         = "vh-test-web.demo.platform.hmcts.net"
-    backend_domain        = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
-    certificate_name      = "wildcard-demo-platform-hmcts-net"
-    cache_enabled         = "false"
+    product          = "vh"
+    name             = "vh-test-web"
+    custom_domain    = "vh-test-web.demo.platform.hmcts.net"
+    backend_domain   = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
+    certificate_name = "wildcard-demo-platform-hmcts-net"
+    cache_enabled    = "false"
 
     disabled_rules = {
       SQLI = [
@@ -124,12 +124,12 @@ frontends = [
     }
   },
   {
-    product               = "vh"
-    name                  = "vh-video-web"
-    custom_domain         = "vh-video-web.demo.platform.hmcts.net"
-    backend_domain        = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
-    certificate_name      = "wildcard-demo-platform-hmcts-net"
-    cache_enabled         = "false"
+    product          = "vh"
+    name             = "vh-video-web"
+    custom_domain    = "vh-video-web.demo.platform.hmcts.net"
+    backend_domain   = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
+    certificate_name = "wildcard-demo-platform-hmcts-net"
+    cache_enabled    = "false"
 
     disabled_rules = {
       SQLI = [
@@ -140,11 +140,11 @@ frontends = [
 
   },
   {
-    product               = "darts-portal"
-    name                  = "darts-portal"
-    custom_domain         = "darts-portal.demo.platform.hmcts.net"
-    backend_domain        = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
-    certificate_name      = "wildcard-demo-platform-hmcts-net"
+    product          = "darts-portal"
+    name             = "darts-portal"
+    custom_domain    = "darts-portal.demo.platform.hmcts.net"
+    backend_domain   = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
+    certificate_name = "wildcard-demo-platform-hmcts-net"
   },
 ]
 

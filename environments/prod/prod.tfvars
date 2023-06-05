@@ -23,103 +23,103 @@ apim_appgw_backend_pool_fqdns = ["firewall-prod-int-palo-sdsapimgmtprod.uksouth.
 
 frontends = [
   {
-    name                  = "dts-legacy-apps---certificatedbailiffs"
-    mode                  = "Detection" #detection config set and PR raised 20 Dec 2021
-    custom_domain         = "waf.certificatedbailiffs.justice.gov.uk"
-    backend_domain        = ["dualstack.certi-loadb-q2s48nuaqsc6-1478330638.eu-west-2.elb.amazonaws.com"]
-    shutter_app           = false
+    name           = "dts-legacy-apps---certificatedbailiffs"
+    mode           = "Detection" #detection config set and PR raised 20 Dec 2021
+    custom_domain  = "waf.certificatedbailiffs.justice.gov.uk"
+    backend_domain = ["dualstack.certi-loadb-q2s48nuaqsc6-1478330638.eu-west-2.elb.amazonaws.com"]
+    shutter_app    = false
   },
   {
-    name                  = "dts-legacy-apps---civilappeals-casetracker"
-    mode                  = "Detection" #detection config set and PR raised 20 Dec 2021
-    custom_domain         = "waf.casetracker.justice.gov.uk"
-    backend_domain        = ["dualstack.civil-loadb-qvbu457dp1b-1835055660.eu-west-2.elb.amazonaws.com"]
-    shutter_app           = false
+    name           = "dts-legacy-apps---civilappeals-casetracker"
+    mode           = "Detection" #detection config set and PR raised 20 Dec 2021
+    custom_domain  = "waf.casetracker.justice.gov.uk"
+    backend_domain = ["dualstack.civil-loadb-qvbu457dp1b-1835055660.eu-west-2.elb.amazonaws.com"]
+    shutter_app    = false
   },
   {
-    name                  = "dts-legacy-apps---courtfines"
-    mode                  = "Detection" #detection config set and PR raised 20 Dec 2021
-    custom_domain         = "waf.courtfines.direct.gov.uk"
-    backend_domain        = ["dualstack.court-loadb-8mcola2l2by0-173012739.eu-west-2.elb.amazonaws.com"]
-    shutter_app           = false
+    name           = "dts-legacy-apps---courtfines"
+    mode           = "Detection" #detection config set and PR raised 20 Dec 2021
+    custom_domain  = "waf.courtfines.direct.gov.uk"
+    backend_domain = ["dualstack.court-loadb-8mcola2l2by0-173012739.eu-west-2.elb.amazonaws.com"]
+    shutter_app    = false
   },
   {
-    name                  = "dts-legacy-apps---immigration-appeals-iacfees"
-    mode                  = "Detection" #detection config set and PR raised 20 Dec 2021
-    custom_domain         = "waf.immigrationappealsonline.justice.gov.uk"
-    backend_domain        = ["dualstack.iacfees-p-elbhmcts-6jxi2y1j3cgc-1579084157.eu-west-1.elb.amazonaws.com"]
-    shutter_app           = false
+    name           = "dts-legacy-apps---immigration-appeals-iacfees"
+    mode           = "Detection" #detection config set and PR raised 20 Dec 2021
+    custom_domain  = "waf.immigrationappealsonline.justice.gov.uk"
+    backend_domain = ["dualstack.iacfees-p-elbhmcts-6jxi2y1j3cgc-1579084157.eu-west-1.elb.amazonaws.com"]
+    shutter_app    = false
   },
   {
-    name                  = "dts-legacy-apps---redirect-service"
-    mode                  = "Detection" #detection config set and PR raised 20 Dec 2021
-    custom_domain         = "proxywaf.digital.justice.gov.uk"
-    backend_domain        = ["52.30.196.9"]
-    shutter_app           = false
+    name           = "dts-legacy-apps---redirect-service"
+    mode           = "Detection" #detection config set and PR raised 20 Dec 2021
+    custom_domain  = "proxywaf.digital.justice.gov.uk"
+    backend_domain = ["52.30.196.9"]
+    shutter_app    = false
   },
   {
-    name                  = "dts-legacy-apps---utiac"
-    mode                  = "Detection" #detection config set and PR raised 20 Dec 2021
-    custom_domain         = "waf.tribunalsdecisions.service.gov.uk"
-    backend_domain        = ["dualstack.dsd-apps-lb-01-1379550980.eu-west-1.elb.amazonaws.com"]
-    shutter_app           = false
+    name           = "dts-legacy-apps---utiac"
+    mode           = "Detection" #detection config set and PR raised 20 Dec 2021
+    custom_domain  = "waf.tribunalsdecisions.service.gov.uk"
+    backend_domain = ["dualstack.dsd-apps-lb-01-1379550980.eu-west-1.elb.amazonaws.com"]
+    shutter_app    = false
   },
   {
-    name                  = "casetracker"
-    mode                  = "Detection"
-    custom_domain         = "casetracker.justice.gov.uk"
-    backend_domain        = ["dualstack.civil-loadb-qvbu457dp1b-1835055660.eu-west-2.elb.amazonaws.com"]
-    shutter_app           = false
-    enable_ssl            = true
-    ssl_mode              = "AzureKeyVault"
-    certificate_name      = "casetracker-justice-gov-uk"
+    name             = "casetracker"
+    mode             = "Detection"
+    custom_domain    = "casetracker.justice.gov.uk"
+    backend_domain   = ["dualstack.civil-loadb-qvbu457dp1b-1835055660.eu-west-2.elb.amazonaws.com"]
+    shutter_app      = false
+    enable_ssl       = true
+    ssl_mode         = "AzureKeyVault"
+    certificate_name = "casetracker-justice-gov-uk"
   },
   {
-    name                  = "certificatedbailiffs"
-    mode                  = "Detection"
-    custom_domain         = "certificatedbailiffs.justice.gov.uk"
-    backend_domain        = ["dualstack.certi-loadb-q2s48nuaqsc6-1478330638.eu-west-2.elb.amazonaws.com"]
-    shutter_app           = false
-    enable_ssl            = true
-    ssl_mode              = "AzureKeyVault"
-    certificate_name      = "certificatedbailiffs-justice-gov-uk"
+    name             = "certificatedbailiffs"
+    mode             = "Detection"
+    custom_domain    = "certificatedbailiffs.justice.gov.uk"
+    backend_domain   = ["dualstack.certi-loadb-q2s48nuaqsc6-1478330638.eu-west-2.elb.amazonaws.com"]
+    shutter_app      = false
+    enable_ssl       = true
+    ssl_mode         = "AzureKeyVault"
+    certificate_name = "certificatedbailiffs-justice-gov-uk"
   },
   {
-    name                  = "courtfines"
-    mode                  = "Detection"
-    custom_domain         = "courtfines.direct.gov.uk"
-    backend_domain        = ["dualstack.court-loadb-8mcola2l2by0-173012739.eu-west-2.elb.amazonaws.com"]
-    shutter_app           = false
-    enable_ssl            = true
-    ssl_mode              = "AzureKeyVault"
-    certificate_name      = "courtfines-direct-gov-uk"
+    name             = "courtfines"
+    mode             = "Detection"
+    custom_domain    = "courtfines.direct.gov.uk"
+    backend_domain   = ["dualstack.court-loadb-8mcola2l2by0-173012739.eu-west-2.elb.amazonaws.com"]
+    shutter_app      = false
+    enable_ssl       = true
+    ssl_mode         = "AzureKeyVault"
+    certificate_name = "courtfines-direct-gov-uk"
   },
   {
-    name                  = "immigrationappealsonline"
-    mode                  = "Detection"
-    custom_domain         = "immigrationappealsonline.justice.gov.uk"
-    backend_domain        = ["dualstack.iacfees-p-elbhmcts-6jxi2y1j3cgc-1579084157.eu-west-1.elb.amazonaws.com"]
-    shutter_app           = false
-    enable_ssl            = true
-    ssl_mode              = "AzureKeyVault"
-    certificate_name      = "immigrationappealsonline-justice-gov-uk"
+    name             = "immigrationappealsonline"
+    mode             = "Detection"
+    custom_domain    = "immigrationappealsonline.justice.gov.uk"
+    backend_domain   = ["dualstack.iacfees-p-elbhmcts-6jxi2y1j3cgc-1579084157.eu-west-1.elb.amazonaws.com"]
+    shutter_app      = false
+    enable_ssl       = true
+    ssl_mode         = "AzureKeyVault"
+    certificate_name = "immigrationappealsonline-justice-gov-uk"
   },
   {
-    name                  = "tribunalsdecisions"
-    mode                  = "Detection"
-    custom_domain         = "tribunalsdecisions.service.gov.uk"
-    backend_domain        = ["dualstack.dtsla-utiac-lb-prod-1989357889.eu-west-1.elb.amazonaws.com"]
-    shutter_app           = false
-    enable_ssl            = true
-    ssl_mode              = "AzureKeyVault"
-    certificate_name      = "tribunalsdecisions-service-gov-uk"
+    name             = "tribunalsdecisions"
+    mode             = "Detection"
+    custom_domain    = "tribunalsdecisions.service.gov.uk"
+    backend_domain   = ["dualstack.dtsla-utiac-lb-prod-1989357889.eu-west-1.elb.amazonaws.com"]
+    shutter_app      = false
+    enable_ssl       = true
+    ssl_mode         = "AzureKeyVault"
+    certificate_name = "tribunalsdecisions-service-gov-uk"
   },
   {
-    name                  = "trib-land-reg-division"
-    mode                  = "Prevention"
-    custom_domain         = "landregistrationdivision.decisions.tribunals.gov.uk"
-    backend_domain        = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
-    shutter_app           = false
+    name           = "trib-land-reg-division"
+    mode           = "Prevention"
+    custom_domain  = "landregistrationdivision.decisions.tribunals.gov.uk"
+    backend_domain = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
+    shutter_app    = false
 
     global_exclusions = [
       {
@@ -153,11 +153,11 @@ frontends = [
     ]
   },
   {
-    name                  = "trib-immigration-svcs"
-    mode                  = "Prevention"
-    custom_domain         = "immigrationservices.decisions.tribunals.gov.uk"
-    backend_domain        = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
-    shutter_app           = false
+    name           = "trib-immigration-svcs"
+    mode           = "Prevention"
+    custom_domain  = "immigrationservices.decisions.tribunals.gov.uk"
+    backend_domain = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
+    shutter_app    = false
 
     global_exclusions = [
       {
@@ -186,11 +186,11 @@ frontends = [
     ]
   },
   {
-    name                  = "trib-info-rights"
-    mode                  = "Prevention"
-    custom_domain         = "informationrights.decisions.tribunals.gov.uk"
-    backend_domain        = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
-    shutter_app           = false
+    name           = "trib-info-rights"
+    mode           = "Prevention"
+    custom_domain  = "informationrights.decisions.tribunals.gov.uk"
+    backend_domain = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
+    shutter_app    = false
 
     global_exclusions = [
       {
@@ -234,11 +234,11 @@ frontends = [
     ]
   },
   {
-    name                  = "trib-admin-appeals"
-    mode                  = "Prevention"
-    custom_domain         = "administrativeappeals.decisions.tribunals.gov.uk"
-    backend_domain        = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
-    shutter_app           = false
+    name           = "trib-admin-appeals"
+    mode           = "Prevention"
+    custom_domain  = "administrativeappeals.decisions.tribunals.gov.uk"
+    backend_domain = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
+    shutter_app    = false
 
     global_exclusions = [
       {
@@ -272,11 +272,11 @@ frontends = [
     ]
   },
   {
-    name                  = "trib-care-standards"
-    mode                  = "Prevention"
-    custom_domain         = "carestandards.decisions.tribunals.gov.uk"
-    backend_domain        = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
-    shutter_app           = false
+    name           = "trib-care-standards"
+    mode           = "Prevention"
+    custom_domain  = "carestandards.decisions.tribunals.gov.uk"
+    backend_domain = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
+    shutter_app    = false
 
     global_exclusions = [
       {
@@ -320,11 +320,11 @@ frontends = [
     ]
   },
   {
-    name                  = "trib-lands-chamber"
-    mode                  = "Prevention"
-    custom_domain         = "landschamber.decisions.tribunals.gov.uk"
-    backend_domain        = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
-    shutter_app           = false
+    name           = "trib-lands-chamber"
+    mode           = "Prevention"
+    custom_domain  = "landschamber.decisions.tribunals.gov.uk"
+    backend_domain = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
+    shutter_app    = false
 
     global_exclusions = [
       {
@@ -353,11 +353,11 @@ frontends = [
     ]
   },
   {
-    name                  = "trib-finance-tax"
-    mode                  = "Prevention"
-    custom_domain         = "financeandtax.decisions.tribunals.gov.uk"
-    backend_domain        = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
-    shutter_app           = false
+    name           = "trib-finance-tax"
+    mode           = "Prevention"
+    custom_domain  = "financeandtax.decisions.tribunals.gov.uk"
+    backend_domain = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
+    shutter_app    = false
 
     disabled_rules = {
       SQLI = [
@@ -409,11 +409,11 @@ frontends = [
     ]
   },
   {
-    name                  = "trib-employment-appeals"
-    mode                  = "Prevention"
-    custom_domain         = "employmentappeals.decisions.tribunals.gov.uk"
-    backend_domain        = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
-    shutter_app           = false
+    name           = "trib-employment-appeals"
+    mode           = "Prevention"
+    custom_domain  = "employmentappeals.decisions.tribunals.gov.uk"
+    backend_domain = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
+    shutter_app    = false
 
     global_exclusions = [
       {
@@ -442,11 +442,11 @@ frontends = [
     ]
   },
   {
-    name                  = "trib-tansport-appeals"
-    mode                  = "Prevention"
-    custom_domain         = "transportappeals.decisions.tribunals.gov.uk"
-    backend_domain        = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
-    shutter_app           = false
+    name           = "trib-tansport-appeals"
+    mode           = "Prevention"
+    custom_domain  = "transportappeals.decisions.tribunals.gov.uk"
+    backend_domain = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
+    shutter_app    = false
 
     global_exclusions = [
       {
@@ -475,11 +475,11 @@ frontends = [
     ]
   },
   {
-    name                  = "trib-cicap"
-    mode                  = "Prevention"
-    custom_domain         = "cicap.decisions.tribunals.gov.uk"
-    backend_domain        = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
-    shutter_app           = false
+    name           = "trib-cicap"
+    mode           = "Prevention"
+    custom_domain  = "cicap.decisions.tribunals.gov.uk"
+    backend_domain = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
+    shutter_app    = false
 
     global_exclusions = [
       {
@@ -701,26 +701,26 @@ frontends = [
     session_affinity_ttl_seconds = 14400
     appgw_cookie_based_affinity  = "Enabled"
 
-    mode                  = "Detection"
-    health_path           = "/"
-    disabled_rules        = {}
+    mode           = "Detection"
+    health_path    = "/"
+    disabled_rules = {}
   },
   {
-    name                  = "pip-frontend"
-    custom_domain         = "pip-frontend.platform.hmcts.net"
-    backend_domain        = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-    certificate_name      = "wildcard-platform-hmcts-net"
-    shutter_app           = true
-    disabled_rules        = {}
-    global_exclusions     = []
+    name              = "pip-frontend"
+    custom_domain     = "pip-frontend.platform.hmcts.net"
+    backend_domain    = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    certificate_name  = "wildcard-platform-hmcts-net"
+    shutter_app       = true
+    disabled_rules    = {}
+    global_exclusions = []
   },
   {
-    name                  = "court-tribunal-hearings"
-    custom_domain         = "www.court-tribunal-hearings.service.gov.uk"
-    backend_domain        = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-    certificate_name      = "wildcard-platform-hmcts-net"
-    shutter_app           = true
-    disabled_rules        = {}
+    name             = "court-tribunal-hearings"
+    custom_domain    = "www.court-tribunal-hearings.service.gov.uk"
+    backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    certificate_name = "wildcard-platform-hmcts-net"
+    shutter_app      = true
+    disabled_rules   = {}
     global_exclusions = [
       ## Open ID response parameters
       {
@@ -781,16 +781,16 @@ frontends = [
     ]
   },
   {
-    name                  = "court-tribunal-hearings-b2c-sign-in"
-    custom_domain         = "sign-in.court-tribunal-hearings.service.gov.uk"
-    backend_domain        = ["hmctspipprod.b2clogin.com"]
-    host_header           = "hmctspipprod.b2clogin.com"
-    forwarding_protocol   = "HttpsOnly"
-    cache_enabled         = false
-    certificate_name      = "wildcard-court-tribunal-hearings-service-gov-uk"
-    ssl_mode              = "AzureKeyVault"
-    shutter_app           = false
-    disabled_rules        = {}
+    name                = "court-tribunal-hearings-b2c-sign-in"
+    custom_domain       = "sign-in.court-tribunal-hearings.service.gov.uk"
+    backend_domain      = ["hmctspipprod.b2clogin.com"]
+    host_header         = "hmctspipprod.b2clogin.com"
+    forwarding_protocol = "HttpsOnly"
+    cache_enabled       = false
+    certificate_name    = "wildcard-court-tribunal-hearings-service-gov-uk"
+    ssl_mode            = "AzureKeyVault"
+    shutter_app         = false
+    disabled_rules      = {}
     global_exclusions = [
       {
         match_variable = "QueryStringArgNames"
@@ -865,16 +865,16 @@ frontends = [
     ]
   },
   {
-    name                  = "court-tribunal-hearings-b2c-staff"
-    custom_domain         = "staff.court-tribunal-hearings.service.gov.uk"
-    backend_domain        = ["hmctspipprod.b2clogin.com"]
-    host_header           = "hmctspipprod.b2clogin.com"
-    forwarding_protocol   = "HttpsOnly"
-    cache_enabled         = false
-    certificate_name      = "wildcard-court-tribunal-hearings-service-gov-uk"
-    ssl_mode              = "AzureKeyVault"
-    shutter_app           = false
-    disabled_rules        = {}
+    name                = "court-tribunal-hearings-b2c-staff"
+    custom_domain       = "staff.court-tribunal-hearings.service.gov.uk"
+    backend_domain      = ["hmctspipprod.b2clogin.com"]
+    host_header         = "hmctspipprod.b2clogin.com"
+    forwarding_protocol = "HttpsOnly"
+    cache_enabled       = false
+    certificate_name    = "wildcard-court-tribunal-hearings-service-gov-uk"
+    ssl_mode            = "AzureKeyVault"
+    shutter_app         = false
+    disabled_rules      = {}
     global_exclusions = [
       {
         match_variable = "QueryStringArgNames"
@@ -949,12 +949,12 @@ frontends = [
     ]
   },
   {
-    name                  = "vh-video-web"
-    custom_domain         = "video.hearings.reform.hmcts.net"
-    backend_domain        = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-    certificate_name      = "wildcard-hearings-reform-hmcts-net"
-    disabled_rules        = {}
-    shutter_app           = true
+    name             = "vh-video-web"
+    custom_domain    = "video.hearings.reform.hmcts.net"
+    backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    certificate_name = "wildcard-hearings-reform-hmcts-net"
+    disabled_rules   = {}
+    shutter_app      = true
 
     global_exclusions = [
       {
@@ -982,28 +982,28 @@ frontends = [
     ]
   },
   {
-    name                  = "toffee"
-    custom_domain         = "toffee.platform.hmcts.net"
-    backend_domain        = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-    certificate_name      = "wildcard-platform-hmcts-net"
-    disabled_rules        = {}
-    shutter_app           = false
+    name             = "toffee"
+    custom_domain    = "toffee.platform.hmcts.net"
+    backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    certificate_name = "wildcard-platform-hmcts-net"
+    disabled_rules   = {}
+    shutter_app      = false
   },
   {
-    name                  = "sds-api-mgmt"
-    custom_domain         = "sds-api-mgmt.platform.hmcts.net"
-    backend_domain        = ["firewall-prod-int-palo-sdsapimgmtprod.uksouth.cloudapp.azure.com"]
-    certificate_name      = "wildcard-platform-hmcts-net"
-    cache_enabled         = "false"
+    name             = "sds-api-mgmt"
+    custom_domain    = "sds-api-mgmt.platform.hmcts.net"
+    backend_domain   = ["firewall-prod-int-palo-sdsapimgmtprod.uksouth.cloudapp.azure.com"]
+    certificate_name = "wildcard-platform-hmcts-net"
+    cache_enabled    = "false"
   },
   {
-    name                  = "c100-application"
-    custom_domain         = "c100-application.platform.hmcts.net"
-    backend_domain        = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-    certificate_name      = "wildcard-platform-hmcts-net"
-    shutter_app           = false
-    health_path           = "/status"
-    mode                  = "Detection"
+    name             = "c100-application"
+    custom_domain    = "c100-application.platform.hmcts.net"
+    backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    certificate_name = "wildcard-platform-hmcts-net"
+    shutter_app      = false
+    health_path      = "/status"
+    mode             = "Detection"
     global_exclusions = [
       {
         match_variable = "RequestCookieNames"
@@ -1013,17 +1013,17 @@ frontends = [
     ]
   },
   {
-    name                  = "portal"
-    mode                  = "Prevention"
-    custom_domain         = "portal.pre-recorded-evidence.justice.gov.uk"
-    backend_domain        = ["pre-prod.powerappsportals.com"]
-    certificate_name      = "portal-pre-recorded-evidence-justice-gov-uk"
-    disabled_rules        = {}
-    shutter_app           = false
-    health_path           = "/SignIn?ReturnUrl=%2F"
-    health_protocol       = "Https"
-    forwarding_protocol   = "HttpsOnly"
-    cache_enabled         = "false"
+    name                = "portal"
+    mode                = "Prevention"
+    custom_domain       = "portal.pre-recorded-evidence.justice.gov.uk"
+    backend_domain      = ["pre-prod.powerappsportals.com"]
+    certificate_name    = "portal-pre-recorded-evidence-justice-gov-uk"
+    disabled_rules      = {}
+    shutter_app         = false
+    health_path         = "/SignIn?ReturnUrl=%2F"
+    health_protocol     = "Https"
+    forwarding_protocol = "HttpsOnly"
+    cache_enabled       = "false"
     disabled_rules = {
       SQLI = [
         "942440",
@@ -1056,24 +1056,24 @@ frontends = [
     ]
   },
   {
-    name                  = "ejudiciary-home"
-    custom_domain         = "home.ejudiciary.net"
-    shutter_app           = false
-    redirect              = "judiciary.sharepoint.com"
+    name          = "ejudiciary-home"
+    custom_domain = "home.ejudiciary.net"
+    shutter_app   = false
+    redirect      = "judiciary.sharepoint.com"
   },
   {
-    name                  = "ejudiciary-home-apex"
-    custom_domain         = "ejudiciary.net"
-    ssl_mode              = "AzureKeyVault"
-    shutter_app           = false
-    redirect              = "judiciary.sharepoint.com"
-    certificate_name      = "ejudiciary-net"
+    name             = "ejudiciary-home-apex"
+    custom_domain    = "ejudiciary.net"
+    ssl_mode         = "AzureKeyVault"
+    shutter_app      = false
+    redirect         = "judiciary.sharepoint.com"
+    certificate_name = "ejudiciary-net"
   },
   {
-    name                  = "ejudiciary-home-www"
-    custom_domain         = "www.ejudiciary.net"
-    shutter_app           = false
-    redirect              = "judiciary.sharepoint.com"
+    name          = "ejudiciary-home-www"
+    custom_domain = "www.ejudiciary.net"
+    shutter_app   = false
+    redirect      = "judiciary.sharepoint.com"
   },
 ]
 
