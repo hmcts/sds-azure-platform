@@ -27,7 +27,6 @@ frontends = [
     certificate_name      = "wildcard-sandbox-platform-hmcts-net"
     backend_domain        = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
     disabled_rules        = {}
-    shutter_name_override = "false"
   },
   {
     product               = "sds-api-mgmt"
@@ -36,7 +35,6 @@ frontends = [
     backend_domain        = ["firewall-sbox-int-palo-sdsapimgmt.uksouth.cloudapp.azure.com"]
     certificate_name      = "wildcard-sandbox-platform-hmcts-net"
     cache_enabled         = "false"
-    shutter_name_override = "false"
   },
   {
     name                  = "vh-test-web"
@@ -46,7 +44,6 @@ frontends = [
     disabled_rules        = {}
     shutter_app           = false
     cache_enabled         = "false"
-    shutter_name_override = "false"
 
     global_exclusions = [
       {
@@ -64,7 +61,6 @@ frontends = [
     disabled_rules        = {}
     shutter_app           = false
     cache_enabled         = "false"
-    shutter_name_override = "false"
 
     global_exclusions = [
       {
@@ -82,7 +78,6 @@ frontends = [
     disabled_rules        = {}
     shutter_app           = false
     cache_enabled         = "false"
-    shutter_name_override = "false"
 
     global_exclusions = [
       {
@@ -104,7 +99,6 @@ frontends = [
     health_protocol       = "Https"
     forwarding_protocol   = "HttpsOnly"
     cache_enabled         = "false"
-    shutter_name_override = "false"
 
     disabled_rules = {
       SQLI = [
@@ -144,7 +138,6 @@ frontends = [
     backend_domain        = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
     disabled_rules        = {}
     shutter_app           = false
-    shutter_name_override = "false"
   },
 ]
 

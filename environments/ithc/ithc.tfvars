@@ -27,7 +27,6 @@ frontends = [
     custom_domain         = "toffee.ithc.platform.hmcts.net"
     backend_domain        = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
     disabled_rules        = {}
-    shutter_name_override = "false"
   },
   {
     name                  = "c100-application"
@@ -36,7 +35,6 @@ frontends = [
     disabled_rules        = {}
     health_path           = "/status"
     mode                  = "Detection"
-    shutter_name_override = "false"
     global_exclusions = [
       {
         match_variable = "RequestCookieNames"
@@ -53,7 +51,6 @@ frontends = [
     shutter_app           = true
     disabled_rules        = {}
     global_exclusions     = []
-    shutter_name_override = "false"
   },
   {
     name           = "vh-test-web"
@@ -62,7 +59,6 @@ frontends = [
     cache_enabled  = "false"
 
     disabled_rules        = {}
-    shutter_name_override = "false"
 
     global_exclusions = [
       {
@@ -79,7 +75,6 @@ frontends = [
     cache_enabled  = "false"
 
     disabled_rules        = {}
-    shutter_name_override = "false"
 
     global_exclusions = [
       {
@@ -96,7 +91,6 @@ frontends = [
     cache_enabled  = "false"
 
     disabled_rules        = {}
-    shutter_name_override = "false"
 
     global_exclusions = [
       {
@@ -110,7 +104,6 @@ frontends = [
     name                  = "vh-service-web"
     custom_domain         = "vh-service-web.ithc.platform.hmcts.net"
     backend_domain        = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
-    shutter_name_override = "false"
 
     disabled_rules = {}
   },
@@ -120,7 +113,6 @@ frontends = [
     backend_domain        = ["firewall-nonprodi-palo-sdsapimgmtithc.uksouth.cloudapp.azure.com"]
     certificate_name      = "wildcard-ithc-platform-hmcts-net"
     cache_enabled         = "false"
-    shutter_name_override = "false"
   }
 ]
 

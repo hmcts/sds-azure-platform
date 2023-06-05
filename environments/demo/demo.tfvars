@@ -27,7 +27,6 @@ frontends = [
     backend_domain        = ["firewall-nonprodi-palo-sdsapimgmtdemo.uksouth.cloudapp.azure.com"]
     certificate_name      = "wildcard-demo-platform-hmcts-net"
     cache_enabled         = "false"
-    shutter_name_override = "false"
   },
   {
     name                  = "portal-demo"
@@ -41,7 +40,6 @@ frontends = [
     health_protocol       = "Https"
     forwarding_protocol   = "HttpsOnly"
     cache_enabled         = "false"
-    shutter_name_override = "false"
 
     disabled_rules = {
       SQLI = [
@@ -80,7 +78,6 @@ frontends = [
     custom_domain         = "toffee.demo.platform.hmcts.net"
     backend_domain        = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
     certificate_name      = "wildcard-demo-platform-hmcts-net"
-    shutter_name_override = "false"
   },
   {
     product               = "pip"
@@ -88,7 +85,6 @@ frontends = [
     custom_domain         = "pip-frontend.demo.platform.hmcts.net"
     backend_domain        = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
     certificate_name      = "wildcard-demo-platform-hmcts-net"
-    shutter_name_override = "false"
   },
   {
     product               = "c100"
@@ -96,7 +92,6 @@ frontends = [
     custom_domain         = "c100-application.demo.platform.hmcts.net"
     backend_domain        = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
     certificate_name      = "wildcard-demo-platform-hmcts-net"
-    shutter_name_override = "false"
   },
   {
     product               = "vh"
@@ -105,7 +100,6 @@ frontends = [
     backend_domain        = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
     certificate_name      = "wildcard-demo-platform-hmcts-net"
     cache_enabled         = "false"
-    shutter_name_override = "false"
 
     disabled_rules = {
       SQLI = [
@@ -121,7 +115,6 @@ frontends = [
     backend_domain        = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
     certificate_name      = "wildcard-demo-platform-hmcts-net"
     cache_enabled         = "false"
-    shutter_name_override = "false"
 
     disabled_rules = {
       SQLI = [
@@ -137,7 +130,6 @@ frontends = [
     backend_domain        = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
     certificate_name      = "wildcard-demo-platform-hmcts-net"
     cache_enabled         = "false"
-    shutter_name_override = "false"
 
     disabled_rules = {
       SQLI = [
@@ -153,7 +145,6 @@ frontends = [
     custom_domain         = "darts-portal.demo.platform.hmcts.net"
     backend_domain        = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
     certificate_name      = "wildcard-demo-platform-hmcts-net"
-    shutter_name_override = "false"
   },
 ]
 
