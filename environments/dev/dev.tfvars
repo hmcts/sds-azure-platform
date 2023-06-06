@@ -26,7 +26,6 @@ frontends = [
     name           = "toffee"
     custom_domain  = "toffee.dev.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
-
     disabled_rules = {}
   },
 
@@ -40,7 +39,6 @@ frontends = [
     session_affinity             = true
     session_affinity_ttl_seconds = 14400
     appgw_cookie_based_affinity  = "Enabled"
-
     disabled_rules = {
       JAVA = [
         "944250",

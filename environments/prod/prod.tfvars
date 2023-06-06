@@ -964,12 +964,13 @@ frontends = [
     ]
   },
   {
-    name             = "vh-admin-web"
-    custom_domain    = "admin.hearings.reform.hmcts.net"
-    backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-    certificate_name = "wildcard-hearings-reform-hmcts-net"
-    disabled_rules   = {}
-    shutter_app      = true
+    name                  = "vh-admin-web"
+    custom_domain         = "admin.hearings.reform.hmcts.net"
+    backend_domain        = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    certificate_name      = "wildcard-hearings-reform-hmcts-net"
+    disabled_rules        = {}
+    shutter_app           = true
+    shutter_name_override = "vh-admin-web"
 
     global_exclusions = [
       {
@@ -1022,7 +1023,6 @@ frontends = [
     health_protocol     = "Https"
     forwarding_protocol = "HttpsOnly"
     cache_enabled       = "false"
-
     disabled_rules = {
       SQLI = [
         "942440",
