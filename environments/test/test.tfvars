@@ -216,6 +216,15 @@ frontends = [
     cache_enabled  = "false"
 
     disabled_rules = {}
+
+    global_exclusions = [
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      }
+    ]
+
   },
   {
     name           = "vh-video-web"
@@ -224,6 +233,14 @@ frontends = [
     cache_enabled  = "false"
 
     disabled_rules = {}
+
+    global_exclusions = [
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      }
+    ]
   },
   {
     name           = "vh-admin-web"
@@ -232,6 +249,14 @@ frontends = [
     cache_enabled  = "false"
 
     disabled_rules = {}
+
+    global_exclusions = [
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      }
+    ]
   },
   {
     name             = "sds-api-mgmt"
