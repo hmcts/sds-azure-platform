@@ -145,6 +145,25 @@ frontends = [
     custom_domain    = "darts-portal.demo.platform.hmcts.net"
     backend_domain   = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-demo-platform-hmcts-net"
+
+    global_exclusions = [
+      ## Open ID response parameters
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "error_description"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "connect.sid"
+      },
+    ]
   },
 ]
 
