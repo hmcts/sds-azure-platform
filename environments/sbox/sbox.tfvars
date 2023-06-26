@@ -139,6 +139,7 @@ frontends = [
     backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
     disabled_rules   = {}
     shutter_app      = false
+    cache_enabled    = false
 
     global_exclusions = [
       ## Open ID response parameters
