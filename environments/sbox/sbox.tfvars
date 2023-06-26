@@ -154,7 +154,7 @@ frontends = [
       {
         match_variable = "RequestCookieNames"
         operator       = "Equals"
-        selector       = "connect.sid"
+        selector       = "dp_session"
       },
     ]
   },
