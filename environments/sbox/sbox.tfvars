@@ -167,3 +167,14 @@ apim_appgw_exclusions = [
     selector       = "iss"
   }
 ]
+
+test_frontends = [
+  {
+
+    name             = "toffee"
+    custom_domain    = "toffee.sandbox.platform.hmcts.net"
+    certificate_name = "wildcard-sandbox-platform-hmcts-net"
+    backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
+    disabled_rules   = {}
+  }
+]
