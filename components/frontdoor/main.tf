@@ -40,7 +40,7 @@ module "frontdoor_for_testing_migration" {
 
   common_tags                = module.ctags.common_tags
   env                        = "sbox"
-  project                    = "test"
+  project                    = "hmcts-test"
   location                   = var.location
   frontends                  = var.test_frontends
   ssl_mode                   = "FrontDoor"
