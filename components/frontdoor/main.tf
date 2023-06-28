@@ -39,7 +39,7 @@ module "frontdoor_for_testing_migration" {
   source = "git::https://github.com/hmcts/terraform-module-frontdoor.git?ref=master"
 
   common_tags                = module.ctags.common_tags
-  env                        = var.env
+  env                        = "sbox"
   project                    = "test"
   location                   = var.location
   frontends                  = var.frontends
