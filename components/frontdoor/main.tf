@@ -51,4 +51,6 @@ module "frontdoor_for_testing_migration" {
   certificate_name_check     = true
   key_vault_resource_group   = "sds-platform-${var.environment}-rg"
   log_analytics_workspace_id = module.logworkspace.workspace_id
+  add_access_policy          = "false"
+  add_access_policy_role     = "false"
 }
