@@ -35,7 +35,7 @@ module "landing_zone" {
   log_analytics_workspace_id = module.logworkspace.workspace_id
 }
 
-module "frontdoor_for_testing_migration" {
+module "frontdoor_testing_migration" {
   source = "git::https://github.com/hmcts/terraform-module-frontdoor.git?ref=master"
 
   common_tags                = module.ctags.common_tags
