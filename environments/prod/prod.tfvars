@@ -1075,15 +1075,6 @@ frontends = [
     shutter_app   = false
     redirect      = "judiciary.sharepoint.com"
   },
-  {
-    name             = "darts-portal"
-    custom_domain    = "darts-portal.platform.hmcts.net"
-    backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-    certificate_name = "wildcard-platform-hmcts-net"
-    cache_enabled    = false
-
-    disabled_rules = {}
-  },
 ]
 
 
