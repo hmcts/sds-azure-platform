@@ -18,7 +18,7 @@ locals {
 }
 
 module "landing_zone" {
-  source = "git::https://github.com/hmcts/terraform-module-frontdoor.git?ref=master"
+  source = "git::https://github.com/hmcts/terraform-module-frontdoor.git?ref=DTSPO-13992-test-new-version-of-frontdoor"
 
   common_tags                = module.ctags.common_tags
   env                        = var.env
@@ -33,4 +33,5 @@ module "landing_zone" {
   certificate_name_check     = true
   key_vault_resource_group   = "sds-platform-${var.environment}-rg"
   log_analytics_workspace_id = module.logworkspace.workspace_id
+  front_door_sku_name        = "Premium_AzureFrontDoor"
 }
