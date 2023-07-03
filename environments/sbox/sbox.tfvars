@@ -9,6 +9,7 @@ vnet_rg            = "ss-sbox-network-rg"
 vnet_name          = "ss-sbox-vnet"
 shutter_rg         = "sds-platform-sbox-rg"
 cdn_sku            = "Standard_Verizon"
+front_door_sku_name    = "Premium_AzureFrontDoor"
 ssl_policy = {
   policy_type          = "Predefined"
   policy_name          = "AppGwSslPolicy20220101S"
