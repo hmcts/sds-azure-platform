@@ -27,6 +27,7 @@ frontends = [
     custom_domain    = "toffee.sandbox.platform.hmcts.net"
     certificate_name = "wildcard-sandbox-platform-hmcts-net"
     backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
+    origin_host_name = "firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"
     disabled_rules   = {}
   },
   {
@@ -34,6 +35,7 @@ frontends = [
     name             = "sds-api-mgmt"
     custom_domain    = "sds-api-mgmt.sandbox.platform.hmcts.net"
     backend_domain   = ["firewall-sbox-int-palo-sdsapimgmt.uksouth.cloudapp.azure.com"]
+    origin_host_name = "firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"
     certificate_name = "wildcard-sandbox-platform-hmcts-net"
     cache_enabled    = "false"
   },
@@ -41,6 +43,7 @@ frontends = [
     name             = "vh-test-web"
     custom_domain    = "vh-test-web.sandbox.platform.hmcts.net"
     backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
+    origin_host_name = "firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"
     certificate_name = "wildcard-sandbox-platform-hmcts-net"
     disabled_rules   = {}
     shutter_app      = false
@@ -58,6 +61,7 @@ frontends = [
     name             = "vh-video-web"
     custom_domain    = "vh-video-web.sandbox.platform.hmcts.net"
     backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
+    origin_host_name = "firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"
     certificate_name = "wildcard-sandbox-platform-hmcts-net"
     disabled_rules   = {}
     shutter_app      = false
@@ -75,6 +79,7 @@ frontends = [
     name             = "vh-admin-web"
     custom_domain    = "vh-admin-web.sandbox.platform.hmcts.net"
     backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
+    origin_host_name = "firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"
     certificate_name = "wildcard-sandbox-platform-hmcts-net"
     disabled_rules   = {}
     shutter_app      = false
@@ -138,6 +143,7 @@ frontends = [
     custom_domain    = "darts-portal.sandbox.platform.hmcts.net"
     certificate_name = "wildcard-sandbox-platform-hmcts-net"
     backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
+    origin_host_name = "firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"
     disabled_rules   = {}
     shutter_app      = false
 
