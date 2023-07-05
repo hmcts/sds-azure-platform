@@ -42,6 +42,7 @@ module "test_new_frontdoor" {
   env                        = var.env
   project                    = "hmcts-new-test"
   location                   = var.location
+  frontends                  = var.frontends
   new_frontends              = var.new_frontends
   ssl_mode                   = "FrontDoor"
   resource_group             = azurerm_resource_group.fd_rg.name
