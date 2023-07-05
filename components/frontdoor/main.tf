@@ -33,7 +33,6 @@ module "landing_zone" {
   certificate_name_check     = true
   key_vault_resource_group   = "sds-platform-${var.environment}-rg"
   log_analytics_workspace_id = module.logworkspace.workspace_id
-  front_door_sku_name        = var.front_door_sku_name
 }
 
 module "test_new_frontdoor" {
