@@ -53,7 +53,7 @@ module "test_new_frontdoor" {
   key_vault_resource_group   = "sds-platform-${var.environment}-rg"
   log_analytics_workspace_id = module.logworkspace.workspace_id
   front_door_sku_name        = var.front_door_sku_name
-  health_probe               = true 
+  health_probe               = true
   add_access_policy          = "false"
   add_access_policy_role     = "false"
 }
