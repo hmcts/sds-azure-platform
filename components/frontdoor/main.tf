@@ -40,7 +40,7 @@ module "test_new_frontdoor" {
 
   common_tags                = module.ctags.common_tags
   env                        = var.env
-  project                    = "hmcts-new-test"
+  project                    = "sdshmcts-new-test"
   location                   = var.location
   frontends                  = var.frontends
   new_frontends              = var.new_frontends
