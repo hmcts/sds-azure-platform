@@ -954,6 +954,7 @@ frontends = [
     certificate_name = "wildcard-hearings-reform-hmcts-net"
     disabled_rules   = {}
     shutter_app      = true
+    cache_enabled    = "false"
 
     global_exclusions = [
       {
@@ -970,6 +971,7 @@ frontends = [
     certificate_name      = "wildcard-hearings-reform-hmcts-net"
     disabled_rules        = {}
     shutter_app           = true
+    cache_enabled         = "false"
     shutter_name_override = "vh-admin-web"
 
     global_exclusions = [
