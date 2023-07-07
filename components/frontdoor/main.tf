@@ -17,23 +17,23 @@ locals {
   vault_name              = "acme${replace(local.subscription_short_name, "-", "")}"
 }
 
-module "landing_zone" {
-  source = "git::https://github.com/hmcts/terraform-module-frontdoor.git?ref=master"
+# module "landing_zone" {
+#   source = "git::https://github.com/hmcts/terraform-module-frontdoor.git?ref=master"
 
-  common_tags                = module.ctags.common_tags
-  env                        = var.env
-  project                    = var.project
-  location                   = var.location
-  frontends                  = var.frontends
-  ssl_mode                   = "FrontDoor"
-  resource_group             = azurerm_resource_group.fd_rg.name
-  subscription_id            = data.azurerm_subscription.current.subscription_id
-  certificate_key_vault_name = local.vault_name
-  oms_env                    = var.oms_env
-  certificate_name_check     = true
-  key_vault_resource_group   = "sds-platform-${var.environment}-rg"
-  log_analytics_workspace_id = module.logworkspace.workspace_id
-}
+#   common_tags                = module.ctags.common_tags
+#   env                        = var.env
+#   project                    = var.project
+#   location                   = var.location
+#   frontends                  = var.frontends
+#   ssl_mode                   = "FrontDoor"
+#   resource_group             = azurerm_resource_group.fd_rg.name
+#   subscription_id            = data.azurerm_subscription.current.subscription_id
+#   certificate_key_vault_name = local.vault_name
+#   oms_env                    = var.oms_env
+#   certificate_name_check     = true
+#   key_vault_resource_group   = "sds-platform-${var.environment}-rg"
+#   log_analytics_workspace_id = module.logworkspace.workspace_id
+# }
 
 module "test_new_frontdoor" {
   source = "git::https://github.com/hmcts/terraform-module-frontdoor.git?ref=DTSPO-13992-test-new-version-of-frontdoor"
