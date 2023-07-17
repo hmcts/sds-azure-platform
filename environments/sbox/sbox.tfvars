@@ -33,6 +33,7 @@ frontends = [
   {
     product          = "sds-api-mgmt"
     name             = "sds-api-mgmt"
+    shutter_app      = false
     custom_domain    = "sds-api-mgmt.sandbox.platform.hmcts.net"
     backend_domain   = ["firewall-sbox-int-palo-sdsapimgmt.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-sandbox-platform-hmcts-net"
