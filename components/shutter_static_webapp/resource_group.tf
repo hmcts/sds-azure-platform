@@ -1,4 +1,4 @@
 resource "azurerm_resource_group" "rg" {
   location = var.location
-  name     = {var.product}-shutter-webapp-rg
+  name     = "${var.product}-shutter-webapp-rg"
 }
