@@ -3,7 +3,7 @@ variable "location" {
   description = "Enter Azure location"
   type        = string
 }
-
+variable "frontends" {}
 variable "env" {
   description = "Enter the environment. eg prod, aat"
   type        = string
