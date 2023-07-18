@@ -11,6 +11,7 @@ module "static_webapp" {
   shutter_apps        = local.shutter_apps
   tags                = module.ctags.common_tags
   resource_group_name = azurerm_resource_group.rg.name
+  gh_token            = data.azurerm_key_vault_secret.githubapi.value
 }
 
 module "ctags" {
