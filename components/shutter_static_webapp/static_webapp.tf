@@ -25,6 +25,6 @@ module "ctags" {
 output "debug_shutter" {
   value = local.shutter_apps
 }
-output "githubrepo"{
+output "githubrepo" {
   value = module.static_webapp.static_webapp
 }
