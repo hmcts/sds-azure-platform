@@ -119,6 +119,10 @@ parameters:
         environment: "sbox"
         dependsOn: "Precheck"
         pipeline_tests: false
+      - deployment: "shutter_static_webapp"
+        environment: "sbox"
+        dependsOn: "Precheck"
+        pipeline_tests: false
       - deployment: "shutter"
         environment: "prod"
         dependsOn: "sbox_shutter"
