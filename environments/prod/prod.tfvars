@@ -713,7 +713,7 @@ frontends = [
     disabled_rules    = {}
     global_exclusions = []
     dns_zone_name     = "platform.hmcts.net"
-    
+
   },
   {
     name             = "court-tribunal-hearings"
@@ -974,7 +974,7 @@ frontends = [
     certificate_name      = "wildcard-hearings-reform-hmcts-net"
     disabled_rules        = {}
     shutter_app           = true
-     dns_zone_name        = "hearings.reform.hmcts.net"
+    dns_zone_name         = "hearings.reform.hmcts.net"
     shutter_name_override = "vh-admin-web"
 
     global_exclusions = [
