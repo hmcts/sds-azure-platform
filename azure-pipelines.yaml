@@ -126,7 +126,7 @@ parameters:
       - deployment: "shutter"
         environment: "prod"
         dependsOn: "sbox_shutter"
-      - deployment: "shutter"
+      - deployment: "shutter_static_webapp"
         environment: "prod"
         dependsOn: "sbox_shutter_static_webapp"
       - deployment: "apim"
