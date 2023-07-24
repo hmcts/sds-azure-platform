@@ -712,6 +712,8 @@ frontends = [
     shutter_app       = true
     disabled_rules    = {}
     global_exclusions = []
+    dns_zone_name     = "platform.hmcts.net"
+    
   },
   {
     name             = "court-tribunal-hearings"
@@ -719,6 +721,7 @@ frontends = [
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-platform-hmcts-net"
     shutter_app      = true
+    dns_zone_name    = "court-tribunal-hearings.service.gov.uk"
     disabled_rules   = {}
     global_exclusions = [
       ## Open ID response parameters
@@ -954,6 +957,7 @@ frontends = [
     certificate_name = "wildcard-hearings-reform-hmcts-net"
     disabled_rules   = {}
     shutter_app      = true
+    dns_zone_name    = "hearings.reform.hmcts.net"
 
     global_exclusions = [
       {
@@ -970,6 +974,7 @@ frontends = [
     certificate_name      = "wildcard-hearings-reform-hmcts-net"
     disabled_rules        = {}
     shutter_app           = true
+     dns_zone_name        = "hearings.reform.hmcts.net"
     shutter_name_override = "vh-admin-web"
 
     global_exclusions = [
