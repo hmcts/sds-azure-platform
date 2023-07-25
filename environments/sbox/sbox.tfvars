@@ -31,7 +31,7 @@ frontends = [
     disabled_rules   = {}
   },
   {
-    name             = "sandbox.platform.hmcts.net"
+    name             = "toffeeapexdomain"
     shutter_app      = true
     dns_zone_name    = "sandbox.platform.hmcts.net"
     custom_domain    = "sandbox.platform.hmcts.net"
