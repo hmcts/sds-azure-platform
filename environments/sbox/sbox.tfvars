@@ -31,6 +31,13 @@ frontends = [
     disabled_rules   = {}
   },
   {
+    name             = "sandbox.platform.hmcts.net"
+    shutter_app      = true
+    dns_zone_name    = "sandbox.platform.hmcts.net"
+    custom_domain    = "sandbox.platform.hmcts.net"
+    certificate_name = "sandbox.platform.hmcts.net"
+  },
+  {
     product          = "sds-api-mgmt"
     name             = "sds-api-mgmt"
     shutter_app      = false
