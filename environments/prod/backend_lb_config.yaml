@@ -1,5 +1,4 @@
 ---
-
 gateways:
   - gateway_configuration:
       host_name_suffix: platform.hmcts.net
@@ -8,10 +7,10 @@ gateways:
       exclude_env_in_app_name: true
       private_ip_address: 10.144.32.136
     app_configuration:
-  # Toffee
+      # Toffee
       - product: toffee
         component: recipe-backend
-    # Publication and Information
+      # Publication and Information
       - product: pip
         component: business-rules
         ssl_enabled: true
@@ -30,7 +29,7 @@ gateways:
       - product: pip
         component: account-management
         ssl_enabled: true
-    # Video Hearings
+      # Video Hearings
       - product: vh
         component: user-api
         ssl_enabled: true
@@ -53,3 +52,9 @@ gateways:
       - product: darts
         component: gateway
         ssl_enabled: true
+      # Libra GoB Integration Service
+      - product: gob
+        component: gateway
+        host_name_prefix: cloudgobgateway
+        ssl_enabled: true
+        health_path_override: "/services/themisgatewayapi?wsdl"
