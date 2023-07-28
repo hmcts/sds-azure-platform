@@ -68,7 +68,7 @@ frontends = [
     name             = "casetracker"
     mode             = "Detection"
     custom_domain    = "casetracker.justice.gov.uk"
-    dns_zone_name    =  "justice.gov.uk"
+    dns_zone_name    = "justice.gov.uk"
     backend_domain   = ["dualstack.civil-loadb-qvbu457dp1b-1835055660.eu-west-2.elb.amazonaws.com"]
     shutter_app      = false
     enable_ssl       = true
@@ -79,7 +79,7 @@ frontends = [
     name             = "certificatedbailiffs"
     mode             = "Detection"
     custom_domain    = "certificatedbailiffs.justice.gov.uk"
-    dns_zone_name    =  "certificatedbailiffs.justice.gov.uk"
+    dns_zone_name    = "certificatedbailiffs.justice.gov.uk"
     backend_domain   = ["dualstack.certi-loadb-q2s48nuaqsc6-1478330638.eu-west-2.elb.amazonaws.com"]
     shutter_app      = false
     enable_ssl       = true
@@ -513,13 +513,13 @@ frontends = [
     ]
   },
   {
-    name             = "jd-bureau"
-    custom_domain    = "juror-bureau.justice.gov.uk"
-    dns_zone_name    = "juror-bureau.justice.gov.uk"
-    backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-    ssl_mode         = "AzureKeyVault"
-    certificate_name = "juror-bureau-justice-gov-uk"
-    shutter_app       = true
+    name                         = "jd-bureau"
+    custom_domain                = "juror-bureau.justice.gov.uk"
+    dns_zone_name                = "juror-bureau.justice.gov.uk"
+    backend_domain               = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    ssl_mode                     = "AzureKeyVault"
+    certificate_name             = "juror-bureau-justice-gov-uk"
+    shutter_app                  = true
     session_affinity             = true
     session_affinity_ttl_seconds = 14400
     appgw_cookie_based_affinity  = "Enabled"
@@ -696,13 +696,13 @@ frontends = [
   },
 
   {
-    name             = "jd-reply-jury-summons"
-    custom_domain    = "reply-jury-summons.service.gov.uk"
-    dns_zone_name    = "reply-jury-summons.service.gov.uk"
-    backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-    ssl_mode         = "AzureKeyVault"
-    certificate_name = "reply-jury-summons-service-gov-uk"
-    shutter_app       = true
+    name                         = "jd-reply-jury-summons"
+    custom_domain                = "reply-jury-summons.service.gov.uk"
+    dns_zone_name                = "reply-jury-summons.service.gov.uk"
+    backend_domain               = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    ssl_mode                     = "AzureKeyVault"
+    certificate_name             = "reply-jury-summons-service-gov-uk"
+    shutter_app                  = true
     session_affinity             = true
     session_affinity_ttl_seconds = 14400
     appgw_cookie_based_affinity  = "Enabled"
@@ -962,7 +962,7 @@ frontends = [
   {
     name             = "vh-video-web"
     custom_domain    = "video.hearings.reform.hmcts.net"
-    dns_zone_name    =  "hearings.reform.hmcts.net"
+    dns_zone_name    = "hearings.reform.hmcts.net"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-hearings-reform-hmcts-net"
     disabled_rules   = {}
@@ -980,7 +980,7 @@ frontends = [
   {
     name                  = "vh-admin-web"
     custom_domain         = "admin.hearings.reform.hmcts.net"
-    dns_zone_name         =  "hearings.reform.hmcts.net"
+    dns_zone_name         = "hearings.reform.hmcts.net"
     backend_domain        = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name      = "wildcard-hearings-reform-hmcts-net"
     disabled_rules        = {}
@@ -1008,7 +1008,7 @@ frontends = [
   {
     name             = "sds-api-mgmt"
     custom_domain    = "sds-api-mgmt.platform.hmcts.net"
-    dns_zone_name   = "platform.hmcts.net"
+    dns_zone_name    = "platform.hmcts.net"
     backend_domain   = ["firewall-prod-int-palo-sdsapimgmtprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-platform-hmcts-net"
     cache_enabled    = "false"
