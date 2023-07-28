@@ -991,7 +991,7 @@ frontends = [
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-platform-hmcts-net"
     disabled_rules   = {}
-    shutter_app      = true
+    shutter_app      = false
     dns_zone_name    = "platform.hmcts.net"
   },
   {
