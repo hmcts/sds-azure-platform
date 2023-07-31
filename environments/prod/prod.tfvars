@@ -513,13 +513,13 @@ frontends = [
     ]
   },
   {
-    name                         = "jd-bureau"
-    custom_domain                = "juror-bureau.justice.gov.uk"
-    dns_zone_name                = "juror-bureau.justice.gov.uk"
-    backend_domain               = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-    ssl_mode                     = "AzureKeyVault"
-    certificate_name             = "juror-bureau-justice-gov-uk"
-    
+    name             = "jd-bureau"
+    custom_domain    = "juror-bureau.justice.gov.uk"
+    dns_zone_name    = "juror-bureau.justice.gov.uk"
+    backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    ssl_mode         = "AzureKeyVault"
+    certificate_name = "juror-bureau-justice-gov-uk"
+
     session_affinity             = true
     session_affinity_ttl_seconds = 14400
     appgw_cookie_based_affinity  = "Enabled"
