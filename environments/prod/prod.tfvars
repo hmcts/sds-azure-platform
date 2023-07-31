@@ -519,7 +519,7 @@ frontends = [
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     ssl_mode         = "AzureKeyVault"
     certificate_name = "juror-bureau-justice-gov-uk"
-
+    shutter_app = false
     session_affinity             = true
     session_affinity_ttl_seconds = 14400
     appgw_cookie_based_affinity  = "Enabled"
@@ -705,7 +705,7 @@ frontends = [
     session_affinity             = true
     session_affinity_ttl_seconds = 14400
     appgw_cookie_based_affinity  = "Enabled"
-
+    shutter_app    = false
     mode           = "Detection"
     health_path    = "/"
     disabled_rules = {}
