@@ -519,7 +519,7 @@ frontends = [
     backend_domain               = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     ssl_mode                     = "AzureKeyVault"
     certificate_name             = "juror-bureau-justice-gov-uk"
-    shutter_app                  = true
+    
     session_affinity             = true
     session_affinity_ttl_seconds = 14400
     appgw_cookie_based_affinity  = "Enabled"
@@ -702,7 +702,6 @@ frontends = [
     backend_domain               = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     ssl_mode                     = "AzureKeyVault"
     certificate_name             = "reply-jury-summons-service-gov-uk"
-    shutter_app                  = true
     session_affinity             = true
     session_affinity_ttl_seconds = 14400
     appgw_cookie_based_affinity  = "Enabled"
@@ -716,7 +715,6 @@ frontends = [
     custom_domain     = "pip-frontend.platform.hmcts.net"
     backend_domain    = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name  = "wildcard-platform-hmcts-net"
-    shutter_app       = true
     disabled_rules    = {}
     global_exclusions = []
     dns_zone_name     = "platform.hmcts.net"
@@ -727,7 +725,6 @@ frontends = [
     custom_domain    = "www.court-tribunal-hearings.service.gov.uk"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-platform-hmcts-net"
-    shutter_app      = true
     dns_zone_name    = "court-tribunal-hearings.service.gov.uk"
     disabled_rules   = {}
     global_exclusions = [
@@ -966,7 +963,6 @@ frontends = [
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-hearings-reform-hmcts-net"
     disabled_rules   = {}
-    shutter_app      = true
     dns_zone_name    = "hearings.reform.hmcts.net"
 
     global_exclusions = [
@@ -984,7 +980,6 @@ frontends = [
     backend_domain        = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name      = "wildcard-hearings-reform-hmcts-net"
     disabled_rules        = {}
-    shutter_app           = true
     dns_zone_name         = "hearings.reform.hmcts.net"
     shutter_name_override = "vh-admin-web"
 
@@ -1002,7 +997,6 @@ frontends = [
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-platform-hmcts-net"
     disabled_rules   = {}
-    shutter_app      = true
     dns_zone_name    = "platform.hmcts.net"
   },
   {
@@ -1038,7 +1032,7 @@ frontends = [
     backend_domain      = ["pre-prod.powerappsportals.com"]
     certificate_name    = "portal-pre-recorded-evidence-justice-gov-uk"
     disabled_rules      = {}
-    shutter_app         = true
+    shutter_app         = false
     health_path         = "/SignIn?ReturnUrl=%2F"
     health_protocol     = "Https"
     forwarding_protocol = "HttpsOnly"
