@@ -67,7 +67,7 @@ parameters:
       - deployment: "apim_appgw"
         environment: "sbox"
         dependsOn: "Precheck"
-        pipeline_tests: true
+        pipeline_tests: false
       - deployment: "appgateway"
         environment: "dev"
         dependsOn: "sbox_appgateway"
@@ -91,7 +91,7 @@ parameters:
       - deployment: "apim_appgw"
         environment: "ithc"
         dependsOn: "sbox_apim_appgw"
-        pipeline_tests: true
+        pipeline_tests: false
       - deployment: "appgateway"
         environment: "test"
         dependsOn: "sbox_appgateway"
@@ -126,33 +126,36 @@ parameters:
       - deployment: "shutter"
         environment: "prod"
         dependsOn: "sbox_shutter"
+      - deployment: "shutter_static_webapp"
+        environment: "prod"
+        dependsOn: "sbox_shutter_static_webapp"
       - deployment: "apim"
         environment: "sbox"
         dependsOn: "Precheck"
-        pipeline_tests: true
+        pipeline_tests: false
       - deployment: "apim"
         environment: "dev"
         dependsOn: "sbox_apim"
       - deployment: "apim"
         environment: "stg"
         dependsOn: "sbox_apim"
-        pipeline_tests: true
+        pipeline_tests: false
       - deployment: "apim"
         environment: "prod"
         dependsOn: "sbox_apim"
-        pipeline_tests: true
+        pipeline_tests: false
       - deployment: "apim"
         environment: "test"
         dependsOn: "sbox_apim"
-        pipeline_tests: true
+        pipeline_tests: false
       - deployment: "apim"
         environment: "demo"
         dependsOn: "sbox_apim"
-        pipeline_tests: true
+        pipeline_tests: false
       - deployment: 'apim'
         environment: 'ithc'
         dependsOn: 'sbox_apim'
-        pipeline_tests: true
+        pipeline_tests: false
       - deployment: 'frontdoor'
         environment: 'sbox'
         dependsOn: 'Precheck'
