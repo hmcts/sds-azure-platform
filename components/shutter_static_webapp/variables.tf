@@ -22,3 +22,10 @@ variable "expiresAfter" {
   default     = "3000-01-01"
 }
 variable "environment" {}
+
+variable "sku_tier" {
+  description = "SKU tier of the Static Web App"
+}
+variable "sku_size" {
+  description = "SKU size of the Static Web App"
+}
