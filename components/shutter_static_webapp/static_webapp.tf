@@ -13,6 +13,8 @@ module "static_webapp" {
   resource_group_name = azurerm_resource_group.rg.name
   gh_token            = data.azurerm_key_vault_secret.githubapi.value
   env                 = var.env
+  sku_tier            = var.sku_tier
+  sku_size            = var.sku_size
 }
 
 module "ctags" {
