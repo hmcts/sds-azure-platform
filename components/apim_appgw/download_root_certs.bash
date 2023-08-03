@@ -11,5 +11,7 @@ DATA=$(cat merged.pem | base64)
 rm root.pem intermediate.pem merged.pem
 # echo -n "{\"data\":\"$DATA\"}"
 
-printf '%s:%s' \"data\" \"$DATA\"
+# printf {'%s:%s'} \"data\" \"$DATA\"
+
+printf {\"data\":\"$DATA\"}
 
