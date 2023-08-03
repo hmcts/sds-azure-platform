@@ -47,12 +47,10 @@ module "app-gw" {
   project_name                                 = var.project
   min_capacity                                 = var.apim_appgw_min_capacity
   max_capacity                                 = var.apim_appgw_max_capacity
-  trusted_client_certificate_data              = file("${path.module}/merged.pem")
-  depends_on                                   = [data.external.bash_script]
+  # trusted_client_certificate_data              = file("${path.module}/merged.pem")
+  depends_on = [data.external.bash_script]
 }
 
 data "external" "bash_script" {
   program = ["bash", "${path.module}/download_root_certs.bash"]
 }
-
-

@@ -18,6 +18,6 @@ gateways:
         ssl_enabled: true
         use_public_ip: true
         health_path_override: "/status-0123456789abcdef"
-        add_ssl_profile: true
+        add_ssl_profile: false
         verify_client_cert_issuer_dn: true
 
