@@ -7,6 +7,6 @@ curl https://letsencrypt.org/certs/isrgrootx1.pem >root.pem
 curl https://letsencrypt.org/certs/lets-encrypt-r3.pem >intermediate.pem
 
 cat root.pem intermediate.pem >merged.pem
-DATA=$(cat merged.pem)
+DATA=$(cat merged.pem | base64)
 rm root.pem intermediate.pem merged.pem
 echo -n "{\"data\":\"$DATA\"}"
