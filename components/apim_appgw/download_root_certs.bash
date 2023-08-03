@@ -9,4 +9,7 @@ curl https://letsencrypt.org/certs/lets-encrypt-r3.pem >intermediate.pem
 cat root.pem intermediate.pem >merged.pem
 DATA=$(cat merged.pem | base64)
 rm root.pem intermediate.pem merged.pem
-echo -n "{\"data\":\"$DATA\"}"
+# echo -n "{\"data\":\"$DATA\"}"
+
+printf '%s:%s' \"data\" \"$DATA\"
+
