@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-set -ex
-cd $1
+
+PATH=$1
+cd $PATH
 #grabing the public root CA 
 
 curl https://letsencrypt.org/certs/isrgrootx1.pem >root.pem
