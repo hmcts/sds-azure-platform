@@ -1005,6 +1005,7 @@ frontends = [
     name             = "sds-api-mgmt"
     custom_domain    = "sds-api-mgmt.platform.hmcts.net"
     dns_zone_name    = "platform.hmcts.net"
+    shutter_app      = false
     backend_domain   = ["firewall-prod-int-palo-sdsapimgmtprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-platform-hmcts-net"
     cache_enabled    = "false"
