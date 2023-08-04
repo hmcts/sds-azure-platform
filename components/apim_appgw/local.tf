@@ -9,8 +9,6 @@ locals {
   key_vault_resource_group = "sds-platform-${var.subscription}-rg"
   key_vault_subscription   = var.key_vault_subscription
 
-  gateways = yamldecode(data.local_file.configuration.content).gateways
-
 
   hub = {
     sbox = {
