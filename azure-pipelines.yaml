@@ -115,17 +115,10 @@ parameters:
         environment: "prod"
         dependsOn: "dev_trafficmanager"
         pipeline_tests: true
-      - deployment: "shutter"
-        environment: "sbox"
-        dependsOn: "Precheck"
-        pipeline_tests: false
       - deployment: "shutter_static_webapp"
         environment: "sbox"
         dependsOn: "Precheck"
         pipeline_tests: false
-      - deployment: "shutter"
-        environment: "prod"
-        dependsOn: "sbox_shutter"
       - deployment: "shutter_static_webapp"
         environment: "prod"
         dependsOn: "sbox_shutter_static_webapp"
