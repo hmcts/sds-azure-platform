@@ -6,7 +6,7 @@ locals {
   key_vault_name          = "acme${replace(lower(local.subscription_short_name), "-", "")}"
 }
 
-module "shutter" {
+/* module "shutter" {
   source                     = "../../modules/shutter_page"
   resource_group_name        = var.shutter_rg
   env                        = var.env
@@ -16,7 +16,7 @@ module "shutter" {
   subscription               = var.subscription
   shutter_rg                 = var.shutter_rg
   cdn_sku                    = var.cdn_sku
-}
+} */
 
 module "ctags" {
   source       = "git::https://github.com/hmcts/terraform-module-common-tags.git?ref=master"
