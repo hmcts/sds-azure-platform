@@ -294,8 +294,8 @@ frontends = [
     ]
   },
   {
-    name           = "vh-video-web-pr-1955" # TO DO: REMOVE AFTER TESTING
-    custom_domain  = "vh-video-web-pr-1955.dev.platform.hmcts.net"
+    name           = "vh-video-web-pr-2057" # TO DO: REMOVE AFTER TESTING
+    custom_domain  = "vh-video-web-pr-2057.dev.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
     disabled_rules = {}
 
