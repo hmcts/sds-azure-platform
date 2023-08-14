@@ -786,12 +786,12 @@ frontends = [
         operator       = "Equals"
         selector       = "subscriptions"
       }
-    ]
+    ],
     disabled_rules = {
       LFI = [
         "930110" // false positive on multi-part uploads
       ]
-    }
+    },
     custom_rules = [
       {
         name     = "ManualUploadPathTraversalGeneral",
