@@ -62,6 +62,3 @@ variable "expiresAfter" {
 variable "autoShutdown" {
   default = false
 }
-variable "autoShutdown" {
-  default = false
-}
