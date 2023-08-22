@@ -9,6 +9,9 @@ vnet_rg            = "ss-sbox-network-rg"
 vnet_name          = "ss-sbox-vnet"
 shutter_rg         = "sds-platform-sbox-rg"
 cdn_sku            = "Standard_Verizon"
+sku_tier           = "Free"
+sku_size           = "Free"
+autoShutdown       = true
 ssl_policy = {
   policy_type          = "Predefined"
   policy_name          = "AppGwSslPolicy20220101S"
@@ -23,6 +26,8 @@ frontends = [
   {
 
     name             = "toffee"
+    shutter_app      = true
+    dns_zone_name    = "sandbox.platform.hmcts.net"
     custom_domain    = "toffee.sandbox.platform.hmcts.net"
     certificate_name = "wildcard-sandbox-platform-hmcts-net"
     backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
@@ -31,6 +36,7 @@ frontends = [
   {
     product          = "sds-api-mgmt"
     name             = "sds-api-mgmt"
+    shutter_app      = false
     custom_domain    = "sds-api-mgmt.sandbox.platform.hmcts.net"
     backend_domain   = ["firewall-sbox-int-palo-sdsapimgmt.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-sandbox-platform-hmcts-net"

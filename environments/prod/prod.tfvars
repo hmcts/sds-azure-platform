@@ -11,6 +11,8 @@ shutter_rg         = "sds-platform-prod-rg"
 cdn_sku            = "Standard_Verizon"
 hub                = "prod"
 apim_sku_name      = "Premium"
+sku_tier           = "Standard"
+sku_size           = "Standard"
 ssl_policy = {
   policy_type          = "Predefined"
   policy_name          = "AppGwSslPolicy20220101S"
@@ -68,6 +70,7 @@ frontends = [
     name             = "casetracker"
     mode             = "Detection"
     custom_domain    = "casetracker.justice.gov.uk"
+    dns_zone_name    = "justice.gov.uk"
     backend_domain   = ["dualstack.civil-loadb-qvbu457dp1b-1835055660.eu-west-2.elb.amazonaws.com"]
     shutter_app      = false
     enable_ssl       = true
@@ -78,6 +81,7 @@ frontends = [
     name             = "certificatedbailiffs"
     mode             = "Detection"
     custom_domain    = "certificatedbailiffs.justice.gov.uk"
+    dns_zone_name    = "certificatedbailiffs.justice.gov.uk"
     backend_domain   = ["dualstack.certi-loadb-q2s48nuaqsc6-1478330638.eu-west-2.elb.amazonaws.com"]
     shutter_app      = false
     enable_ssl       = true
@@ -88,6 +92,7 @@ frontends = [
     name             = "courtfines"
     mode             = "Detection"
     custom_domain    = "courtfines.direct.gov.uk"
+    dns_zone_name    = "courtfines.direct.gov.uk"
     backend_domain   = ["dualstack.court-loadb-8mcola2l2by0-173012739.eu-west-2.elb.amazonaws.com"]
     shutter_app      = false
     enable_ssl       = true
@@ -98,6 +103,7 @@ frontends = [
     name             = "immigrationappealsonline"
     mode             = "Detection"
     custom_domain    = "immigrationappealsonline.justice.gov.uk"
+    dns_zone_name    = "immigrationappealsonline.justice.gov.uk"
     backend_domain   = ["dualstack.iacfees-p-elbhmcts-6jxi2y1j3cgc-1579084157.eu-west-1.elb.amazonaws.com"]
     shutter_app      = false
     enable_ssl       = true
@@ -108,6 +114,7 @@ frontends = [
     name             = "tribunalsdecisions"
     mode             = "Detection"
     custom_domain    = "tribunalsdecisions.service.gov.uk"
+    dns_zone_name    = "tribunalsdecisions.service.gov.uk"
     backend_domain   = ["dualstack.dtsla-utiac-lb-prod-1989357889.eu-west-1.elb.amazonaws.com"]
     shutter_app      = false
     enable_ssl       = true
@@ -510,6 +517,7 @@ frontends = [
   {
     name             = "jd-bureau"
     custom_domain    = "juror-bureau.justice.gov.uk"
+    dns_zone_name    = "juror-bureau.justice.gov.uk"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     ssl_mode         = "AzureKeyVault"
     certificate_name = "juror-bureau-justice-gov-uk"
@@ -690,12 +698,12 @@ frontends = [
   },
 
   {
-    name             = "jd-reply-jury-summons"
-    custom_domain    = "reply-jury-summons.service.gov.uk"
-    backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-    ssl_mode         = "AzureKeyVault"
-    certificate_name = "reply-jury-summons-service-gov-uk"
-
+    name                         = "jd-reply-jury-summons"
+    custom_domain                = "reply-jury-summons.service.gov.uk"
+    dns_zone_name                = "reply-jury-summons.service.gov.uk"
+    backend_domain               = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    ssl_mode                     = "AzureKeyVault"
+    certificate_name             = "reply-jury-summons-service-gov-uk"
     session_affinity             = true
     session_affinity_ttl_seconds = 14400
     appgw_cookie_based_affinity  = "Enabled"
@@ -709,16 +717,17 @@ frontends = [
     custom_domain     = "pip-frontend.platform.hmcts.net"
     backend_domain    = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name  = "wildcard-platform-hmcts-net"
-    shutter_app       = true
     disabled_rules    = {}
     global_exclusions = []
+    dns_zone_name     = "platform.hmcts.net"
+
   },
   {
     name             = "court-tribunal-hearings"
     custom_domain    = "www.court-tribunal-hearings.service.gov.uk"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-platform-hmcts-net"
-    shutter_app      = true
+    dns_zone_name    = "court-tribunal-hearings.service.gov.uk"
     disabled_rules   = {}
     global_exclusions = [
       ## Open ID response parameters
@@ -777,11 +786,102 @@ frontends = [
         operator       = "Equals"
         selector       = "subscriptions"
       }
+    ],
+    disabled_rules = {
+      LFI = [
+        "930110" // false positive on multi-part uploads
+      ]
+    },
+    custom_rules = [
+      {
+        name     = "ManualUploadPathTraversalGeneral",
+        type     = "MatchRule"
+        priority = 1
+        action   = "Block"
+
+        match_conditions = [
+          {
+            match_variable     = "RequestBody"
+            operator           = "Contains"
+            negation_condition = false
+            transforms         = ["UrlDecode"]
+            match_values       = ["../", "..\\"]
+          },
+          {
+            match_variable     = "RequestUri"
+            operator           = "EndsWith"
+            negation_condition = true
+            match_values       = ["/manual-upload"]
+          },
+          {
+            match_variable     = "RequestMethod"
+            operator           = "Equal"
+            negation_condition = false
+            match_values       = ["POST"]
+          }
+        ]
+      },
+      {
+        name     = "ManualUploadPathTraversalNonEncode",
+        type     = "MatchRule"
+        priority = 2
+        action   = "Block"
+
+        match_conditions = [
+          {
+            match_variable     = "RequestBody"
+            operator           = "Contains"
+            negation_condition = false
+            match_values       = ["..%c0%af", "..%c1%9c"]
+          },
+          {
+            match_variable     = "RequestUri"
+            operator           = "EndsWith"
+            negation_condition = true
+            match_values       = ["/manual-upload"]
+          },
+          {
+            match_variable     = "RequestMethod"
+            operator           = "Equal"
+            negation_condition = false
+            match_values       = ["POST"]
+          }
+        ]
+      },
+      {
+        name     = "ManualUploadPathTraversalRegex",
+        type     = "MatchRule"
+        priority = 3
+        action   = "Block"
+
+        match_conditions = [
+          {
+            match_variable     = "RequestBody"
+            operator           = "RegEx"
+            negation_condition = false
+            transforms         = ["Lowercase"]
+            match_values       = ["([a-z]:\\\\)|(%252e|\\.)(%252e|\\.)(%255c|%252f|\\\\|\\/)"]
+          },
+          {
+            match_variable     = "RequestUri"
+            operator           = "EndsWith"
+            negation_condition = true
+            match_values       = ["/manual-upload"]
+          },
+          {
+            match_variable     = "RequestMethod"
+            operator           = "Equal"
+            negation_condition = false
+            match_values       = ["POST"]
+          }
+        ]
+      }
     ]
   },
   {
     name                = "court-tribunal-hearings-b2c-sign-in"
     custom_domain       = "sign-in.court-tribunal-hearings.service.gov.uk"
+    dns_zone_name       = "court-tribunal-hearings.service.gov.uk"
     backend_domain      = ["hmctspipprod.b2clogin.com"]
     host_header         = "hmctspipprod.b2clogin.com"
     forwarding_protocol = "HttpsOnly"
@@ -866,6 +966,7 @@ frontends = [
   {
     name                = "court-tribunal-hearings-b2c-staff"
     custom_domain       = "staff.court-tribunal-hearings.service.gov.uk"
+    dns_zone_name       = "court-tribunal-hearings.service.gov.uk"
     backend_domain      = ["hmctspipprod.b2clogin.com"]
     host_header         = "hmctspipprod.b2clogin.com"
     forwarding_protocol = "HttpsOnly"
@@ -950,12 +1051,12 @@ frontends = [
   {
     name             = "vh-video-web"
     custom_domain    = "video.hearings.reform.hmcts.net"
+    dns_zone_name    = "hearings.reform.hmcts.net"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-hearings-reform-hmcts-net"
     disabled_rules   = {}
-    shutter_app      = true
     cache_enabled    = "false"
-
+    dns_zone_name    = "hearings.reform.hmcts.net"
     global_exclusions = [
       {
         match_variable = "QueryStringArgNames"
@@ -967,11 +1068,12 @@ frontends = [
   {
     name                  = "vh-admin-web"
     custom_domain         = "admin.hearings.reform.hmcts.net"
+    dns_zone_name         = "hearings.reform.hmcts.net"
     backend_domain        = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name      = "wildcard-hearings-reform-hmcts-net"
     disabled_rules        = {}
-    shutter_app           = true
     cache_enabled         = "false"
+    dns_zone_name         = "hearings.reform.hmcts.net"
     shutter_name_override = "vh-admin-web"
 
     global_exclusions = [
@@ -988,11 +1090,13 @@ frontends = [
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-platform-hmcts-net"
     disabled_rules   = {}
-    shutter_app      = false
+    dns_zone_name    = "platform.hmcts.net"
   },
   {
     name             = "sds-api-mgmt"
     custom_domain    = "sds-api-mgmt.platform.hmcts.net"
+    dns_zone_name    = "platform.hmcts.net"
+    shutter_app      = false
     backend_domain   = ["firewall-prod-int-palo-sdsapimgmtprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-platform-hmcts-net"
     cache_enabled    = "false"
@@ -1000,6 +1104,7 @@ frontends = [
   {
     name             = "c100-application"
     custom_domain    = "c100-application.platform.hmcts.net"
+    dns_zone_name    = "platform.hmcts.net"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-platform-hmcts-net"
     shutter_app      = false
@@ -1017,10 +1122,11 @@ frontends = [
     name                = "portal"
     mode                = "Prevention"
     custom_domain       = "portal.pre-recorded-evidence.justice.gov.uk"
+    dns_zone_name       = "pre-recorded-evidence.justice.gov.uk"
     backend_domain      = ["pre-prod.powerappsportals.com"]
-    certificate_name    = "portal-pre-recorded-evidence-justice-gov-uk"
+    certificate_name    = "www-portal-pre-recorded-evidence-justice-gov-uk"
     disabled_rules      = {}
-    shutter_app         = false
+    shutter_app         = true
     health_path         = "/SignIn?ReturnUrl=%2F"
     health_protocol     = "Https"
     forwarding_protocol = "HttpsOnly"

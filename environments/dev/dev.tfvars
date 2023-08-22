@@ -8,6 +8,7 @@ destinations       = ["10.145.15.250", "10.145.31.250"]
 vnet_rg            = "ss-dev-network-rg"
 vnet_name          = "ss-dev-vnet"
 hub                = "nonprod"
+autoShutdown       = true
 ssl_policy = {
   policy_type          = "Predefined"
   policy_name          = "AppGwSslPolicy20220101S"
@@ -294,8 +295,8 @@ frontends = [
     ]
   },
   {
-    name           = "vh-video-web-pr-1955" # TO DO: REMOVE AFTER TESTING
-    custom_domain  = "vh-video-web-pr-1955.dev.platform.hmcts.net"
+    name           = "vh-video-web-pr-2057" # TO DO: REMOVE AFTER TESTING
+    custom_domain  = "vh-video-web-pr-2057.dev.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
     disabled_rules = {}
 
