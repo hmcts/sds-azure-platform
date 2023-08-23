@@ -1055,8 +1055,8 @@ frontends = [
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-hearings-reform-hmcts-net"
     disabled_rules   = {}
+    cache_enabled    = "false"
     dns_zone_name    = "hearings.reform.hmcts.net"
-
     global_exclusions = [
       {
         match_variable = "QueryStringArgNames"
@@ -1072,6 +1072,7 @@ frontends = [
     backend_domain        = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name      = "wildcard-hearings-reform-hmcts-net"
     disabled_rules        = {}
+    cache_enabled         = "false"
     dns_zone_name         = "hearings.reform.hmcts.net"
     shutter_name_override = "vh-admin-web"
 
