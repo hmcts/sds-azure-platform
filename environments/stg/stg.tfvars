@@ -395,6 +395,22 @@ frontends = [
     ]
   },
   {
+    name           = "pre-portal"
+    custom_domain  = "pre-portal.staging.platform.hmcts.net"
+    backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
+    cache_enabled  = "false"
+
+    disabled_rules = {}
+
+    global_exclusions = [
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      }
+    ]
+  },
+  {
     name           = "staging-casetracker"
     custom_domain  = "staging.casetracker.justice.gov.uk"
     backend_domain = ["dualstack.civil-loadb-105un4gbv5077-2040046462.eu-west-2.elb.amazonaws.com"]

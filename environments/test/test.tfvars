@@ -278,7 +278,49 @@ frontends = [
     backend_domain      = ["pre-testing.powerappsportals.com"]
     certificate_name    = "portal-test-pre-recorded-evidence-justice-gov-uk"
     disabled_rules      = {}
-    shutter_app         = false
+    health_path         = "/SignIn?ReturnUrl=%2F"
+    health_protocol     = "Https"
+    forwarding_protocol = "HttpsOnly"
+    cache_enabled       = "false"
+
+    disabled_rules = {
+      SQLI = [
+        "942440",
+        "942450",
+      ],
+      RCE = [
+        "932100",
+        "932110",
+        "932115",
+      ],
+    }
+
+    custom_rules = [
+      {
+        name     = "CountryMatchWhitelist"
+        enabled  = true
+        priority = 1
+        type     = "MatchRule"
+        action   = "Block"
+        match_conditions = [
+          {
+            match_variable     = "RemoteAddr"
+            operator           = "GeoMatch"
+            negation_condition = true
+            match_values = [
+              "GB"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    name                = "pre-portal"
+    mode                = "Prevention"
+    custom_domain       = "pre-portal.test.platform.hmcts.net"
+    backend_domain      = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
+    disabled_rules      = {}
     health_path         = "/SignIn?ReturnUrl=%2F"
     health_protocol     = "Https"
     forwarding_protocol = "HttpsOnly"
