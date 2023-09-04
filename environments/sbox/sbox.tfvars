@@ -11,6 +11,7 @@ shutter_rg         = "sds-platform-sbox-rg"
 cdn_sku            = "Standard_Verizon"
 sku_tier           = "Free"
 sku_size           = "Free"
+autoShutdown       = true
 ssl_policy = {
   policy_type          = "Predefined"
   policy_name          = "AppGwSslPolicy20220101S"
