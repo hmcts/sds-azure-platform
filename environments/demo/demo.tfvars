@@ -200,6 +200,47 @@ frontends = [
 
   },
   {
+    product          = "pre"
+    name             = "pre-portal"
+    custom_domain    = "pre-portal.demo.platform.hmcts.net"
+    backend_domain   = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
+    certificate_name = "wildcard-demo-platform-hmcts-net"
+    cache_enabled    = "false"
+
+    disabled_rules = {
+      SQLI = [
+        "942440",
+        "942450",
+      ],
+      RCE = [
+        "932100",
+        "932110",
+        "932115",
+      ],
+    }
+
+    custom_rules = [
+      {
+        name     = "CountryMatchWhitelist"
+        enabled  = true
+        priority = 1
+        type     = "MatchRule"
+        action   = "Block"
+        match_conditions = [
+          {
+            match_variable     = "RemoteAddr"
+            operator           = "GeoMatch"
+            negation_condition = true
+            match_values = [
+              "GB"
+            ]
+          }
+        ]
+      }
+    ]
+
+  },
+  {
     product          = "darts-portal"
     name             = "darts-portal"
     custom_domain    = "darts-portal.demo.platform.hmcts.net"
