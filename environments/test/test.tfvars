@@ -321,7 +321,6 @@ frontends = [
     custom_domain       = "pre-portal.test.platform.hmcts.net"
     backend_domain      = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
     disabled_rules      = {}
-    health_path         = "/SignIn?ReturnUrl=%2F"
     health_protocol     = "Https"
     forwarding_protocol = "HttpsOnly"
     cache_enabled       = "false"
