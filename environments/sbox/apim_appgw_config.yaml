@@ -21,7 +21,7 @@ gateways:
         add_ssl_profile: true
         verify_client_cert_issuer_dn: true
         certificate_name: lets_encrypt
-      - product: sds-mtls
+      - product: sds-thomas
         component: thomas-appgw
         ssl_enabled: true
         use_public_ip: true
