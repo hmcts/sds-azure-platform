@@ -1093,6 +1093,14 @@ frontends = [
     dns_zone_name    = "platform.hmcts.net"
   },
   {
+    name             = "pre-portal"
+    custom_domain    = "pre-portal.platform.hmcts.net"
+    backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    certificate_name = "wildcard-platform-hmcts-net"
+    disabled_rules   = {}
+    dns_zone_name    = "platform.hmcts.net"
+  },
+  {
     name             = "sds-api-mgmt"
     custom_domain    = "sds-api-mgmt.platform.hmcts.net"
     dns_zone_name    = "platform.hmcts.net"

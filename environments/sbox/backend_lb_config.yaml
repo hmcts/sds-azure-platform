@@ -57,3 +57,10 @@ gateways:
       - product: test
         component: override
         host_name_suffix_override: service.core-compute-sandbox.internal
+     # Pre-Recorded Evidence
+      - product: pre
+        component: portal
+        ssl_enabled: true
+      - product: pre
+        component: api
+        ssl_enabled: true

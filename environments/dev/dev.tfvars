@@ -610,6 +610,46 @@ frontends = [
     ]
   },
   {
+    name             = "pre-portal"
+    custom_domain    = "pre-portal.dev.platform.hmcts.net"
+    backend_domain   = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
+    certificate_name = "wildcard-dev-platform-hmcts-net"
+    cache_enabled    = "false"
+
+    disabled_rules = {
+      SQLI = [
+        "942440",
+        "942450",
+      ],
+      RCE = [
+        "932100",
+        "932110",
+        "932115",
+      ],
+    }
+
+    custom_rules = [
+      {
+        name     = "CountryMatchWhitelist"
+        enabled  = true
+        priority = 1
+        type     = "MatchRule"
+        action   = "Block"
+        match_conditions = [
+          {
+            match_variable     = "RemoteAddr"
+            operator           = "GeoMatch"
+            negation_condition = true
+            match_values = [
+              "GB"
+            ]
+          }
+        ]
+      }
+    ]
+
+  },
+  {
     name           = "dev-trib-cicap"
     mode           = "Prevention"
     custom_domain  = "dev.cicap.dsd.io"
