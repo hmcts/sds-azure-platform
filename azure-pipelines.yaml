@@ -66,7 +66,7 @@ parameters:
       #   pipeline_tests: false
       - deployment: "apim_appgw"
         environment: "sbox"
-        dependsOn: "Precheck"
+        # dependsOn: "Precheck"
         pipeline_tests: false
       # - deployment: "appgateway"
       #   environment: "dev"
@@ -189,18 +189,18 @@ variables:
   - template: vars/input-variables.yaml@cnp-azuredevops-libraries
 
 stages:
-  - stage: Precheck
-    jobs:
-      - job: Validate
-        pool:
-          vmImage: ${{ variables.agentPool }}
-        steps:
-          - template: steps/terraform-precheck.yaml@cnp-azuredevops-libraries
-            parameters:
-              keyvaultName: 'infra-vault-nonprod'
-              keyvaultSecret: 'azure-devops-sp-token'
-              serviceConnection: 'DCD-CFTAPPS-STG'
-              overrideAction: ${{ parameters.action }}
+  # - stage: Precheck
+  #   jobs:
+  #     - job: Validate
+  #       pool:
+  #         vmImage: ${{ variables.agentPool }}
+  #       steps:
+  #         - template: steps/terraform-precheck.yaml@cnp-azuredevops-libraries
+  #           parameters:
+  #             keyvaultName: 'infra-vault-nonprod'
+  #             keyvaultSecret: 'azure-devops-sp-token'
+  #             serviceConnection: 'DCD-CFTAPPS-STG'
+  #             overrideAction: ${{ parameters.action }}
 
   - ${{ each parameter in parameters.components }}:
       - stage: ${{ parameter.environment }}_${{ parameter.deployment }}
