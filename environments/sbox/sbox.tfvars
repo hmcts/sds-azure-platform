@@ -140,7 +140,7 @@ frontends = [
   {
     name                = "pre-portal"
     mode                = "Prevention"
-    custom_domain       = "pre-portal.sbox.platform.hmcts.net"
+    custom_domain       = "pre-portal.sandbox.platform.hmcts.net"
     backend_domain      = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
     certificate_name    = "wildcard-sandbox-platform-hmcts-net"
     shutter_app         = false
