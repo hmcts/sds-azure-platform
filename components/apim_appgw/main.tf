@@ -27,7 +27,7 @@ module "app-gw" {
     azurerm.kv  = azurerm.kv
   }
 
-  source                                       = "git::https://github.com/hmcts/terraform-module-apim-application-gateway.git?ref=main"
+  source                                       = "git::https://github.com/hmcts/terraform-module-apim-application-gateway.git?ref=multiple-ssl-profile "
   yaml_path                                    = "${path.cwd}/../../environments/${local.env}/apim_appgw_config.yaml"
   env                                          = local.dns_zone
   location                                     = var.location
@@ -47,7 +47,7 @@ module "app-gw" {
   project_name                                 = var.project
   min_capacity                                 = var.apim_appgw_min_capacity
   max_capacity                                 = var.apim_appgw_max_capacity
-  trusted_client_certificate_data              = file("${path.module}/merged.pem")
+  trusted_client_certificate_data              = var.trusted_client_certificate_data
   depends_on                                   = [data.external.bash_script]
 }
 

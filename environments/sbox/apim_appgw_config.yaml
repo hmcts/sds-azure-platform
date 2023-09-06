@@ -20,4 +20,5 @@ gateways:
         health_path_override: "/status-0123456789abcdef"
         add_ssl_profile: true
         verify_client_cert_issuer_dn: true
+        certificate_name: lets_encrypt
 
