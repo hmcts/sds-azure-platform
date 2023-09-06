@@ -138,7 +138,7 @@ frontends = [
     ]
   },
   {
-    name                = "portal-sbox"
+    name                = "pre-portal"
     mode                = "Prevention"
     custom_domain       = "pre-portal.sbox.platform.hmcts.net"
     backend_domain      = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
