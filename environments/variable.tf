@@ -62,14 +62,3 @@ variable "expiresAfter" {
 variable "autoShutdown" {
   default = false
 }
-
-variable "trusted_client_certificate_data" {
-  default = {
-    "lets_encrypt" = {
-      path        = file("${path.module}/merged.pem")
-    }
-    "example2" = {
-      path        = file("${path.module}/merged2.pem")
-    }
-  }
-}
