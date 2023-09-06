@@ -169,7 +169,7 @@ frontends = [
     name           = "pip-frontend"
     custom_domain  = "pip-frontend.sandbox.platform.hmcts.net"
     backend_domain = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
-    shutter_app      = false
+    shutter_app    = false
 
     disabled_rules = {
       LFI = [
