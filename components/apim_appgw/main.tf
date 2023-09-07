@@ -51,7 +51,7 @@ module "app-gw" {
     "lets_encrypt" = {
       path = file("${path.module}/merged.pem")
     }
-    "example2" = {
+    "civil-sdt-root-ca" = {
       path = data.azurerm_key_vault_secret.civil-sdt-root-ca.value
     }
   }
