@@ -212,7 +212,7 @@ frontends = [
     custom_domain  = "pip-frontend.sandbox.platform.hmcts.net"
     backend_domain = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
     shutter_app    = false
-    redirect_url   = 'https://pip-frontend.sandbox.platform.hmcts.net/view-option'
+    redirect_url   = "https://pip-frontend.sandbox.platform.hmcts.net/view-option"
 
     disabled_rules = {
       LFI = [
