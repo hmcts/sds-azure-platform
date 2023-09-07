@@ -52,7 +52,7 @@ module "app-gw" {
       path = file("${path.module}/merged.pem")
     }
     "example2" = {
-      path = file("${path.module}/merged2.pem")
+      path = data.azurerm_key_vault_secret.civil-sdt-root-ca.value
     }
   }
   depends_on = [data.external.bash_script]
