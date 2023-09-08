@@ -37,6 +37,9 @@ gateways:
       - product: darts
         component: gateway
         ssl_enabled: true
+      - product: darts
+        component: stub-services
+        ssl_enabled: true
     # Publication and Information
       - product: pip
         component: publication-services
