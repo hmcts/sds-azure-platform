@@ -34,3 +34,46 @@ module "landing_zone" {
   key_vault_resource_group   = "sds-platform-${var.environment}-rg"
   log_analytics_workspace_id = module.logworkspace.workspace_id
 }
+
+# module "frontdoor_testing_migration" {
+#   source = "git::https://github.com/hmcts/terraform-module-frontdoor.git?ref=master"
+
+#   common_tags                = module.ctags.common_tags
+#   env                        = "sbox"
+#   project                    = "hmcts-test1"
+#   location                   = var.location
+#   frontends                  = var.new_frontends
+#   ssl_mode                   = "FrontDoor"
+#   resource_group             = azurerm_resource_group.fd_rg.name
+#   subscription_id            = data.azurerm_subscription.current.subscription_id
+#   certificate_key_vault_name = local.vault_name
+#   oms_env                    = var.oms_env
+#   certificate_name_check     = true
+#   key_vault_resource_group   = "sds-platform-${var.environment}-rg"
+#   log_analytics_workspace_id = module.logworkspace.workspace_id
+#   add_access_policy          = "false"
+#   add_access_policy_role     = "false"
+# }
+
+module "test_new_frontdoor" {
+  source = "git::https://github.com/hmcts/terraform-module-frontdoor.git?ref=DTSPO-13992-test-new-version-of-frontdoor"
+
+  common_tags                = module.ctags.common_tags
+  env                        = var.env
+  project                    = "sdshmcts-new-test"
+  location                   = var.location
+  frontends                  = var.frontends
+  new_frontends              = var.new_frontends
+  ssl_mode                   = "FrontDoor"
+  resource_group             = azurerm_resource_group.fd_rg.name
+  subscription_id            = data.azurerm_subscription.current.subscription_id
+  certificate_key_vault_name = local.vault_name
+  oms_env                    = var.oms_env
+  certificate_name_check     = true
+  key_vault_resource_group   = "sds-platform-${var.environment}-rg"
+  log_analytics_workspace_id = module.logworkspace.workspace_id
+  front_door_sku_name        = "Premium_AzureFrontDoor"
+  add_access_policy          = "false"
+  add_access_policy_role     = "false"
+  # provider                   = { azurerm.public_dns = azurerm.public_dns }
+}
