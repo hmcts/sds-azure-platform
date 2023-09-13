@@ -55,7 +55,7 @@ module "landing_zone" {
 #   add_access_policy_role     = "false"
 # }
 
-module "testing_new_frontdoor" {
+module "new_test_frontdoor" {
   source = "git::https://github.com/hmcts/terraform-module-frontdoor.git?ref=DTSPO-13992-test-new-version-of-frontdoor"
 
   common_tags                = module.ctags.common_tags
