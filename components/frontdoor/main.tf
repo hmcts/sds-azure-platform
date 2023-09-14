@@ -75,4 +75,5 @@ module "new_test_frontdoor" {
   front_door_sku_name        = "Premium_AzureFrontDoor"
   add_access_policy          = "false"
   add_access_policy_role     = "false"
+  provider                   = { azurerm = azurerm.public_dns }
 }
