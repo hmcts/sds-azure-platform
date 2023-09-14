@@ -728,6 +728,7 @@ frontends = [
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-platform-hmcts-net"
     dns_zone_name    = "court-tribunal-hearings.service.gov.uk"
+    redirect_url     = "https://www.court-tribunal-hearings.service.gov.uk/unprocessed-request"
     disabled_rules   = {}
     global_exclusions = [
       ## Open ID response parameters
@@ -797,7 +798,7 @@ frontends = [
         name     = "ManualUploadPathTraversalGeneral",
         type     = "MatchRule"
         priority = 1
-        action   = "Block"
+        action   = "Redirect"
 
         match_conditions = [
           {
@@ -825,7 +826,7 @@ frontends = [
         name     = "ManualUploadPathTraversalNonEncode",
         type     = "MatchRule"
         priority = 2
-        action   = "Block"
+        action   = "Redirect"
 
         match_conditions = [
           {
@@ -852,7 +853,7 @@ frontends = [
         name     = "ManualUploadPathTraversalRegex",
         type     = "MatchRule"
         priority = 3
-        action   = "Block"
+        action   = "Redirect"
 
         match_conditions = [
           {
