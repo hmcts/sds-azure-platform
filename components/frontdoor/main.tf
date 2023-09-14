@@ -1,3 +1,8 @@
+provider "azurerm" {
+  alias           = "public_dns"
+  subscription_id = "ed302caf-ec27-4c64-a05e-85731c3ce90e"
+}
+
 module "logworkspace" {
   source      = "git::https://github.com/hmcts/terraform-module-log-analytics-workspace-id.git?ref=master"
   environment = var.environment
@@ -75,5 +80,5 @@ module "new_test_frontdoor" {
   front_door_sku_name        = "Premium_AzureFrontDoor"
   add_access_policy          = "false"
   add_access_policy_role     = "false"
-  providers                  = { azurerm = azurerm.public_dns }
+  providers                  = { azurerm.public_dns = azurerm.public_dns }
 }
