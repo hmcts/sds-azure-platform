@@ -47,7 +47,7 @@ module "landing_zone" {
 
 #   common_tags                = module.ctags.common_tags
 #   env                        = "sbox"
-#   project                    = "hmcts-test1"
+#   project                    = "sdshmcts-test1"
 #   location                   = var.location
 #   frontends                  = var.new_frontends
 #   ssl_mode                   = "FrontDoor"
