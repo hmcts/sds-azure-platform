@@ -33,14 +33,14 @@ frontends = [
     backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
     disabled_rules   = {}
   },
-  {
+  # {
 
-    name             = "apex-sandbox"
-    custom_domain    = "sandbox.platform.hmcts.net"
-    certificate_name = "wildcard-sandbox-platform-hmcts-net"
-    backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
-    disabled_rules   = {}
-  }, 
+  #   name             = "apex-sandbox"
+  #   custom_domain    = "sandbox.platform.hmcts.net"
+  #   certificate_name = "wildcard-sandbox-platform-hmcts-net"
+  #   backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
+  #   disabled_rules   = {}
+  # }, 
   # {
 
   #   name             = "toffee2"
@@ -399,6 +399,15 @@ apim_appgw_exclusions = [
 ]
 
 new_frontends = [
+
+  # {
+
+  #   name             = "apex-sandbox"
+  #   custom_domain    = "sandbox.platform.hmcts.net"
+  #   certificate_name = "wildcard-sandbox-platform-hmcts-net"
+  #   backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
+  #   disabled_rules   = {}
+  # }, 
   {
 
     name             = "toffee2"
@@ -411,6 +420,17 @@ new_frontends = [
 
     name             = "toffee3"
     custom_domain    = "toffee3.sandbox.platform.hmcts.net"
+    certificate_name = "wildcard-sandbox-platform-hmcts-net"
+    backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
+    disabled_rules   = {}
+  }
+]
+
+new_test_frontends = [
+  {
+
+    name             = "apex-sandbox"
+    custom_domain    = "sandbox.platform.hmcts.net"
     certificate_name = "wildcard-sandbox-platform-hmcts-net"
     backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
     disabled_rules   = {}
