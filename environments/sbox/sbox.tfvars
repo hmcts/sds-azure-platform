@@ -436,3 +436,14 @@ new_test_frontends = [
     disabled_rules   = {}
   }
 ]
+
+new_test_frontends_door = [
+  {
+
+    name             = "toffee5"
+    custom_domain    = "toffee5.sandbox.platform.hmcts.net"
+    certificate_name = "wildcard-sandbox-platform-hmcts-net"
+    backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
+    disabled_rules   = {}
+  }
+]

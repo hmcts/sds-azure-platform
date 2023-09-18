@@ -69,7 +69,7 @@ module "frontdoor_testing_migration1" {
   env                        = "sbox"
   project                    = "sdshmcts-test2"
   location                   = var.location
-  frontends                  = var.new_test_frontends
+  frontends                  = var.new_test_frontends_door
   ssl_mode                   = "FrontDoor"
   resource_group             = azurerm_resource_group.fd_rg.name
   subscription_id            = data.azurerm_subscription.current.subscription_id
