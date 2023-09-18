@@ -8,6 +8,7 @@ destinations       = ["10.141.15.250", "10.141.31.250"]
 vnet_rg            = "ss-test-network-rg"
 vnet_name          = "ss-test-vnet"
 hub                = "nonprod"
+autoShutdown       = true
 ssl_policy = {
   policy_type          = "Predefined"
   policy_name          = "AppGwSslPolicy20220101S"
@@ -33,6 +34,7 @@ frontends = [
     name           = "pip-frontend"
     custom_domain  = "pip-frontend.test.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
+    redirect_url   = "https://pip-frontend.test.platform.hmcts.net/unprocessed-request"
 
     disabled_rules = {
       LFI = [
@@ -45,7 +47,7 @@ frontends = [
         name     = "ManualUploadPathTraversalGeneral",
         type     = "MatchRule"
         priority = 1
-        action   = "Block"
+        action   = "Redirect"
 
         match_conditions = [
           {
@@ -73,7 +75,7 @@ frontends = [
         name     = "ManualUploadPathTraversalNonEncode",
         type     = "MatchRule"
         priority = 2
-        action   = "Block"
+        action   = "Redirect"
 
         match_conditions = [
           {
@@ -100,7 +102,7 @@ frontends = [
         name     = "ManualUploadPathTraversalRegex",
         type     = "MatchRule"
         priority = 3
-        action   = "Block"
+        action   = "Redirect"
 
         match_conditions = [
           {
@@ -248,8 +250,49 @@ frontends = [
     backend_domain      = ["pre-testing.powerappsportals.com"]
     certificate_name    = "portal-test-pre-recorded-evidence-justice-gov-uk"
     disabled_rules      = {}
-    shutter_app         = false
     health_path         = "/SignIn?ReturnUrl=%2F"
+    health_protocol     = "Https"
+    forwarding_protocol = "HttpsOnly"
+    cache_enabled       = "false"
+
+    disabled_rules = {
+      SQLI = [
+        "942440",
+        "942450",
+      ],
+      RCE = [
+        "932100",
+        "932110",
+        "932115",
+      ],
+    }
+
+    custom_rules = [
+      {
+        name     = "CountryMatchWhitelist"
+        enabled  = true
+        priority = 1
+        type     = "MatchRule"
+        action   = "Block"
+        match_conditions = [
+          {
+            match_variable     = "RemoteAddr"
+            operator           = "GeoMatch"
+            negation_condition = true
+            match_values = [
+              "GB"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    name                = "pre-portal"
+    mode                = "Prevention"
+    custom_domain       = "pre-portal.test.platform.hmcts.net"
+    backend_domain      = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
+    disabled_rules      = {}
     health_protocol     = "Https"
     forwarding_protocol = "HttpsOnly"
     cache_enabled       = "false"

@@ -8,6 +8,7 @@ destinations       = ["10.51.79.250", "10.51.95.250"]
 vnet_rg            = "ss-demo-network-rg"
 vnet_name          = "ss-demo-vnet"
 hub                = "nonprod"
+autoShutdown       = true
 ssl_policy = {
   policy_type          = "Predefined"
   policy_name          = "AppGwSslPolicy20220101S"
@@ -289,6 +290,47 @@ frontends = [
         "942440",
       ],
     }
+
+  },
+  {
+    product          = "pre"
+    name             = "pre-portal"
+    custom_domain    = "pre-portal.demo.platform.hmcts.net"
+    backend_domain   = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
+    certificate_name = "wildcard-demo-platform-hmcts-net"
+    cache_enabled    = "false"
+
+    disabled_rules = {
+      SQLI = [
+        "942440",
+        "942450",
+      ],
+      RCE = [
+        "932100",
+        "932110",
+        "932115",
+      ],
+    }
+
+    custom_rules = [
+      {
+        name     = "CountryMatchWhitelist"
+        enabled  = true
+        priority = 1
+        type     = "MatchRule"
+        action   = "Block"
+        match_conditions = [
+          {
+            match_variable     = "RemoteAddr"
+            operator           = "GeoMatch"
+            negation_condition = true
+            match_values = [
+              "GB"
+            ]
+          }
+        ]
+      }
+    ]
 
   },
   {

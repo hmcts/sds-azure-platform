@@ -8,6 +8,7 @@ destinations       = ["10.148.15.250", "10.148.31.250"]
 vnet_rg            = "ss-stg-network-rg"
 vnet_name          = "ss-stg-vnet"
 hub                = "prod"
+autoShutdown       = true
 ssl_policy = {
   policy_type          = "Predefined"
   policy_name          = "AppGwSslPolicy20220101S"
@@ -380,6 +381,22 @@ frontends = [
   {
     name           = "vh-admin-web"
     custom_domain  = "admin.staging.hearings.reform.hmcts.net"
+    backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
+    cache_enabled  = "false"
+
+    disabled_rules = {}
+
+    global_exclusions = [
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      }
+    ]
+  },
+  {
+    name           = "pre-portal"
+    custom_domain  = "pre-portal.staging.platform.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
 

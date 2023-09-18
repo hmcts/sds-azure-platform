@@ -11,6 +11,7 @@ shutter_rg         = "sds-platform-sbox-rg"
 cdn_sku            = "Standard_Verizon"
 sku_tier           = "Free"
 sku_size           = "Free"
+autoShutdown       = true
 ssl_policy = {
   policy_type          = "Predefined"
   policy_name          = "AppGwSslPolicy20220101S"
@@ -98,9 +99,51 @@ frontends = [
     custom_domain       = "portal-sbox.pre-recorded-evidence.justice.gov.uk"
     backend_domain      = ["pre-sbox.powerappsportals.com"]
     certificate_name    = "portal-sbox-pre-recorded-evidence-justice-gov-uk"
-    disabled_rules      = {}
     shutter_app         = false
     health_path         = "/SignIn?ReturnUrl=%2F"
+    health_protocol     = "Https"
+    forwarding_protocol = "HttpsOnly"
+    cache_enabled       = "false"
+
+    disabled_rules = {
+      SQLI = [
+        "942440",
+        "942450",
+      ],
+      RCE = [
+        "932100",
+        "932110",
+        "932115",
+      ],
+    }
+
+    custom_rules = [
+      {
+        name     = "CountryMatchWhitelist"
+        enabled  = true
+        priority = 1
+        type     = "MatchRule"
+        action   = "Block"
+        match_conditions = [
+          {
+            match_variable     = "RemoteAddr"
+            operator           = "GeoMatch"
+            negation_condition = true
+            match_values = [
+              "GB"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    name                = "pre-portal"
+    mode                = "Prevention"
+    custom_domain       = "pre-portal.sandbox.platform.hmcts.net"
+    backend_domain      = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
+    certificate_name    = "wildcard-sandbox-platform-hmcts-net"
+    shutter_app         = false
     health_protocol     = "Https"
     forwarding_protocol = "HttpsOnly"
     cache_enabled       = "false"
@@ -162,6 +205,163 @@ frontends = [
         operator       = "Equals"
         selector       = "connect.sid"
       },
+    ]
+  },
+  {
+    name           = "pip-frontend"
+    custom_domain  = "pip-frontend.sandbox.platform.hmcts.net"
+    backend_domain = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
+    shutter_app    = false
+
+    disabled_rules = {
+      LFI = [
+        "930110" // false positive on multi-part uploads
+      ]
+    }
+
+    custom_rules = [
+      {
+        name     = "ManualUploadPathTraversalGeneral",
+        type     = "MatchRule"
+        priority = 1
+        action   = "Block"
+
+        match_conditions = [
+          {
+            match_variable     = "RequestBody"
+            operator           = "Contains"
+            negation_condition = false
+            transforms         = ["UrlDecode"]
+            match_values       = ["../", "..\\"]
+          },
+          {
+            match_variable     = "RequestUri"
+            operator           = "EndsWith"
+            negation_condition = true
+            match_values       = ["/manual-upload"]
+          },
+          {
+            match_variable     = "RequestMethod"
+            operator           = "Equal"
+            negation_condition = false
+            match_values       = ["POST"]
+          }
+        ]
+      },
+      {
+        name     = "ManualUploadPathTraversalNonEncode",
+        type     = "MatchRule"
+        priority = 2
+        action   = "Block"
+
+        match_conditions = [
+          {
+            match_variable     = "RequestBody"
+            operator           = "Contains"
+            negation_condition = false
+            match_values       = ["..%c0%af", "..%c1%9c"]
+          },
+          {
+            match_variable     = "RequestUri"
+            operator           = "EndsWith"
+            negation_condition = true
+            match_values       = ["/manual-upload"]
+          },
+          {
+            match_variable     = "RequestMethod"
+            operator           = "Equal"
+            negation_condition = false
+            match_values       = ["POST"]
+          }
+        ]
+      },
+      {
+        name     = "ManualUploadPathTraversalRegex",
+        type     = "MatchRule"
+        priority = 3
+        action   = "Block"
+
+        match_conditions = [
+          {
+            match_variable     = "RequestBody"
+            operator           = "RegEx"
+            negation_condition = false
+            transforms         = ["Lowercase"]
+            match_values       = ["([a-z]:\\\\)|(%252e|\\.)(%252e|\\.)(%255c|%252f|\\\\|\\/)"]
+          },
+          {
+            match_variable     = "RequestUri"
+            operator           = "EndsWith"
+            negation_condition = true
+            match_values       = ["/manual-upload"]
+          },
+          {
+            match_variable     = "RequestMethod"
+            operator           = "Equal"
+            negation_condition = false
+            match_values       = ["POST"]
+          }
+        ]
+      }
+    ]
+
+    global_exclusions = [
+      ## Open ID response parameters
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "state"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "formCookie"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "session"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "dtSa"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "court-and-tribunal-hearings-cookie-preferences"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "createAdminAccount"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "session.sig"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "error_description"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "iss"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "subscriptions"
+      }
     ]
   },
 ]

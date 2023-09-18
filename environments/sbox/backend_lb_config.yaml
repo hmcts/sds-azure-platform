@@ -37,7 +37,33 @@ gateways:
       - product: darts
         component: gateway
         ssl_enabled: true
+      - product: darts
+        component: stub-services
+        ssl_enabled: true
+    # Publication and Information
+      - product: pip
+        component: publication-services
+        ssl_enabled: true
+      - product: pip
+        component: data-management
+        ssl_enabled: true
+      - product: pip
+        component: channel-management
+        ssl_enabled: true
+      - product: pip
+        component: subscription-management
+        ssl_enabled: true
+      - product: pip
+        component: account-management
+        ssl_enabled: true
     # test
       - product: test
         component: override
         host_name_suffix_override: service.core-compute-sandbox.internal
+     # Pre-Recorded Evidence
+      - product: pre
+        component: portal
+        ssl_enabled: true
+      - product: pre
+        component: api
+        ssl_enabled: true
