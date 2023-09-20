@@ -129,41 +129,7 @@ frontends = [
     ]
 
     global_exclusions = [
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "redirect_uri"
-      },
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "desc"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "StartsWith"
-        selector       = "x-ms-cpim-"
-      },
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "diags"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "redirect_uri"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "error_description"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "court-and-tribunal-hearings-cookie-preferences"
-      },
+      ## Open ID response parameters
       {
         match_variable = "RequestBodyPostArgNames"
         operator       = "Equals"
@@ -172,32 +138,17 @@ frontends = [
       {
         match_variable = "RequestBodyPostArgNames"
         operator       = "Equals"
-        selector       = "claim_value"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "ReadOnlyEmail"
-      },
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "nonce"
-      },
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
         selector       = "state"
       },
       {
         match_variable = "RequestCookieNames"
         operator       = "Equals"
-        selector       = "session.sig"
+        selector       = "formCookie"
       },
       {
-        match_variable = "QueryStringArgNames"
+        match_variable = "RequestCookieNames"
         operator       = "Equals"
-        selector       = "iss"
+        selector       = "session"
       },
       {
         match_variable = "RequestCookieNames"
@@ -207,12 +158,32 @@ frontends = [
       {
         match_variable = "RequestCookieNames"
         operator       = "Equals"
+        selector       = "court-and-tribunal-hearings-cookie-preferences"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
         selector       = "createAdminAccount"
       },
       {
         match_variable = "RequestCookieNames"
         operator       = "Equals"
-        selector       = "formCookie"
+        selector       = "session.sig"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "error_description"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "iss"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "subscriptions"
       }
     ]
   },
