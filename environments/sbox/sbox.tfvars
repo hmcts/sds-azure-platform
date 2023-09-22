@@ -235,6 +235,7 @@ frontends = [
     name           = "pip-frontend"
     custom_domain  = "pip-frontend.sandbox.platform.hmcts.net"
     backend_domain = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
+    redirect_url   = "https://pip-frontend.sandbox.platform.hmcts.net/unprocessed-request"
     shutter_app    = false
 
     disabled_rules = {
@@ -248,7 +249,7 @@ frontends = [
         name     = "ManualUploadPathTraversalGeneral",
         type     = "MatchRule"
         priority = 1
-        action   = "Block"
+        action   = "Redirect"
 
         match_conditions = [
           {
@@ -276,7 +277,7 @@ frontends = [
         name     = "ManualUploadPathTraversalNonEncode",
         type     = "MatchRule"
         priority = 2
-        action   = "Block"
+        action   = "Redirect"
 
         match_conditions = [
           {
@@ -303,7 +304,7 @@ frontends = [
         name     = "ManualUploadPathTraversalRegex",
         type     = "MatchRule"
         priority = 3
-        action   = "Block"
+        action   = "Redirect"
 
         match_conditions = [
           {
