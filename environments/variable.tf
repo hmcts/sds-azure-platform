@@ -6,8 +6,7 @@ variable "env" {}
 variable "environment" {}
 variable "frontends" {}
 variable "new_frontends" {}
-variable "new_test_frontends" {}
-variable "new_test_frontends_door" {}
+# variable "new_test_frontends" {}
 variable "location" {}
 variable "oms_env" {}
 variable "private_ip_address" {}
