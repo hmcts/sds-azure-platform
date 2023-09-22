@@ -519,6 +519,7 @@ frontends = [
     custom_domain    = "juror-bureau.justice.gov.uk"
     dns_zone_name    = "juror-bureau.justice.gov.uk"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    shutter_app      = true
     ssl_mode         = "AzureKeyVault"
     certificate_name = "juror-bureau-justice-gov-uk"
 
@@ -702,6 +703,7 @@ frontends = [
     custom_domain                = "reply-jury-summons.service.gov.uk"
     dns_zone_name                = "reply-jury-summons.service.gov.uk"
     backend_domain               = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    shutter_app                  = true
     ssl_mode                     = "AzureKeyVault"
     certificate_name             = "reply-jury-summons-service-gov-uk"
     session_affinity             = true
