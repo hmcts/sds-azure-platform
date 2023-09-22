@@ -42,45 +42,25 @@ module "landing_zone" {
   log_analytics_workspace_id = module.logworkspace.workspace_id
 }
 
-module "frontdoor_testing_migration" {
-  source = "git::https://github.com/hmcts/terraform-module-frontdoor.git?ref=master"
+# module "frontdoor_testing_migration" {
+#   source = "git::https://github.com/hmcts/terraform-module-frontdoor.git?ref=master"
 
-  common_tags                = module.ctags.common_tags
-  env                        = "sbox"
-  project                    = "sdshmcts-test1"
-  location                   = var.location
-  frontends                  = var.new_test_frontends
-  ssl_mode                   = "FrontDoor"
-  resource_group             = azurerm_resource_group.fd_rg.name
-  subscription_id            = data.azurerm_subscription.current.subscription_id
-  certificate_key_vault_name = local.vault_name
-  oms_env                    = var.oms_env
-  certificate_name_check     = true
-  key_vault_resource_group   = "sds-platform-${var.environment}-rg"
-  log_analytics_workspace_id = module.logworkspace.workspace_id
-  add_access_policy          = "false"
-  add_access_policy_role     = "false"
-}
-
-module "frontdoor_testing_migration1" {
-  source = "git::https://github.com/hmcts/terraform-module-frontdoor.git?ref=master"
-
-  common_tags                = module.ctags.common_tags
-  env                        = "sbox"
-  project                    = "sdshmcts-test2"
-  location                   = var.location
-  frontends                  = var.new_test_frontends_door
-  ssl_mode                   = "FrontDoor"
-  resource_group             = azurerm_resource_group.fd_rg.name
-  subscription_id            = data.azurerm_subscription.current.subscription_id
-  certificate_key_vault_name = local.vault_name
-  oms_env                    = var.oms_env
-  certificate_name_check     = true
-  key_vault_resource_group   = "sds-platform-${var.environment}-rg"
-  log_analytics_workspace_id = module.logworkspace.workspace_id
-  add_access_policy          = "false"
-  add_access_policy_role     = "false"
-}
+#   common_tags                = module.ctags.common_tags
+#   env                        = "sbox"
+#   project                    = "sdshmcts-test1"
+#   location                   = var.location
+#   frontends                  = var.new_test_frontends
+#   ssl_mode                   = "FrontDoor"
+#   resource_group             = azurerm_resource_group.fd_rg.name
+#   subscription_id            = data.azurerm_subscription.current.subscription_id
+#   certificate_key_vault_name = local.vault_name
+#   oms_env                    = var.oms_env
+#   certificate_name_check     = true
+#   key_vault_resource_group   = "sds-platform-${var.environment}-rg"
+#   log_analytics_workspace_id = module.logworkspace.workspace_id
+#   add_access_policy          = "false"
+#   add_access_policy_role     = "false"
+# }
 
 module "new_test_frontdoor" {
   source = "git::https://github.com/hmcts/terraform-module-frontdoor.git?ref=DTSPO-13992-test-new-version-of-frontdoor"
