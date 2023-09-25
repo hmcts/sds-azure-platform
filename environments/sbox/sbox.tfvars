@@ -400,6 +400,15 @@ new_frontends = [
     certificate_name = "wildcard-sandbox-platform-hmcts-net"
     backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
     disabled_rules   = {}
+    is_apex          = true
+  },
+  {
+
+    name             = "toffee2"
+    custom_domain    = "toffee2.sandbox.platform.hmcts.net"
+    certificate_name = "wildcard-sandbox-platform-hmcts-net"
+    backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
+    disabled_rules   = {}
   }
 ]
 
