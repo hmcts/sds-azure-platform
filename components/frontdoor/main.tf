@@ -63,7 +63,7 @@ module "landing_zone" {
 # }
 
 module "new_test_frontdoor" {
-  source = "git::https://github.com/hmcts/terraform-module-frontdoor.git?ref=DTSPO-13992-test-new-version-of-frontdoor"
+  source = "git::https://github.com/hmcts/terraform-module-frontdoor.git?ref=DTSPO-13992-testing-new-version-of-frontdoor-ty"
 
   common_tags                = module.ctags.common_tags
   env                        = var.env
