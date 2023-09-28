@@ -715,16 +715,6 @@ frontends = [
     disabled_rules = {}
   },
   {
-    name              = "pip-frontend"
-    custom_domain     = "pip-frontend.platform.hmcts.net"
-    backend_domain    = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-    certificate_name  = "wildcard-platform-hmcts-net"
-    disabled_rules    = {}
-    global_exclusions = []
-    dns_zone_name     = "platform.hmcts.net"
-
-  },
-  {
     name             = "court-tribunal-hearings"
     custom_domain    = "www.court-tribunal-hearings.service.gov.uk"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
