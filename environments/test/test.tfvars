@@ -4,7 +4,9 @@ env                = "test"
 subscription       = "test"
 oms_env            = "test"
 private_ip_address = "10.141.32.132"
+DTSPO-15362-cluster-upgrade
 destinations       = ["10.141.31.250", "10.141.15.250"]
+master
 vnet_rg            = "ss-test-network-rg"
 vnet_name          = "ss-test-vnet"
 hub                = "nonprod"
