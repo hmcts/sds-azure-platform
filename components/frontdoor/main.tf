@@ -87,4 +87,5 @@ module "new_test_frontdoor" {
   add_access_policy          = "true"
   add_access_policy_role     = "true"
   providers                  = { azurerm.public_dns = azurerm.public_dns }
+  azapi_providers            = { azapi.frontdoor_azapi = azapi.frontdoor_azapi }
 }
