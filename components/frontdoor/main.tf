@@ -5,11 +5,6 @@ provider "azurerm" {
   features {}
 }
 
-provider "azapi" {
-  alias   = "frontdoor_azapi"
-  version = "~> 1.0"
-}
-
 module "logworkspace" {
   source      = "git::https://github.com/hmcts/terraform-module-log-analytics-workspace-id.git?ref=master"
   environment = var.environment
