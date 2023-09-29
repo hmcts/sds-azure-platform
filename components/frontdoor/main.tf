@@ -5,6 +5,11 @@ provider "azurerm" {
   features {}
 }
 
+provider "azapi" {
+  alias   = "frontdoor_azapi"
+  version = "~> 1.0"
+}
+
 provider "azapi" {}
 
 module "logworkspace" {
