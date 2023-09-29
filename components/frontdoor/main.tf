@@ -80,7 +80,7 @@ module "new_test_frontdoor" {
   key_vault_resource_group   = "sds-platform-${var.environment}-rg"
   log_analytics_workspace_id = module.logworkspace.workspace_id
   front_door_sku_name        = "Premium_AzureFrontDoor"
-  add_access_policy          = "false"
+  add_access_policy          = "true"
   add_access_policy_role     = "false"
   providers                  = { azurerm.public_dns = azurerm.public_dns }
 }
