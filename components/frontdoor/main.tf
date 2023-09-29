@@ -6,8 +6,8 @@ provider "azurerm" {
 }
 
 provider "azapi" {
-  alias           = "frontdoor_azapi"
-  version         = "~> 1.0"
+  alias   = "frontdoor_azapi"
+  version = "~> 1.0"
 }
 
 module "logworkspace" {
@@ -87,7 +87,7 @@ module "new_test_frontdoor" {
   front_door_sku_name        = "Premium_AzureFrontDoor"
   add_access_policy          = "true"
   add_access_policy_role     = "true"
-  providers                  = { azurerm.public_dns = azurerm.public_dns, 
-                                azapi.frontdoor_azapi = azapi.frontdoor_azapi
-                               }
+  providers = { azurerm.public_dns = azurerm.public_dns,
+    azapi.frontdoor_azapi = azapi.frontdoor_azapi
+  }
 }
