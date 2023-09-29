@@ -32,6 +32,16 @@ frontends = [
     certificate_name = "wildcard-sandbox-platform-hmcts-net"
     backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
     disabled_rules   = {}
+    shutter_app      = false
+  },
+  {
+
+    name             = "toffee2"
+    custom_domain    = "toffee2.sandbox.platform.hmcts.net"
+    certificate_name = "wildcard-sandbox-platform-hmcts-net"
+    backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
+    disabled_rules   = {}
+    shutter_app      = false
   },
   {
     product          = "sds-api-mgmt"
