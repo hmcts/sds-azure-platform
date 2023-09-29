@@ -16,6 +16,10 @@ terraform {
   }
 }
 
+provider "azapi" {
+  alias           = "frontdoor_azapi"
+}
+
 provider "azurerm" {
   features {}
 }
