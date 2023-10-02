@@ -6,7 +6,8 @@ provider "azurerm" {
 }
 
 provider "azapi" {
-  alias = "frontdoor-azapi"
+  alias   = "frontdoor-azapi"
+  version = "~> 1.0"
 }
 
 module "logworkspace" {
