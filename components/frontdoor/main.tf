@@ -5,6 +5,10 @@ provider "azurerm" {
   features {}
 }
 
+provider "azapi" {
+  alias           = "frontdoor-azapi"
+}
+
 module "logworkspace" {
   source      = "git::https://github.com/hmcts/terraform-module-log-analytics-workspace-id.git?ref=master"
   environment = var.environment
@@ -82,5 +86,7 @@ module "new_test_frontdoor" {
   front_door_sku_name        = "Premium_AzureFrontDoor"
   add_access_policy          = "false"
   add_access_policy_role     = "false"
-  providers = { azurerm.public_dns = azurerm.public_dns }
+  providers = { azurerm.public_dns = azurerm.public_dns,
+                azapi.frontdoor-azapi = azapi.frontdoor-azapi
+              }
 }

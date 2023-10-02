@@ -397,7 +397,7 @@ new_frontends = [
 
     name             = "apex-sandbox"
     custom_domain    = "sandbox.platform.hmcts.net"
-    certificate_name = "wildcard-sandbox-platform-hmcts-net"
+    certificate_name = "sandbox-platform-hmcts-net"
     ssl_mode         = "AzureKeyVault"
     backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
     disabled_rules   = {}
