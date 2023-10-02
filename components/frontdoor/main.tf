@@ -6,7 +6,7 @@ provider "azurerm" {
 }
 
 provider "azapi" {
-  alias   = "frontdoor-azapi"
+  alias   = "frontdoor_azapi"
   version = "~> 1.0"
 }
 
@@ -88,6 +88,6 @@ module "new_test_frontdoor" {
   add_access_policy          = "false"
   add_access_policy_role     = "false"
   providers = { azurerm.public_dns = azurerm.public_dns,
-    azapi.frontdoor-azapi = azapi.frontdoor-azapi
+    azapi.frontdoor-azapi = azapi.frontdoor_azapi
   }
 }
