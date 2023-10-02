@@ -519,6 +519,7 @@ frontends = [
     custom_domain    = "juror-bureau.justice.gov.uk"
     dns_zone_name    = "juror-bureau.justice.gov.uk"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    shutter_app      = true
     ssl_mode         = "AzureKeyVault"
     certificate_name = "juror-bureau-justice-gov-uk"
 
@@ -702,6 +703,7 @@ frontends = [
     custom_domain                = "reply-jury-summons.service.gov.uk"
     dns_zone_name                = "reply-jury-summons.service.gov.uk"
     backend_domain               = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    shutter_app                  = true
     ssl_mode                     = "AzureKeyVault"
     certificate_name             = "reply-jury-summons-service-gov-uk"
     session_affinity             = true
@@ -711,16 +713,6 @@ frontends = [
     mode           = "Detection"
     health_path    = "/"
     disabled_rules = {}
-  },
-  {
-    name              = "pip-frontend"
-    custom_domain     = "pip-frontend.platform.hmcts.net"
-    backend_domain    = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-    certificate_name  = "wildcard-platform-hmcts-net"
-    disabled_rules    = {}
-    global_exclusions = []
-    dns_zone_name     = "platform.hmcts.net"
-
   },
   {
     name             = "court-tribunal-hearings"

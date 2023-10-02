@@ -741,6 +741,7 @@ frontends = [
     name           = "darts-portal"
     custom_domain  = "darts-portal.staging.platform.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
+    cache_enabled  = "false"
     disabled_rules = {}
 
     global_exclusions = [
