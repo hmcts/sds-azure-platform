@@ -40,4 +40,7 @@ module "landing_zone" {
   certificate_name_check     = true
   key_vault_resource_group   = "sds-platform-${var.environment}-rg"
   log_analytics_workspace_id = module.logworkspace.workspace_id
+
+  diagnostics_storage_account_id    = azurerm_storage_account.diagnostics.id
+  send_access_logs_to_log_analytics = false
 }
