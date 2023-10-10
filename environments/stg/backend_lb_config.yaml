@@ -67,3 +67,7 @@ gateways:
       - product: pre
         component: api
         ssl_enabled: true
+     # Juror
+      - product: juror
+        component: scheduler-api
+        ssl_enabled: true
