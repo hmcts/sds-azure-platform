@@ -36,5 +36,6 @@ module "backendappgateway" {
   ssl_policy                 = var.ssl_policy
   common_tags                = module.ctags.common_tags
 
+  diagnostics_storage_account_id     = data.azurerm_storage_account.diagnostics.id
   enable_multiple_availability_zones = true
 }
