@@ -29,5 +29,6 @@ module "appgateway" {
   vnet_rg                            = var.vnet_rg
   vnet_name                          = var.vnet_name
   log_analytics_workspace_id         = module.logworkspace.workspace_id
+  diagnostics_storage_account_id     = data.azurerm_storage_account.diagnostics.id
   enable_multiple_availability_zones = true
 }
