@@ -380,3 +380,6 @@ apim_appgw_exclusions = [
     selector       = "iss"
   }
 ]
+
+
+upgrade_frontdoor = true

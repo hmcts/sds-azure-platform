@@ -62,3 +62,10 @@ variable "expiresAfter" {
 variable "autoShutdown" {
   default = false
 }
+variable "upgrade_frontdoor" {
+  type    = bool
+  default = false
+}
+variable "ssl_mode" {
+  default = "FrontDoor"
+}
