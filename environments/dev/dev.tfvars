@@ -408,7 +408,7 @@ frontends = [
     custom_domain  = "dev.landregistrationdivision.dsd.io"
     backend_domain = ["dts-tribs-dev-317402065.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
-    enable_ssl     = false
+
 
     global_exclusions = [
       {
@@ -429,7 +429,7 @@ frontends = [
     custom_domain  = "dev.immigrationservices.dsd.io"
     backend_domain = ["dts-tribs-dev-317402065.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
-    enable_ssl     = false
+
 
     global_exclusions = [
       {
@@ -445,7 +445,7 @@ frontends = [
     custom_domain  = "dev.informationrights.dsd.io"
     backend_domain = ["dts-tribs-dev-317402065.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
-    enable_ssl     = false
+
 
     global_exclusions = [
       {
@@ -476,7 +476,7 @@ frontends = [
     custom_domain  = "dev.administrativeappeals.dsd.io"
     backend_domain = ["dts-tribs-dev-317402065.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
-    enable_ssl     = false
+
 
     global_exclusions = [
       {
@@ -497,7 +497,7 @@ frontends = [
     custom_domain  = "dev.carestandards.dsd.io"
     backend_domain = ["dts-tribs-dev-317402065.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
-    enable_ssl     = false
+
 
     global_exclusions = [
       {
@@ -528,7 +528,7 @@ frontends = [
     custom_domain  = "dev.landschamber.dsd.io"
     backend_domain = ["dts-tribs-dev-317402065.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
-    enable_ssl     = false
+
 
     global_exclusions = [
       {
@@ -544,7 +544,7 @@ frontends = [
     custom_domain  = "dev.financeandtax.dsd.io"
     backend_domain = ["dts-tribs-dev-317402065.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
-    enable_ssl     = false
+
 
     disabled_rules = {
       SQLI = [
@@ -583,7 +583,7 @@ frontends = [
     custom_domain  = "dev.employmentappeals.dsd.io"
     backend_domain = ["dts-tribs-dev-317402065.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
-    enable_ssl     = false
+
 
     global_exclusions = [
       {
@@ -599,7 +599,7 @@ frontends = [
     custom_domain  = "dev.transportappeals.dsd.io"
     backend_domain = ["dts-tribs-dev-317402065.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
-    enable_ssl     = false
+
 
     global_exclusions = [
       {
@@ -655,7 +655,7 @@ frontends = [
     custom_domain  = "dev.cicap.dsd.io"
     backend_domain = ["dts-tribs-dev-317402065.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
-    enable_ssl     = false
+
 
     global_exclusions = [
       {

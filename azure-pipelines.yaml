@@ -153,9 +153,9 @@ parameters:
         environment: 'sbox'
         dependsOn: 'Precheck'
         pipeline_tests: false
-      # - deployment: 'frontdoor'
-      #   environment: 'dev'
-      #   dependsOn: 'sbox_frontdoor'
+      - deployment: 'frontdoor'
+        environment: 'dev'
+        dependsOn: 'sbox_frontdoor'
       - deployment: 'frontdoor'
         environment: 'stg'
         dependsOn: 'sbox_frontdoor'
