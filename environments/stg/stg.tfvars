@@ -47,7 +47,7 @@ frontends = [
     custom_domain  = "pip-frontend.staging.platform.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
     redirect_url   = "https://pip-frontend.staging.platform.hmcts.net/unprocessed-request"
-
+    shutter_app    = true
     disabled_rules = {
       LFI = [
         "930110" // false positive on multi-part uploads
