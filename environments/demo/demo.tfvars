@@ -21,6 +21,8 @@ apim_appgw_backend_pool_fqdns = ["firewall-nonprodi-palo-sdsapimgmtdemo.uksouth.
 apim_appgw_min_capacity       = 1
 apim_appgw_max_capacity       = 2
 
+upgrade_frontdoor = true
+
 frontends = [
   {
     name             = "sds-api-mgmt"
