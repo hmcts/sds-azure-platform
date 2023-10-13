@@ -1,5 +1,16 @@
 ---
 
 gateways:
-  - ssl_certificates:
+  - gateway_configuration:
+      exclude_env_in_app_name: true
+      private_ip_address: 10.11.72.236
+    ssl_certificates:
       - certificate_name: wildcard-ithc-platform-hmcts-net
+    app_configuration:
+      - product: sds
+        component: api-mgmt-appgw
+        ssl_enabled: true
+        use_public_ip: true
+        health_path_override: "/status-0123456789abcdef"
+        host_name_suffix: ithc.platform.hmcts.net
+        ssl_host_name_suffix: ithc.platform.hmcts.net
