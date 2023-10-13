@@ -12,5 +12,6 @@ gateways:
         ssl_enabled: true
         use_public_ip: true
         health_path_override: "/status-0123456789abcdef"
+        ssl_certificate_name: wildcard-sandbox-platform-hmcts-net
         host_name_suffix: sandbox.platform.hmcts.net
         ssl_host_name_suffix: sandbox.platform.hmcts.net
