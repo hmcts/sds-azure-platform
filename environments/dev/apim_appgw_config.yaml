@@ -1,3 +1,6 @@
 ---
 
 gateways:
+  - gateway_configuration:
+      ssl_certificates:
+        - certificate_name: wildcard-dev-platform-hmcts-net

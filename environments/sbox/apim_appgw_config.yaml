@@ -1,3 +1,6 @@
 ---
 
 gateways:
+  - gateway_configuration:
+      ssl_certificates:
+        - certificate_name: wildcard-sandbox-platform-hmcts-net
