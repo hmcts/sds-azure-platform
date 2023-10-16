@@ -20,7 +20,7 @@ hub_app_gw_private_ip_address = ["10.11.72.233"]
 apim_appgw_backend_pool_fqdns = ["firewall-nonprodi-palo-sdsapimgmtdev.uksouth.cloudapp.azure.com"]
 apim_appgw_min_capacity       = 1
 apim_appgw_max_capacity       = 2
-
+upgrade_frontdoor             = true
 frontends = [
 
   {
