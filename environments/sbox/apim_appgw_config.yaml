@@ -7,8 +7,7 @@ gateways:
       certificate_name: wildcard-sandbox-platform-hmcts-net
       exclude_env_in_app_name: true
       private_ip_address: 10.10.200.222
-      ssl_certificates:
-        - certificate_name: wildcard-sandbox-platform-hmcts-net
+      ssl_certificates: wildcard-sandbox-platform-hmcts-net
     app_configuration:
       - product: sds
         component: api-mgmt-appgw
