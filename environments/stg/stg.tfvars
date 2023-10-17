@@ -18,7 +18,7 @@ ssl_policy = {
 key_vault_subscription        = "74dacd4f-a248-45bb-a2f0-af700dc4cf68"
 hub_app_gw_private_ip_address = ["10.11.8.212"]
 apim_appgw_backend_pool_fqdns = ["firewall-prod-int-palo-sdsapimgmtstg.uksouth.cloudapp.azure.com"]
-
+upgrade_frontdoor             = true
 frontends = [
 
   {
@@ -421,28 +421,28 @@ frontends = [
     custom_domain  = "staging.casetracker.justice.gov.uk"
     backend_domain = ["dualstack.civil-loadb-105un4gbv5077-2040046462.eu-west-2.elb.amazonaws.com"]
     shutter_app    = false
-    enable_ssl     = true
+
   },
   {
     name           = "staging-certificatedbailiffs"
     custom_domain  = "staging.certificatedbailiffs.justice.gov.uk"
     backend_domain = ["dualstack.certi-loadb-vzujs6ulbuut-415542592.eu-west-2.elb.amazonaws.com"]
     shutter_app    = false
-    enable_ssl     = true
+
   },
   {
     name           = "staging-courtfines"
     custom_domain  = "staging.courtfines.direct.gov.uk"
     backend_domain = ["dualstack.court-loadb-qpahtenf925i-482204730.eu-west-2.elb.amazonaws.com"]
     shutter_app    = false
-    enable_ssl     = true
+
   },
   {
     name           = "staging-immigrationappealsonline"
     custom_domain  = "staging.immigrationappealsonline.justice.gov.uk"
     backend_domain = ["dualstack.iacfees-s-ELBhmcts-DGD2EJ56UXEF-715536071.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
-    enable_ssl     = true
+
   },
   {
     name             = "sds-api-mgmt"
@@ -457,7 +457,7 @@ frontends = [
     custom_domain  = "staging.landregistrationdivision.dsd.io"
     backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
-    enable_ssl     = false
+
 
     global_exclusions = [
       {
@@ -496,7 +496,7 @@ frontends = [
     custom_domain  = "staging.immigrationservices.dsd.io"
     backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
-    enable_ssl     = false
+
 
     global_exclusions = [
       {
@@ -512,7 +512,7 @@ frontends = [
     custom_domain  = "staging.informationrights.dsd.io"
     backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
-    enable_ssl     = false
+
 
     global_exclusions = [
       {
@@ -543,7 +543,7 @@ frontends = [
     custom_domain  = "staging.administrativeappeals.dsd.io"
     backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
-    enable_ssl     = false
+
 
     global_exclusions = [
       {
@@ -564,7 +564,7 @@ frontends = [
     custom_domain  = "staging.carestandards.dsd.io"
     backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
-    enable_ssl     = false
+
 
     global_exclusions = [
       {
@@ -595,7 +595,7 @@ frontends = [
     custom_domain  = "staging.landschamber.dsd.io"
     backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
-    enable_ssl     = false
+
 
     global_exclusions = [
       {
@@ -611,7 +611,7 @@ frontends = [
     custom_domain  = "staging.financeandtax.dsd.io"
     backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
-    enable_ssl     = false
+
 
     disabled_rules = {
       SQLI = [
@@ -650,7 +650,7 @@ frontends = [
     custom_domain  = "staging.employmentappeals.dsd.io"
     backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
-    enable_ssl     = false
+
 
     global_exclusions = [
       {
@@ -666,7 +666,7 @@ frontends = [
     custom_domain  = "staging.transportappeals.dsd.io"
     backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
-    enable_ssl     = false
+
 
     global_exclusions = [
       {
@@ -682,7 +682,7 @@ frontends = [
     custom_domain  = "staging.cicap.dsd.io"
     backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
-    enable_ssl     = false
+
 
     global_exclusions = [
       {

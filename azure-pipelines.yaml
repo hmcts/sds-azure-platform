@@ -156,10 +156,10 @@ parameters:
       - deployment: 'frontdoor'
         environment: 'dev'
         dependsOn: 'sbox_frontdoor'
-      # - deployment: 'frontdoor'
-      #   environment: 'stg'
-      #   dependsOn: 'sbox_frontdoor'
-      #   pipeline_tests: true
+      - deployment: 'frontdoor'
+        environment: 'stg'
+        dependsOn: 'sbox_frontdoor'
+        pipeline_tests: true
       - deployment: 'frontdoor'
         environment: 'demo'
         dependsOn: 'sbox_frontdoor'
