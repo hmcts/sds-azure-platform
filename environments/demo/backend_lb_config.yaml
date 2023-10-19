@@ -61,10 +61,16 @@ gateways:
       - product: darts
         component: stub-services
         ssl_enabled: true
+
      # Pre-Recorded Evidence
       - product: pre
         component: portal
         ssl_enabled: true
       - product: pre
         component: api
+        ssl_enabled: true
+
+     # Juror
+      - product: juror
+        component: scheduler-api
         ssl_enabled: true
