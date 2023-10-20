@@ -1189,6 +1189,13 @@ frontends = [
     shutter_app   = false
     redirect      = "judiciary.sharepoint.com"
   },
+  {
+    name          = "sds-sandbox-build"
+    custom_domain = "sds-sandbox-build.platform.hmcts.net"
+    dns_zone_name = "platform.hmcts.net"
+    shutter_app   = false
+    redirect      = "sds-sandbox-build.hmcts.net"
+  },
 ]
 
 
