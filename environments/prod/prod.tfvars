@@ -1210,6 +1210,13 @@ frontends = [
     shutter_app   = false
     redirect      = "sds-build.hmcts.net"
   },
+  {
+    name          = "static-sds-build"
+    custom_domain = "static-sds-build.platform.hmcts.net"
+    dns_zone_name = "platform.hmcts.net"
+    shutter_app   = false
+    redirect      = "sds-build.hmcts.net"
+  },
 ]
 
 
