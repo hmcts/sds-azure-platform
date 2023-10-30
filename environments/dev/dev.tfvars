@@ -613,7 +613,6 @@ frontends = [
     name             = "pre-portal"
     custom_domain    = "pre-portal.dev.platform.hmcts.net"
     backend_domain   = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
-    certificate_name = "wildcard-dev-platform-hmcts-net"
     cache_enabled    = "false"
 
     disabled_rules = {
