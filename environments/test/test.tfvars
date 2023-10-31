@@ -192,7 +192,7 @@ frontends = [
       }
     ]
   },
-   {
+  {
     name                = "pip-frontend-b2c-sign-in"
     custom_domain       = "sign-in.pip-frontend.test.platform.hmcts.net"
     backend_domain      = ["hmctspipnonprod.b2clogin.com"]
