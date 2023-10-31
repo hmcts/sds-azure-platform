@@ -610,10 +610,10 @@ frontends = [
     ]
   },
   {
-    name             = "pre-portal"
-    custom_domain    = "pre-portal.dev.platform.hmcts.net"
-    backend_domain   = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
-    cache_enabled    = "false"
+    name           = "pre-portal"
+    custom_domain  = "pre-portal.dev.platform.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
+    cache_enabled  = "false"
 
     disabled_rules = {
       SQLI = [
