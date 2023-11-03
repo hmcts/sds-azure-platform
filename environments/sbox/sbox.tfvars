@@ -44,7 +44,7 @@ frontends = [
   },
   {
     product       = "netbox"
-    name          = "netbox-sandbox"
+    name          = "netbox"
     custom_domain = "netbox.sandbox.platform.hmcts.net"
     dns_zone_name = "sandbox.platform.hmcts.net"
     shutter_app   = false
