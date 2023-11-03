@@ -43,6 +43,14 @@ frontends = [
     cache_enabled    = "false"
   },
   {
+    product       = "netbox"
+    name          = "netbox-sandbox"
+    custom_domain = "netbox.sandbox.platform.hmcts.net"
+    dns_zone_name = "sandbox.platform.hmcts.net"
+    shutter_app   = false
+    redirect      = "netbox-sandbox.hmcts.net"
+  },
+  {
     name             = "vh-test-web"
     custom_domain    = "vh-test-web.sandbox.platform.hmcts.net"
     backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
