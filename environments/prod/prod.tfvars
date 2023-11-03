@@ -1091,6 +1091,14 @@ frontends = [
     dns_zone_name    = "platform.hmcts.net"
   },
   {
+    product       = "netbox"
+    name          = "netbox"
+    custom_domain = "netbox.platform.hmcts.net"
+    dns_zone_name = "platform.hmcts.net"
+    shutter_app   = false
+    redirect      = "netbox.hmcts.net"
+  },
+  {
     name             = "pre-portal"
     custom_domain    = "pre-portal.platform.hmcts.net"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
