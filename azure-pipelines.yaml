@@ -170,10 +170,10 @@ parameters:
       - deployment: 'frontdoor'
         environment: 'test'
         dependsOn: 'sbox_frontdoor'
-      - deployment: 'frontdoor'
-        environment: 'prod'
-        dependsOn: 'sbox_frontdoor'
-        pipeline_tests: true
+      # - deployment: 'frontdoor'
+      #   environment: 'prod'
+      #   dependsOn: 'sbox_frontdoor'
+      #   pipeline_tests: true
         
 variables:
   - name: project
