@@ -22,7 +22,7 @@ ssl_policy = {
 key_vault_subscription        = "5ca62022-6aa2-4cee-aaa7-e7536c8d566c"
 hub_app_gw_private_ip_address = ["10.11.8.200"]
 apim_appgw_backend_pool_fqdns = ["firewall-prod-int-palo-sdsapimgmtprod.uksouth.cloudapp.azure.com"]
-
+upgrade_frontdoor             = true
 frontends = [
   {
     name           = "dts-legacy-apps---certificatedbailiffs"
@@ -66,61 +66,61 @@ frontends = [
     backend_domain = ["dualstack.dsd-apps-lb-01-1379550980.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
   },
-  {
-    name             = "casetracker"
-    mode             = "Detection"
-    custom_domain    = "casetracker.justice.gov.uk"
-    dns_zone_name    = "justice.gov.uk"
-    backend_domain   = ["dualstack.civil-loadb-qvbu457dp1b-1835055660.eu-west-2.elb.amazonaws.com"]
-    shutter_app      = false
-    enable_ssl       = true
-    ssl_mode         = "AzureKeyVault"
-    certificate_name = "casetracker-justice-gov-uk"
-  },
-  {
-    name             = "certificatedbailiffs"
-    mode             = "Detection"
-    custom_domain    = "certificatedbailiffs.justice.gov.uk"
-    dns_zone_name    = "certificatedbailiffs.justice.gov.uk"
-    backend_domain   = ["dualstack.certi-loadb-q2s48nuaqsc6-1478330638.eu-west-2.elb.amazonaws.com"]
-    shutter_app      = false
-    enable_ssl       = true
-    ssl_mode         = "AzureKeyVault"
-    certificate_name = "certificatedbailiffs-justice-gov-uk"
-  },
-  {
-    name             = "courtfines"
-    mode             = "Detection"
-    custom_domain    = "courtfines.direct.gov.uk"
-    dns_zone_name    = "courtfines.direct.gov.uk"
-    backend_domain   = ["dualstack.court-loadb-8mcola2l2by0-173012739.eu-west-2.elb.amazonaws.com"]
-    shutter_app      = false
-    enable_ssl       = true
-    ssl_mode         = "AzureKeyVault"
-    certificate_name = "courtfines-direct-gov-uk"
-  },
-  {
-    name             = "immigrationappealsonline"
-    mode             = "Detection"
-    custom_domain    = "immigrationappealsonline.justice.gov.uk"
-    dns_zone_name    = "immigrationappealsonline.justice.gov.uk"
-    backend_domain   = ["dualstack.iacfees-p-elbhmcts-6jxi2y1j3cgc-1579084157.eu-west-1.elb.amazonaws.com"]
-    shutter_app      = false
-    enable_ssl       = true
-    ssl_mode         = "AzureKeyVault"
-    certificate_name = "immigrationappealsonline-justice-gov-uk"
-  },
-  {
-    name             = "tribunalsdecisions"
-    mode             = "Detection"
-    custom_domain    = "tribunalsdecisions.service.gov.uk"
-    dns_zone_name    = "tribunalsdecisions.service.gov.uk"
-    backend_domain   = ["dualstack.dtsla-utiac-lb-prod-1989357889.eu-west-1.elb.amazonaws.com"]
-    shutter_app      = false
-    enable_ssl       = true
-    ssl_mode         = "AzureKeyVault"
-    certificate_name = "tribunalsdecisions-service-gov-uk"
-  },
+  # {
+  #   name           = "casetracker"
+  #   mode           = "Detection"
+  #   custom_domain  = "casetracker.justice.gov.uk"
+  #   dns_zone_name  = "justice.gov.uk"
+  #   backend_domain = ["dualstack.civil-loadb-qvbu457dp1b-1835055660.eu-west-2.elb.amazonaws.com"]
+  #   shutter_app    = false
+  #   enable_ssl     = true
+  #   # ssl_mode         = "AzureKeyVault"
+  #   certificate_name = "casetracker-justice-gov-uk"
+  # },
+  # {
+  #   name           = "certificatedbailiffs"
+  #   mode           = "Detection"
+  #   custom_domain  = "certificatedbailiffs.justice.gov.uk"
+  #   dns_zone_name  = "certificatedbailiffs.justice.gov.uk"
+  #   backend_domain = ["dualstack.certi-loadb-q2s48nuaqsc6-1478330638.eu-west-2.elb.amazonaws.com"]
+  #   shutter_app    = false
+  #   enable_ssl     = true
+  #   # ssl_mode         = "AzureKeyVault"
+  #   certificate_name = "certificatedbailiffs-justice-gov-uk"
+  # },
+  # {
+  #   name           = "courtfines"
+  #   mode           = "Detection"
+  #   custom_domain  = "courtfines.direct.gov.uk"
+  #   dns_zone_name  = "courtfines.direct.gov.uk"
+  #   backend_domain = ["dualstack.court-loadb-8mcola2l2by0-173012739.eu-west-2.elb.amazonaws.com"]
+  #   shutter_app    = false
+  #   enable_ssl     = true
+  #   # ssl_mode         = "AzureKeyVault"
+  #   certificate_name = "courtfines-direct-gov-uk"
+  # },
+  # {
+  #   name           = "immigrationappealsonline"
+  #   mode           = "Detection"
+  #   custom_domain  = "immigrationappealsonline.justice.gov.uk"
+  #   dns_zone_name  = "immigrationappealsonline.justice.gov.uk"
+  #   backend_domain = ["dualstack.iacfees-p-elbhmcts-6jxi2y1j3cgc-1579084157.eu-west-1.elb.amazonaws.com"]
+  #   shutter_app    = false
+  #   enable_ssl     = true
+  #   # ssl_mode         = "AzureKeyVault"
+  #   certificate_name = "immigrationappealsonline-justice-gov-uk"
+  # },
+  # {
+  #   name           = "tribunalsdecisions"
+  #   mode           = "Detection"
+  #   custom_domain  = "tribunalsdecisions.service.gov.uk"
+  #   dns_zone_name  = "tribunalsdecisions.service.gov.uk"
+  #   backend_domain = ["dualstack.dtsla-utiac-lb-prod-1989357889.eu-west-1.elb.amazonaws.com"]
+  #   shutter_app    = false
+  #   enable_ssl     = true
+  #   # ssl_mode         = "AzureKeyVault"
+  #   certificate_name = "tribunalsdecisions-service-gov-uk"
+  # },
   {
     name           = "trib-land-reg-division"
     mode           = "Prevention"
@@ -691,6 +691,7 @@ frontends = [
               "194.33.248.0/29",
               "20.49.214.199/32",
               "20.49.214.228/32",
+              "193.237.208.55/32",
             ]
           }
         ]
