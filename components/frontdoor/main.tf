@@ -25,8 +25,8 @@ locals {
 }
 
 moved {
-  from = module.landing_zone[0]
-  to   = module.landing_zone
+  from = module.premium_front_door[0]
+  to   = module.premium_front_door
 }
 module "premium_front_door" {
   source = "git::https://github.com/hmcts/terraform-module-frontdoor.git?ref=DTSPO-13992-test-new-version-of-frontdoor"
