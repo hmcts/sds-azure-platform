@@ -389,5 +389,3 @@ apim_appgw_exclusions = [
   }
 ]
 
-
-upgrade_frontdoor = true
