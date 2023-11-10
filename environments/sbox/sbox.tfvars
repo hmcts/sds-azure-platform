@@ -34,6 +34,17 @@ frontends = [
     disabled_rules   = {}
   },
   {
+
+    name             = "toffee2"
+    shutter_app      = true
+    dns_zone_name    = "sandbox.platform.hmcts.net"
+    custom_domain    = "toffee2.sandbox.platform.hmcts.net"
+    certificate_name = "wildcard-sandbox-platform-hmcts-net"
+    backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
+    disabled_rules   = {}
+    add_txt_record   = true
+  },
+  {
     product          = "sds-api-mgmt"
     name             = "sds-api-mgmt"
     shutter_app      = false
