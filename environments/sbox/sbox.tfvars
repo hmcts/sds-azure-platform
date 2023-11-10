@@ -36,7 +36,7 @@ frontends = [
   {
 
     name             = "toffee2"
-    shutter_app      = true
+    shutter_app      = false
     dns_zone_name    = "sandbox.platform.hmcts.net"
     custom_domain    = "toffee2.sandbox.platform.hmcts.net"
     certificate_name = "wildcard-sandbox-platform-hmcts-net"
