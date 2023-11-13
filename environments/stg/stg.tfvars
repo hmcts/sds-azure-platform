@@ -24,12 +24,14 @@ frontends = [
   {
     name           = "toffee"
     custom_domain  = "toffee.staging.platform.hmcts.net"
+    dns_zone_name  = "staging.platform.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
     disabled_rules = {}
   },
   {
     name           = "c100-application"
     custom_domain  = "c100-application.staging.platform.hmcts.net"
+    dns_zone_name  = "staging.platform.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
     disabled_rules = {}
     health_path    = "/status"
@@ -45,6 +47,7 @@ frontends = [
   {
     name           = "pip-frontend"
     custom_domain  = "pip-frontend.staging.platform.hmcts.net"
+    dns_zone_name  = "staging.platform.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
     redirect_url   = "https://pip-frontend.staging.platform.hmcts.net/unprocessed-request"
 
@@ -207,6 +210,7 @@ frontends = [
   {
     name                = "pip-frontend-b2c-sign-in"
     custom_domain       = "sign-in.pip-frontend.staging.platform.hmcts.net"
+    dns_zone_name       = "staging.platform.hmcts.net"
     backend_domain      = ["hmctspipnonprod.b2clogin.com"]
     host_header         = "hmctspipnonprod.b2clogin.com"
     forwarding_protocol = "HttpsOnly"
@@ -289,6 +293,7 @@ frontends = [
   {
     name                = "pip-frontend-b2c-staff"
     custom_domain       = "staff.pip-frontend.staging.platform.hmcts.net"
+    dns_zone_name       = "staging.platform.hmcts.net"
     backend_domain      = ["hmctspipnonprod.b2clogin.com"]
     host_header         = "hmctspipnonprod.b2clogin.com"
     forwarding_protocol = "HttpsOnly"
@@ -371,6 +376,7 @@ frontends = [
   {
     name           = "vh-video-web"
     custom_domain  = "video.staging.hearings.reform.hmcts.net"
+    dns_zone_name  = "staging.hearings.reform.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
 
@@ -387,6 +393,7 @@ frontends = [
   {
     name           = "vh-admin-web"
     custom_domain  = "admin.staging.hearings.reform.hmcts.net"
+    dns_zone_name  = "staging.hearings.reform.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
 
@@ -403,6 +410,7 @@ frontends = [
   {
     name           = "pre-portal"
     custom_domain  = "pre-portal.staging.platform.hmcts.net"
+    dns_zone_name  = "staging.platform.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
 
@@ -419,6 +427,7 @@ frontends = [
   {
     name           = "staging-casetracker"
     custom_domain  = "staging.casetracker.justice.gov.uk"
+    dns_zone_name  = "casetracker.justice.gov.uk"
     backend_domain = ["dualstack.civil-loadb-105un4gbv5077-2040046462.eu-west-2.elb.amazonaws.com"]
     shutter_app    = false
 
@@ -426,6 +435,7 @@ frontends = [
   {
     name           = "staging-certificatedbailiffs"
     custom_domain  = "staging.certificatedbailiffs.justice.gov.uk"
+    dns_zone_name  = "certificatedbailiffs.justice.gov.uk"
     backend_domain = ["dualstack.certi-loadb-vzujs6ulbuut-415542592.eu-west-2.elb.amazonaws.com"]
     shutter_app    = false
 
@@ -433,6 +443,7 @@ frontends = [
   {
     name           = "staging-courtfines"
     custom_domain  = "staging.courtfines.direct.gov.uk"
+    dns_zone_name  = "courtfines.direct.gov.uk"
     backend_domain = ["dualstack.court-loadb-qpahtenf925i-482204730.eu-west-2.elb.amazonaws.com"]
     shutter_app    = false
 
@@ -440,6 +451,7 @@ frontends = [
   {
     name           = "staging-immigrationappealsonline"
     custom_domain  = "staging.immigrationappealsonline.justice.gov.uk"
+    dns_zone_name  = "immigrationappealsonline.justice.gov.uk"
     backend_domain = ["dualstack.iacfees-s-ELBhmcts-DGD2EJ56UXEF-715536071.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
 
@@ -447,6 +459,7 @@ frontends = [
   {
     name             = "sds-api-mgmt"
     custom_domain    = "sds-api-mgmt.staging.platform.hmcts.net"
+    dns_zone_name    = "staging.platform.hmcts.net"
     backend_domain   = ["firewall-prod-int-palo-sdsapimgmtstg.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-stg-platform-hmcts-net"
     cache_enabled    = "false"
@@ -455,6 +468,7 @@ frontends = [
     name           = "staging-trib-land-reg-division"
     mode           = "Prevention"
     custom_domain  = "staging.landregistrationdivision.dsd.io"
+    dns_zone_name  = "landregistrationdivision.dsd.io"
     backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
 
@@ -494,6 +508,7 @@ frontends = [
     name           = "staging-trib-immigration-svcs"
     mode           = "Prevention"
     custom_domain  = "staging.immigrationservices.dsd.io"
+    dns_zone_name  = "immigrationservices.dsd.io"
     backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
 
@@ -510,6 +525,7 @@ frontends = [
     name           = "staging-trib-info-rights"
     mode           = "Prevention"
     custom_domain  = "staging.informationrights.dsd.io"
+    dns_zone_name  = "immigrationservices.dsd.io"
     backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
 
@@ -541,6 +557,7 @@ frontends = [
     name           = "staging-trib-admin-appeals"
     mode           = "Prevention"
     custom_domain  = "staging.administrativeappeals.dsd.io"
+    dns_zone_name  = "administrativeappeals.dsd.io"
     backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
 
@@ -562,6 +579,7 @@ frontends = [
     name           = "staging-trib-care-standards"
     mode           = "Prevention"
     custom_domain  = "staging.carestandards.dsd.io"
+    dns_zone_name  = "carestandards.dsd.io"
     backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
 
@@ -593,6 +611,7 @@ frontends = [
     name           = "staging-trib-lands-chamber"
     mode           = "Prevention"
     custom_domain  = "staging.landschamber.dsd.io"
+    dns_zone_name  = "landschamber.dsd.io"
     backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
 
@@ -609,6 +628,7 @@ frontends = [
     name           = "staging-trib-finance-tax"
     mode           = "Prevention"
     custom_domain  = "staging.financeandtax.dsd.io"
+    dns_zone_name  = "financeandtax.dsd.io"
     backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
 
@@ -648,6 +668,7 @@ frontends = [
     name           = "staging-trib-employment-appeals"
     mode           = "Prevention"
     custom_domain  = "staging.employmentappeals.dsd.io"
+    dns_zone_name  = "employmentappeals.dsd.io"
     backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
 
@@ -664,6 +685,7 @@ frontends = [
     name           = "staging-trib-tansport-appeals"
     mode           = "Prevention"
     custom_domain  = "staging.transportappeals.dsd.io"
+    dns_zone_name  = "transportappeals.dsd.io"
     backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
 
@@ -680,6 +702,7 @@ frontends = [
     name           = "staging-trib-cicap"
     mode           = "Prevention"
     custom_domain  = "staging.cicap.dsd.io"
+    dns_zone_name  = "cicap.dsd.io"
     backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
     shutter_app    = false
 
@@ -696,6 +719,7 @@ frontends = [
     name                = "portal-stg"
     mode                = "Prevention"
     custom_domain       = "portal-stg.pre-recorded-evidence.justice.gov.uk"
+    dns_zone_name       = "pre-recorded-evidence.justice.gov.uk"
     backend_domain      = ["pre-stg1.powerappsportals.com"]
     certificate_name    = "portal-stg-pre-recorded-evidence-justice-gov-uk"
     disabled_rules      = {}
@@ -740,6 +764,7 @@ frontends = [
   {
     name           = "darts-portal"
     custom_domain  = "darts-portal.staging.platform.hmcts.net"
+    dns_zone_name  = "staging.platform.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
     disabled_rules = {}

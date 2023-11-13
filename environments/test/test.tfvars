@@ -26,6 +26,7 @@ frontends = [
   {
     name           = "toffee"
     custom_domain  = "toffee.test.platform.hmcts.net"
+    dns_zone_name  = "test.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
     disabled_rules = {}
   },
@@ -33,6 +34,7 @@ frontends = [
   {
     name           = "pip-frontend"
     custom_domain  = "pip-frontend.test.platform.hmcts.net"
+    dns_zone_name  = "test.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
     redirect_url   = "https://pip-frontend.test.platform.hmcts.net/unprocessed-request"
 
@@ -361,6 +363,7 @@ frontends = [
   {
     name           = "vh-test-web"
     custom_domain  = "vh-test-web.test.platform.hmcts.net"
+    dns_zone_name  = "test.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
 
@@ -378,6 +381,7 @@ frontends = [
   {
     name           = "vh-video-web"
     custom_domain  = "vh-video-web.test.platform.hmcts.net"
+    dns_zone_name  = "test.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
 
@@ -394,6 +398,7 @@ frontends = [
   {
     name           = "vh-admin-web"
     custom_domain  = "vh-admin-web.test.platform.hmcts.net"
+    dns_zone_name  = "test.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
 
@@ -410,6 +415,7 @@ frontends = [
   {
     name             = "sds-api-mgmt"
     custom_domain    = "sds-api-mgmt.test.platform.hmcts.net"
+    dns_zone_name    = "test.platform.hmcts.net"
     backend_domain   = ["firewall-nonprodi-palo-sdsapimgmttest.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-test-platform-hmcts-net"
     cache_enabled    = "false"
@@ -418,6 +424,7 @@ frontends = [
     name                = "portal-test"
     mode                = "Prevention"
     custom_domain       = "portal-test.pre-recorded-evidence.justice.gov.uk"
+    dns_zone_name       = "pre-recorded-evidence.justice.gov.uk"
     backend_domain      = ["pre-testing.powerappsportals.com"]
     certificate_name    = "portal-test-pre-recorded-evidence-justice-gov-uk"
     disabled_rules      = {}
@@ -462,6 +469,7 @@ frontends = [
     name                = "pre-portal"
     mode                = "Prevention"
     custom_domain       = "pre-portal.test.platform.hmcts.net"
+    dns_zone_name       = "test.platform.hmcts.net"
     backend_domain      = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
     disabled_rules      = {}
     health_protocol     = "Https"
