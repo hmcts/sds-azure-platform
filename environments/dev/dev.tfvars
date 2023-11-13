@@ -26,6 +26,7 @@ frontends = [
   {
     name           = "toffee"
     custom_domain  = "toffee.dev.platform.hmcts.net"
+    dns_zone_name  = "dev.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
     disabled_rules = {}
   },
@@ -33,6 +34,7 @@ frontends = [
   {
     name           = "jd-bureau"
     custom_domain  = "jdbureau.dev.platform.hmcts.net"
+    dns_zone_name  = "dev.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
 
     mode                         = "Prevention"
@@ -212,6 +214,7 @@ frontends = [
   {
     name           = "jd-public"
     custom_domain  = "jdfrontend.dev.platform.hmcts.net"
+    dns_zone_name  = "dev.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
 
     mode                         = "Detection"
@@ -253,6 +256,7 @@ frontends = [
   {
     name           = "vh-test-web"
     custom_domain  = "vh-test-web.dev.platform.hmcts.net"
+    dns_zone_name  = "dev.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
     disabled_rules = {}
     cache_enabled  = "false"
@@ -268,6 +272,7 @@ frontends = [
   {
     name           = "vh-video-web"
     custom_domain  = "vh-video-web.dev.platform.hmcts.net"
+    dns_zone_name  = "dev.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
     disabled_rules = {}
     cache_enabled  = "false"
@@ -283,20 +288,7 @@ frontends = [
   {
     name           = "vh-video-web-reform"
     custom_domain  = "vh-video-web-dev.hearings.reform.hmcts.net"
-    backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
-    disabled_rules = {}
-
-    global_exclusions = [
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "code"
-      }
-    ]
-  },
-  {
-    name           = "vh-video-web-pr-2057" # TO DO: REMOVE AFTER TESTING
-    custom_domain  = "vh-video-web-pr-2057.dev.platform.hmcts.net"
+    dns_zone_name  = "hearings.reform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
     disabled_rules = {}
 
@@ -311,6 +303,7 @@ frontends = [
   {
     name           = "vh-admin-web"
     custom_domain  = "vh-admin-web.dev.platform.hmcts.net"
+    dns_zone_name  = "dev.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
     disabled_rules = {}
     cache_enabled  = "false"
@@ -327,6 +320,7 @@ frontends = [
     name                = "portal-dev"
     mode                = "Prevention"
     custom_domain       = "portal-dev.pre-recorded-evidence.justice.gov.uk"
+    dns_zone_name       = "pre-recorded-evidence.justice.gov.uk"
     backend_domain      = ["pre-dev.powerappsportals.com"]
     disabled_rules      = {}
     shutter_app         = false
@@ -370,6 +364,7 @@ frontends = [
   {
     name           = "dev-casetracker"
     custom_domain  = "dev.casetracker.justice.gov.uk"
+    dns_zone_name  = "casetracker.justice.gov.uk"
     backend_domain = ["civil-loadb-y5o7jqurq76d-2065714619.eu-west-2.elb.amazonaws.com"]
     shutter_app    = false
     enable_ssl     = true
@@ -377,6 +372,7 @@ frontends = [
   {
     name           = "dev-certificatedbailiffs"
     custom_domain  = "dev.certificatedbailiffs.justice.gov.uk"
+    dns_zone_name  = "certificatedbailiffs.justice.gov.uk"
     backend_domain = ["certi-loadb-a49bsydpgeb7-1204811385.eu-west-2.elb.amazonaws.com"]
     shutter_app    = false
     enable_ssl     = true
@@ -384,6 +380,7 @@ frontends = [
   {
     name           = "dev-courtfines"
     custom_domain  = "dev.courtfines.direct.gov.uk"
+    dns_zone_name  = "courtfines.direct.gov.uk"
     backend_domain = ["court-loadb-118vi6sleq8ii-1970392396.eu-west-2.elb.amazonaws.com"]
     shutter_app    = false
     enable_ssl     = true
@@ -391,6 +388,7 @@ frontends = [
   {
     name           = "dev-immigrationappealsonline"
     custom_domain  = "dev.immigrationappealsonline.justice.gov.uk"
+    dns_zone_name  = "immigrationappealsonline.justice.gov.uk"
     backend_domain = ["iacfe-loadb-p3eli3f0pz30-1245399594.eu-west-2.elb.amazonaws.com"]
     shutter_app    = false
     enable_ssl     = true
@@ -398,6 +396,7 @@ frontends = [
   {
     name             = "sds-api-mgmt"
     custom_domain    = "sds-api-mgmt.dev.platform.hmcts.net"
+    dns_zone_name    = "dev.platform.hmcts.net"
     backend_domain   = ["firewall-nonprodi-palo-sdsapimgmtdev.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-dev-platform-hmcts-net"
     cache_enabled    = "false"
@@ -406,6 +405,7 @@ frontends = [
   {
     name           = "pre-portal"
     custom_domain  = "pre-portal.dev.platform.hmcts.net"
+    dns_zone_name  = "dev.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
 
@@ -445,6 +445,7 @@ frontends = [
   {
     name           = "darts-portal"
     custom_domain  = "darts-portal.dev.platform.hmcts.net"
+    dns_zone_name  = "dev.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
 
