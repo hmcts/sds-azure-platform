@@ -71,3 +71,6 @@ gateways:
       - product: juror
         component: scheduler-api
         ssl_enabled: true
+      - product: juror
+        component: pnc
+        ssl_enabled: true
