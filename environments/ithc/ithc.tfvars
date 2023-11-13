@@ -49,6 +49,7 @@ frontends = [
   {
     name              = "pip-frontend"
     custom_domain     = "pip-frontend.ithc.platform.hmcts.net"
+    dns_zone_name     = "ithc.platform.hmcts.net"
     backend_domain    = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
     certificate_name  = "wildcard-platform-hmcts-net"
     shutter_app       = true
@@ -58,6 +59,7 @@ frontends = [
   {
     name           = "vh-test-web"
     custom_domain  = "vh-test-web.ithc.platform.hmcts.net"
+    dns_zone_name  = "ithc.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
 
@@ -74,6 +76,7 @@ frontends = [
   {
     name           = "vh-video-web"
     custom_domain  = "vh-video-web.ithc.platform.hmcts.net"
+    dns_zone_name  = "ithc.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
 
@@ -90,6 +93,7 @@ frontends = [
   {
     name           = "vh-admin-web"
     custom_domain  = "vh-admin-web.ithc.platform.hmcts.net"
+    dns_zone_name  = "ithc.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
 
@@ -106,6 +110,7 @@ frontends = [
   {
     name           = "vh-service-web"
     custom_domain  = "vh-service-web.ithc.platform.hmcts.net"
+    dns_zone_name  = "ithc.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
 
     disabled_rules = {}
@@ -113,6 +118,7 @@ frontends = [
   {
     name             = "sds-api-mgmt"
     custom_domain    = "sds-api-mgmt.ithc.platform.hmcts.net"
+    dns_zone_name    = "ithc.platform.hmcts.net"
     backend_domain   = ["firewall-nonprodi-palo-sdsapimgmtithc.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-ithc-platform-hmcts-net"
     cache_enabled    = "false"
