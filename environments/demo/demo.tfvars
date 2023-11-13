@@ -248,6 +248,7 @@ frontends = [
   {
     name                = "pip-frontend-b2c-sign-in"
     custom_domain       = "sign-in.pip-frontend.demo.platform.hmcts.net"
+    dns_zone_name       = "demo.platform.hmcts.net"
     backend_domain      = ["hmctspipnonprod.b2clogin.com"]
     host_header         = "hmctspipnonprod.b2clogin.com"
     forwarding_protocol = "HttpsOnly"
@@ -330,6 +331,7 @@ frontends = [
   {
     name                = "pip-frontend-b2c-staff"
     custom_domain       = "staff.pip-frontend.demo.platform.hmcts.net"
+    dns_zone_name       = "demo.platform.hmcts.net"
     backend_domain      = ["hmctspipnonprod.b2clogin.com"]
     host_header         = "hmctspipnonprod.b2clogin.com"
     forwarding_protocol = "HttpsOnly"
