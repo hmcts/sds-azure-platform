@@ -549,6 +549,7 @@ frontends = [
     backend_domain   = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-demo-platform-hmcts-net"
     cache_enabled    = "false"
+    global_exclusions = []
   },
 ]
 
