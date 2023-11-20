@@ -789,12 +789,18 @@ frontends = [
     ]
   },
   {
+    name           = "juror-public"
+    custom_domain  = "juror-public.staging.platform.hmcts.net"
+    backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
+    cache_enabled  = "false"
+    disabled_rules = {}
+  },
+  {
     name           = "opal-frontend"
     custom_domain  = "opal-frontend.staging.platform.hmcts.net"
     dns_zone_name  = "staging.platform.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
     disabled_rules = {}
-
     global_exclusions = []
   },
 ]
