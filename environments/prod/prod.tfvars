@@ -63,6 +63,7 @@ frontends = [
     dns_zone_name  = "digital.justice.gov.uk"
     backend_domain = ["52.30.196.9"]
     shutter_app    = false
+    hosted_externally = true
   },
   {
     name           = "dts-legacy-apps---utiac"
