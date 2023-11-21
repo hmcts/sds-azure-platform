@@ -472,12 +472,13 @@ frontends = [
     cache_enabled    = "false"
   },
   {
-    name           = "staging-trib-land-reg-division"
-    mode           = "Prevention"
-    custom_domain  = "staging.landregistrationdivision.dsd.io"
-    dns_zone_name  = "landregistrationdivision.dsd.io"
-    backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
-    shutter_app    = false
+    name              = "staging-trib-land-reg-division"
+    mode              = "Prevention"
+    custom_domain     = "staging.landregistrationdivision.dsd.io"
+    dns_zone_name     = "landregistrationdivision.dsd.io"
+    backend_domain    = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
+    shutter_app       = false
+    hosted_externally = true
 
 
     global_exclusions = [
@@ -512,12 +513,13 @@ frontends = [
     ]
   },
   {
-    name           = "staging-trib-immigration-svcs"
-    mode           = "Prevention"
-    custom_domain  = "staging.immigrationservices.dsd.io"
-    dns_zone_name  = "immigrationservices.dsd.io"
-    backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
-    shutter_app    = false
+    name              = "staging-trib-immigration-svcs"
+    mode              = "Prevention"
+    custom_domain     = "staging.immigrationservices.dsd.io"
+    dns_zone_name     = "immigrationservices.dsd.io"
+    backend_domain    = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
+    shutter_app       = false
+    hosted_externally = true
 
 
     global_exclusions = [
@@ -529,12 +531,13 @@ frontends = [
     ]
   },
   {
-    name           = "staging-trib-info-rights"
-    mode           = "Prevention"
-    custom_domain  = "staging.informationrights.dsd.io"
-    dns_zone_name  = "immigrationservices.dsd.io"
-    backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
-    shutter_app    = false
+    name              = "staging-trib-info-rights"
+    mode              = "Prevention"
+    custom_domain     = "staging.informationrights.dsd.io"
+    dns_zone_name     = "immigrationservices.dsd.io"
+    backend_domain    = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
+    shutter_app       = false
+    hosted_externally = true
 
 
     global_exclusions = [
@@ -561,12 +564,13 @@ frontends = [
     ]
   },
   {
-    name           = "staging-trib-admin-appeals"
-    mode           = "Prevention"
-    custom_domain  = "staging.administrativeappeals.dsd.io"
-    dns_zone_name  = "administrativeappeals.dsd.io"
-    backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
-    shutter_app    = false
+    name              = "staging-trib-admin-appeals"
+    mode              = "Prevention"
+    custom_domain     = "staging.administrativeappeals.dsd.io"
+    dns_zone_name     = "administrativeappeals.dsd.io"
+    backend_domain    = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
+    shutter_app       = false
+    hosted_externally = true
 
 
     global_exclusions = [
@@ -583,12 +587,13 @@ frontends = [
     ]
   },
   {
-    name           = "staging-trib-care-standards"
-    mode           = "Prevention"
-    custom_domain  = "staging.carestandards.dsd.io"
-    dns_zone_name  = "carestandards.dsd.io"
-    backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
-    shutter_app    = false
+    name              = "staging-trib-care-standards"
+    mode              = "Prevention"
+    custom_domain     = "staging.carestandards.dsd.io"
+    dns_zone_name     = "carestandards.dsd.io"
+    backend_domain    = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
+    shutter_app       = false
+    hosted_externally = true
 
 
     global_exclusions = [
@@ -615,12 +620,13 @@ frontends = [
     ]
   },
   {
-    name           = "staging-trib-lands-chamber"
-    mode           = "Prevention"
-    custom_domain  = "staging.landschamber.dsd.io"
-    dns_zone_name  = "landschamber.dsd.io"
-    backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
-    shutter_app    = false
+    name              = "staging-trib-lands-chamber"
+    mode              = "Prevention"
+    custom_domain     = "staging.landschamber.dsd.io"
+    dns_zone_name     = "landschamber.dsd.io"
+    backend_domain    = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
+    shutter_app       = false
+    hosted_externally = true
 
 
     global_exclusions = [
@@ -632,12 +638,13 @@ frontends = [
     ]
   },
   {
-    name           = "staging-trib-finance-tax"
-    mode           = "Prevention"
-    custom_domain  = "staging.financeandtax.dsd.io"
-    dns_zone_name  = "financeandtax.dsd.io"
-    backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
-    shutter_app    = false
+    name              = "staging-trib-finance-tax"
+    mode              = "Prevention"
+    custom_domain     = "staging.financeandtax.dsd.io"
+    dns_zone_name     = "financeandtax.dsd.io"
+    backend_domain    = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
+    shutter_app       = false
+    hosted_externally = true
 
 
     disabled_rules = {
@@ -672,12 +679,13 @@ frontends = [
     ]
   },
   {
-    name           = "staging-trib-employment-appeals"
-    mode           = "Prevention"
-    custom_domain  = "staging.employmentappeals.dsd.io"
-    dns_zone_name  = "employmentappeals.dsd.io"
-    backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
-    shutter_app    = false
+    name              = "staging-trib-employment-appeals"
+    mode              = "Prevention"
+    custom_domain     = "staging.employmentappeals.dsd.io"
+    dns_zone_name     = "employmentappeals.dsd.io"
+    backend_domain    = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
+    shutter_app       = false
+    hosted_externally = true
 
 
     global_exclusions = [
@@ -689,12 +697,13 @@ frontends = [
     ]
   },
   {
-    name           = "staging-trib-tansport-appeals"
-    mode           = "Prevention"
-    custom_domain  = "staging.transportappeals.dsd.io"
-    dns_zone_name  = "transportappeals.dsd.io"
-    backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
-    shutter_app    = false
+    name              = "staging-trib-tansport-appeals"
+    mode              = "Prevention"
+    custom_domain     = "staging.transportappeals.dsd.io"
+    dns_zone_name     = "transportappeals.dsd.io"
+    backend_domain    = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
+    shutter_app       = false
+    hosted_externally = true
 
 
     global_exclusions = [
@@ -706,12 +715,13 @@ frontends = [
     ]
   },
   {
-    name           = "staging-trib-cicap"
-    mode           = "Prevention"
-    custom_domain  = "staging.cicap.dsd.io"
-    dns_zone_name  = "cicap.dsd.io"
-    backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
-    shutter_app    = false
+    name              = "staging-trib-cicap"
+    mode              = "Prevention"
+    custom_domain     = "staging.cicap.dsd.io"
+    dns_zone_name     = "cicap.dsd.io"
+    backend_domain    = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
+    shutter_app       = false
+    hosted_externally = true
 
 
     global_exclusions = [
