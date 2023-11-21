@@ -789,11 +789,13 @@ frontends = [
     ]
   },
   {
-    name           = "juror-public"
-    custom_domain  = "juror-public.staging.platform.hmcts.net"
-    backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
-    cache_enabled  = "false"
-    disabled_rules = {}
+    name             = "juror-public"
+    custom_domain    = "juror-public.staging.platform.hmcts.net"
+    dns_zone_name    = "staging.platform.hmcts.net"
+    backend_domain   = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
+    certificate_name = "wildcard-stg-platform-hmcts-net"
+    cache_enabled    = "false"
+    disabled_rules   = {}
   },
 ]
 
