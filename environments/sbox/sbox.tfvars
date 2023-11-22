@@ -196,7 +196,7 @@ frontends = [
   },
   {
     name             = "darts-portal"
-    custom_domain    = "darts.sandbox.platform.hmcts.net"
+    custom_domain    = "darts.sandbox.apps.hmcts.net"
     dns_zone_name    = "sandbox.platform.hmcts.net"
     certificate_name = "wildcard-sandbox-platform-hmcts-net"
     backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]

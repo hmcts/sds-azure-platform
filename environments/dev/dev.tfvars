@@ -444,7 +444,7 @@ frontends = [
   },
   {
     name           = "darts-portal"
-    custom_domain  = "darts.dev.platform.hmcts.net"
+    custom_domain  = "darts.dev.apps.hmcts.net"
     dns_zone_name  = "dev.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
