@@ -195,13 +195,13 @@ frontends = [
     ]
   },
   {
-    name             = "darts-portal"
-    custom_domain    = "darts.sandbox.apps.hmcts.net"
-    dns_zone_name    = "apps.hmcts.net"
-    backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
-    disabled_rules   = {}
-    shutter_app      = false
-    cache_enabled    = "false"
+    name           = "darts-portal"
+    custom_domain  = "darts.sandbox.apps.hmcts.net"
+    dns_zone_name  = "apps.hmcts.net"
+    backend_domain = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
+    disabled_rules = {}
+    shutter_app    = false
+    cache_enabled  = "false"
 
     global_exclusions = [
       ## Open ID response parameters
