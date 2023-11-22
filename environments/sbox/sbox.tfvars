@@ -197,8 +197,7 @@ frontends = [
   {
     name             = "darts-portal"
     custom_domain    = "darts.sandbox.apps.hmcts.net"
-    dns_zone_name    = "sandbox.platform.hmcts.net"
-    certificate_name = "wildcard-sandbox-platform-hmcts-net"
+    dns_zone_name    = "apps.hmcts.net"
     backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
     disabled_rules   = {}
     shutter_app      = false
