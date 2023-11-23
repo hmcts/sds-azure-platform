@@ -469,7 +469,6 @@ frontends = [
     mode              = "Prevention"
     custom_domain     = "staging.landregistrationdivision.dsd.io"
     hosted_externally = true
-    dns_zone_name     = "landregistrationdivision.dsd.io"
     backend_domain    = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
     shutter_app       = false
 
@@ -510,7 +509,6 @@ frontends = [
     mode              = "Prevention"
     custom_domain     = "staging.immigrationservices.dsd.io"
     hosted_externally = true
-    dns_zone_name     = "immigrationservices.dsd.io"
     backend_domain    = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
     shutter_app       = false
 
@@ -560,7 +558,6 @@ frontends = [
     mode              = "Prevention"
     custom_domain     = "staging.administrativeappeals.dsd.io"
     hosted_externally = true
-    dns_zone_name     = "administrativeappeals.dsd.io"
     backend_domain    = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
     shutter_app       = false
 
@@ -583,7 +580,6 @@ frontends = [
     mode              = "Prevention"
     custom_domain     = "staging.carestandards.dsd.io"
     hosted_externally = true
-    dns_zone_name     = "carestandards.dsd.io"
     backend_domain    = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
     shutter_app       = false
 
@@ -616,7 +612,6 @@ frontends = [
     mode              = "Prevention"
     custom_domain     = "staging.landschamber.dsd.io"
     hosted_externally = true
-    dns_zone_name     = "landschamber.dsd.io"
     backend_domain    = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
     shutter_app       = false
 
@@ -634,7 +629,6 @@ frontends = [
     mode              = "Prevention"
     custom_domain     = "staging.financeandtax.dsd.io"
     hosted_externally = true
-    dns_zone_name     = "financeandtax.dsd.io"
     backend_domain    = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
     shutter_app       = false
 
@@ -675,7 +669,6 @@ frontends = [
     mode              = "Prevention"
     custom_domain     = "staging.employmentappeals.dsd.io"
     hosted_externally = true
-    dns_zone_name     = "employmentappeals.dsd.io"
     backend_domain    = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
     shutter_app       = false
 
@@ -693,7 +686,6 @@ frontends = [
     mode              = "Prevention"
     custom_domain     = "staging.transportappeals.dsd.io"
     hosted_externally = true
-    dns_zone_name     = "transportappeals.dsd.io"
     backend_domain    = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
     shutter_app       = false
 
@@ -711,7 +703,6 @@ frontends = [
     mode              = "Prevention"
     custom_domain     = "staging.cicap.dsd.io"
     hosted_externally = true
-    dns_zone_name     = "cicap.dsd.io"
     backend_domain    = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
     shutter_app       = false
 
