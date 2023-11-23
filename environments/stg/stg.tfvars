@@ -528,7 +528,6 @@ frontends = [
     mode              = "Prevention"
     custom_domain     = "staging.informationrights.dsd.io"
     hosted_externally = true
-    dns_zone_name     = "informationrights.dsd.io"
     backend_domain    = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
     shutter_app       = false
 
