@@ -699,12 +699,12 @@ frontends = [
     ]
   },
   {
-    name           = "staging-trib-cicap"
-    mode           = "Prevention"
-    custom_domain  = "staging.cicap.dsd.io"
-    dns_zone_name  = "cicap.dsd.io"
-    backend_domain = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
-    shutter_app    = false
+    name              = "staging-trib-cicap"
+    mode              = "Prevention"
+    custom_domain     = "staging.cicap.dsd.io"
+    hosted_externally = true
+    backend_domain    = ["dts-trib-staging-556942830.eu-west-1.elb.amazonaws.com"]
+    shutter_app       = false
 
 
     global_exclusions = [
