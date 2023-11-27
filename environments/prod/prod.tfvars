@@ -57,12 +57,13 @@ frontends = [
     shutter_app    = false
   },
   {
-    name           = "dts-legacy-apps---redirect-service"
-    mode           = "Detection" #detection config set and PR raised 20 Dec 2021
-    custom_domain  = "proxywaf.digital.justice.gov.uk"
-    dns_zone_name  = "digital.justice.gov.uk"
-    backend_domain = ["52.30.196.9"]
-    shutter_app    = false
+    name              = "dts-legacy-apps---redirect-service"
+    mode              = "Detection" #detection config set and PR raised 20 Dec 2021
+    custom_domain     = "proxywaf.digital.justice.gov.uk"
+    dns_zone_name     = "digital.justice.gov.uk"
+    backend_domain    = ["52.30.196.9"]
+    shutter_app       = false
+    hosted_externally = true
   },
   {
     name           = "dts-legacy-apps---utiac"
