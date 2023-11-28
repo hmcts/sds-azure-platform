@@ -10,7 +10,7 @@ resources:
   repositories:
   - repository: cnp-azuredevops-libraries
     type: github
-    ref: refs/heads/master
+    ref: refs/heads/dtspo-15333-ado-auto-env-start
     name: hmcts/cnp-azuredevops-libraries
     endpoint: 'hmcts'
 
@@ -201,6 +201,9 @@ stages:
               keyvaultSecret: 'azure-devops-sp-token'
               serviceConnection: 'DCD-CFTAPPS-STG'
               overrideAction: ${{ parameters.action }}
+              projectName: 'sds'
+              cluster: '00'
+              environment: 'sbox'
 
   - ${{ each parameter in parameters.components }}:
       - stage: ${{ parameter.environment }}_${{ parameter.deployment }}
