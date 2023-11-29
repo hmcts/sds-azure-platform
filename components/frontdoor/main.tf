@@ -40,7 +40,6 @@ module "premium_front_door" {
   resource_group             = azurerm_resource_group.fd_rg.name
   subscription_id            = data.azurerm_subscription.current.subscription_id
   certificate_key_vault_name = local.vault_name
-  oms_env                    = var.oms_env
   certificate_name_check     = true
   key_vault_resource_group   = "sds-platform-${var.environment}-rg"
   log_analytics_workspace_id = module.logworkspace.workspace_id
