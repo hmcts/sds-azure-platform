@@ -246,6 +246,7 @@ frontends = [
     backend_domain    = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
     shutter_app       = false
     hosted_externally = true
+
     global_exclusions = [
       {
         match_variable = "RequestBodyPostArgNames"
@@ -295,6 +296,7 @@ frontends = [
     backend_domain    = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
     shutter_app       = false
     hosted_externally = true
+
     global_exclusions = [
       {
         match_variable = "RequestBodyPostArgNames"
@@ -387,6 +389,7 @@ frontends = [
     backend_domain    = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
     shutter_app       = false
     hosted_externally = true
+
     global_exclusions = [
       {
         match_variable = "RequestBodyPostArgNames"
@@ -421,6 +424,7 @@ frontends = [
     backend_domain    = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
     shutter_app       = false
     hosted_externally = true
+
     global_exclusions = [
       {
         match_variable = "RequestBodyPostArgNames"
@@ -455,6 +459,7 @@ frontends = [
     backend_domain    = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
     shutter_app       = false
     hosted_externally = true
+
     global_exclusions = [
       {
         match_variable = "RequestBodyPostArgNames"
