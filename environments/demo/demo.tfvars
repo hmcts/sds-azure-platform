@@ -544,10 +544,9 @@ frontends = [
   {
     product          = "juror-public"
     name             = "juror-public"
-    custom_domain    = "juror-public.demo.platform.hmcts.net"
-    dns_zone_name    = "demo.platform.hmcts.net"
+    custom_domain    = "juror-public.demo.apps.hmcts.net"
+    dns_zone_name    = "apps.hmcts.net"
     backend_domain   = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
-    certificate_name = "wildcard-demo-platform-hmcts-net"
     cache_enabled    = "false"
   },
 ]

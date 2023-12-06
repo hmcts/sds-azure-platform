@@ -797,8 +797,8 @@ frontends = [
   },
   {
     name           = "juror-public"
-    custom_domain  = "juror-public.staging.platform.hmcts.net"
-    dns_zone_name  = "staging.platform.hmcts.net"
+    custom_domain  = "juror-public.staging.apps.hmcts.net"
+    dns_zone_name  = "apps.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
     disabled_rules = {}
