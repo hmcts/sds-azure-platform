@@ -203,7 +203,7 @@ stages:
               overrideAction: ${{ parameters.action }}
               projectName: 'sds'
               cluster: '00'
-              environment: 'sbox'
+              environment: 'sbox,ithc'
 
   - ${{ each parameter in parameters.components }}:
       - stage: ${{ parameter.environment }}_${{ parameter.deployment }}
