@@ -182,6 +182,8 @@ variables:
     value: 'ubuntu-latest'
   - name: build
     value: $(Build.BuildNumber)
+  - name: businessArea
+    value: 'sds'
   - name: product
     value: "sds-platform"
   - name: tfInitSub
@@ -201,9 +203,9 @@ stages:
               keyvaultSecret: 'azure-devops-sp-token'
               serviceConnection: 'DCD-CFTAPPS-STG'
               overrideAction: ${{ parameters.action }}
-              projectName: 'sds'
+              projectName: ${{ variables.businessArea }}
               cluster: '00'
-              environment: 'sbox,ithc'
+              environment: 'sbox'
 
   - ${{ each parameter in parameters.components }}:
       - stage: ${{ parameter.environment }}_${{ parameter.deployment }}
