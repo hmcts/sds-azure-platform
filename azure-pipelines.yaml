@@ -135,7 +135,7 @@ parameters:
         pipeline_tests: false
       - deployment: "apim"
         environment: "prod"
-        dependsOn: "sbox_apim"
+        dependsOn: "stg_apim"
         pipeline_tests: false
       - deployment: "apim"
         environment: "test"

@@ -29,6 +29,13 @@ frontends = [
     disabled_rules = {}
   },
   {
+    name           = "toffee-frontend-staging"
+    custom_domain  = "toffee-frontend-staging.staging.platform.hmcts.net"
+    dns_zone_name  = "staging.platform.hmcts.net"
+    backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
+    disabled_rules = {}
+  },
+  {
     name           = "c100-application"
     custom_domain  = "c100-application.staging.platform.hmcts.net"
     dns_zone_name  = "staging.platform.hmcts.net"
