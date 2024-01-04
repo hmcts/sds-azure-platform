@@ -13,10 +13,12 @@ module "api-mgmt" {
   virtual_network_resource_group = var.vnet_rg
   virtual_network_name           = var.vnet_name
   environment                    = var.env
+  env                            = var.env
   virtual_network_type           = "Internal"
   department                     = var.department
   common_tags                    = module.ctags.common_tags
   route_next_hop_in_ip_address   = local.hub[var.hub].ukSouth.next_hop_ip
+  product                        = var.product
 }
 
 resource "azurerm_api_management_named_value" "environment" {
