@@ -122,6 +122,14 @@ frontends = [
     backend_domain   = ["firewall-nonprodi-palo-sdsapimgmtithc.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-ithc-platform-hmcts-net"
     cache_enabled    = "false"
+  },
+  {
+    name           = "juror-public"
+    custom_domain  = "juror-public.ithc.apps.hmcts.net"
+    dns_zone_name  = "apps.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
+    cache_enabled  = "false"
+    disabled_rules = {}
   }
 ]
 

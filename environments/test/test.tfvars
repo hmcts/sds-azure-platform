@@ -507,6 +507,14 @@ frontends = [
         ]
       }
     ]
+  },
+  {
+    name           = "juror-public"
+    custom_domain  = "juror-public.test.apps.hmcts.net"
+    dns_zone_name  = "apps.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
+    cache_enabled  = "false"
+    disabled_rules = {}
   }
 ]
 
