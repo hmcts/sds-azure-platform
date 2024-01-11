@@ -39,12 +39,15 @@ gateways:
       - product: vh
         component: test-web
         ssl_enabled: true
-    # Darts Modernisation
+      # Darts Modernisation
       - product: darts
         component: api
         ssl_enabled: true
       - product: darts
         component: gateway
+        ssl_enabled: true
+      - product: darts
+        component: stub-services
         ssl_enabled: true
     # Juror
       - product: juror
