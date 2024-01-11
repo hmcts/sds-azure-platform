@@ -127,6 +127,14 @@ frontends = [
             match_values       = ["POST"]
           }
         ]
+      },
+      {
+        product        = "darts-portal"
+        name           = "darts-portal"
+        custom_domain  = "darts.demo.apps.hmcts.net"
+        dns_zone_name  = "apps.hmcts.net"
+        backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
+        cache_enabled  = "false"
       }
     ]
 
