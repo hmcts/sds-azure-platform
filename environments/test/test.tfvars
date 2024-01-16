@@ -30,7 +30,14 @@ frontends = [
     backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
     disabled_rules = {}
   },
-
+  {
+    product        = "darts-portal"
+    name           = "darts-portal"
+    custom_domain  = "darts.test.apps.hmcts.net"
+    dns_zone_name  = "apps.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
+    cache_enabled  = "false"
+  },
   {
     name           = "pip-frontend"
     custom_domain  = "pip-frontend.test.platform.hmcts.net"
@@ -127,14 +134,6 @@ frontends = [
             match_values       = ["POST"]
           }
         ]
-      },
-      {
-        product        = "darts-portal"
-        name           = "darts-portal"
-        custom_domain  = "darts.test.apps.hmcts.net"
-        dns_zone_name  = "apps.hmcts.net"
-        backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
-        cache_enabled  = "false"
       }
     ]
 
