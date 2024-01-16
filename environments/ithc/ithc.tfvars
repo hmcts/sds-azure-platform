@@ -130,6 +130,14 @@ frontends = [
     backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
     disabled_rules = {}
+  },
+  {
+    product        = "darts-portal"
+    name           = "darts-portal"
+    custom_domain  = "darts.ithc.apps.hmcts.net"
+    dns_zone_name  = "apps.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
+    cache_enabled  = "false"
   }
 ]
 
