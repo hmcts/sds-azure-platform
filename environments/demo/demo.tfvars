@@ -549,6 +549,14 @@ frontends = [
     backend_domain = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
   },
+  {
+    product        = "juror-bureau"
+    name           = "juror-bureau"
+    custom_domain  = "juror.demo.apps.hmcts.net"
+    dns_zone_name  = "apps.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
+    cache_enabled  = "false"
+  },
 ]
 
 apim_appgw_exclusions = [

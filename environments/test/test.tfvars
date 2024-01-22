@@ -522,6 +522,14 @@ frontends = [
     backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
     disabled_rules = {}
+  },
+  {
+    name           = "juror-bureau"
+    custom_domain  = "juror.test.apps.hmcts.net"
+    dns_zone_name  = "apps.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
+    cache_enabled  = "false"
+    disabled_rules = {}
   }
 ]
 
