@@ -816,7 +816,11 @@ frontends = [
     custom_domain     = "opal-frontend.staging.platform.hmcts.net"
     dns_zone_name     = "staging.platform.hmcts.net"
     backend_domain    = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
-    disabled_rules    = {}
+    disabled_rules    = {
+        SQLI = [
+        "942440",
+      ],
+    }
     global_exclusions = []
   },
 ]
