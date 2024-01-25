@@ -855,6 +855,7 @@ frontends = [
     disabled_rules = {
       SQLI = [
         "942440",
+        "942430"
       ],
     }
     global_exclusions = []
