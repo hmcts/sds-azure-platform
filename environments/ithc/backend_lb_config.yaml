@@ -49,7 +49,10 @@ gateways:
       - product: darts
         component: stub-services
         ssl_enabled: true
-    # Juror
+      # Juror (bureau added to allow access via AppGw for developers using F5 VPN)
+      - product: juror
+        component: bureau
+        ssl_enabled: true
       - product: juror
         component: scheduler-api
         ssl_enabled: true
