@@ -67,10 +67,7 @@ gateways:
       - product: pre
         component: api
         ssl_enabled: true
-     # Juror (bureau added to allow access via AppGw for developers using F5 VPN)
-      - product: juror
-        component: bureau
-        ssl_enabled: true
+     # Juror
       - product: juror
         component: scheduler-api
         ssl_enabled: true
