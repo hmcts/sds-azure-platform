@@ -1149,6 +1149,48 @@ frontends = [
     ]
   },
   {
+    name           = "juror-public"
+    custom_domain  = "juror-public.apps.hmcts.net"
+    dns_zone_name  = "apps.hmcts.net"
+    backend_domain = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    cache_enabled  = "false"
+    disabled_rules = {}
+  },
+  {
+    name           = "juror-bureau"
+    custom_domain  = "juror.apps.hmcts.net"
+    dns_zone_name  = "apps.hmcts.net"
+    backend_domain = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    cache_enabled  = "false"
+    disabled_rules = {}
+    custom_rules = [
+      {
+        name     = "IPMatchWhitelist"
+        priority = 1
+        type     = "MatchRule"
+        action   = "Block"
+        match_conditions = [
+          {
+            match_variable     = "RemoteAddr"
+            operator           = "IPMatch"
+            negation_condition = true
+            match_values = [
+              "194.33.192.0/24",
+              "194.33.196.0/24",
+              "194.33.200.0/21",
+              "194.33.248.0/24",
+              "194.33.249.0/24",
+              "51.149.249.0/27",
+              "51.149.249.32/27",
+              "51.149.250.0/23",
+              "20.58.23.145/32"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
     name          = "ejudiciary-home"
     custom_domain = "home.ejudiciary.net"
     dns_zone_name = "ejudiciary.net"
