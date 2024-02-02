@@ -81,3 +81,6 @@ gateways:
       - product: juror
         component: pnc
         ssl_enabled: true
+      - product: juror
+        component: api
+        ssl_enabled: true
