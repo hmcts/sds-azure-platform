@@ -87,3 +87,6 @@ gateways:
       - product: opal
         component: legacy-db-stub
         ssl_enabled: true
+      - product: opal
+        component: print-service
+        ssl_enabled: true
