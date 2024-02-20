@@ -80,6 +80,7 @@ gateways:
       - product: juror
         component: api
         ssl_enabled: true
+        health_path_override: /health
      # Opal
       - product: opal
         component: fines-service
