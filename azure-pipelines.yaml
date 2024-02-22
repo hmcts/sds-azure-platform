@@ -206,6 +206,7 @@ stages:
               projectName: ${{ variables.businessArea }}
               cluster: '00'
               environment: 'sbox'
+              runManualStart: true
 
   - ${{ each parameter in parameters.components }}:
       - stage: ${{ parameter.environment }}_${{ parameter.deployment }}
