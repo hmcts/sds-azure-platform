@@ -57,7 +57,7 @@ gateways:
         ssl_enabled: true
       - product: darts
         component: gateway
-        ssl_enabled: true
+        ssl_enabled: false
       - product: darts
         component: stub-services
         ssl_enabled: true
