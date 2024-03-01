@@ -56,10 +56,13 @@ gateways:
         ssl_enabled: true
       - product: darts
         component: gateway
-        ssl_enabled: true
+        ssl_enabled: false
       - product: darts
         component: stub-services
         ssl_enabled: true
+      - product: darts
+        component: proxy
+        ssl_enabled: false
      # Pre-Recorded Evidence
       - product: pre
         component: portal
