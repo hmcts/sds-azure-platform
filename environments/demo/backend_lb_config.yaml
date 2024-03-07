@@ -64,7 +64,7 @@ gateways:
       - product: darts
         component: proxy
         ssl_enabled: false
-        cookie_based_affinity: true
+        cookie_based_affinity: Enabled
 
      # Pre-Recorded Evidence
       - product: pre
