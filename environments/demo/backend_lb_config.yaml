@@ -61,6 +61,10 @@ gateways:
       - product: darts
         component: stub-services
         ssl_enabled: true
+      - product: darts
+        component: proxy
+        ssl_enabled: false
+        cookie_based_affinity: true
 
      # Pre-Recorded Evidence
       - product: pre
