@@ -481,6 +481,9 @@ frontends = [
     disabled_rules = {
       SQLI = [
         "942200",
+        "942370",
+        "942260",
+        "942340",
       ],
     }
     health_protocol     = "Https"
