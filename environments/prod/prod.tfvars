@@ -1075,7 +1075,14 @@ frontends = [
     dns_zone_name    = "platform.hmcts.net"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-platform-hmcts-net"
-    disabled_rules   = {}
+    disabled_rules = {
+      SQLI = [
+        "942200",
+        "942370",
+        "942260",
+        "942340",
+      ],
+    }
   },
   {
     name             = "sds-api-mgmt"

@@ -473,12 +473,19 @@ frontends = [
     ]
   },
   {
-    name                = "pre-portal"
-    mode                = "Prevention"
-    custom_domain       = "pre-portal.test.platform.hmcts.net"
-    dns_zone_name       = "test.platform.hmcts.net"
-    backend_domain      = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
-    disabled_rules      = {}
+    name           = "pre-portal"
+    mode           = "Prevention"
+    custom_domain  = "pre-portal.test.platform.hmcts.net"
+    dns_zone_name  = "test.platform.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
+    disabled_rules = {
+      SQLI = [
+        "942200",
+        "942370",
+        "942260",
+        "942340",
+      ],
+    }
     health_protocol     = "Https"
     forwarding_protocol = "HttpsOnly"
     cache_enabled       = "false"
