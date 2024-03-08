@@ -421,7 +421,11 @@ frontends = [
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
 
-    disabled_rules = {}
+    disabled_rules = {
+      SQLI = [
+        "942200",
+      ],
+    }
 
     global_exclusions = [
       {
