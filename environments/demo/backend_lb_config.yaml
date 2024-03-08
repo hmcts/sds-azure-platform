@@ -65,6 +65,7 @@ gateways:
         component: proxy
         ssl_enabled: false
         cookie_based_affinity: Enabled
+        affinity_cookie_name: JSESSIONID
 
      # Pre-Recorded Evidence
       - product: pre
