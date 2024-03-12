@@ -66,16 +66,13 @@ gateways:
         ssl_enabled: false
         cookie_based_affinity: Enabled
         affinity_cookie_name: routingcookie
-        rewrite_rule_set: {
-        rewrite_rule {
-        name = darts-proxy-rewrite
-        rule_sequence = 100
-        request_header_configuration{
-        header_name = routingcookie
-        header_value = {JSESSIONID}
-        }
-        }
-        }
+        rewrite_rule_set:
+          - rewrite_rule 
+              name = darts-proxy-rewrite
+              rule_sequence = 100
+              request_header_configuration:
+                header_name = routingcookie
+                header_value = {JSESSIONID}
      # Pre-Recorded Evidence
       - product: pre
         component: portal
