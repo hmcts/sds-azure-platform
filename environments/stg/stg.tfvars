@@ -830,7 +830,8 @@ frontends = [
     mode           = "Prevention"
     disabled_rules = {
       SQLI = [
-        "942440"
+        "942440",
+        "942450"
       ],
       RCE = [
         "932100"
