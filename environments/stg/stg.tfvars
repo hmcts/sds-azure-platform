@@ -811,7 +811,14 @@ frontends = [
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
     mode           = "Detection"
-    disabled_rules = {}
+    disabled_rules = {
+      SQLI = [
+        "942440"
+      ],
+      RCE = [
+        "932100"
+      ],
+    }
   },
   {
     name           = "juror-bureau"
