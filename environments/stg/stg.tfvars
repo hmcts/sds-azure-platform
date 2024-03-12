@@ -805,27 +805,38 @@ frontends = [
     ]
   },
   {
-    name                         = "juror-public"
-    custom_domain                = "juror-public.staging.apps.hmcts.net"
-    dns_zone_name                = "apps.hmcts.net"
-    backend_domain               = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
-    cache_enabled                = "false"
-    disabled_rules               = {}
-    mode                         = "Detection"
-    session_affinity             = true
-    session_affinity_ttl_seconds = 14400
-    appgw_cookie_based_affinity  = "Enabled"
+    name           = "juror-public"
+    custom_domain  = "juror-public.staging.apps.hmcts.net"
+    dns_zone_name  = "apps.hmcts.net"
+    backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
+    cache_enabled  = "false"
+    mode           = "Detection"
+    disabled_rules = {
+      SQLI = [
+        "942200",
+        "942440"
+      ],
+      RCE = [
+        "932100"
+      ],
+    }
   },
   {
-    name                         = "juror-bureau"
-    custom_domain                = "juror.staging.apps.hmcts.net"
-    dns_zone_name                = "apps.hmcts.net"
-    backend_domain               = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
-    cache_enabled                = "false"
-    disabled_rules               = {}
-    session_affinity             = true
-    session_affinity_ttl_seconds = 14400
-    appgw_cookie_based_affinity  = "Enabled"
+    name           = "juror-bureau"
+    custom_domain  = "juror.staging.apps.hmcts.net"
+    dns_zone_name  = "apps.hmcts.net"
+    backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
+    cache_enabled  = "false"
+    mode           = "Detection"
+    disabled_rules = {
+      SQLI = [
+        "942440",
+        "942450"
+      ],
+      RCE = [
+        "932100"
+      ],
+    }
     custom_rules = [
       {
         name     = "IPMatchWhitelist"
