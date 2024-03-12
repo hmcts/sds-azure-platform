@@ -70,8 +70,8 @@ gateways:
           - name: darts-proxy-rewrite
             rule_sequence: 100
             request_header_configuration:
-              header_name: routingcookie
-              header_value: {JSESSIONID}
+              header_name: "routingcookie"
+              header_value: "{JSESSIONID}"
      # Pre-Recorded Evidence
       - product: pre
         component: portal
