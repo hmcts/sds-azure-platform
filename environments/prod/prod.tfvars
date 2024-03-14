@@ -1163,7 +1163,17 @@ frontends = [
     dns_zone_name  = "apps.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
-    disabled_rules = {}
+    mode           = "Prevention"
+    disabled_rules = {
+      SQLI = [
+        "942200",
+        "942260",
+        "942440"
+      ],
+      RCE = [
+        "932100"
+      ],
+    }
   },
   {
     name           = "juror-bureau"
@@ -1171,7 +1181,16 @@ frontends = [
     dns_zone_name  = "apps.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
-    disabled_rules = {}
+    mode           = "Prevention"
+    disabled_rules = {
+      SQLI = [
+        "942440",
+        "942450"
+      ],
+      RCE = [
+        "932100"
+      ],
+    }
     custom_rules = [
       {
         name     = "IPMatchWhitelist"
