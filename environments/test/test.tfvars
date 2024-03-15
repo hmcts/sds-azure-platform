@@ -486,6 +486,7 @@ frontends = [
         "942340",
         "942440",
         "942450",
+        "942430",
       ],
     }
     health_protocol     = "Https"
