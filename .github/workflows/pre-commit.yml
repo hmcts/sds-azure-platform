@@ -30,7 +30,7 @@ jobs:
       - name: yq - portable yaml processor
         uses: mikefarah/yq@v4.42.1
 
-      - uses: pre-commit/action@v3.0.0
+      - uses: pre-commit/action@v3.0.1
         with: 
           extra_args: terraform_fmt --all-files
         continue-on-error: true
@@ -39,6 +39,6 @@ jobs:
         with:
           file_pattern: environments/* components/*
 
-      - uses: pre-commit/action@v3.0.0
+      - uses: pre-commit/action@v3.0.1
         with: 
           extra_args: app_gateway_backend_check --all-files
