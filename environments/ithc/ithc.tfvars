@@ -51,10 +51,163 @@ frontends = [
     custom_domain     = "pip-frontend.ithc.platform.hmcts.net"
     dns_zone_name     = "ithc.platform.hmcts.net"
     backend_domain    = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
-    certificate_name  = "wildcard-platform-hmcts-net"
-    shutter_app       = true
-    disabled_rules    = {}
-    global_exclusions = []
+    redirect_url      = "https://pip-frontend.ithc.platform.hmcts.net/unprocessed-request"
+
+    disabled_rules = {
+      LFI = [
+        "930110" // false positive on multi-part uploads
+      ]
+    }
+
+    custom_rules = [
+      {
+        name     = "ManualUploadPathTraversalGeneral",
+        type     = "MatchRule"
+        priority = 1
+        action   = "Redirect"
+
+        match_conditions = [
+          {
+            match_variable     = "RequestBody"
+            operator           = "Contains"
+            negation_condition = false
+            transforms         = ["UrlDecode"]
+            match_values       = ["../", "..\\"]
+          },
+          {
+            match_variable     = "RequestUri"
+            operator           = "EndsWith"
+            negation_condition = true
+            match_values       = ["/manual-upload"]
+          },
+          {
+            match_variable     = "RequestMethod"
+            operator           = "Equal"
+            negation_condition = false
+            match_values       = ["POST"]
+          }
+        ]
+      },
+      {
+        name     = "ManualUploadPathTraversalNonEncode",
+        type     = "MatchRule"
+        priority = 2
+        action   = "Redirect"
+
+        match_conditions = [
+          {
+            match_variable     = "RequestBody"
+            operator           = "Contains"
+            negation_condition = false
+            match_values       = ["..%c0%af", "..%c1%9c"]
+          },
+          {
+            match_variable     = "RequestUri"
+            operator           = "EndsWith"
+            negation_condition = true
+            match_values       = ["/manual-upload"]
+          },
+          {
+            match_variable     = "RequestMethod"
+            operator           = "Equal"
+            negation_condition = false
+            match_values       = ["POST"]
+          }
+        ]
+      },
+      {
+        name     = "ManualUploadPathTraversalRegex",
+        type     = "MatchRule"
+        priority = 3
+        action   = "Redirect"
+
+        match_conditions = [
+          {
+            match_variable     = "RequestBody"
+            operator           = "RegEx"
+            negation_condition = false
+            transforms         = ["Lowercase"]
+            match_values       = ["([a-z]:\\\\)|(%252e|\\.)(%252e|\\.)(%255c|%252f|\\\\|\\/)"]
+          },
+          {
+            match_variable     = "RequestUri"
+            operator           = "EndsWith"
+            negation_condition = true
+            match_values       = ["/manual-upload"]
+          },
+          {
+            match_variable     = "RequestMethod"
+            operator           = "Equal"
+            negation_condition = false
+            match_values       = ["POST"]
+          }
+        ]
+      }
+    ]
+
+    global_exclusions = [
+      ## Open ID response parameters
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "state"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "formCookie"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "session"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "dtSa"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "court-and-tribunal-hearings-cookie-preferences"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "createAdminAccount"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "session.sig"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "error_description"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "iss"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "subscriptions"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "connect.sid"
+      }
+    ]
   },
   {
     name           = "vh-test-web"
