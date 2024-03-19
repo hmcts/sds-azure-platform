@@ -814,6 +814,7 @@ frontends = [
     mode           = "Detection"
     disabled_rules = {
       SQLI = [
+        "942120",
         "942200",
         "942260",
         "942440",
