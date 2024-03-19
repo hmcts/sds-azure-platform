@@ -47,11 +47,11 @@ frontends = [
     ]
   },
   {
-    name              = "pip-frontend"
-    custom_domain     = "pip-frontend.ithc.platform.hmcts.net"
-    dns_zone_name     = "ithc.platform.hmcts.net"
-    backend_domain    = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
-    redirect_url      = "https://pip-frontend.ithc.platform.hmcts.net/unprocessed-request"
+    name           = "pip-frontend"
+    custom_domain  = "pip-frontend.ithc.platform.hmcts.net"
+    dns_zone_name  = "ithc.platform.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
+    redirect_url   = "https://pip-frontend.ithc.platform.hmcts.net/unprocessed-request"
 
     disabled_rules = {
       LFI = [
