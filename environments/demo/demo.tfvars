@@ -38,7 +38,6 @@ frontends = [
     backend_domain      = ["pre-demo.powerappsportals.com"]
     certificate_name    = "portal-demo-pre-recorded-evidence-justice-gov-uk"
     disabled_rules      = {}
-    shutter_app         = false
     health_path         = "/SignIn?ReturnUrl=%2F"
     health_protocol     = "Https"
     forwarding_protocol = "HttpsOnly"
