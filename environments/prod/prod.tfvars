@@ -453,7 +453,7 @@ frontends = [
   },
   {
     name              = "trib-cicap"
-    mode              = "Prevention"
+    mode              = "Detection"
     custom_domain     = "cicap.decisions.tribunals.gov.uk"
     dns_zone_name     = "decisions.tribunals.gov.uk"
     backend_domain    = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
