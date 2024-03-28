@@ -453,7 +453,7 @@ frontends = [
   },
   {
     name              = "trib-cicap"
-    mode              = "Detection"
+    mode              = "Prevention"
     custom_domain     = "cicap.decisions.tribunals.gov.uk"
     dns_zone_name     = "decisions.tribunals.gov.uk"
     backend_domain    = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
@@ -463,8 +463,41 @@ frontends = [
       LFI = [
         "930110", // false positive on multi-part uploads
         "930100",
-        "930120"
+        "930120",
+        "941320"
+      ],
+      RFI = [
+        "931130"
+      ],
+      SQLI = [
+        "942100",
+        "942150",
+        "942110",
+        "942180",
+        "942260"
+      ],
+      XSS = [
+        "941100",
+        "941130",
+        "941110",
+        "941160",
+        "941170",
+        "941120",
+        "941210",
+        "941150"
+      ],
+      RCE = [
+        "932130",
+        "932100",
+        "932160",
+        "932170",
+        "932110"
+      ],
+      JAVA = [
+        "944100",
+        "944240"
       ]
+
     },
     global_exclusions = [
       {
