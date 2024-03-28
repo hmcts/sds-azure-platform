@@ -81,6 +81,7 @@ frontends = [
     backend_domain    = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
     shutter_app       = false
     hosted_externally = true
+    cache_enabled     = false
 
     global_exclusions = [
       {
@@ -121,6 +122,7 @@ frontends = [
     backend_domain    = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
     shutter_app       = false
     hosted_externally = true
+    cache_enabled     = false
 
     global_exclusions = [
       {
@@ -156,6 +158,7 @@ frontends = [
     backend_domain    = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
     shutter_app       = false
     hosted_externally = true
+    cache_enabled     = false
 
     global_exclusions = [
       {
@@ -206,6 +209,7 @@ frontends = [
     backend_domain    = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
     shutter_app       = false
     hosted_externally = true
+    cache_enabled     = false
 
     global_exclusions = [
       {
@@ -246,6 +250,7 @@ frontends = [
     backend_domain    = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
     shutter_app       = false
     hosted_externally = true
+    cache_enabled     = false
 
     global_exclusions = [
       {
@@ -296,6 +301,7 @@ frontends = [
     backend_domain    = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
     shutter_app       = false
     hosted_externally = true
+    cache_enabled     = false
 
     global_exclusions = [
       {
@@ -331,6 +337,7 @@ frontends = [
     backend_domain    = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
     shutter_app       = false
     hosted_externally = true
+    cache_enabled     = false
 
     disabled_rules = {
       SQLI = [
@@ -389,7 +396,7 @@ frontends = [
     backend_domain    = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
     shutter_app       = false
     hosted_externally = true
-
+    cache_enabled     = false
     global_exclusions = [
       {
         match_variable = "RequestBodyPostArgNames"
@@ -424,6 +431,7 @@ frontends = [
     backend_domain    = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
     shutter_app       = false
     hosted_externally = true
+    cache_enabled     = false
 
     global_exclusions = [
       {
@@ -453,7 +461,7 @@ frontends = [
   },
   {
     name              = "trib-cicap"
-    mode              = "Detection"
+    mode              = "Prevention"
     custom_domain     = "cicap.decisions.tribunals.gov.uk"
     dns_zone_name     = "decisions.tribunals.gov.uk"
     backend_domain    = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
