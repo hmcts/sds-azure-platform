@@ -35,7 +35,7 @@ frontends = [
     mode                = "Prevention"
     custom_domain       = "portal-demo.pre-recorded-evidence.justice.gov.uk"
     dns_zone_name       = "pre-recorded-evidence.justice.gov.uk"
-    backend_domain      = ["pre-demo.powerappsportals.com"]
+    backend_domain      = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
     certificate_name    = "portal-demo-pre-recorded-evidence-justice-gov-uk"
     disabled_rules      = {}
     health_path         = "/SignIn?ReturnUrl=%2F"
