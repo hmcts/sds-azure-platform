@@ -467,6 +467,7 @@ frontends = [
     backend_domain    = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
     shutter_app       = false
     hosted_externally = true
+    cache_enabled     = false
     disabled_rules = {
       LFI = [
         "930110", // false positive on multi-part uploads
