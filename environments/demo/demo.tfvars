@@ -42,6 +42,7 @@ frontends = [
     health_protocol     = "Https"
     forwarding_protocol = "HttpsOnly"
     cache_enabled       = "false"
+    shutter_app         = true
 
     disabled_rules = {
       SQLI = [
