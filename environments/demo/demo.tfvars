@@ -552,6 +552,7 @@ frontends = [
     custom_domain  = "juror-public.demo.apps.hmcts.net"
     dns_zone_name  = "apps.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
+    cache_enabled  = "false"
     mode           = "Detection"
     disabled_rules = {
       SQLI = [
