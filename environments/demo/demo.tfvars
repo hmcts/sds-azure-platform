@@ -552,7 +552,23 @@ frontends = [
     custom_domain  = "juror-public.demo.apps.hmcts.net"
     dns_zone_name  = "apps.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
-    cache_enabled  = "false"
+    mode           = "Detection"
+    disabled_rules = {
+      SQLI = [
+        "942120",
+        "942200",
+        "942210",
+        "942260",
+        "942310",
+        "942430",
+        "942440",
+        "942450"
+      ],
+      RCE = [
+        "932100",
+        "932115"
+      ],
+    }
   },
   {
     product        = "juror-bureau"
@@ -561,6 +577,20 @@ frontends = [
     dns_zone_name  = "apps.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
+    mode           = "Detection"
+    disabled_rules = {
+      SQLI = [
+        "942100",
+        "942150",
+        "942210",
+        "942410",
+        "942440",
+        "942450"
+      ],
+      RCE = [
+        "932100"
+      ],
+    }
     custom_rules = [
       {
         name     = "IPMatchWhitelist"
