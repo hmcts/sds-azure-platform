@@ -54,6 +54,7 @@ gateways:
         host_name_prefix: cloudgobgateway
         ssl_enabled: true
         health_path_override: "/services/themisgatewayapi?wsdl"
+        request_timeout: 120
     # Darts Modernisation
       - product: darts
         component: api
