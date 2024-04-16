@@ -524,6 +524,7 @@ frontends = [
     name           = "darts-portal"
     custom_domain  = "darts.demo.apps.hmcts.net"
     dns_zone_name  = "apps.hmcts.net"
+    mode           = "Detection"
     backend_domain = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
 
