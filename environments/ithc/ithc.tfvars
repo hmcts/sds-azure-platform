@@ -448,7 +448,7 @@ frontends = [
     dns_zone_name  = "apps.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
-    mode           = "Detection"
+    mode           = "Prevention"
     disabled_rules = {
       SQLI = [
         "942120",
@@ -472,7 +472,7 @@ frontends = [
     dns_zone_name  = "apps.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
-    mode           = "Detection"
+    mode           = "Prevention"
     disabled_rules = {
       SQLI = [
         "942100",
