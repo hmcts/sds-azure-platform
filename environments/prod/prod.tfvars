@@ -1177,23 +1177,30 @@ frontends = [
     backend_domain      = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name    = "www-portal-pre-recorded-evidence-justice-gov-uk"
     disabled_rules      = {}
-    shutter_app         = true
-    health_path         = "/SignIn?ReturnUrl=%2F"
+    shutter_app         = false
     health_protocol     = "Https"
     forwarding_protocol = "HttpsOnly"
     cache_enabled       = "false"
     disabled_rules = {
       SQLI = [
+        "942200",
+        "942370",
+        "942260",
+        "942340",
         "942440",
         "942450",
-        "942110",
-      ],
-      RCE = [
-        "932100",
-        "932110",
-        "932115",
+        "942430",
       ],
     }
+
+    global_exclusions = [
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      }
+    ]
+  }
 
     custom_rules = [
       {
