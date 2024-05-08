@@ -1170,16 +1170,14 @@ frontends = [
     ]
   },
   {
-    name                = "portal"
-    mode                = "Prevention"
-    custom_domain       = "portal.pre-recorded-evidence.justice.gov.uk"
-    dns_zone_name       = "pre-recorded-evidence.justice.gov.uk"
-    backend_domain      = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-    certificate_name    = "www-portal-pre-recorded-evidence-justice-gov-uk"
-    disabled_rules      = {}
-    shutter_app         = false
-    forwarding_protocol = "HttpsOnly"
-    cache_enabled       = "false"
+    name             = "portal"
+    mode             = "Prevention"
+    custom_domain    = "portal.pre-recorded-evidence.justice.gov.uk"
+    dns_zone_name    = "pre-recorded-evidence.justice.gov.uk"
+    backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    certificate_name = "www-portal-pre-recorded-evidence-justice-gov-uk"
+    shutter_app      = false
+    cache_enabled    = "false"
     disabled_rules = {
       SQLI = [
         "942200",
