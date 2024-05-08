@@ -1178,7 +1178,6 @@ frontends = [
     certificate_name    = "www-portal-pre-recorded-evidence-justice-gov-uk"
     disabled_rules      = {}
     shutter_app         = false
-    health_protocol     = "Https"
     forwarding_protocol = "HttpsOnly"
     cache_enabled       = "false"
     disabled_rules = {
