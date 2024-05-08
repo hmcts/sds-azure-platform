@@ -1177,9 +1177,7 @@ frontends = [
     backend_domain      = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name    = "www-portal-pre-recorded-evidence-justice-gov-uk"
     disabled_rules      = {}
-    shutter_app         = true
-    health_path         = "/SignIn?ReturnUrl=%2F"
-    health_protocol     = "Https"
+    shutter_app         = false
     forwarding_protocol = "HttpsOnly"
     cache_enabled       = "false"
     disabled_rules = {
