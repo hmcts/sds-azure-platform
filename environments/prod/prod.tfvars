@@ -1184,16 +1184,22 @@ frontends = [
     cache_enabled       = "false"
     disabled_rules = {
       SQLI = [
+        "942200",
+        "942370",
+        "942260",
+        "942340",
         "942440",
         "942450",
-        "942110",
+        "942430",
       ],
-      RCE = [
-        "932100",
-        "932110",
-        "932115",
-      ],
-    }
+    },
+    global_exclusions = [
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      }
+    ],
 
     custom_rules = [
       {
