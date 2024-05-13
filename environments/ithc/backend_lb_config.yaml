@@ -48,7 +48,7 @@ gateways:
         ssl_enabled: false
       - product: darts
         component: stub-services
-        ssl_enabled: true
+        ssl_enabled: false
       # Juror
       - product: juror
         component: scheduler-api
