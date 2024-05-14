@@ -35,14 +35,14 @@ frontends = [
     mode                = "Prevention"
     custom_domain       = "portal-demo.pre-recorded-evidence.justice.gov.uk"
     dns_zone_name       = "pre-recorded-evidence.justice.gov.uk"
-    backend_domain      = ["pre-demo.powerappsportals.com"]
+    backend_domain      = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
     certificate_name    = "portal-demo-pre-recorded-evidence-justice-gov-uk"
     disabled_rules      = {}
-    shutter_app         = false
     health_path         = "/SignIn?ReturnUrl=%2F"
     health_protocol     = "Https"
     forwarding_protocol = "HttpsOnly"
     cache_enabled       = "false"
+    shutter_app         = true
 
     disabled_rules = {
       SQLI = [
@@ -483,8 +483,13 @@ frontends = [
 
     disabled_rules = {
       SQLI = [
+        "942200",
+        "942370",
+        "942260",
+        "942340",
         "942440",
         "942450",
+        "942430",
       ],
       RCE = [
         "932100",
@@ -519,6 +524,7 @@ frontends = [
     name           = "darts-portal"
     custom_domain  = "darts.demo.apps.hmcts.net"
     dns_zone_name  = "apps.hmcts.net"
+    mode           = "Detection"
     backend_domain = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
 
@@ -548,6 +554,23 @@ frontends = [
     dns_zone_name  = "apps.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
+    mode           = "Detection"
+    disabled_rules = {
+      SQLI = [
+        "942120",
+        "942200",
+        "942210",
+        "942260",
+        "942310",
+        "942430",
+        "942440",
+        "942450"
+      ],
+      RCE = [
+        "932100",
+        "932115"
+      ],
+    }
   },
   {
     product        = "juror-bureau"
@@ -556,6 +579,20 @@ frontends = [
     dns_zone_name  = "apps.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
+    mode           = "Detection"
+    disabled_rules = {
+      SQLI = [
+        "942100",
+        "942150",
+        "942210",
+        "942410",
+        "942440",
+        "942450"
+      ],
+      RCE = [
+        "932100"
+      ],
+    }
     custom_rules = [
       {
         name     = "IPMatchWhitelist"

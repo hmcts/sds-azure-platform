@@ -81,6 +81,7 @@ frontends = [
     backend_domain    = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
     shutter_app       = false
     hosted_externally = true
+    cache_enabled     = false
 
     global_exclusions = [
       {
@@ -121,6 +122,7 @@ frontends = [
     backend_domain    = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
     shutter_app       = false
     hosted_externally = true
+    cache_enabled     = false
 
     global_exclusions = [
       {
@@ -156,6 +158,7 @@ frontends = [
     backend_domain    = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
     shutter_app       = false
     hosted_externally = true
+    cache_enabled     = false
 
     global_exclusions = [
       {
@@ -206,6 +209,7 @@ frontends = [
     backend_domain    = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
     shutter_app       = false
     hosted_externally = true
+    cache_enabled     = false
 
     global_exclusions = [
       {
@@ -246,6 +250,7 @@ frontends = [
     backend_domain    = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
     shutter_app       = false
     hosted_externally = true
+    cache_enabled     = false
 
     global_exclusions = [
       {
@@ -296,6 +301,7 @@ frontends = [
     backend_domain    = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
     shutter_app       = false
     hosted_externally = true
+    cache_enabled     = false
 
     global_exclusions = [
       {
@@ -331,6 +337,7 @@ frontends = [
     backend_domain    = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
     shutter_app       = false
     hosted_externally = true
+    cache_enabled     = false
 
     disabled_rules = {
       SQLI = [
@@ -389,7 +396,7 @@ frontends = [
     backend_domain    = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
     shutter_app       = false
     hosted_externally = true
-
+    cache_enabled     = false
     global_exclusions = [
       {
         match_variable = "RequestBodyPostArgNames"
@@ -424,6 +431,7 @@ frontends = [
     backend_domain    = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
     shutter_app       = false
     hosted_externally = true
+    cache_enabled     = false
 
     global_exclusions = [
       {
@@ -459,7 +467,54 @@ frontends = [
     backend_domain    = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
     shutter_app       = false
     hosted_externally = true
+    cache_enabled     = false
+    disabled_rules = {
+      LFI = [
+        "930110", // false positive on multi-part uploads
+        "930100",
+        "930120"
+      ],
+      RFI = [
+        "931130"
+      ],
+      SQLI = [
+        "942100",
+        "942150",
+        "942110",
+        "942180",
+        "942260",
+        "942160",
+        "942190"
+      ],
+      XSS = [
+        "941100",
+        "941130",
+        "941110",
+        "941160",
+        "941170",
+        "941120",
+        "941210",
+        "941150",
+        "941180",
+        "941140",
+        "941320"
+      ],
+      RCE = [
+        "932130",
+        "932100",
+        "932160",
+        "932170",
+        "932110"
+      ],
+      JAVA = [
+        "944100",
+        "944240"
+      ],
+      PHP = [
+        "933100"
+      ]
 
+    },
     global_exclusions = [
       {
         match_variable = "RequestBodyPostArgNames"
@@ -1115,29 +1170,32 @@ frontends = [
     ]
   },
   {
-    name                = "portal"
-    mode                = "Prevention"
-    custom_domain       = "portal.pre-recorded-evidence.justice.gov.uk"
-    dns_zone_name       = "pre-recorded-evidence.justice.gov.uk"
-    backend_domain      = ["pre-prod.powerappsportals.com"]
-    certificate_name    = "www-portal-pre-recorded-evidence-justice-gov-uk"
-    disabled_rules      = {}
-    shutter_app         = true
-    health_path         = "/SignIn?ReturnUrl=%2F"
-    health_protocol     = "Https"
-    forwarding_protocol = "HttpsOnly"
-    cache_enabled       = "false"
+    name             = "portal"
+    mode             = "Prevention"
+    custom_domain    = "portal.pre-recorded-evidence.justice.gov.uk"
+    dns_zone_name    = "pre-recorded-evidence.justice.gov.uk"
+    backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    certificate_name = "www-portal-pre-recorded-evidence-justice-gov-uk"
+    shutter_app      = false
+    cache_enabled    = "false"
     disabled_rules = {
       SQLI = [
+        "942200",
+        "942370",
+        "942260",
+        "942340",
         "942440",
         "942450",
+        "942430",
       ],
-      RCE = [
-        "932100",
-        "932110",
-        "932115",
-      ],
-    }
+    },
+    global_exclusions = [
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      }
+    ],
 
     custom_rules = [
       {
@@ -1168,8 +1226,12 @@ frontends = [
     mode           = "Prevention"
     disabled_rules = {
       SQLI = [
+        "942120",
         "942200",
+        "942210",
         "942260",
+        "942310",
+        "942430",
         "942440",
         "942450"
       ],
@@ -1190,6 +1252,8 @@ frontends = [
       SQLI = [
         "942100",
         "942150",
+        "942210",
+        "942410",
         "942440",
         "942450"
       ],

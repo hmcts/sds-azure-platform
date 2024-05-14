@@ -54,16 +54,17 @@ gateways:
         host_name_prefix: cloudgobgateway
         ssl_enabled: true
         health_path_override: "/services/themisgatewayapi?wsdl"
+        request_timeout: 120
     # Darts Modernisation
       - product: darts
         component: api
         ssl_enabled: true
       - product: darts
         component: gateway
-        ssl_enabled: true
+        ssl_enabled: false
       - product: darts
         component: stub-services
-        ssl_enabled: true
+        ssl_enabled: false
      # Pre-Recorded Evidence
       - product: pre
         component: portal

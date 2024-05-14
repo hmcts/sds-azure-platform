@@ -801,7 +801,12 @@ frontends = [
       {
         match_variable = "RequestCookieNames"
         operator       = "Equals"
-        selector       = "connect.sid"
+        selector       = "darts_session"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "cookie_policy"
       },
     ]
   },
@@ -814,8 +819,12 @@ frontends = [
     mode           = "Detection"
     disabled_rules = {
       SQLI = [
+        "942120",
         "942200",
+        "942210",
         "942260",
+        "942310",
+        "942430",
         "942440",
         "942450"
       ],
@@ -836,6 +845,8 @@ frontends = [
       SQLI = [
         "942100",
         "942150",
+        "942210",
+        "942410",
         "942440",
         "942450"
       ],

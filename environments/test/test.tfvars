@@ -35,6 +35,7 @@ frontends = [
     name           = "darts-portal"
     custom_domain  = "darts.test.apps.hmcts.net"
     dns_zone_name  = "apps.hmcts.net"
+    mode           = "Detection"
     backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
   },
@@ -45,97 +46,7 @@ frontends = [
     backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
     redirect_url   = "https://pip-frontend.test.platform.hmcts.net/unprocessed-request"
 
-    disabled_rules = {
-      LFI = [
-        "930110" // false positive on multi-part uploads
-      ]
-    }
-
-    custom_rules = [
-      {
-        name     = "ManualUploadPathTraversalGeneral",
-        type     = "MatchRule"
-        priority = 1
-        action   = "Redirect"
-
-        match_conditions = [
-          {
-            match_variable     = "RequestBody"
-            operator           = "Contains"
-            negation_condition = false
-            transforms         = ["UrlDecode"]
-            match_values       = ["../", "..\\"]
-          },
-          {
-            match_variable     = "RequestUri"
-            operator           = "EndsWith"
-            negation_condition = true
-            match_values       = ["/manual-upload"]
-          },
-          {
-            match_variable     = "RequestMethod"
-            operator           = "Equal"
-            negation_condition = false
-            match_values       = ["POST"]
-          }
-        ]
-      },
-      {
-        name     = "ManualUploadPathTraversalNonEncode",
-        type     = "MatchRule"
-        priority = 2
-        action   = "Redirect"
-
-        match_conditions = [
-          {
-            match_variable     = "RequestBody"
-            operator           = "Contains"
-            negation_condition = false
-            match_values       = ["..%c0%af", "..%c1%9c"]
-          },
-          {
-            match_variable     = "RequestUri"
-            operator           = "EndsWith"
-            negation_condition = true
-            match_values       = ["/manual-upload"]
-          },
-          {
-            match_variable     = "RequestMethod"
-            operator           = "Equal"
-            negation_condition = false
-            match_values       = ["POST"]
-          }
-        ]
-      },
-      {
-        name     = "ManualUploadPathTraversalRegex",
-        type     = "MatchRule"
-        priority = 3
-        action   = "Redirect"
-
-        match_conditions = [
-          {
-            match_variable     = "RequestBody"
-            operator           = "RegEx"
-            negation_condition = false
-            transforms         = ["Lowercase"]
-            match_values       = ["([a-z]:\\\\)|(%252e|\\.)(%252e|\\.)(%255c|%252f|\\\\|\\/)"]
-          },
-          {
-            match_variable     = "RequestUri"
-            operator           = "EndsWith"
-            negation_condition = true
-            match_values       = ["/manual-upload"]
-          },
-          {
-            match_variable     = "RequestMethod"
-            operator           = "Equal"
-            negation_condition = false
-            match_values       = ["POST"]
-          }
-        ]
-      }
-    ]
+    disabled_rules = {}
 
     global_exclusions = [
       ## Open ID response parameters
@@ -531,7 +442,23 @@ frontends = [
     dns_zone_name  = "apps.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
-    disabled_rules = {}
+    mode           = "Prevention"
+    disabled_rules = {
+      SQLI = [
+        "942120",
+        "942200",
+        "942210",
+        "942260",
+        "942310",
+        "942430",
+        "942440",
+        "942450"
+      ],
+      RCE = [
+        "932100",
+        "932115"
+      ],
+    }
   },
   {
     name           = "juror-bureau"
@@ -539,7 +466,20 @@ frontends = [
     dns_zone_name  = "apps.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
-    disabled_rules = {}
+    mode           = "Prevention"
+    disabled_rules = {
+      SQLI = [
+        "942100",
+        "942150",
+        "942210",
+        "942410",
+        "942440",
+        "942450"
+      ],
+      RCE = [
+        "932100"
+      ],
+    }
     custom_rules = [
       {
         name     = "IPMatchWhitelist"
