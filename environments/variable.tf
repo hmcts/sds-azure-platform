@@ -66,3 +66,11 @@ variable "autoShutdown" {
 variable "ssl_mode" {
   default = "FrontDoor"
 }
+
+variable "trigger_migration" {
+  default = false
+}
+
+variable "trigger_migration_temp_pip" {
+  default = false
+}
