@@ -67,10 +67,12 @@ variable "ssl_mode" {
   default = "FrontDoor"
 }
 
-variable "trigger_migration" {
-  default = false
-}
-
-variable "trigger_migration_temp_pip" {
-  default = false
+variable "migration_variables" {
+  description = "Migration related variables"
+  type = object({
+    trigger_migration            = optional(bool, false)
+    trigger_migration_temp_pip   = optional(bool, false)
+    temp_subnet_address_prefixes = optional(string, "")
+  })
+  default = {}
 }
