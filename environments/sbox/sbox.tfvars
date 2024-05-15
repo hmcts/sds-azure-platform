@@ -12,7 +12,7 @@ cdn_sku                    = "Standard_Verizon"
 sku_tier                   = "Free"
 sku_size                   = "Free"
 autoShutdown               = true
-trigger_migration_temp_pip = true
+
 ssl_policy = {
   policy_type          = "Predefined"
   policy_name          = "AppGwSslPolicy20220101S"
