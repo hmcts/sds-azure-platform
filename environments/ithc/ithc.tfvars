@@ -16,8 +16,8 @@ ssl_policy = {
 }
 
 migration_variables = {
-  trigger_migration            = true
-  trigger_migration_temp_pip   = true
+  trigger_migration            = false
+  trigger_migration_temp_pip   = false
   temp_subnet_address_prefixes = "10.143.35.0/24"
 }
 
