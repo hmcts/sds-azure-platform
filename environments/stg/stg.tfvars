@@ -808,6 +808,11 @@ frontends = [
         operator       = "Equals"
         selector       = "cookie_policy"
       },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "user_ids"
+      },
     ]
   },
   {
