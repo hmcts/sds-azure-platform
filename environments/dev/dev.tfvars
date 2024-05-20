@@ -16,9 +16,9 @@ ssl_policy = {
 }
 
 migration_variables = {
-  trigger_migration          = true
-  trigger_migration_temp_pip = true
-  temp_subnet_prefix         = "10.145.35.0/24"
+  trigger_migration            = true
+  trigger_migration_temp_pip   = true
+  temp_subnet_address_prefixes = "10.145.35.0/24"
 }
 
 key_vault_subscription        = "867a878b-cb68-4de5-9741-361ac9e178b6"
