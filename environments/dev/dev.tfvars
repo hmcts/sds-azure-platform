@@ -301,6 +301,8 @@ frontends = [
     ]
   },
   {
+    name           = "vh-video-web-pr-2142" # TO DO: REMOVE AFTER TESTING
+    custom_domain  = "vh-video-web-pr-2142.dev.platform.hmcts.net"
     name           = "vh-admin-web"
     custom_domain  = "vh-admin-web.dev.platform.hmcts.net"
     dns_zone_name  = "dev.platform.hmcts.net"
