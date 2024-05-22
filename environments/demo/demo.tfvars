@@ -15,6 +15,12 @@ ssl_policy = {
   min_protocol_version = "TLSv1_2"
 }
 
+migration_variables = {
+  trigger_migration            = true
+  trigger_migration_temp_pip   = true
+  temp_subnet_address_prefixes = "10.51.99.0/24"
+}
+
 key_vault_subscription        = "c68a4bed-4c3d-4956-af51-4ae164c1957c"
 hub_app_gw_private_ip_address = ["10.11.72.230"]
 apim_appgw_backend_pool_fqdns = ["firewall-nonprodi-palo-sdsapimgmtdemo.uksouth.cloudapp.azure.com"]
