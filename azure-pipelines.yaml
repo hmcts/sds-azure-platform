@@ -189,6 +189,8 @@ variables:
   - name: tfInitSub
     value: "04d27a32-7a07-48b3-95b8-3c8691e1a263"
   - template: vars/input-variables.yaml@cnp-azuredevops-libraries
+  - name: timeoutInMinutes
+    value: 90
 
 stages:
   - stage: Precheck
@@ -196,6 +198,7 @@ stages:
       - job: Validate
         pool:
           vmImage: ${{ variables.agentPool }}
+        timeoutInMinutes: ${{ variables.timeoutInMinutes }}
         steps:
           - template: steps/terraform-precheck.yaml@cnp-azuredevops-libraries
             parameters:
@@ -216,6 +219,7 @@ stages:
           - job: TerraformPlanApply
             pool:
               vmImage: ${{ variables.agentPool }}
+            timeoutInMinutes: ${{ variables.timeoutInMinutes }}
             steps:
               - template: steps/terraform.yaml@cnp-azuredevops-libraries
                 parameters:
@@ -232,6 +236,7 @@ stages:
           - job: PipelineTests
             pool:
               vmImage: ${{ variables.agentPool }}
+            timeoutInMinutes: ${{ variables.timeoutInMinutes }}
             dependsOn: TerraformPlanApply
             condition: and(succeeded(), eq(variables['isMain'], true), eq('${{ parameter.pipeline_tests }}', 'true'))
             steps:
