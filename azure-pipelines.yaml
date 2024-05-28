@@ -190,7 +190,7 @@ variables:
     value: "04d27a32-7a07-48b3-95b8-3c8691e1a263"
   - template: vars/input-variables.yaml@cnp-azuredevops-libraries
   - name: timeoutInMinutes
-    value: 90
+    value: 60
 
 stages:
   - stage: Precheck
