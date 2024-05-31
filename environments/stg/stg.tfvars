@@ -15,7 +15,7 @@ ssl_policy = {
   min_protocol_version = "TLSv1_2"
 }
 migration_variables = {
-  trigger_migration            = true
+  trigger_migration            = false
   trigger_migration_temp_pip   = true
   temp_subnet_address_prefixes = "10.148.35.0/24"
 }
