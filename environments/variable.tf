@@ -66,13 +66,3 @@ variable "autoShutdown" {
 variable "ssl_mode" {
   default = "FrontDoor"
 }
-
-variable "migration_variables" {
-  description = "Migration related variables"
-  type = object({
-    trigger_migration            = optional(bool, false)
-    trigger_migration_temp_pip   = optional(bool, false)
-    temp_subnet_address_prefixes = optional(string, "")
-  })
-  default = {}
-}
