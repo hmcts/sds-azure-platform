@@ -14,6 +14,11 @@ ssl_policy = {
   policy_name          = "AppGwSslPolicy20220101S"
   min_protocol_version = "TLSv1_2"
 }
+migration_variables = {
+  trigger_migration            = true
+  trigger_migration_temp_pip   = true
+  temp_subnet_address_prefixes = "10.148.35.0/24"
+}
 
 key_vault_subscription        = "74dacd4f-a248-45bb-a2f0-af700dc4cf68"
 hub_app_gw_private_ip_address = ["10.11.8.212"]
