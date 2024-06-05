@@ -61,7 +61,6 @@ frontends = [
     custom_domain  = "pip-frontend.staging.platform.hmcts.net"
     dns_zone_name  = "staging.platform.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
-    redirect_url   = "https://pip-frontend.staging.platform.hmcts.net/unprocessed-request"
 
     disabled_rules = {}
 
