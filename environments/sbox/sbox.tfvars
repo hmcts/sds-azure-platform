@@ -23,6 +23,7 @@ key_vault_subscription        = "a8140a9e-f1b0-481f-a4de-09e2ee23f7ab"
 hub_app_gw_private_ip_address = ["10.10.200.222"]
 apim_appgw_backend_pool_fqdns = ["firewall-sbox-int-palo-sdsapimgmt.uksouth.cloudapp.azure.com"]
 
+
 frontends = [
   {
 
@@ -33,6 +34,29 @@ frontends = [
     certificate_name = "wildcard-sandbox-platform-hmcts-net"
     backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
     disabled_rules   = {}
+    cache_enabled    = "false"
+    cache_static_files = {
+      url_file_extension_conditions = [
+        {
+          operator         = "Equal"
+          negate_condition = false
+          match_values     = ["jpg", "png", "css", "js", "ico"]
+          transforms       = ["Lowercase"]
+        },
+
+      ]
+      route_configuration_override_action = [
+        {
+          cache_duration                = null
+          cdn_frontdoor_origin_group_id = null
+          forwarding_protocol           = null
+          query_string_caching_behavior = "UseQueryString"
+          query_string_parameters       = null
+          compression_enabled           = false
+          cache_behavior                = "HonorOrigin"
+        }
+      ]
+    }
   },
   {
     product          = "sds-api-mgmt"
