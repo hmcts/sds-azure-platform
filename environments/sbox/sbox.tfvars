@@ -34,8 +34,8 @@ frontends = [
     certificate_name = "wildcard-sandbox-platform-hmcts-net"
     backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
     disabled_rules   = {}
-    cache_enabled    = "false"
-    cache_static_files = {
+
+    caching = {
       url_file_extension_conditions = [
         {
           match_values = ["jpg", "png", "css", "js", "ico"]
