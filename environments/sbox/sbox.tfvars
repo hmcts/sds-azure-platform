@@ -38,22 +38,13 @@ frontends = [
     cache_static_files = {
       url_file_extension_conditions = [
         {
-
-
           match_values = ["jpg", "png", "css", "js", "ico"]
-
         },
 
       ]
       route_configuration_override_action = [
         {
-          cache_duration                = null
-          cdn_frontdoor_origin_group_id = null
-          forwarding_protocol           = null
-          query_string_caching_behavior = "UseQueryString"
-          query_string_parameters       = null
-          compression_enabled           = false
-          cache_behavior                = "HonorOrigin"
+          query_string_caching_behavior = "IncludeSpecifiedQueryStrings"
         }
       ]
     }
