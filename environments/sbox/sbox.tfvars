@@ -38,10 +38,10 @@ frontends = [
     cache_static_files = {
       url_file_extension_conditions = [
         {
-          operator         = "Equal"
-          negate_condition = false
-          match_values     = ["jpg", "png", "css", "js", "ico"]
-          transforms       = ["Lowercase"]
+
+
+          match_values = ["jpg", "png", "css", "js", "ico"]
+
         },
 
       ]
