@@ -256,4 +256,4 @@ stages:
                   ${{ else }}:
                     test_pattern: pipeline.test.ts
 
-name: "$(finalAction) - ${{ parameters.location }} - SDS Azure Platform"
+name: "$(finalAction) - SDS Azure Platform"
