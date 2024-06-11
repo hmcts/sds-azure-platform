@@ -191,7 +191,7 @@ variables:
   - name: timeoutInMinutes
     value: 60
   - name: finalAction
-    value: "this is var"
+    value: and(succeeded(), eq(variables['isMain'], true), eq(variables['isAutoTriggered'], true))
 
 stages:
   - stage: Precheck
