@@ -1117,14 +1117,6 @@ frontends = [
     disabled_rules   = {}
   },
   {
-    product       = "netbox"
-    name          = "netbox"
-    custom_domain = "netbox.platform.hmcts.net"
-    dns_zone_name = "platform.hmcts.net"
-    shutter_app   = false
-    redirect      = "netbox.hmcts.net"
-  },
-  {
     name             = "pre-portal"
     custom_domain    = "pre-portal.platform.hmcts.net"
     dns_zone_name    = "platform.hmcts.net"
