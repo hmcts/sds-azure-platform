@@ -175,10 +175,6 @@ parameters:
         pipeline_tests: true
         
 variables:
-  ${{ if eq(variables['Build.SourceBranchName'], 'main') }}:
-    myVariable: 'valueForMain'
-  ${{ else }}:
-    myVariable: 'valueForOtherBranches'
   - name: project
     value: application
   - name: agentPool
@@ -196,6 +192,11 @@ variables:
     value: 60
   - name: finalAction
     value: and(succeeded(), eq(variables['isMain'], true), eq(variables['isAutoTriggered'], true))
+  - name: myVariable
+    ${{ if eq(variables['Build.SourceBranchName'], 'main') }}:
+      value: 'valueForMain'
+    ${{ else }}:
+      value: 'valueForOtherBranches'
 
 stages:
   - stage: Precheck
