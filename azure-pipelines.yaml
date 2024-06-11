@@ -175,6 +175,10 @@ parameters:
         pipeline_tests: true
         
 variables:
+  ${{ if eq(variables['Build.SourceBranchName'], 'main') }}:
+    myVariable: 'valueForMain'
+  ${{ else }}:
+    myVariable: 'valueForOtherBranches'
   - name: project
     value: application
   - name: agentPool
@@ -263,4 +267,4 @@ stages:
   #                 ${{ else }}:
   #                   test_pattern: pipeline.test.ts
 
-name: "$(finalAction) - ${{ parameters.location }} - SDS Azure Platform"
+name: "$(myVariable) - ${{ parameters.location }} - SDS Azure Platform"
