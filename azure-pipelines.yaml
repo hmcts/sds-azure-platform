@@ -193,10 +193,10 @@ variables:
   - name: finalAction
     value: and(succeeded(), eq(variables['isMain'], true), eq(variables['isAutoTriggered'], true))
   - name: myVariable
-    ${{ if eq(variables['Build.SourceBranchName'], 'main') }}:
-      value: 'valueForMain'
+    ${{ if and(succeeded(), eq(variables['isMain'], true), eq(variables['isAutoTriggered'], true)) }}:
+      value: 'apply'
     ${{ else }}:
-      value: 'valueForOtherBranches'
+      value: 'plan'
 
 stages:
   - stage: Precheck
