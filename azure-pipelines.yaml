@@ -1,4 +1,3 @@
-name: "${{ parameters.action }} - ${{ parameters.location }} - SDS Azure Platform"
 
 trigger:
   batch: true
@@ -191,10 +190,22 @@ variables:
   - template: vars/input-variables.yaml@cnp-azuredevops-libraries
   - name: timeoutInMinutes
     value: 60
+  - name: finalAction
+    value: ${{ parameters.action }}
 
 stages:
   - stage: Precheck
     jobs:
+      - job: SetAction
+        steps:
+          - script: |
+              if [[ "$(isMain)" == "true" && "$(isAutoTriggered)" == "true" ]]; then
+                echo "##vso[task.setvariable variable=finalAction]apply"
+              else
+                echo "##vso[task.setvariable variable=finalAction]JustTest"
+              fi
+            displayName: 'Set finalAction Variable'
+
       - job: Validate
         pool:
           vmImage: ${{ variables.agentPool }}
@@ -251,3 +262,5 @@ stages:
                     test_pattern: apim.test.ts
                   ${{ else }}:
                     test_pattern: pipeline.test.ts
+
+name: "$(finalAction) - ${{ parameters.location }} - SDS Azure Platform"
