@@ -191,7 +191,7 @@ variables:
   - name: timeoutInMinutes
     value: 60
   - name: finalAction
-    value: ${{ parameters.action }}
+    value: "this is var"
 
 stages:
   - stage: Precheck
@@ -206,61 +206,61 @@ stages:
               fi
             displayName: 'Set finalAction Variable'
 
-      - job: Validate
-        pool:
-          vmImage: ${{ variables.agentPool }}
-        timeoutInMinutes: ${{ variables.timeoutInMinutes }}
-        steps:
-          - template: steps/terraform-precheck.yaml@cnp-azuredevops-libraries
-            parameters:
-              keyvaultName: 'infra-vault-nonprod'
-              keyvaultSecret: 'azure-devops-sp-token'
-              serviceConnection: 'DCD-CFTAPPS-STG'
-              overrideAction: ${{ parameters.action }}
-              projectName: ${{ variables.businessArea }}
-              cluster: '00'
-              environment: 'sbox'
-              runManualStart: true
+  #     - job: Validate
+  #       pool:
+  #         vmImage: ${{ variables.agentPool }}
+  #       timeoutInMinutes: ${{ variables.timeoutInMinutes }}
+  #       steps:
+  #         - template: steps/terraform-precheck.yaml@cnp-azuredevops-libraries
+  #           parameters:
+  #             keyvaultName: 'infra-vault-nonprod'
+  #             keyvaultSecret: 'azure-devops-sp-token'
+  #             serviceConnection: 'DCD-CFTAPPS-STG'
+  #             overrideAction: ${{ parameters.action }}
+  #             projectName: ${{ variables.businessArea }}
+  #             cluster: '00'
+  #             environment: 'sbox'
+  #             runManualStart: true
 
-  - ${{ each parameter in parameters.components }}:
-      - stage: ${{ parameter.environment }}_${{ parameter.deployment }}
-        displayName: ${{ parameter.environment }}_${{ parameter.deployment }}
-        dependsOn: ${{ parameter.dependsOn }}
-        jobs:
-          - job: TerraformPlanApply
-            pool:
-              vmImage: ${{ variables.agentPool }}
-            timeoutInMinutes: ${{ variables.timeoutInMinutes }}
-            steps:
-              - template: steps/terraform.yaml@cnp-azuredevops-libraries
-                parameters:
-                  overrideAction: ${{ parameters.action }}
-                  environment: ${{ parameter.environment }}
-                  location: ${{ parameters.location }}
-                  component: ${{ parameter.deployment }}
-                  serviceConnection: "OPS-APPROVAL-GATE-${{ upper(parameter.environment) }}-ENVS"
-                  product: $(product)
-                  terraformInitSubscription: ${{ variables.tfInitSub }}
-                  planCommandOptions: >
-                    -var environment=${{ parameter.environment }}
-                    -var project=$(project)
-          - job: PipelineTests
-            pool:
-              vmImage: ${{ variables.agentPool }}
-            timeoutInMinutes: ${{ variables.timeoutInMinutes }}
-            dependsOn: TerraformPlanApply
-            condition: and(succeeded(), eq(variables['isMain'], true), eq('${{ parameter.pipeline_tests }}', 'true'))
-            steps:
-              - template: steps/pipeline-tests-jest.yaml@cnp-azuredevops-libraries
-                parameters:
-                  workingDirectory: $(Pipeline.Workspace)/s/sds-azure-platform/scripts
-                  junit_output_dir: $(Pipeline.Workspace)/s/sds-azure-platform/environments/${{ parameter.environment }}/junit
-                  environment: ${{ parameter.environment }}
-                  product: ${{ variables.product }}
-                  test_title: '${{ parameter.environment }}_${{ parameter.deployment }}'
-                  ${{ if eq(parameter.deployment, 'apim') }}:
-                    test_pattern: apim.test.ts
-                  ${{ else }}:
-                    test_pattern: pipeline.test.ts
+  # - ${{ each parameter in parameters.components }}:
+  #     - stage: ${{ parameter.environment }}_${{ parameter.deployment }}
+  #       displayName: ${{ parameter.environment }}_${{ parameter.deployment }}
+  #       dependsOn: ${{ parameter.dependsOn }}
+  #       jobs:
+  #         - job: TerraformPlanApply
+  #           pool:
+  #             vmImage: ${{ variables.agentPool }}
+  #           timeoutInMinutes: ${{ variables.timeoutInMinutes }}
+  #           steps:
+  #             - template: steps/terraform.yaml@cnp-azuredevops-libraries
+  #               parameters:
+  #                 overrideAction: ${{ parameters.action }}
+  #                 environment: ${{ parameter.environment }}
+  #                 location: ${{ parameters.location }}
+  #                 component: ${{ parameter.deployment }}
+  #                 serviceConnection: "OPS-APPROVAL-GATE-${{ upper(parameter.environment) }}-ENVS"
+  #                 product: $(product)
+  #                 terraformInitSubscription: ${{ variables.tfInitSub }}
+  #                 planCommandOptions: >
+  #                   -var environment=${{ parameter.environment }}
+  #                   -var project=$(project)
+  #         - job: PipelineTests
+  #           pool:
+  #             vmImage: ${{ variables.agentPool }}
+  #           timeoutInMinutes: ${{ variables.timeoutInMinutes }}
+  #           dependsOn: TerraformPlanApply
+  #           condition: and(succeeded(), eq(variables['isMain'], true), eq('${{ parameter.pipeline_tests }}', 'true'))
+  #           steps:
+  #             - template: steps/pipeline-tests-jest.yaml@cnp-azuredevops-libraries
+  #               parameters:
+  #                 workingDirectory: $(Pipeline.Workspace)/s/sds-azure-platform/scripts
+  #                 junit_output_dir: $(Pipeline.Workspace)/s/sds-azure-platform/environments/${{ parameter.environment }}/junit
+  #                 environment: ${{ parameter.environment }}
+  #                 product: ${{ variables.product }}
+  #                 test_title: '${{ parameter.environment }}_${{ parameter.deployment }}'
+  #                 ${{ if eq(parameter.deployment, 'apim') }}:
+  #                   test_pattern: apim.test.ts
+  #                 ${{ else }}:
+  #                   test_pattern: pipeline.test.ts
 
 name: "$(finalAction) - ${{ parameters.location }} - SDS Azure Platform"
