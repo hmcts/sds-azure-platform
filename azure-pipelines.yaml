@@ -193,7 +193,7 @@ variables:
   - name: finalAction
     value: and(succeeded(), eq(variables['isMain'], true), eq(variables['isAutoTriggered'], true))
   - name: myVariable
-    ${{ if and(succeeded(), eq(variables['isMain'], true), eq(variables['isAutoTriggered'], true)) }}:
+    ${{ if and(eq(variables['isMain'], true), eq(variables['isAutoTriggered'], true)) }}:
       value: 'apply'
     ${{ else }}:
       value: 'plan'
