@@ -194,7 +194,7 @@ variables:
     ${{ if and(eq(variables['isMain'], true), eq(variables['isAutoTriggered'], true)) }}:
       value: 'apply'
     ${{ else }}:
-      value: 'plan'
+      value: variables['isMain'] # ${{ parameters.action }}
 
 stages:
   - stage: Precheck
