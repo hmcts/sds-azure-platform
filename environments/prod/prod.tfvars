@@ -726,22 +726,22 @@ frontends = [
     ],
   },
 
-  {
-    name                         = "jd-reply-jury-summons"
-    custom_domain                = "reply-jury-summons.service.gov.uk"
-    dns_zone_name                = "reply-jury-summons.service.gov.uk"
-    backend_domain               = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-    shutter_app                  = true
-    ssl_mode                     = "AzureKeyVault"
-    certificate_name             = "reply-jury-summons-service-gov-uk"
-    session_affinity             = true
-    session_affinity_ttl_seconds = 14400
-    appgw_cookie_based_affinity  = "Enabled"
+  #{
+  #  name                         = "jd-reply-jury-summons"
+  #  custom_domain                = "reply-jury-summons.service.gov.uk"
+  #  dns_zone_name                = "reply-jury-summons.service.gov.uk"
+  #  backend_domain               = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+  #  shutter_app                  = true
+  #  ssl_mode                     = "AzureKeyVault"
+  #  certificate_name             = "reply-jury-summons-service-gov-uk"
+  #  session_affinity             = true
+  #  session_affinity_ttl_seconds = 14400
+  #  appgw_cookie_based_affinity  = "Enabled"
 
-    mode           = "Detection"
-    health_path    = "/"
-    disabled_rules = {}
-  },
+  #  mode           = "Detection"
+  #  health_path    = "/"
+  #  disabled_rules = {}
+  #},
   {
     name             = "court-tribunal-hearings"
     custom_domain    = "www.court-tribunal-hearings.service.gov.uk"
@@ -1210,13 +1210,15 @@ frontends = [
     ]
   },
   {
-    name           = "juror-public"
-    custom_domain  = "juror-public.apps.hmcts.net"
-    dns_zone_name  = "apps.hmcts.net"
-    backend_domain = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-    cache_enabled  = "false"
-    mode           = "Prevention"
-    disabled_rules = {
+    name             = "juror-public"
+    custom_domain    = "reply-jury-summons.service.gov.uk"
+    dns_zone_name    = "reply-jury-summons.service.gov.uk"
+    backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    ssl_mode         = "AzureKeyVault"
+    certificate_name = "reply-jury-summons-service-gov-uk"
+    cache_enabled    = "false"
+    mode             = "Prevention"
+    disabled_rules   = {
       SQLI = [
         "942120",
         "942200",
