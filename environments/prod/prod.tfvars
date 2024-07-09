@@ -1218,7 +1218,7 @@ frontends = [
     certificate_name = "reply-jury-summons-service-gov-uk"
     cache_enabled    = "false"
     mode             = "Prevention"
-    disabled_rules   = {
+    disabled_rules = {
       SQLI = [
         "942120",
         "942200",
