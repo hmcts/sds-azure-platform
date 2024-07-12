@@ -1284,8 +1284,9 @@ frontends = [
               #Prod Hub IPs for Dynatrace Monitoring
               "20.50.108.242/32",
               "20.50.109.148/32",
-              #Add Liam for go-live testing
-              "90.248.134.4"
+              #Add Liam and Ben for go-live testing
+              "90.248.134.4",
+              "217.44.63.146"
             ]
           }
         ]
