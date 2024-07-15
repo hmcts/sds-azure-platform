@@ -96,5 +96,5 @@ gateways:
         ssl_enabled: true
      # PDDA
       - product: pdda
-        component: public-display-data-aggregator.yaml
+        component: public-display-data-aggregator
         ssl_enabled: true
