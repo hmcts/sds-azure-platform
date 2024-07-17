@@ -98,3 +98,6 @@ gateways:
       - product: pdda
         component: public-display-data-aggregator
         ssl_enabled: true
+      - product: pdda
+        component: public-display-manager
+        ssl_enabled: true
