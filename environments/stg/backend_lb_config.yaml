@@ -94,3 +94,10 @@ gateways:
       - product: opal
         component: log-audit-service
         ssl_enabled: true
+     # PDDA
+      - product: pdda
+        component: public-display-data-aggregator
+        ssl_enabled: true
+      - product: pdda
+        component: public-display-manager
+        ssl_enabled: true

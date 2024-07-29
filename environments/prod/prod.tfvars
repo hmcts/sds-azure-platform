@@ -726,22 +726,22 @@ frontends = [
     ],
   },
 
-  {
-    name                         = "jd-reply-jury-summons"
-    custom_domain                = "reply-jury-summons.service.gov.uk"
-    dns_zone_name                = "reply-jury-summons.service.gov.uk"
-    backend_domain               = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-    shutter_app                  = true
-    ssl_mode                     = "AzureKeyVault"
-    certificate_name             = "reply-jury-summons-service-gov-uk"
-    session_affinity             = true
-    session_affinity_ttl_seconds = 14400
-    appgw_cookie_based_affinity  = "Enabled"
+  #{
+  #  name                         = "jd-reply-jury-summons"
+  #  custom_domain                = "reply-jury-summons.service.gov.uk"
+  #  dns_zone_name                = "reply-jury-summons.service.gov.uk"
+  #  backend_domain               = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+  #  shutter_app                  = true
+  #  ssl_mode                     = "AzureKeyVault"
+  #  certificate_name             = "reply-jury-summons-service-gov-uk"
+  #  session_affinity             = true
+  #  session_affinity_ttl_seconds = 14400
+  #  appgw_cookie_based_affinity  = "Enabled"
 
-    mode           = "Detection"
-    health_path    = "/"
-    disabled_rules = {}
-  },
+  #  mode           = "Detection"
+  #  health_path    = "/"
+  #  disabled_rules = {}
+  #},
   {
     name             = "court-tribunal-hearings"
     custom_domain    = "www.court-tribunal-hearings.service.gov.uk"
@@ -1210,19 +1210,30 @@ frontends = [
     ]
   },
   {
-    name           = "juror-public"
-    custom_domain  = "juror-public.apps.hmcts.net"
-    dns_zone_name  = "apps.hmcts.net"
-    backend_domain = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-    cache_enabled  = "false"
-    mode           = "Prevention"
+    name             = "juror-public"
+    custom_domain    = "reply-jury-summons.service.gov.uk"
+    dns_zone_name    = "reply-jury-summons.service.gov.uk"
+    backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    ssl_mode         = "AzureKeyVault"
+    certificate_name = "reply-jury-summons-service-gov-uk"
+    cache_enabled    = "false"
+    mode             = "Prevention"
     disabled_rules = {
       SQLI = [
+        "942100",
+        "942110",
         "942120",
+        "942150",
         "942200",
         "942210",
+        "942230",
+        "942240",
         "942260",
         "942310",
+        "942380",
+        "942390",
+        "942400",
+        "942410",
         "942430",
         "942440",
         "942450"
@@ -1245,8 +1256,17 @@ frontends = [
       SQLI = [
         "942100",
         "942110",
+        "942120",
         "942150",
+        "942200",
         "942210",
+        "942230",
+        "942240",
+        "942260",
+        "942310",
+        "942380",
+        "942390",
+        "942400",
         "942410",
         "942430",
         "942440",
@@ -1281,10 +1301,7 @@ frontends = [
               "128.77.75.64/26",
               #Prod Hub IPs for Dynatrace Monitoring
               "20.50.108.242/32",
-              "20.50.109.148/32",
-              #Add Liam and Ben for go-live testing
-              "90.248.134.4",
-              "217.44.63.146"
+              "20.50.109.148/32"
             ]
           }
         ]
