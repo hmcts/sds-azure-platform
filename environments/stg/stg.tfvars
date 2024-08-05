@@ -23,6 +23,8 @@ migration_variables = {
 key_vault_subscription        = "74dacd4f-a248-45bb-a2f0-af700dc4cf68"
 hub_app_gw_private_ip_address = ["10.11.8.212"]
 apim_appgw_backend_pool_fqdns = ["firewall-prod-int-palo-sdsapimgmtstg.uksouth.cloudapp.azure.com"]
+apim_appgw_min_capacity       = 1
+apim_appgw_max_capacity       = 2
 
 frontends = [
 
