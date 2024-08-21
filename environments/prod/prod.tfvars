@@ -1365,6 +1365,43 @@ frontends = [
     shutter_app   = false
     redirect      = "sds-build.hmcts.net"
   },
+  {
+    product        = "darts-portal"
+    name           = "darts-portal"
+    custom_domain  = "darts.apps.hmcts.net"
+    dns_zone_name  = "apps.hmcts.net"
+    mode           = "Prevention"
+    backend_domain = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    cache_enabled  = "false"
+
+    global_exclusions = [
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "error_description"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "darts_session"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "cookie_policy"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "user_ids"
+      },
+    ]
+  },
 ]
 
 
