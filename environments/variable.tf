@@ -47,7 +47,7 @@ variable "apim_appgw_min_capacity" {
   default = 2
 }
 variable "additional_routes_apim" {
-  description = "A list of additional route configurations"
+  description = "A list of additional routes configurations"
   type = list(object({
     name                   = string
     address_prefix         = string
