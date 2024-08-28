@@ -7,13 +7,14 @@ module "ctags" {
 }
 
 module "api-mgmt" {
-  source                         = "git::https://github.com/hmcts/cnp-module-api-mgmt-private.git?ref=main"
+  source                         = "git::https://github.com/hmcts/cnp-module-api-mgmt-private.git?ref=apim-private-additional-routes"
   location                       = var.location
   sku_name                       = var.apim_sku_name
   virtual_network_resource_group = var.vnet_rg
   virtual_network_name           = var.vnet_name
   environment                    = var.env
   virtual_network_type           = "Internal"
+  apim_additional_routes         = var.apim_additional_routes
   department                     = var.department
   common_tags                    = module.ctags.common_tags
   route_next_hop_in_ip_address   = local.hub[var.hub].ukSouth.next_hop_ip
