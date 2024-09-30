@@ -25,6 +25,14 @@ hub_app_gw_private_ip_address = ["10.11.8.212"]
 apim_appgw_backend_pool_fqdns = ["firewall-prod-int-palo-sdsapimgmtstg.uksouth.cloudapp.azure.com"]
 apim_appgw_min_capacity       = 1
 apim_appgw_max_capacity       = 2
+additional_routes_apim = [
+  {
+    name                   = "ss-dev-vnet"
+    address_prefix         = "10.145.0.0/18"
+    next_hop_type          = "VirtualAppliance"
+    next_hop_in_ip_address = "10.11.72.36"
+  }
+]
 
 frontends = [
 
