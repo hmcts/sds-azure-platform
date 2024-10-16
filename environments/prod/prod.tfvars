@@ -1172,6 +1172,7 @@ frontends = [
     cache_enabled    = "false"
     disabled_rules = {
       SQLI = [
+        "942110",
         "942200",
         "942370",
         "942260",
