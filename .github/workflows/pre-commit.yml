@@ -38,11 +38,6 @@ jobs:
           python -m pip install pre-commit
         shell: bash
 
-      - name: yq - portable yaml processor
-        uses: mikefarah/yq@v4.43.1
-        with:
-          cmd: ""
-
       - uses: pre-commit/action@v3.0.1
         with: 
           extra_args: terraform_fmt --all-files
