@@ -61,7 +61,7 @@ gateways:
         component: stub-services
         ssl_enabled: false
       - product: darts
-        component: proxy
+        component: ucf-test-harness
         ssl_enabled: false
      # Pre-Recorded Evidence
       - product: pre
@@ -96,4 +96,17 @@ gateways:
         ssl_enabled: true
       - product: opal
         component: log-audit-service
+        ssl_enabled: true
+      - product: opal
+        component: service-auth-provider-app
+        ssl_enabled: true
+      - product: opal
+        component: external-api
+        ssl_enabled: true
+     # PDDA
+      - product: pdda
+        component: public-display-data-aggregator
+        ssl_enabled: true
+      - product: pdda
+        component: public-display-manager
         ssl_enabled: true

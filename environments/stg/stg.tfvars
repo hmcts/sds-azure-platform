@@ -23,6 +23,22 @@ migration_variables = {
 key_vault_subscription        = "74dacd4f-a248-45bb-a2f0-af700dc4cf68"
 hub_app_gw_private_ip_address = ["10.11.8.212"]
 apim_appgw_backend_pool_fqdns = ["firewall-prod-int-palo-sdsapimgmtstg.uksouth.cloudapp.azure.com"]
+apim_appgw_min_capacity       = 1
+apim_appgw_max_capacity       = 2
+additional_routes_apim = [
+  {
+    name                   = "ss-dev-vnet"
+    address_prefix         = "10.145.0.0/18"
+    next_hop_type          = "VirtualAppliance"
+    next_hop_in_ip_address = "10.11.72.36"
+  },
+  {
+    name                   = "ss-dev-vnet-egress-snat"
+    address_prefix         = "10.25.33.0/27"
+    next_hop_type          = "VirtualAppliance"
+    next_hop_in_ip_address = "10.11.72.37"
+  }
+]
 
 frontends = [
 
@@ -208,6 +224,11 @@ frontends = [
         match_variable = "RequestCookieNames"
         operator       = "Equals"
         selector       = "dtSa"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "csrf_token"
       }
     ]
   },
@@ -291,6 +312,11 @@ frontends = [
         match_variable = "RequestCookieNames"
         operator       = "Equals"
         selector       = "dtSa"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "csrf_token"
       }
     ]
   },
@@ -735,22 +761,36 @@ frontends = [
     dns_zone_name  = "apps.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
-    mode           = "Detection"
+    mode           = "Prevention"
     disabled_rules = {
       SQLI = [
+        "942100",
+        "942110",
         "942120",
+        "942150",
+        "942180",
+        "942190",
         "942200",
         "942210",
+        "942230",
+        "942240",
         "942260",
         "942310",
+        "942340",
+        "942380",
+        "942390",
+        "942400",
+        "942410",
         "942430",
         "942440",
         "942450"
       ],
       RCE = [
         "932100",
+        "932105",
         "932110",
-        "932115"
+        "932115",
+        "932150"
       ],
     }
   },
@@ -760,20 +800,42 @@ frontends = [
     dns_zone_name  = "apps.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
-    mode           = "Detection"
+    mode           = "Prevention"
     disabled_rules = {
       SQLI = [
         "942100",
         "942110",
+        "942120",
         "942150",
+        "942180",
+        "942190",
+        "942200",
         "942210",
+        "942230",
+        "942240",
+        "942260",
+        "942310",
+        "942340",
+        "942360",
+        "942361",
+        "942370",
+        "942380",
+        "942390",
+        "942400",
         "942410",
         "942430",
         "942440",
         "942450"
       ],
       RCE = [
-        "932100"
+        "932100",
+        "932105",
+        "932110",
+        "932115",
+        "932150"
+      ],
+      LFI = [
+        "930110"
       ],
     }
     custom_rules = [
@@ -788,17 +850,29 @@ frontends = [
             operator           = "IPMatch"
             negation_condition = true
             match_values = [
-              "194.33.192.0/24",
-              "194.33.196.0/24",
-              "194.33.200.0/21",
-              "194.33.248.0/24",
-              "194.33.249.0/24",
+              "20.26.11.71/32",
+              "20.26.11.108/32",
+              "20.49.214.199/32",
+              "20.49.214.228/32",
+              "20.58.23.145/32",
               "51.149.249.0/27",
               "51.149.249.32/27",
               "51.149.250.0/23",
-              "20.58.23.145/32",
+              "128.77.75.64/26",
+              "194.33.192.0/24",
+              "194.33.196.0/24",
+              "194.33.200.0/21",
+              "194.33.216.0/23",
+              "194.33.218.0/24",
+              "194.33.248.0/24",
+              "194.33.249.0/24",
+              "195.59.75.0/24",
+              #Prod Hubs
               "20.50.108.242/32",
-              "20.50.109.148/32"
+              "20.50.109.148/32",
+              #NonProd Hubs
+              "20.49.168.141/32",
+              "20.49.168.17/32",
             ]
           }
         ]
