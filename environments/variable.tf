@@ -46,7 +46,16 @@ variable "apim_appgw_exclusions" {
 variable "apim_appgw_min_capacity" {
   default = 2
 }
-
+variable "additional_routes_apim" {
+  description = "A list of additional routes configurations"
+  type = list(object({
+    name                   = string
+    address_prefix         = string
+    next_hop_type          = string
+    next_hop_in_ip_address = string
+  }))
+  default = []
+}
 variable "apim_appgw_max_capacity" {
   default = 10
 }

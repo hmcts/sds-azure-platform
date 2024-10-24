@@ -726,22 +726,22 @@ frontends = [
     ],
   },
 
-  {
-    name                         = "jd-reply-jury-summons"
-    custom_domain                = "reply-jury-summons.service.gov.uk"
-    dns_zone_name                = "reply-jury-summons.service.gov.uk"
-    backend_domain               = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-    shutter_app                  = true
-    ssl_mode                     = "AzureKeyVault"
-    certificate_name             = "reply-jury-summons-service-gov-uk"
-    session_affinity             = true
-    session_affinity_ttl_seconds = 14400
-    appgw_cookie_based_affinity  = "Enabled"
+  #{
+  #  name                         = "jd-reply-jury-summons"
+  #  custom_domain                = "reply-jury-summons.service.gov.uk"
+  #  dns_zone_name                = "reply-jury-summons.service.gov.uk"
+  #  backend_domain               = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+  #  shutter_app                  = true
+  #  ssl_mode                     = "AzureKeyVault"
+  #  certificate_name             = "reply-jury-summons-service-gov-uk"
+  #  session_affinity             = true
+  #  session_affinity_ttl_seconds = 14400
+  #  appgw_cookie_based_affinity  = "Enabled"
 
-    mode           = "Detection"
-    health_path    = "/"
-    disabled_rules = {}
-  },
+  #  mode           = "Detection"
+  #  health_path    = "/"
+  #  disabled_rules = {}
+  #},
   {
     name             = "court-tribunal-hearings"
     custom_domain    = "www.court-tribunal-hearings.service.gov.uk"
@@ -1027,14 +1027,6 @@ frontends = [
     disabled_rules   = {}
   },
   {
-    product       = "netbox"
-    name          = "netbox"
-    custom_domain = "netbox.platform.hmcts.net"
-    dns_zone_name = "platform.hmcts.net"
-    shutter_app   = false
-    redirect      = "netbox.hmcts.net"
-  },
-  {
     name             = "pre-portal"
     custom_domain    = "pre-portal.platform.hmcts.net"
     dns_zone_name    = "platform.hmcts.net"
@@ -1086,7 +1078,7 @@ frontends = [
     dns_zone_name    = "pre-recorded-evidence.justice.gov.uk"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "www-portal-pre-recorded-evidence-justice-gov-uk"
-    shutter_app      = false
+    shutter_app      = true
     cache_enabled    = "false"
     disabled_rules = {
       SQLI = [
@@ -1128,26 +1120,43 @@ frontends = [
     ]
   },
   {
-    name           = "juror-public"
-    custom_domain  = "juror-public.apps.hmcts.net"
-    dns_zone_name  = "apps.hmcts.net"
-    backend_domain = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-    cache_enabled  = "false"
-    mode           = "Prevention"
+    name             = "juror-public"
+    custom_domain    = "reply-jury-summons.service.gov.uk"
+    dns_zone_name    = "reply-jury-summons.service.gov.uk"
+    backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    ssl_mode         = "AzureKeyVault"
+    certificate_name = "reply-jury-summons-service-gov-uk"
+    cache_enabled    = "false"
+    mode             = "Prevention"
     disabled_rules = {
       SQLI = [
+        "942100",
+        "942110",
         "942120",
+        "942150",
+        "942180",
+        "942190",
         "942200",
         "942210",
+        "942230",
+        "942240",
         "942260",
         "942310",
+        "942340",
+        "942380",
+        "942390",
+        "942400",
+        "942410",
         "942430",
         "942440",
         "942450"
       ],
       RCE = [
         "932100",
-        "932115"
+        "932105",
+        "932110",
+        "932115",
+        "932150"
       ],
     }
   },
@@ -1161,15 +1170,38 @@ frontends = [
     disabled_rules = {
       SQLI = [
         "942100",
+        "942110",
+        "942120",
         "942150",
+        "942180",
+        "942190",
+        "942200",
         "942210",
+        "942230",
+        "942240",
+        "942260",
+        "942310",
+        "942340",
+        "942360",
+        "942361",
+        "942370",
+        "942380",
+        "942390",
+        "942400",
         "942410",
         "942430",
         "942440",
         "942450"
       ],
       RCE = [
-        "932100"
+        "932100",
+        "932105",
+        "932110",
+        "932115",
+        "932150"
+      ],
+      LFI = [
+        "930110"
       ],
     }
     custom_rules = [
@@ -1184,18 +1216,24 @@ frontends = [
             operator           = "IPMatch"
             negation_condition = true
             match_values = [
-              "194.33.192.0/24",
-              "194.33.196.0/24",
-              "194.33.200.0/21",
-              "194.33.248.0/24",
-              "194.33.249.0/24",
+              "20.26.11.71/32",
+              "20.26.11.108/32",
+              "20.49.214.199/32",
+              "20.49.214.228/32",
               "51.149.249.0/27",
               "51.149.249.32/27",
               "51.149.250.0/23",
-              # Ian & Neil - delete after dry run.
-              "86.2.103.58/32",
-              "188.74.120.19/32"
-
+              "128.77.75.64/26",
+              "194.33.192.0/24",
+              "194.33.196.0/24",
+              "194.33.200.0/21",
+              "194.33.216.0/23",
+              "194.33.218.0/24",
+              "194.33.248.0/24",
+              "194.33.249.0/24",
+              #Prod Hub IPs for Dynatrace Monitoring
+              "20.50.108.242/32",
+              "20.50.109.148/32"
             ]
           }
         ]
@@ -1245,6 +1283,43 @@ frontends = [
     dns_zone_name = "platform.hmcts.net"
     shutter_app   = false
     redirect      = "sds-build.hmcts.net"
+  },
+  {
+    product        = "darts-portal"
+    name           = "darts-portal"
+    custom_domain  = "darts.apps.hmcts.net"
+    dns_zone_name  = "apps.hmcts.net"
+    mode           = "Prevention"
+    backend_domain = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    cache_enabled  = "false"
+
+    global_exclusions = [
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "error_description"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "darts_session"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "cookie_policy"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "user_ids"
+      },
+    ]
   },
 ]
 

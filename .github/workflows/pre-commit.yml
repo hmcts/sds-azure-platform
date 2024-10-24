@@ -26,9 +26,17 @@ jobs:
         working-directory: ./
         shell: bash
 
-      - uses: actions/setup-python@v4
-      - name: yq - portable yaml processor
-        uses: mikefarah/yq@v4.43.1
+      - name: Setup Python
+        uses: actions/setup-python@v4
+
+      - name: Create virtual environment
+        run: python3 -m venv venv
+
+      - name: Activate virtual environment and install pre-commit
+        run: |
+          source venv/bin/activate
+          python -m pip install pre-commit
+        shell: bash
 
       - uses: pre-commit/action@v3.0.1
         with: 
