@@ -73,7 +73,6 @@ frontends = [
     custom_domain  = "pip-frontend.test.platform.hmcts.net"
     dns_zone_name  = "test.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
-    redirect_url   = "https://pip-frontend.test.platform.hmcts.net/unprocessed-request"
 
     disabled_rules = {}
 
