@@ -427,22 +427,15 @@ frontends = [
         "942450",
         "942430",
       ],
-    }
-    health_protocol     = "Https"
-    forwarding_protocol = "HttpsOnly"
-    cache_enabled       = "false"
-
-    disabled_rules = {
-      SQLI = [
-        "942440",
-        "942450",
-      ],
       RCE = [
         "932100",
         "932110",
         "932115",
       ],
     }
+    health_protocol     = "Https"
+    forwarding_protocol = "HttpsOnly"
+    cache_enabled       = "false"
 
     custom_rules = [
       {
