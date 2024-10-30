@@ -413,7 +413,7 @@ frontends = [
   },
   {
     name           = "pre-portal"
-    mode           = "Prevention"
+    mode           = "Detection"
     custom_domain  = "pre-portal.test.platform.hmcts.net"
     dns_zone_name  = "test.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
