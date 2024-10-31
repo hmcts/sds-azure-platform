@@ -366,51 +366,51 @@ frontends = [
     certificate_name = "wildcard-test-platform-hmcts-net"
     cache_enabled    = "false"
   },
-  {
-    name                = "portal-test"
-    mode                = "Prevention"
-    custom_domain       = "portal-test.pre-recorded-evidence.justice.gov.uk"
-    dns_zone_name       = "pre-recorded-evidence.justice.gov.uk"
-    backend_domain      = ["pre-testing.powerappsportals.com"]
-    certificate_name    = "portal-test-pre-recorded-evidence-justice-gov-uk"
-    disabled_rules      = {}
-    health_path         = "/SignIn?ReturnUrl=%2F"
-    health_protocol     = "Https"
-    forwarding_protocol = "HttpsOnly"
-    cache_enabled       = "false"
-
-    disabled_rules = {
-      SQLI = [
-        "942440",
-        "942450",
-      ],
-      RCE = [
-        "932100",
-        "932110",
-        "932115",
-      ],
-    }
-
-    custom_rules = [
-      {
-        name     = "CountryMatchWhitelist"
-        enabled  = true
-        priority = 1
-        type     = "MatchRule"
-        action   = "Block"
-        match_conditions = [
-          {
-            match_variable     = "RemoteAddr"
-            operator           = "GeoMatch"
-            negation_condition = true
-            match_values = [
-              "GB"
-            ]
-          }
-        ]
-      }
-    ]
-  },
+  #  {
+  #    name                = "portal-test"
+  #    mode                = "Prevention"
+  #    custom_domain       = "portal-test.pre-recorded-evidence.justice.gov.uk"
+  #    dns_zone_name       = "pre-recorded-evidence.justice.gov.uk"
+  #    backend_domain      = ["pre-testing.powerappsportals.com"]
+  #    certificate_name    = "portal-test-pre-recorded-evidence-justice-gov-uk"
+  #    disabled_rules      = {}
+  #    health_path         = "/SignIn?ReturnUrl=%2F"
+  #    health_protocol     = "Https"
+  #    forwarding_protocol = "HttpsOnly"
+  #    cache_enabled       = "false"
+  #
+  #    disabled_rules = {
+  #      SQLI = [
+  #        "942440",
+  #        "942450",
+  #      ],
+  #      RCE = [
+  #        "932100",
+  #        "932110",
+  #        "932115",
+  #      ],
+  #    }
+  #
+  #    custom_rules = [
+  #      {
+  #        name     = "CountryMatchWhitelist"
+  #        enabled  = true
+  #        priority = 1
+  #        type     = "MatchRule"
+  #        action   = "Block"
+  #        match_conditions = [
+  #          {
+  #            match_variable     = "RemoteAddr"
+  #            operator           = "GeoMatch"
+  #            negation_condition = true
+  #            match_values = [
+  #              "GB"
+  #            ]
+  #          }
+  #        ]
+  #      }
+  #    ]
+  #   },
   {
     name           = "pre-portal"
     mode           = "Detection"
