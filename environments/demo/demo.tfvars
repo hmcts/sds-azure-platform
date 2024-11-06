@@ -142,6 +142,11 @@ frontends = [
         selector       = "iss"
       },
       {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      },
+      {
         match_variable = "RequestBodyPostArgNames"
         operator       = "Equals"
         selector       = "error_description"
