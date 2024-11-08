@@ -51,7 +51,7 @@ gateways:
         ssl_enabled: true
       - product: darts
         component: gateway
-        ssl_enabled: true
+        ssl_enabled: false
       # Libra GoB Integration Service
       - product: gob
         component: gateway
