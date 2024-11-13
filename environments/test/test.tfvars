@@ -432,15 +432,14 @@ frontends = [
         "942450",
         "942430",
       ],
-      RCE = [
-        "932100",
-        "932110",
-        "932115",
-      ],
-    }
-    health_protocol     = "Https"
-    forwarding_protocol = "HttpsOnly"
-    cache_enabled       = "false"
+    },
+    global_exclusions = [
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      }
+    ],
 
     custom_rules = [
       {
