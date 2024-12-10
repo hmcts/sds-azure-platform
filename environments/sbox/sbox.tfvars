@@ -232,8 +232,8 @@ frontends = [
     backend_domain = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
     shutter_app    = false
 
-    ruleset_type   = "Microsoft_DefaultRuleSet"
-    ruleset_value  = "2.1"
+    ruleset_type  = "Microsoft_DefaultRuleSet"
+    ruleset_value = "2.1"
 
     disabled_rules = {}
 
