@@ -29,3 +29,8 @@ variable "sku_tier" {
 variable "sku_size" {
   description = "SKU size of the Static Web App"
 }
+variable "additional_shutter_app" {
+  description = "Additional shutter app to be included in the shutter_apps local variable"
+  type        = map(any)
+  default     = {}
+}

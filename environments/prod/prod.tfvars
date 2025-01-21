@@ -1357,3 +1357,8 @@ apim_appgw_exclusions = [
     selector       = "iss"
   }
 ]
+
+additional_shutter_app = {
+  name        = "tools"
+  shutter_app = true
+}
