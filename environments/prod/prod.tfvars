@@ -1357,3 +1357,12 @@ apim_appgw_exclusions = [
     selector       = "iss"
   }
 ]
+
+additional_shutter_apps = [
+  {
+    name          = "tools-atlassian"
+    shutter_app   = true
+    custom_domain = "tools.hmcts.net"
+    dns_zone_name = "hmcts.net"
+  }
+]
