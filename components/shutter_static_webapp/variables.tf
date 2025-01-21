@@ -29,7 +29,7 @@ variable "sku_tier" {
 variable "sku_size" {
   description = "SKU size of the Static Web App"
 }
-variable "additional_shutter_app" {
+variable "additional_shutter_apps" {
   description = "Additional shutter app to be included in the shutter_apps local variable"
   type        = list(map(any))
   default     = []
