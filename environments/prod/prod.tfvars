@@ -1364,5 +1364,17 @@ additional_shutter_apps = [
     shutter_app   = true
     custom_domain = "tools.hmcts.net"
     dns_zone_name = "hmcts.net"
+  },
+  {
+    name          = "tools-atlassian-prp"
+    shutter_app   = true
+    custom_domain = "tools.prp.hmcts.net"
+    dns_zone_name = "hmcts.net"
+  },
+  {
+    name          = "tools-atlassian-staging"
+    shutter_app   = true
+    custom_domain = "staging.tools.hmcts.net"
+    dns_zone_name = "hmcts.net"
   }
 ]
