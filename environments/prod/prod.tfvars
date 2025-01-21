@@ -1358,7 +1358,11 @@ apim_appgw_exclusions = [
   }
 ]
 
-additional_shutter_app = {
-  name        = "tools"
-  shutter_app = true
-}
+additional_shutter_apps = [
+  {
+    name          = "tools"
+    shutter_app   = true
+    custom_domain = "tools.hmcts.net"
+    dns_zone_name = "hmcts.net"
+  }
+]

@@ -1,7 +1,7 @@
 locals {
   shutter_apps = concat(
     [for k, v in var.frontends : v if lookup(v, "shutter_app", true)],
-    [var.additional_shutter_app]
+    var.additional_shutter_app
   )
 }
 module "static_webapp" {
