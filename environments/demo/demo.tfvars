@@ -92,7 +92,15 @@ frontends = [
     backend_domain   = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-demo-platform-hmcts-net"
 
-    disabled_rules = {}
+    ruleset_type  = "Microsoft_DefaultRuleSet"
+    ruleset_value = "2.1"
+
+    disabled_rules = {
+      General = [
+        "200002",
+        "200003"
+      ]
+    }
 
     global_exclusions = [
       ## Open ID response parameters
@@ -125,16 +133,6 @@ frontends = [
         match_variable = "RequestCookieNames"
         operator       = "Equals"
         selector       = "court-and-tribunal-hearings-cookie-preferences"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "createAdminAccount"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "session.sig"
       },
       {
         match_variable = "QueryStringArgNames"
