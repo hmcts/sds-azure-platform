@@ -78,7 +78,15 @@ frontends = [
     dns_zone_name  = "staging.platform.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
 
-    disabled_rules = {}
+    ruleset_type  = "Microsoft_DefaultRuleSet"
+    ruleset_value = "2.1"
+
+    disabled_rules = {
+      General = [
+        "200002",
+        "200003"
+      ]
+    }
 
     global_exclusions = [
       ## Open ID response parameters
@@ -111,16 +119,6 @@ frontends = [
         match_variable = "RequestCookieNames"
         operator       = "Equals"
         selector       = "court-and-tribunal-hearings-cookie-preferences"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "createAdminAccount"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "session.sig"
       },
       {
         match_variable = "RequestBodyPostArgNames"
