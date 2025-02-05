@@ -60,6 +60,9 @@ frontends = [
       General = [
         "200002",
         "200003"
+      ],
+      PROTOCOL-ENFORCEMENT = [
+        "920120"
       ]
     }
 
