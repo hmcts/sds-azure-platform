@@ -235,10 +235,14 @@ frontends = [
     ruleset_type  = "Microsoft_DefaultRuleSet"
     ruleset_value = "2.1"
 
+    disabled_rules_action = "AnomalyScoring"
     disabled_rules = {
       General = [
         "200002",
         "200003"
+      ],
+      PROTOCOL-ENFORCEMENT = [
+        "920120"
       ]
     }
 
