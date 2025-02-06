@@ -308,3 +308,11 @@ apim_appgw_exclusions = [
   }
 ]
 
+additional_shutter_apps = [
+  {
+    name          = "test-shutter-app-new"
+    shutter_app   = true
+    dns_zone_name = "sandbox.platform.hmcts.net"
+    custom_domain = "test2.shutter.sandbox.platform.hmcts.net"
+  }
+]
