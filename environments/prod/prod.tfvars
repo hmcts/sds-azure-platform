@@ -820,8 +820,7 @@ frontends = [
         operator       = "Equals"
         selector       = "connect.sid"
       }
-    ],
-    disabled_rules = {}
+    ]
   },
   {
     name                = "court-tribunal-hearings-b2c-sign-in"
