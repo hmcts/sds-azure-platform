@@ -748,7 +748,21 @@ frontends = [
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-platform-hmcts-net"
     dns_zone_name    = "court-tribunal-hearings.service.gov.uk"
-    disabled_rules   = {}
+
+    ruleset_type  = "Microsoft_DefaultRuleSet"
+    ruleset_value = "2.1"
+
+    disabled_rules_action = "AnomalyScoring"
+    disabled_rules = {
+      General = [
+        "200002",
+        "200003"
+      ],
+      PROTOCOL-ENFORCEMENT = [
+        "920120"
+      ]
+    }
+
     global_exclusions = [
       ## Open ID response parameters
       {
@@ -780,16 +794,6 @@ frontends = [
         match_variable = "RequestCookieNames"
         operator       = "Equals"
         selector       = "court-and-tribunal-hearings-cookie-preferences"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "createAdminAccount"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "session.sig"
       },
       {
         match_variable = "QueryStringArgNames"
