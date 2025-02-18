@@ -14,7 +14,7 @@ module "ctags" {
 }
 
 module "appgateway" {
-  source = "git::https://github.com/hmcts/terraform-module-applicationgateway.git?ref=master"
+  source = "git::https://github.com/hmcts/terraform-module-applicationgateway.git?ref=pubsub-integration"
 
 
   env                                = var.env
