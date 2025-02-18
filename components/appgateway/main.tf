@@ -14,7 +14,7 @@ module "ctags" {
 }
 
 module "appgateway" {
-  source = "git::https://github.com/hmcts/terraform-module-applicationgateway.git?ref=master"
+  source = "git::https://github.com/hmcts/terraform-module-applicationgateway.git?ref=DTSPO-23915-updating-pubsub-gateway"
 
 
   env                                = var.env
