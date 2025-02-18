@@ -19,6 +19,7 @@ migration_variables = {
   trigger_migration_temp_pip   = false
   temp_subnet_address_prefixes = "10.148.35.0/24"
 }
+ssl_certificate = "wildcard-staging-platform-hmcts-net"
 
 key_vault_subscription        = "74dacd4f-a248-45bb-a2f0-af700dc4cf68"
 hub_app_gw_private_ip_address = ["10.11.8.212"]
