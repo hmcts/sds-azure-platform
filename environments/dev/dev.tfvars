@@ -14,6 +14,7 @@ ssl_policy = {
   policy_name          = "AppGwSslPolicy20220101S"
   min_protocol_version = "TLSv1_2"
 }
+ssl_certificate = "wildcard-dev-platform-hmcts-net"
 
 key_vault_subscription        = "867a878b-cb68-4de5-9741-361ac9e178b6"
 hub_app_gw_private_ip_address = ["10.11.72.233"]
