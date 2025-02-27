@@ -203,47 +203,6 @@ frontends = [
     ]
   },
   {
-    name              = "trib-admin-appeals"
-    mode              = "Prevention"
-    custom_domain     = "administrativeappeals.decisions.tribunals.gov.uk"
-    dns_zone_name     = "decisions.tribunals.gov.uk"
-    backend_domain    = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
-    shutter_app       = false
-    hosted_externally = true
-    cache_enabled     = false
-
-    global_exclusions = [
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "__VIEWSTATE"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "btnSearch"
-      }
-    ]
-    custom_rules = [
-      {
-        name     = "AllowAllAdmin",
-        type     = "MatchRule"
-        priority = 1
-        action   = "Allow"
-
-        match_conditions = [
-          {
-            match_variable     = "RequestUri"
-            operator           = "Contains"
-            negation_condition = false
-            match_values = [
-            "/Admin", "/Secure"]
-          }
-        ]
-      }
-    ]
-  },
-  {
     name              = "trib-care-standards"
     mode              = "Prevention"
     custom_domain     = "carestandards.decisions.tribunals.gov.uk"
