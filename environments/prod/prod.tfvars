@@ -202,57 +202,7 @@ frontends = [
       }
     ]
   },
-  {
-    name              = "trib-care-standards"
-    mode              = "Prevention"
-    custom_domain     = "carestandards.decisions.tribunals.gov.uk"
-    dns_zone_name     = "decisions.tribunals.gov.uk"
-    backend_domain    = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
-    shutter_app       = false
-    hosted_externally = true
-    cache_enabled     = false
 
-    global_exclusions = [
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "__VIEWSTATE"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "__EVENTVALIDATION"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "drpMainCategory"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "InitialBodyContents"
-      }
-    ]
-    custom_rules = [
-      {
-        name     = "AllowAllAdmin",
-        type     = "MatchRule"
-        priority = 1
-        action   = "Allow"
-
-        match_conditions = [
-          {
-            match_variable     = "RequestUri"
-            operator           = "Contains"
-            negation_condition = false
-            match_values = [
-            "/Admin", "/Secure"]
-          }
-        ]
-      }
-    ]
-  },
   {
     name              = "trib-lands-chamber"
     mode              = "Prevention"
@@ -398,88 +348,6 @@ frontends = [
         match_variable = "RequestBodyPostArgNames"
         operator       = "Equals"
         selector       = "btnSearch"
-      }
-    ]
-    custom_rules = [
-      {
-        name     = "AllowAllAdmin",
-        type     = "MatchRule"
-        priority = 1
-        action   = "Allow"
-
-        match_conditions = [
-          {
-            match_variable     = "RequestUri"
-            operator           = "Contains"
-            negation_condition = false
-            match_values = [
-            "/Admin", "/Secure"]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    name              = "trib-cicap"
-    mode              = "Prevention"
-    custom_domain     = "cicap.decisions.tribunals.gov.uk"
-    dns_zone_name     = "decisions.tribunals.gov.uk"
-    backend_domain    = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
-    shutter_app       = false
-    hosted_externally = true
-    cache_enabled     = false
-    disabled_rules = {
-      LFI = [
-        "930110", // false positive on multi-part uploads
-        "930100",
-        "930120"
-      ],
-      RFI = [
-        "931130"
-      ],
-      SQLI = [
-        "942100",
-        "942150",
-        "942110",
-        "942180",
-        "942260",
-        "942160",
-        "942190"
-      ],
-      XSS = [
-        "941100",
-        "941130",
-        "941110",
-        "941160",
-        "941170",
-        "941120",
-        "941210",
-        "941150",
-        "941180",
-        "941140",
-        "941320"
-      ],
-      RCE = [
-        "932130",
-        "932100",
-        "932160",
-        "932170",
-        "932110"
-      ],
-      JAVA = [
-        "944100",
-        "944240"
-      ],
-      PHP = [
-        "933100"
-      ]
-
-    },
-    global_exclusions = [
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "__VIEWSTATE"
       }
     ]
     custom_rules = [
