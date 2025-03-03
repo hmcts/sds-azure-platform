@@ -902,6 +902,21 @@ frontends = [
     }
     global_exclusions = []
   },
+  {
+    name           = "opal-frontend-test"
+    custom_domain  = "opal-frontend-test.staging.platform.hmcts.net"
+    dns_zone_name  = "staging.platform.hmcts.net"
+    backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
+    cache_enabled  = "false"
+    disabled_rules = {
+      SQLI = [
+        "942440",
+        "942430",
+        "942450"
+      ],
+    }
+    global_exclusions = []
+  },
 ]
 
 apim_appgw_exclusions = [
