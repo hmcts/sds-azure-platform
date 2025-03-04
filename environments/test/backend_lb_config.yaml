@@ -66,9 +66,6 @@ gateways:
         component: stub-services
         ssl_enabled: false
       - product: darts
-        component: ucf-test-harness
-        ssl_enabled: false
-      - product: darts
         component: external-component-test-harness
         ssl_enabled: false
      # Pre-Recorded Evidence
