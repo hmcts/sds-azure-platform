@@ -17,7 +17,7 @@ provider "azurerm" {
 
 provider "azurerm" {
   subscription_id            = local.hub[local.hub_env].subscription
-  skip_provider_registration = "true"
+  resource_provider_registrations = "none"
   features {}
   alias = "hub"
 }
@@ -25,7 +25,7 @@ provider "azurerm" {
 
 provider "azurerm" {
   subscription_id            = var.key_vault_subscription
-  skip_provider_registration = "true"
+  resource_provider_registrations = "none"
   features {}
   alias = "kv"
 }
