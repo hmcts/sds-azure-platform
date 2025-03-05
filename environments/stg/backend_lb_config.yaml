@@ -54,9 +54,11 @@ gateways:
       - product: darts
         component: api
         ssl_enabled: true
+        request_timeout: 45
       - product: darts
         component: gateway
         ssl_enabled: false
+        request_timeout: 45
       - product: darts
         component: stub-services
         ssl_enabled: false
