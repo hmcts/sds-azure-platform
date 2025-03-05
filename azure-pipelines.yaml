@@ -9,7 +9,7 @@ resources:
   repositories:
   - repository: cnp-azuredevops-libraries
     type: github
-    ref: refs/heads/master
+    ref: refs/heads/fix-test-lower-tfswitch-version
     name: hmcts/cnp-azuredevops-libraries
     endpoint: 'hmcts'
 
@@ -227,7 +227,6 @@ stages:
               - template: steps/terraform.yaml@cnp-azuredevops-libraries
                 parameters:
                   overrideAction: ${{ parameters.action }}
-                  tfswitchVersion: "1.1.0"
                   environment: ${{ parameter.environment }}
                   location: ${{ parameters.location }}
                   component: ${{ parameter.deployment }}
