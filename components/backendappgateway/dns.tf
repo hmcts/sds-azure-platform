@@ -38,3 +38,8 @@ module "privatedns" {
   zone_name           = local.dns_zone
   create_zone         = false
 }
+
+import {
+  id = "/subscriptions/1baf5470-1c3e-40d3-a6f7-74bfbce4b348/resourceGroups/core-infra-intsvc-rg/providers/Microsoft.Network/privateDnsZones/demo.platform.hmcts.net/A/darts-proxy"
+  to = module.privatedns.azurerm_private_dns_a_record.this["darts-proxy"]
+}
