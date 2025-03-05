@@ -9,6 +9,7 @@ module "ctags" {
 module "api-mgmt" {
   source                         = "git::https://github.com/hmcts/cnp-module-api-mgmt-private.git?ref=fix-add-alert-location"
   location                       = var.location
+  alert_location                 = "global"
   sku_name                       = var.apim_sku_name
   virtual_network_resource_group = var.vnet_rg
   virtual_network_name           = var.vnet_name
