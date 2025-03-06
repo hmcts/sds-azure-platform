@@ -1,6 +1,5 @@
 project            = "sdshmcts"
 location           = "uksouth"
-alert_location     = "global"
 env                = "sbox"
 subscription       = "sbox"
 oms_env            = "sandbox"
