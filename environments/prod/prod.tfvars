@@ -67,14 +67,6 @@ frontends = [
     hosted_externally = true
   },
   {
-    name           = "dts-legacy-apps---utiac"
-    mode           = "Detection" #detection config set and PR raised 20 Dec 2021
-    custom_domain  = "waf.tribunalsdecisions.service.gov.uk"
-    dns_zone_name  = "tribunalsdecisions.service.gov.uk"
-    backend_domain = ["dualstack.dsd-apps-lb-01-1379550980.eu-west-1.elb.amazonaws.com"]
-    shutter_app    = false
-  },
-  {
     name             = "jd-bureau"
     custom_domain    = "juror-bureau.justice.gov.uk"
     dns_zone_name    = "juror-bureau.justice.gov.uk"
