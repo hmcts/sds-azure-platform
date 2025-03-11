@@ -138,7 +138,7 @@ frontends = [
     cache_enabled       = false
     shutter_app         = false
     disabled_rules      = {}
-    global_exclusions = []
+    global_exclusions   = []
   },
   {
     name                = "pip-frontend-b2c-staff"
@@ -152,7 +152,7 @@ frontends = [
     cache_enabled       = false
     shutter_app         = false
     disabled_rules      = {}
-    global_exclusions = []
+    global_exclusions   = []
   },
   {
     name           = "vh-test-web"
