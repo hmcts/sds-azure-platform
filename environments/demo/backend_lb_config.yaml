@@ -59,7 +59,13 @@ gateways:
         component: gateway
         ssl_enabled: false
       - product: darts
+        component: proxy
+        ssl_enabled: false
+      - product: darts
         component: stub-services
+        ssl_enabled: false
+      - product: darts
+        component: external-component-test-harness
         ssl_enabled: false
      # Pre-Recorded Evidence
       - product: pre

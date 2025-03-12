@@ -14,6 +14,7 @@ ssl_policy = {
   policy_name          = "AppGwSslPolicy20220101S"
   min_protocol_version = "TLSv1_2"
 }
+ssl_certificate = "wildcard-ithc-platform-hmcts-net"
 
 key_vault_subscription        = "ba71a911-e0d6-4776-a1a6-079af1df7139"
 hub_app_gw_private_ip_address = ["10.11.72.236"]
@@ -51,99 +52,20 @@ frontends = [
     custom_domain  = "pip-frontend.ithc.platform.hmcts.net"
     dns_zone_name  = "ithc.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
-    redirect_url   = "https://pip-frontend.ithc.platform.hmcts.net/unprocessed-request"
 
+    ruleset_type  = "Microsoft_DefaultRuleSet"
+    ruleset_value = "2.1"
+
+    disabled_rules_action = "AnomalyScoring"
     disabled_rules = {
-      LFI = [
-        "930110" // false positive on multi-part uploads
+      General = [
+        "200002",
+        "200003"
+      ],
+      PROTOCOL-ENFORCEMENT = [
+        "920120"
       ]
     }
-
-    custom_rules = [
-      {
-        name     = "ManualUploadPathTraversalGeneral",
-        type     = "MatchRule"
-        priority = 1
-        action   = "Redirect"
-
-        match_conditions = [
-          {
-            match_variable     = "RequestBody"
-            operator           = "Contains"
-            negation_condition = false
-            transforms         = ["UrlDecode"]
-            match_values       = ["../", "..\\"]
-          },
-          {
-            match_variable     = "RequestUri"
-            operator           = "EndsWith"
-            negation_condition = true
-            match_values       = ["/manual-upload"]
-          },
-          {
-            match_variable     = "RequestMethod"
-            operator           = "Equal"
-            negation_condition = false
-            match_values       = ["POST"]
-          }
-        ]
-      },
-      {
-        name     = "ManualUploadPathTraversalNonEncode",
-        type     = "MatchRule"
-        priority = 2
-        action   = "Redirect"
-
-        match_conditions = [
-          {
-            match_variable     = "RequestBody"
-            operator           = "Contains"
-            negation_condition = false
-            match_values       = ["..%c0%af", "..%c1%9c"]
-          },
-          {
-            match_variable     = "RequestUri"
-            operator           = "EndsWith"
-            negation_condition = true
-            match_values       = ["/manual-upload"]
-          },
-          {
-            match_variable     = "RequestMethod"
-            operator           = "Equal"
-            negation_condition = false
-            match_values       = ["POST"]
-          }
-        ]
-      },
-      {
-        name     = "ManualUploadPathTraversalRegex",
-        type     = "MatchRule"
-        priority = 3
-        action   = "Redirect"
-
-        match_conditions = [
-          {
-            match_variable     = "RequestBody"
-            operator           = "RegEx"
-            negation_condition = false
-            transforms         = ["Lowercase"]
-            match_values       = ["([a-z]:\\\\)|(%252e|\\.)(%252e|\\.)(%255c|%252f|\\\\|\\/)"]
-          },
-          {
-            match_variable     = "RequestUri"
-            operator           = "EndsWith"
-            negation_condition = true
-            match_values       = ["/manual-upload"]
-          },
-          {
-            match_variable     = "RequestMethod"
-            operator           = "Equal"
-            negation_condition = false
-            match_values       = ["POST"]
-          }
-        ]
-      }
-    ]
 
     global_exclusions = [
       ## Open ID response parameters
@@ -178,16 +100,6 @@ frontends = [
         selector       = "court-and-tribunal-hearings-cookie-preferences"
       },
       {
-        match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "createAdminAccount"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "session.sig"
-      },
-      {
         match_variable = "RequestBodyPostArgNames"
         operator       = "Equals"
         selector       = "error_description"
@@ -196,6 +108,11 @@ frontends = [
         match_variable = "QueryStringArgNames"
         operator       = "Equals"
         selector       = "iss"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "code"
       },
       {
         match_variable = "RequestBodyPostArgNames"
@@ -214,166 +131,28 @@ frontends = [
     custom_domain       = "sign-in.pip-frontend.ithc.platform.hmcts.net"
     dns_zone_name       = "ithc.platform.hmcts.net"
     backend_domain      = ["hmctspipnonprod.b2clogin.com"]
+    ruleset_type        = "Microsoft_DefaultRuleSet"
+    ruleset_value       = "2.1"
     host_header         = "hmctspipnonprod.b2clogin.com"
     forwarding_protocol = "HttpsOnly"
     cache_enabled       = false
     shutter_app         = false
     disabled_rules      = {}
-    global_exclusions = [
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "redirect_uri"
-      },
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "desc"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "StartsWith"
-        selector       = "x-ms-cpim-"
-      },
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "diags"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "redirect_uri"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "error_description"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "code"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "claim_value"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "ReadOnlyEmail"
-      },
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "nonce"
-      },
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "state"
-      },
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "post_logout_redirect_uri"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "post_logout_redirect_uri"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "dtSa"
-      }
-    ]
+    global_exclusions   = []
   },
   {
     name                = "pip-frontend-b2c-staff"
     custom_domain       = "staff.pip-frontend.ithc.platform.hmcts.net"
     dns_zone_name       = "ithc.platform.hmcts.net"
     backend_domain      = ["hmctspipnonprod.b2clogin.com"]
+    ruleset_type        = "Microsoft_DefaultRuleSet"
+    ruleset_value       = "2.1"
     host_header         = "hmctspipnonprod.b2clogin.com"
     forwarding_protocol = "HttpsOnly"
     cache_enabled       = false
     shutter_app         = false
     disabled_rules      = {}
-    global_exclusions = [
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "redirect_uri"
-      },
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "desc"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "StartsWith"
-        selector       = "x-ms-cpim-"
-      },
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "diags"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "redirect_uri"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "error_description"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "code"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "claim_value"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "ReadOnlyEmail"
-      },
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "nonce"
-      },
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "state"
-      },
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "post_logout_redirect_uri"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "post_logout_redirect_uri"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "dtSa"
-      }
-    ]
+    global_exclusions   = []
   },
   {
     name           = "vh-test-web"
@@ -537,19 +316,23 @@ frontends = [
             operator           = "IPMatch"
             negation_condition = true
             match_values = [
-              "194.33.192.0/24",
-              "194.33.196.0/24",
-              "194.33.200.0/21",
-              "194.33.248.0/24",
-              "194.33.249.0/24",
+              "20.26.11.71/32",
+              "20.26.11.108/32",
+              "20.49.214.199/32",
+              "20.49.214.228/32",
+              "20.58.23.145/32",
               "51.149.249.0/27",
               "51.149.249.32/27",
               "51.149.250.0/23",
-              "195.59.75.0/24",
-              "20.58.23.145/32",
+              "128.77.75.64/26",
+              "194.33.192.0/24",
+              "194.33.196.0/24",
+              "194.33.200.0/21",
               "194.33.216.0/23",
               "194.33.218.0/24",
-              "128.77.75.64/26",
+              "194.33.248.0/24",
+              "194.33.249.0/24",
+              "195.59.75.0/24",
               #Prod Hubs
               "20.50.108.242/32",
               "20.50.109.148/32",

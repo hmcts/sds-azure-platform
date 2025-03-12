@@ -18,6 +18,7 @@ ssl_policy = {
   policy_name          = "AppGwSslPolicy20220101S"
   min_protocol_version = "TLSv1_2"
 }
+ssl_certificate = "wildcard-sandbox-platform-hmcts-net"
 
 key_vault_subscription        = "a8140a9e-f1b0-481f-a4de-09e2ee23f7ab"
 hub_app_gw_private_ip_address = ["10.10.200.222"]
@@ -230,100 +231,21 @@ frontends = [
     custom_domain  = "pip-frontend.sandbox.platform.hmcts.net"
     dns_zone_name  = "sandbox.platform.hmcts.net"
     backend_domain = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
-    redirect_url   = "https://pip-frontend.sandbox.platform.hmcts.net/unprocessed-request"
     shutter_app    = false
 
+    ruleset_type  = "Microsoft_DefaultRuleSet"
+    ruleset_value = "2.1"
+
+    disabled_rules_action = "AnomalyScoring"
     disabled_rules = {
-      LFI = [
-        "930110" // false positive on multi-part uploads
+      General = [
+        "200002",
+        "200003"
+      ],
+      PROTOCOL-ENFORCEMENT = [
+        "920120"
       ]
     }
-
-    custom_rules = [
-      {
-        name     = "ManualUploadPathTraversalGeneral",
-        type     = "MatchRule"
-        priority = 1
-        action   = "Redirect"
-
-        match_conditions = [
-          {
-            match_variable     = "RequestBody"
-            operator           = "Contains"
-            negation_condition = false
-            transforms         = ["UrlDecode"]
-            match_values       = ["../", "..\\"]
-          },
-          {
-            match_variable     = "RequestUri"
-            operator           = "EndsWith"
-            negation_condition = true
-            match_values       = ["/manual-upload"]
-          },
-          {
-            match_variable     = "RequestMethod"
-            operator           = "Equal"
-            negation_condition = false
-            match_values       = ["POST"]
-          }
-        ]
-      },
-      {
-        name     = "ManualUploadPathTraversalNonEncode",
-        type     = "MatchRule"
-        priority = 2
-        action   = "Redirect"
-
-        match_conditions = [
-          {
-            match_variable     = "RequestBody"
-            operator           = "Contains"
-            negation_condition = false
-            match_values       = ["..%c0%af", "..%c1%9c"]
-          },
-          {
-            match_variable     = "RequestUri"
-            operator           = "EndsWith"
-            negation_condition = true
-            match_values       = ["/manual-upload"]
-          },
-          {
-            match_variable     = "RequestMethod"
-            operator           = "Equal"
-            negation_condition = false
-            match_values       = ["POST"]
-          }
-        ]
-      },
-      {
-        name     = "ManualUploadPathTraversalRegex",
-        type     = "MatchRule"
-        priority = 3
-        action   = "Redirect"
-
-        match_conditions = [
-          {
-            match_variable     = "RequestBody"
-            operator           = "RegEx"
-            negation_condition = false
-            transforms         = ["Lowercase"]
-            match_values       = ["([a-z]:\\\\)|(%252e|\\.)(%252e|\\.)(%255c|%252f|\\\\|\\/)"]
-          },
-          {
-            match_variable     = "RequestUri"
-            operator           = "EndsWith"
-            negation_condition = true
-            match_values       = ["/manual-upload"]
-          },
-          {
-            match_variable     = "RequestMethod"
-            operator           = "Equal"
-            negation_condition = false
-            match_values       = ["POST"]
-          }
-        ]
-      }
-    ]
 
     global_exclusions = [
       ## Open ID response parameters
@@ -356,16 +278,6 @@ frontends = [
         match_variable = "RequestCookieNames"
         operator       = "Equals"
         selector       = "court-and-tribunal-hearings-cookie-preferences"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "createAdminAccount"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "session.sig"
       },
       {
         match_variable = "RequestBodyPostArgNames"

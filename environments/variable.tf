@@ -22,6 +22,7 @@ variable "department" { default = "sds" }
 variable "apim_sku_name" { default = "Developer" }
 variable "hub" { default = "sbox" }
 variable "ssl_policy" { default = null }
+variable "ssl_certificate" {}
 
 variable "key_vault_subscription" {
   default = []

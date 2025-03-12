@@ -14,6 +14,12 @@ module "ctags" {
 }
 
 module "appgateway" {
+  providers = {
+    azurerm     = azurerm
+    azurerm.hub = azurerm.hub
+    azurerm.kv  = azurerm.kv
+  }
+
   source = "git::https://github.com/hmcts/terraform-module-applicationgateway.git?ref=master"
 
 
@@ -31,4 +37,7 @@ module "appgateway" {
   log_analytics_workspace_id         = module.logworkspace.workspace_id
   diagnostics_storage_account_id     = data.azurerm_storage_account.diagnostics.id
   enable_multiple_availability_zones = true
+  vault_name                         = local.key_vault_name
+  key_vault_resource_group           = local.key_vault_resource_group
+  ssl_certificate_name               = var.ssl_certificate
 }

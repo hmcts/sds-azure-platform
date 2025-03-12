@@ -18,6 +18,7 @@ ssl_policy = {
   policy_name          = "AppGwSslPolicy20220101S"
   min_protocol_version = "TLSv1_2"
 }
+ssl_certificate = "wildcard-platform-hmcts-net"
 
 key_vault_subscription        = "5ca62022-6aa2-4cee-aaa7-e7536c8d566c"
 hub_app_gw_private_ip_address = ["10.11.8.200"]
@@ -64,482 +65,6 @@ frontends = [
     backend_domain    = ["52.30.196.9"]
     shutter_app       = false
     hosted_externally = true
-  },
-  {
-    name           = "dts-legacy-apps---utiac"
-    mode           = "Detection" #detection config set and PR raised 20 Dec 2021
-    custom_domain  = "waf.tribunalsdecisions.service.gov.uk"
-    dns_zone_name  = "tribunalsdecisions.service.gov.uk"
-    backend_domain = ["dualstack.dsd-apps-lb-01-1379550980.eu-west-1.elb.amazonaws.com"]
-    shutter_app    = false
-  },
-  {
-    name              = "trib-land-reg-division"
-    mode              = "Prevention"
-    custom_domain     = "landregistrationdivision.decisions.tribunals.gov.uk"
-    dns_zone_name     = "decisions.tribunals.gov.uk"
-    backend_domain    = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
-    shutter_app       = false
-    hosted_externally = true
-    cache_enabled     = false
-
-    global_exclusions = [
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "ddlScat1"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "__EVENTVALIDATION"
-      }
-    ]
-    custom_rules = [
-      {
-        name     = "AllowAllAdmin",
-        type     = "MatchRule"
-        priority = 1
-        action   = "Allow"
-
-        match_conditions = [
-          {
-            match_variable     = "RequestUri"
-            operator           = "Contains"
-            negation_condition = false
-            match_values = [
-            "/Admin", "/Secure"]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    name              = "trib-immigration-svcs"
-    mode              = "Prevention"
-    custom_domain     = "immigrationservices.decisions.tribunals.gov.uk"
-    dns_zone_name     = "decisions.tribunals.gov.uk"
-    backend_domain    = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
-    shutter_app       = false
-    hosted_externally = true
-    cache_enabled     = false
-
-    global_exclusions = [
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "btnSearch"
-      }
-    ]
-    custom_rules = [
-      {
-        name     = "AllowAllAdmin",
-        type     = "MatchRule"
-        priority = 1
-        action   = "Allow"
-
-        match_conditions = [
-          {
-            match_variable     = "RequestUri"
-            operator           = "Contains"
-            negation_condition = false
-            match_values = [
-            "/Admin", "/Secure"]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    name              = "trib-info-rights"
-    mode              = "Prevention"
-    custom_domain     = "informationrights.decisions.tribunals.gov.uk"
-    dns_zone_name     = "decisions.tribunals.gov.uk"
-    backend_domain    = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
-    shutter_app       = false
-    hosted_externally = true
-    cache_enabled     = false
-
-    global_exclusions = [
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "__VIEWSTATE"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "__EVENTVALIDATION"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "ddlTax3"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "ddlTax2"
-      }
-    ]
-    custom_rules = [
-      {
-        name     = "AllowAllAdmin",
-        type     = "MatchRule"
-        priority = 1
-        action   = "Allow"
-
-        match_conditions = [
-          {
-            match_variable     = "RequestUri"
-            operator           = "Contains"
-            negation_condition = false
-            match_values = [
-            "/Admin", "/Secure"]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    name              = "trib-admin-appeals"
-    mode              = "Prevention"
-    custom_domain     = "administrativeappeals.decisions.tribunals.gov.uk"
-    dns_zone_name     = "decisions.tribunals.gov.uk"
-    backend_domain    = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
-    shutter_app       = false
-    hosted_externally = true
-    cache_enabled     = false
-
-    global_exclusions = [
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "__VIEWSTATE"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "btnSearch"
-      }
-    ]
-    custom_rules = [
-      {
-        name     = "AllowAllAdmin",
-        type     = "MatchRule"
-        priority = 1
-        action   = "Allow"
-
-        match_conditions = [
-          {
-            match_variable     = "RequestUri"
-            operator           = "Contains"
-            negation_condition = false
-            match_values = [
-            "/Admin", "/Secure"]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    name              = "trib-care-standards"
-    mode              = "Prevention"
-    custom_domain     = "carestandards.decisions.tribunals.gov.uk"
-    dns_zone_name     = "decisions.tribunals.gov.uk"
-    backend_domain    = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
-    shutter_app       = false
-    hosted_externally = true
-    cache_enabled     = false
-
-    global_exclusions = [
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "__VIEWSTATE"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "__EVENTVALIDATION"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "drpMainCategory"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "InitialBodyContents"
-      }
-    ]
-    custom_rules = [
-      {
-        name     = "AllowAllAdmin",
-        type     = "MatchRule"
-        priority = 1
-        action   = "Allow"
-
-        match_conditions = [
-          {
-            match_variable     = "RequestUri"
-            operator           = "Contains"
-            negation_condition = false
-            match_values = [
-            "/Admin", "/Secure"]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    name              = "trib-lands-chamber"
-    mode              = "Prevention"
-    custom_domain     = "landschamber.decisions.tribunals.gov.uk"
-    dns_zone_name     = "decisions.tribunals.gov.uk"
-    backend_domain    = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
-    shutter_app       = false
-    hosted_externally = true
-    cache_enabled     = false
-
-    global_exclusions = [
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "btnSearch"
-      }
-    ]
-    custom_rules = [
-      {
-        name     = "AllowAllAdmin",
-        type     = "MatchRule"
-        priority = 1
-        action   = "Allow"
-
-        match_conditions = [
-          {
-            match_variable     = "RequestUri"
-            operator           = "Contains"
-            negation_condition = false
-            match_values = [
-            "/Admin", "/Secure"]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    name              = "trib-finance-tax"
-    mode              = "Prevention"
-    custom_domain     = "financeandtax.decisions.tribunals.gov.uk"
-    dns_zone_name     = "decisions.tribunals.gov.uk"
-    backend_domain    = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
-    shutter_app       = false
-    hosted_externally = true
-    cache_enabled     = false
-
-    disabled_rules = {
-      SQLI = [
-        "942430", // false positive on /Admin/Commissioners.aspx
-      ]
-      LFI = [
-        "930110", // false positive on multi-part uploads
-      ]
-    }
-    global_exclusions = [
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "btnSearch"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "InitialBodyContents"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "txtClaimant"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "__VIEWSTATE"
-      }
-    ]
-    custom_rules = [
-      {
-        name     = "AllowAllAdmin",
-        type     = "MatchRule"
-        priority = 1
-        action   = "Allow"
-
-        match_conditions = [
-          {
-            match_variable     = "RequestUri"
-            operator           = "Contains"
-            negation_condition = false
-            match_values = [
-            "/Admin", "/Secure"]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    name              = "trib-employment-appeals"
-    mode              = "Prevention"
-    custom_domain     = "employmentappeals.decisions.tribunals.gov.uk"
-    dns_zone_name     = "decisions.tribunals.gov.uk"
-    backend_domain    = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
-    shutter_app       = false
-    hosted_externally = true
-    cache_enabled     = false
-    global_exclusions = [
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "__VIEWSTATE"
-      }
-    ]
-    custom_rules = [
-      {
-        name     = "AllowAllAdmin",
-        type     = "MatchRule"
-        priority = 1
-        action   = "Allow"
-
-        match_conditions = [
-          {
-            match_variable     = "RequestUri"
-            operator           = "Contains"
-            negation_condition = false
-            match_values = [
-            "/Admin", "/Secure"]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    name              = "trib-tansport-appeals"
-    mode              = "Prevention"
-    custom_domain     = "transportappeals.decisions.tribunals.gov.uk"
-    dns_zone_name     = "decisions.tribunals.gov.uk"
-    backend_domain    = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
-    shutter_app       = false
-    hosted_externally = true
-    cache_enabled     = false
-
-    global_exclusions = [
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "btnSearch"
-      }
-    ]
-    custom_rules = [
-      {
-        name     = "AllowAllAdmin",
-        type     = "MatchRule"
-        priority = 1
-        action   = "Allow"
-
-        match_conditions = [
-          {
-            match_variable     = "RequestUri"
-            operator           = "Contains"
-            negation_condition = false
-            match_values = [
-            "/Admin", "/Secure"]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    name              = "trib-cicap"
-    mode              = "Prevention"
-    custom_domain     = "cicap.decisions.tribunals.gov.uk"
-    dns_zone_name     = "decisions.tribunals.gov.uk"
-    backend_domain    = ["dts-tribs-prod-1612499966.eu-west-1.elb.amazonaws.com"]
-    shutter_app       = false
-    hosted_externally = true
-    cache_enabled     = false
-    disabled_rules = {
-      LFI = [
-        "930110", // false positive on multi-part uploads
-        "930100",
-        "930120"
-      ],
-      RFI = [
-        "931130"
-      ],
-      SQLI = [
-        "942100",
-        "942150",
-        "942110",
-        "942180",
-        "942260",
-        "942160",
-        "942190"
-      ],
-      XSS = [
-        "941100",
-        "941130",
-        "941110",
-        "941160",
-        "941170",
-        "941120",
-        "941210",
-        "941150",
-        "941180",
-        "941140",
-        "941320"
-      ],
-      RCE = [
-        "932130",
-        "932100",
-        "932160",
-        "932170",
-        "932110"
-      ],
-      JAVA = [
-        "944100",
-        "944240"
-      ],
-      PHP = [
-        "933100"
-      ]
-
-    },
-    global_exclusions = [
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "__VIEWSTATE"
-      }
-    ]
-    custom_rules = [
-      {
-        name     = "AllowAllAdmin",
-        type     = "MatchRule"
-        priority = 1
-        action   = "Allow"
-
-        match_conditions = [
-          {
-            match_variable     = "RequestUri"
-            operator           = "Contains"
-            negation_condition = false
-            match_values = [
-            "/Admin", "/Secure"]
-          }
-        ]
-      }
-    ]
   },
   {
     name             = "jd-bureau"
@@ -748,8 +273,21 @@ frontends = [
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-platform-hmcts-net"
     dns_zone_name    = "court-tribunal-hearings.service.gov.uk"
-    redirect_url     = "https://www.court-tribunal-hearings.service.gov.uk/unprocessed-request"
-    disabled_rules   = {}
+
+    ruleset_type  = "Microsoft_DefaultRuleSet"
+    ruleset_value = "2.1"
+
+    disabled_rules_action = "AnomalyScoring"
+    disabled_rules = {
+      General = [
+        "200002",
+        "200003"
+      ],
+      PROTOCOL-ENFORCEMENT = [
+        "920120"
+      ]
+    }
+
     global_exclusions = [
       ## Open ID response parameters
       {
@@ -783,19 +321,14 @@ frontends = [
         selector       = "court-and-tribunal-hearings-cookie-preferences"
       },
       {
-        match_variable = "RequestCookieNames"
+        match_variable = "QueryStringArgNames"
         operator       = "Equals"
-        selector       = "createAdminAccount"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "session.sig"
+        selector       = "iss"
       },
       {
         match_variable = "QueryStringArgNames"
         operator       = "Equals"
-        selector       = "iss"
+        selector       = "code"
       },
       {
         match_variable = "RequestBodyPostArgNames"
@@ -811,96 +344,6 @@ frontends = [
         match_variable = "RequestCookieNames"
         operator       = "Equals"
         selector       = "connect.sid"
-      }
-    ],
-    disabled_rules = {
-      LFI = [
-        "930110" // false positive on multi-part uploads
-      ]
-    },
-    custom_rules = [
-      {
-        name     = "ManualUploadPathTraversalGeneral",
-        type     = "MatchRule"
-        priority = 1
-        action   = "Redirect"
-
-        match_conditions = [
-          {
-            match_variable     = "RequestBody"
-            operator           = "Contains"
-            negation_condition = false
-            transforms         = ["UrlDecode"]
-            match_values       = ["../", "..\\"]
-          },
-          {
-            match_variable     = "RequestUri"
-            operator           = "EndsWith"
-            negation_condition = true
-            match_values       = ["/manual-upload"]
-          },
-          {
-            match_variable     = "RequestMethod"
-            operator           = "Equal"
-            negation_condition = false
-            match_values       = ["POST"]
-          }
-        ]
-      },
-      {
-        name     = "ManualUploadPathTraversalNonEncode",
-        type     = "MatchRule"
-        priority = 2
-        action   = "Redirect"
-
-        match_conditions = [
-          {
-            match_variable     = "RequestBody"
-            operator           = "Contains"
-            negation_condition = false
-            match_values       = ["..%c0%af", "..%c1%9c"]
-          },
-          {
-            match_variable     = "RequestUri"
-            operator           = "EndsWith"
-            negation_condition = true
-            match_values       = ["/manual-upload"]
-          },
-          {
-            match_variable     = "RequestMethod"
-            operator           = "Equal"
-            negation_condition = false
-            match_values       = ["POST"]
-          }
-        ]
-      },
-      {
-        name     = "ManualUploadPathTraversalRegex",
-        type     = "MatchRule"
-        priority = 3
-        action   = "Redirect"
-
-        match_conditions = [
-          {
-            match_variable     = "RequestBody"
-            operator           = "RegEx"
-            negation_condition = false
-            transforms         = ["Lowercase"]
-            match_values       = ["([a-z]:\\\\)|(%252e|\\.)(%252e|\\.)(%255c|%252f|\\\\|\\/)"]
-          },
-          {
-            match_variable     = "RequestUri"
-            operator           = "EndsWith"
-            negation_condition = true
-            match_values       = ["/manual-upload"]
-          },
-          {
-            match_variable     = "RequestMethod"
-            operator           = "Equal"
-            negation_condition = false
-            match_values       = ["POST"]
-          }
-        ]
       }
     ]
   },
@@ -1168,7 +611,7 @@ frontends = [
     dns_zone_name    = "pre-recorded-evidence.justice.gov.uk"
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "www-portal-pre-recorded-evidence-justice-gov-uk"
-    shutter_app      = false
+    shutter_app      = true
     cache_enabled    = "false"
     disabled_rules = {
       SQLI = [
@@ -1306,17 +749,21 @@ frontends = [
             operator           = "IPMatch"
             negation_condition = true
             match_values = [
-              "194.33.192.0/24",
-              "194.33.196.0/24",
-              "194.33.200.0/21",
-              "194.33.248.0/24",
-              "194.33.249.0/24",
+              "20.26.11.71/32",
+              "20.26.11.108/32",
+              "20.49.214.199/32",
+              "20.49.214.228/32",
               "51.149.249.0/27",
               "51.149.249.32/27",
               "51.149.250.0/23",
+              "128.77.75.64/26",
+              "194.33.192.0/24",
+              "194.33.196.0/24",
+              "194.33.200.0/21",
               "194.33.216.0/23",
               "194.33.218.0/24",
-              "128.77.75.64/26",
+              "194.33.248.0/24",
+              "194.33.249.0/24",
               #Prod Hub IPs for Dynatrace Monitoring
               "20.50.108.242/32",
               "20.50.109.148/32"
@@ -1436,5 +883,26 @@ apim_appgw_exclusions = [
     match_variable = "RequestArgNames"
     operator       = "Equals"
     selector       = "iss"
+  }
+]
+
+additional_shutter_apps = [
+  {
+    name          = "tools-atlassian"
+    shutter_app   = true
+    custom_domain = "tools.hmcts.net"
+    dns_zone_name = "hmcts.net"
+  },
+  {
+    name          = "tools-atlassian-prp"
+    shutter_app   = true
+    custom_domain = "tools.prp.hmcts.net"
+    dns_zone_name = "hmcts.net"
+  },
+  {
+    name          = "tools-atlassian-staging"
+    shutter_app   = true
+    custom_domain = "staging.tools.hmcts.net"
+    dns_zone_name = "hmcts.net"
   }
 ]

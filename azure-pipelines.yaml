@@ -211,7 +211,6 @@ stages:
               serviceConnection: 'DCD-CFTAPPS-STG'
               overrideAction: ${{ parameters.action }}
               projectName: ${{ variables.businessArea }}
-              cluster: '00'
               environment: 'sbox'
               runManualStart: true
 

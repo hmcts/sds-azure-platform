@@ -14,6 +14,7 @@ ssl_policy = {
   policy_name          = "AppGwSslPolicy20220101S"
   min_protocol_version = "TLSv1_2"
 }
+ssl_certificate = "wildcard-test-platform-hmcts-net"
 
 key_vault_subscription        = "3eec5bde-7feb-4566-bfb6-805df6e10b90"
 hub_app_gw_private_ip_address = ["10.11.72.239"]
@@ -73,9 +74,20 @@ frontends = [
     custom_domain  = "pip-frontend.test.platform.hmcts.net"
     dns_zone_name  = "test.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
-    redirect_url   = "https://pip-frontend.test.platform.hmcts.net/unprocessed-request"
 
-    disabled_rules = {}
+    ruleset_type  = "Microsoft_DefaultRuleSet"
+    ruleset_value = "2.1"
+
+    disabled_rules_action = "AnomalyScoring"
+    disabled_rules = {
+      General = [
+        "200002",
+        "200003"
+      ],
+      PROTOCOL-ENFORCEMENT = [
+        "920120"
+      ]
+    }
 
     global_exclusions = [
       ## Open ID response parameters
@@ -110,16 +122,6 @@ frontends = [
         selector       = "court-and-tribunal-hearings-cookie-preferences"
       },
       {
-        match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "createAdminAccount"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "session.sig"
-      },
-      {
         match_variable = "RequestBodyPostArgNames"
         operator       = "Equals"
         selector       = "error_description"
@@ -128,6 +130,11 @@ frontends = [
         match_variable = "QueryStringArgNames"
         operator       = "Equals"
         selector       = "iss"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "code"
       },
       {
         match_variable = "RequestBodyPostArgNames"
@@ -367,54 +374,54 @@ frontends = [
     certificate_name = "wildcard-test-platform-hmcts-net"
     cache_enabled    = "false"
   },
-  {
-    name                = "portal-test"
-    mode                = "Prevention"
-    custom_domain       = "portal-test.pre-recorded-evidence.justice.gov.uk"
-    dns_zone_name       = "pre-recorded-evidence.justice.gov.uk"
-    backend_domain      = ["pre-testing.powerappsportals.com"]
-    certificate_name    = "portal-test-pre-recorded-evidence-justice-gov-uk"
-    disabled_rules      = {}
-    health_path         = "/SignIn?ReturnUrl=%2F"
-    health_protocol     = "Https"
-    forwarding_protocol = "HttpsOnly"
-    cache_enabled       = "false"
-
-    disabled_rules = {
-      SQLI = [
-        "942440",
-        "942450",
-      ],
-      RCE = [
-        "932100",
-        "932110",
-        "932115",
-      ],
-    }
-
-    custom_rules = [
-      {
-        name     = "CountryMatchWhitelist"
-        enabled  = true
-        priority = 1
-        type     = "MatchRule"
-        action   = "Block"
-        match_conditions = [
-          {
-            match_variable     = "RemoteAddr"
-            operator           = "GeoMatch"
-            negation_condition = true
-            match_values = [
-              "GB"
-            ]
-          }
-        ]
-      }
-    ]
-  },
+  #  {
+  #    name                = "portal-test"
+  #    mode                = "Prevention"
+  #    custom_domain       = "portal-test.pre-recorded-evidence.justice.gov.uk"
+  #    dns_zone_name       = "pre-recorded-evidence.justice.gov.uk"
+  #    backend_domain      = ["pre-testing.powerappsportals.com"]
+  #    certificate_name    = "portal-test-pre-recorded-evidence-justice-gov-uk"
+  #    disabled_rules      = {}
+  #    health_path         = "/SignIn?ReturnUrl=%2F"
+  #    health_protocol     = "Https"
+  #    forwarding_protocol = "HttpsOnly"
+  #    cache_enabled       = "false"
+  #
+  #    disabled_rules = {
+  #      SQLI = [
+  #        "942440",
+  #        "942450",
+  #      ],
+  #      RCE = [
+  #        "932100",
+  #        "932110",
+  #        "932115",
+  #      ],
+  #    }
+  #
+  #    custom_rules = [
+  #      {
+  #        name     = "CountryMatchWhitelist"
+  #        enabled  = true
+  #        priority = 1
+  #        type     = "MatchRule"
+  #        action   = "Block"
+  #        match_conditions = [
+  #          {
+  #            match_variable     = "RemoteAddr"
+  #            operator           = "GeoMatch"
+  #            negation_condition = true
+  #            match_values = [
+  #              "GB"
+  #            ]
+  #          }
+  #        ]
+  #      }
+  #    ]
+  #   },
   {
     name           = "pre-portal"
-    mode           = "Prevention"
+    mode           = "Detection"
     custom_domain  = "pre-portal.test.platform.hmcts.net"
     dns_zone_name  = "test.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
@@ -428,22 +435,14 @@ frontends = [
         "942450",
         "942430",
       ],
-    }
-    health_protocol     = "Https"
-    forwarding_protocol = "HttpsOnly"
-    cache_enabled       = "false"
-
-    disabled_rules = {
-      SQLI = [
-        "942440",
-        "942450",
-      ],
-      RCE = [
-        "932100",
-        "932110",
-        "932115",
-      ],
-    }
+    },
+    global_exclusions = [
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      }
+    ],
 
     custom_rules = [
       {
@@ -560,19 +559,23 @@ frontends = [
             operator           = "IPMatch"
             negation_condition = true
             match_values = [
-              "194.33.192.0/24",
-              "194.33.196.0/24",
-              "194.33.200.0/21",
-              "194.33.248.0/24",
-              "194.33.249.0/24",
+              "20.26.11.71/32",
+              "20.26.11.108/32",
+              "20.49.214.199/32",
+              "20.49.214.228/32",
+              "20.58.23.145/32",
               "51.149.249.0/27",
               "51.149.249.32/27",
               "51.149.250.0/23",
-              "195.59.75.0/24",
-              "20.58.23.145/32",
+              "128.77.75.64/26",
+              "194.33.192.0/24",
+              "194.33.196.0/24",
+              "194.33.200.0/21",
               "194.33.216.0/23",
               "194.33.218.0/24",
-              "128.77.75.64/26",
+              "194.33.248.0/24",
+              "194.33.249.0/24",
+              "195.59.75.0/24",
               #Prod Hubs
               "20.50.108.242/32",
               "20.50.109.148/32",
