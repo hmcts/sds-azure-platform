@@ -157,6 +157,10 @@ frontends = [
     forwarding_protocol = "HttpsOnly"
     cache_enabled       = false
     shutter_app         = false
+
+    ruleset_type  = "Microsoft_DefaultRuleSet"
+    ruleset_value = "2.1"
+
     disabled_rules      = {}
     global_exclusions = [
       {
@@ -165,14 +169,9 @@ frontends = [
         selector       = "redirect_uri"
       },
       {
-        match_variable = "QueryStringArgNames"
+        match_variable = "RequestBodyPostArgNames"
         operator       = "Equals"
-        selector       = "desc"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "StartsWith"
-        selector       = "x-ms-cpim-"
+        selector       = "redirect_uri"
       },
       {
         match_variable = "QueryStringArgNames"
@@ -180,54 +179,24 @@ frontends = [
         selector       = "diags"
       },
       {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "redirect_uri"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "error_description"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "code"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "claim_value"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "ReadOnlyEmail"
-      },
-      {
         match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "nonce"
-      },
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "state"
-      },
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "post_logout_redirect_uri"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
         operator       = "Equals"
         selector       = "post_logout_redirect_uri"
       },
       {
         match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "dtSa"
+        operator       = "StartsWith"
+        selector       = "x-ms-cpim-"
+      },
+      {
+        match_variable = "RequestBodyJsonArgNames"
+        operator       = "Contains"
+        selector       = "entries.name"
+      },
+      {
+        match_variable = "RequestBodyJsonArgNames"
+        operator       = "Contains"
+        selector       = "entries.scripts"
       }
     ]
   },
@@ -240,6 +209,10 @@ frontends = [
     forwarding_protocol = "HttpsOnly"
     cache_enabled       = false
     shutter_app         = false
+
+    ruleset_type  = "Microsoft_DefaultRuleSet"
+    ruleset_value = "2.1"
+
     disabled_rules      = {}
     global_exclusions = [
       {
@@ -248,14 +221,9 @@ frontends = [
         selector       = "redirect_uri"
       },
       {
-        match_variable = "QueryStringArgNames"
+        match_variable = "RequestBodyPostArgNames"
         operator       = "Equals"
-        selector       = "desc"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "StartsWith"
-        selector       = "x-ms-cpim-"
+        selector       = "redirect_uri"
       },
       {
         match_variable = "QueryStringArgNames"
@@ -263,54 +231,24 @@ frontends = [
         selector       = "diags"
       },
       {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "redirect_uri"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "error_description"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "code"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "claim_value"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "ReadOnlyEmail"
-      },
-      {
         match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "nonce"
-      },
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "state"
-      },
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "post_logout_redirect_uri"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
         operator       = "Equals"
         selector       = "post_logout_redirect_uri"
       },
       {
         match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "dtSa"
+        operator       = "StartsWith"
+        selector       = "x-ms-cpim-"
+      },
+      {
+        match_variable = "RequestBodyJsonArgNames"
+        operator       = "Contains"
+        selector       = "entries.name"
+      },
+      {
+        match_variable = "RequestBodyJsonArgNames"
+        operator       = "Contains"
+        selector       = "entries.scripts"
       }
     ]
   },
