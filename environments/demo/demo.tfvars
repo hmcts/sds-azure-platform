@@ -176,10 +176,10 @@ frontends = [
     cache_enabled       = false
     shutter_app         = false
 
-    ruleset_type        = "Microsoft_DefaultRuleSet"
-    ruleset_value       = "2.1"
+    ruleset_type  = "Microsoft_DefaultRuleSet"
+    ruleset_value = "2.1"
 
-    disabled_rules      = {}
+    disabled_rules = {}
     global_exclusions = [
       {
         match_variable = "QueryStringArgNames"
@@ -228,10 +228,10 @@ frontends = [
     cache_enabled       = false
     shutter_app         = false
 
-    ruleset_type        = "Microsoft_DefaultRuleSet"
-    ruleset_value       = "2.1"
+    ruleset_type  = "Microsoft_DefaultRuleSet"
+    ruleset_value = "2.1"
 
-    disabled_rules      = {}
+    disabled_rules = {}
     global_exclusions = [
       {
         match_variable = "QueryStringArgNames"
