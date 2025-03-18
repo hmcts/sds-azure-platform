@@ -137,8 +137,8 @@ frontends = [
     forwarding_protocol = "HttpsOnly"
     cache_enabled       = false
     shutter_app         = false
-    disabled_rules      = {}
 
+    disabled_rules      = {}
     global_exclusions = [
       {
         match_variable = "QueryStringArgNames"
@@ -188,8 +188,8 @@ frontends = [
     forwarding_protocol = "HttpsOnly"
     cache_enabled       = false
     shutter_app         = false
-    disabled_rules      = {}
 
+    disabled_rules      = {}
     global_exclusions = [
       {
         match_variable = "QueryStringArgNames"
