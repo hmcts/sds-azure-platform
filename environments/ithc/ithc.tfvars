@@ -138,7 +138,44 @@ frontends = [
     cache_enabled       = false
     shutter_app         = false
     disabled_rules      = {}
-    global_exclusions   = []
+
+    global_exclusions = [
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "redirect_uri"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "redirect_uri"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "diags"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "post_logout_redirect_uri"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "StartsWith"
+        selector       = "x-ms-cpim-"
+      },
+      {
+        match_variable = "RequestBodyJsonArgNames"
+        operator       = "Contains"
+        selector       = "entries.name"
+      },
+      {
+        match_variable = "RequestBodyJsonArgNames"
+        operator       = "Contains"
+        selector       = "entries.scripts"
+      }
+    ]
   },
   {
     name                = "pip-frontend-b2c-staff"
@@ -152,7 +189,44 @@ frontends = [
     cache_enabled       = false
     shutter_app         = false
     disabled_rules      = {}
-    global_exclusions   = []
+
+    global_exclusions = [
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "redirect_uri"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "redirect_uri"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "diags"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "post_logout_redirect_uri"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "StartsWith"
+        selector       = "x-ms-cpim-"
+      },
+      {
+        match_variable = "RequestBodyJsonArgNames"
+        operator       = "Contains"
+        selector       = "entries.name"
+      },
+      {
+        match_variable = "RequestBodyJsonArgNames"
+        operator       = "Contains"
+        selector       = "entries.scripts"
+      }
+    ]
   },
   {
     name           = "vh-test-web"
