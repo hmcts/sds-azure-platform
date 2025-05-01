@@ -273,6 +273,7 @@ frontends = [
     backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-platform-hmcts-net"
     dns_zone_name    = "court-tribunal-hearings.service.gov.uk"
+    shutter_app      = true
 
     ruleset_type  = "Microsoft_DefaultRuleSet"
     ruleset_value = "2.1"
