@@ -89,3 +89,17 @@ gateways:
         component: api
         ssl_enabled: true
         health_path_override: /health
+
+             # Opal
+      - product: opal
+        component: fines-service
+        ssl_enabled: true
+      - product: opal
+        component: legacy-db-stub
+        ssl_enabled: true
+      - product: opal
+        component: user-service
+        ssl_enabled: true
+      - product: opal
+        component: file-handler
+        ssl_enabled: true
