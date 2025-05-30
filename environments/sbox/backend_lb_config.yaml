@@ -48,12 +48,6 @@ gateways:
         component: data-management
         ssl_enabled: true
       - product: pip
-        component: channel-management
-        ssl_enabled: true
-      - product: pip
-        component: subscription-management
-        ssl_enabled: true
-      - product: pip
         component: account-management
         ssl_enabled: true
     # test
