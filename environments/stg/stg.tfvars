@@ -258,40 +258,6 @@ frontends = [
     ]
   },
   {
-    name           = "vh-video-web"
-    custom_domain  = "video.staging.hearings.reform.hmcts.net"
-    dns_zone_name  = "staging.hearings.reform.hmcts.net"
-    backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
-    cache_enabled  = "false"
-
-    disabled_rules = {}
-
-    global_exclusions = [
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "code"
-      }
-    ]
-  },
-  {
-    name           = "vh-admin-web"
-    custom_domain  = "admin.staging.hearings.reform.hmcts.net"
-    dns_zone_name  = "staging.hearings.reform.hmcts.net"
-    backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
-    cache_enabled  = "false"
-
-    disabled_rules = {}
-
-    global_exclusions = [
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "code"
-      }
-    ]
-  },
-  {
     name           = "pre-portal"
     custom_domain  = "pre-portal.staging.platform.hmcts.net"
     dns_zone_name  = "staging.platform.hmcts.net"

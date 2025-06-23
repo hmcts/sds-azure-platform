@@ -518,40 +518,6 @@ frontends = [
     ]
   },
   {
-    name             = "vh-video-web"
-    custom_domain    = "video.hearings.reform.hmcts.net"
-    dns_zone_name    = "hearings.reform.hmcts.net"
-    backend_domain   = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-    certificate_name = "wildcard-hearings-reform-hmcts-net"
-    disabled_rules   = {}
-    cache_enabled    = "false"
-    global_exclusions = [
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "code"
-      }
-    ]
-  },
-  {
-    name                  = "vh-admin-web"
-    custom_domain         = "admin.hearings.reform.hmcts.net"
-    dns_zone_name         = "hearings.reform.hmcts.net"
-    backend_domain        = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-    certificate_name      = "wildcard-hearings-reform-hmcts-net"
-    disabled_rules        = {}
-    cache_enabled         = "false"
-    shutter_name_override = "vh-admin-web"
-
-    global_exclusions = [
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "code"
-      }
-    ]
-  },
-  {
     name             = "toffee"
     custom_domain    = "toffee.platform.hmcts.net"
     dns_zone_name    = "platform.hmcts.net"

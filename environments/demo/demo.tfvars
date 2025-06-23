@@ -279,55 +279,6 @@ frontends = [
     certificate_name = "wildcard-demo-platform-hmcts-net"
   },
   {
-    product          = "vh"
-    name             = "vh-admin-web"
-    custom_domain    = "vh-admin-web.demo.platform.hmcts.net"
-    dns_zone_name    = "demo.platform.hmcts.net"
-    backend_domain   = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
-    certificate_name = "wildcard-demo-platform-hmcts-net"
-    cache_enabled    = "false"
-
-    disabled_rules = {
-      SQLI = [
-        "942430",
-        "942440",
-      ],
-    }
-  },
-  {
-    product          = "vh"
-    name             = "vh-test-web"
-    custom_domain    = "vh-test-web.demo.platform.hmcts.net"
-    dns_zone_name    = "demo.platform.hmcts.net"
-    backend_domain   = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
-    certificate_name = "wildcard-demo-platform-hmcts-net"
-    cache_enabled    = "false"
-
-    disabled_rules = {
-      SQLI = [
-        "942430",
-        "942440",
-      ],
-    }
-  },
-  {
-    product          = "vh"
-    name             = "vh-video-web"
-    custom_domain    = "vh-video-web.demo.platform.hmcts.net"
-    dns_zone_name    = "demo.platform.hmcts.net"
-    backend_domain   = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
-    certificate_name = "wildcard-demo-platform-hmcts-net"
-    cache_enabled    = "false"
-
-    disabled_rules = {
-      SQLI = [
-        "942430",
-        "942440",
-      ],
-    }
-
-  },
-  {
     product          = "pre"
     name             = "pre-portal"
     custom_domain    = "pre-portal.demo.platform.hmcts.net"
