@@ -790,6 +790,11 @@ frontends = [
         operator       = "Equals"
         selector       = "user_ids"
       },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "dtSa"
+      },
     ]
   },
 ]
