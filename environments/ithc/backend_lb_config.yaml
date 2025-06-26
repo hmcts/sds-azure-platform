@@ -11,34 +11,6 @@ gateways:
     # Toffee
       - product: toffee
         component: recipe-backend
-    # Video Hearings
-      - product: vh
-        component: user-api
-        ssl_enabled: true
-      - product: vh
-        component: video-api
-        ssl_enabled: true
-      - product: vh
-        component: test-api
-        ssl_enabled: true
-      - product: vh
-        component: notification-api
-        ssl_enabled: true
-      - product: vh
-        component: bookings-api
-        ssl_enabled: true
-      - product: vh
-        component: admin-web
-        ssl_enabled: true
-      - product: vh
-        component: video-web
-        ssl_enabled: true
-      - product: vh
-        component: service-web
-        ssl_enabled: true
-      - product: vh
-        component: test-web
-        ssl_enabled: true
       # Darts Modernisation
       - product: darts
         component: api
