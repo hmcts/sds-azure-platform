@@ -396,7 +396,14 @@ frontends = [
         selector       = "user_ids"
       },
     ]
-  }
+  },
+  {
+    name           = "hmcts-courtfines-ithc"
+    custom_domain  = "courtfines-app.ithc.apps.hmcts.net"
+    dns_zone_name  = "apps.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
+    disabled_rules = {}
+  },
 ]
 
 apim_appgw_exclusions = [

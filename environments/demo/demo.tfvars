@@ -508,6 +508,13 @@ frontends = [
     }
     global_exclusions = []
   },
+  {
+    name           = "hmcts-courtfines-demo"
+    custom_domain  = "courtfines-app.demo.platform.hmcts.net"
+    dns_zone_name  = "demo.platform.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
+    disabled_rules = {}
+  },
 ]
 
 apim_appgw_exclusions = [
