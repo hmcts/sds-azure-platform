@@ -255,85 +255,6 @@ frontends = [
     ],
   },
   {
-    name           = "vh-test-web"
-    custom_domain  = "vh-test-web.dev.platform.hmcts.net"
-    dns_zone_name  = "dev.platform.hmcts.net"
-    backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
-    disabled_rules = {}
-    cache_enabled  = "false"
-
-    global_exclusions = [
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "code"
-      }
-    ]
-  },
-  {
-    name           = "vh-video-web"
-    custom_domain  = "vh-video-web.dev.platform.hmcts.net"
-    dns_zone_name  = "dev.platform.hmcts.net"
-    backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
-    disabled_rules = {}
-    cache_enabled  = "false"
-
-    global_exclusions = [
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "code"
-      }
-    ]
-  },
-  {
-    name           = "vh-video-web-reform"
-    custom_domain  = "vh-video-web-dev.hearings.reform.hmcts.net"
-    dns_zone_name  = "hearings.reform.hmcts.net"
-    backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
-    disabled_rules = {}
-
-    global_exclusions = [
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "code"
-      }
-    ]
-  },
-  {
-    name           = "vh-admin-web"
-    custom_domain  = "vh-admin-web.dev.platform.hmcts.net"
-    dns_zone_name  = "dev.platform.hmcts.net"
-    backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
-    disabled_rules = {}
-    cache_enabled  = "false"
-
-    global_exclusions = [
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "code"
-      }
-    ]
-  },
-  {
-    name           = "vh-video-web-pr-2142" # TO DO: REMOVE AFTER TESTING
-    custom_domain  = "vh-video-web-pr-2142.dev.platform.hmcts.net"
-    dns_zone_name  = "dev.platform.hmcts.net"
-    backend_domain = ["firewall-nonprodi-palo-sdsdev.uksouth.cloudapp.azure.com"]
-    disabled_rules = {}
-    cache_enabled  = "false"
-
-    global_exclusions = [
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "code"
-      }
-    ]
-  },
-  {
     name                = "portal-dev"
     mode                = "Prevention"
     custom_domain       = "portal-dev.pre-recorded-evidence.justice.gov.uk"
@@ -521,10 +442,12 @@ traffic_manager_profiles = {
       fw-uksouth-nonprodi-palo-mailrelay0-pip = {
         target_resource_id = "/subscriptions/fb084706-583f-4c9a-bdab-949aac66ba5c/resourceGroups/hmcts-hub-nonprodi/providers/Microsoft.Network/publicIPAddresses/fw-uksouth-nonprodi-palo-mailrelay0-pip",
         weight             = "50"
+        priority           = 2
       },
       fw-uksouth-nonprodi-palo-mailrelay1-pip = {
         target_resource_id = "/subscriptions/fb084706-583f-4c9a-bdab-949aac66ba5c/resourceGroups/hmcts-hub-nonprodi/providers/Microsoft.Network/publicIPAddresses/fw-uksouth-nonprodi-palo-mailrelay1-pip",
         weight             = "50"
+        priority           = 1
       }
     }
   }

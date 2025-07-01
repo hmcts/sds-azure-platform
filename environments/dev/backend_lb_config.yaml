@@ -11,22 +11,6 @@ gateways:
     # Toffee application
       - product: toffee
         component: recipe-backend
-    # Video Hearings
-      - product: vh
-        component: user-api
-        ssl_enabled: true
-      - product: vh
-        component: video-api
-        ssl_enabled: true
-      - product: vh
-        component: test-api
-        ssl_enabled: true
-      - product: vh
-        component: notification-api
-        ssl_enabled: true
-      - product: vh
-        component: bookings-api
-        ssl_enabled: true
       # DTS Legacy Apps
       - product: lgy-iac
         component: web

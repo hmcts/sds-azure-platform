@@ -4,7 +4,7 @@ env                = "stg"
 subscription       = "stg"
 oms_env            = "stg"
 private_ip_address = "10.148.32.132"
-destinations       = ["10.148.31.250"]
+destinations       = ["10.148.15.250", "10.148.31.250"]
 vnet_rg            = "ss-stg-network-rg"
 vnet_name          = "ss-stg-vnet"
 hub                = "prod"
@@ -161,7 +161,11 @@ frontends = [
     forwarding_protocol = "HttpsOnly"
     cache_enabled       = false
     shutter_app         = false
-    disabled_rules      = {}
+
+    ruleset_type  = "Microsoft_DefaultRuleSet"
+    ruleset_value = "2.1"
+
+    disabled_rules = {}
     global_exclusions = [
       {
         match_variable = "QueryStringArgNames"
@@ -169,14 +173,9 @@ frontends = [
         selector       = "redirect_uri"
       },
       {
-        match_variable = "QueryStringArgNames"
+        match_variable = "RequestBodyPostArgNames"
         operator       = "Equals"
-        selector       = "desc"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "StartsWith"
-        selector       = "x-ms-cpim-"
+        selector       = "redirect_uri"
       },
       {
         match_variable = "QueryStringArgNames"
@@ -184,59 +183,24 @@ frontends = [
         selector       = "diags"
       },
       {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "redirect_uri"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "error_description"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "code"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "claim_value"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "ReadOnlyEmail"
-      },
-      {
         match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "nonce"
-      },
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "state"
-      },
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "post_logout_redirect_uri"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
         operator       = "Equals"
         selector       = "post_logout_redirect_uri"
       },
       {
         match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "dtSa"
+        operator       = "StartsWith"
+        selector       = "x-ms-cpim-"
       },
       {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "csrf_token"
+        match_variable = "RequestBodyJsonArgNames"
+        operator       = "Contains"
+        selector       = "entries.name"
+      },
+      {
+        match_variable = "RequestBodyJsonArgNames"
+        operator       = "Contains"
+        selector       = "entries.scripts"
       }
     ]
   },
@@ -249,7 +213,12 @@ frontends = [
     forwarding_protocol = "HttpsOnly"
     cache_enabled       = false
     shutter_app         = false
-    disabled_rules      = {}
+
+    ruleset_type  = "Microsoft_DefaultRuleSet"
+    ruleset_value = "2.1"
+
+
+    disabled_rules = {}
     global_exclusions = [
       {
         match_variable = "QueryStringArgNames"
@@ -257,14 +226,9 @@ frontends = [
         selector       = "redirect_uri"
       },
       {
-        match_variable = "QueryStringArgNames"
+        match_variable = "RequestBodyPostArgNames"
         operator       = "Equals"
-        selector       = "desc"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "StartsWith"
-        selector       = "x-ms-cpim-"
+        selector       = "redirect_uri"
       },
       {
         match_variable = "QueryStringArgNames"
@@ -272,93 +236,24 @@ frontends = [
         selector       = "diags"
       },
       {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "redirect_uri"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "error_description"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "code"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "claim_value"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "ReadOnlyEmail"
-      },
-      {
         match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "nonce"
-      },
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "state"
-      },
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "post_logout_redirect_uri"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
         operator       = "Equals"
         selector       = "post_logout_redirect_uri"
       },
       {
         match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "dtSa"
+        operator       = "StartsWith"
+        selector       = "x-ms-cpim-"
       },
       {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "csrf_token"
-      }
-    ]
-  },
-  {
-    name           = "vh-video-web"
-    custom_domain  = "video.staging.hearings.reform.hmcts.net"
-    dns_zone_name  = "staging.hearings.reform.hmcts.net"
-    backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
-    cache_enabled  = "false"
-
-    disabled_rules = {}
-
-    global_exclusions = [
+        match_variable = "RequestBodyJsonArgNames"
+        operator       = "Contains"
+        selector       = "entries.name"
+      },
       {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "code"
-      }
-    ]
-  },
-  {
-    name           = "vh-admin-web"
-    custom_domain  = "admin.staging.hearings.reform.hmcts.net"
-    dns_zone_name  = "staging.hearings.reform.hmcts.net"
-    backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
-    cache_enabled  = "false"
-
-    disabled_rules = {}
-
-    global_exclusions = [
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "code"
+        match_variable = "RequestBodyJsonArgNames"
+        operator       = "Contains"
+        selector       = "entries.scripts"
       }
     ]
   },
@@ -916,6 +811,13 @@ frontends = [
       ],
     }
     global_exclusions = []
+  },
+  {
+    name           = "hmcts-courtfines-staging"
+    custom_domain  = "courtfines-app-staging.staging.platform.hmcts.net"
+    dns_zone_name  = "staging.platform.hmcts.net"
+    backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
+    disabled_rules = {}
   },
 ]
 

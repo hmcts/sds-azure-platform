@@ -229,65 +229,6 @@ frontends = [
     ]
   },
   {
-    name           = "vh-test-web"
-    custom_domain  = "vh-test-web.ithc.platform.hmcts.net"
-    dns_zone_name  = "ithc.platform.hmcts.net"
-    backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
-    cache_enabled  = "false"
-
-    disabled_rules = {}
-
-    global_exclusions = [
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "code"
-      }
-    ]
-  },
-  {
-    name           = "vh-video-web"
-    custom_domain  = "vh-video-web.ithc.platform.hmcts.net"
-    dns_zone_name  = "ithc.platform.hmcts.net"
-    backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
-    cache_enabled  = "false"
-
-    disabled_rules = {}
-
-    global_exclusions = [
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "code"
-      }
-    ]
-  },
-  {
-    name           = "vh-admin-web"
-    custom_domain  = "vh-admin-web.ithc.platform.hmcts.net"
-    dns_zone_name  = "ithc.platform.hmcts.net"
-    backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
-    cache_enabled  = "false"
-
-    disabled_rules = {}
-
-    global_exclusions = [
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "code"
-      }
-    ]
-  },
-  {
-    name           = "vh-service-web"
-    custom_domain  = "vh-service-web.ithc.platform.hmcts.net"
-    dns_zone_name  = "ithc.platform.hmcts.net"
-    backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
-
-    disabled_rules = {}
-  },
-  {
     name             = "sds-api-mgmt"
     custom_domain    = "sds-api-mgmt.ithc.platform.hmcts.net"
     dns_zone_name    = "ithc.platform.hmcts.net"
