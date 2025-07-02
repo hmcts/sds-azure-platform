@@ -399,8 +399,8 @@ frontends = [
   },
   {
     name           = "hmcts-courtfines-ithc"
-    custom_domain  = "courtfines-app.ithc.apps.hmcts.net"
-    dns_zone_name  = "apps.hmcts.net"
+    custom_domain  = "courtfines-app.ithc.platform.hmcts.net"
+    dns_zone_name  = "ithc.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
     disabled_rules = {}
   },
