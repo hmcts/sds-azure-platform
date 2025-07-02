@@ -814,7 +814,7 @@ frontends = [
   },
   {
     name           = "hmcts-courtfines-staging"
-    custom_domain  = "courtfines-app-staging.staging.platform.hmcts.net"
+    custom_domain  = "courtfines-app.staging.platform.hmcts.net"
     dns_zone_name  = "staging.platform.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
     disabled_rules = {}
