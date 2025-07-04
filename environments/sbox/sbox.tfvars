@@ -47,60 +47,6 @@ frontends = [
     cache_enabled    = "false"
   },
   {
-    name             = "vh-test-web"
-    custom_domain    = "vh-test-web.sandbox.platform.hmcts.net"
-    dns_zone_name    = "sandbox.platform.hmcts.net"
-    backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
-    certificate_name = "wildcard-sandbox-platform-hmcts-net"
-    disabled_rules   = {}
-    shutter_app      = false
-    cache_enabled    = "false"
-
-    global_exclusions = [
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "code"
-      }
-    ]
-  },
-  {
-    name             = "vh-video-web"
-    custom_domain    = "vh-video-web.sandbox.platform.hmcts.net"
-    dns_zone_name    = "sandbox.platform.hmcts.net"
-    backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
-    certificate_name = "wildcard-sandbox-platform-hmcts-net"
-    disabled_rules   = {}
-    shutter_app      = false
-    cache_enabled    = "false"
-
-    global_exclusions = [
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "code"
-      }
-    ]
-  },
-  {
-    name             = "vh-admin-web"
-    custom_domain    = "vh-admin-web.sandbox.platform.hmcts.net"
-    dns_zone_name    = "sandbox.platform.hmcts.net"
-    backend_domain   = ["firewall-sbox-int-palo-sdssbox.uksouth.cloudapp.azure.com"]
-    certificate_name = "wildcard-sandbox-platform-hmcts-net"
-    disabled_rules   = {}
-    shutter_app      = false
-    cache_enabled    = "false"
-
-    global_exclusions = [
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "code"
-      }
-    ]
-  },
-  {
     name                = "portal-sbox"
     mode                = "Prevention"
     custom_domain       = "portal-sbox.pre-recorded-evidence.justice.gov.uk"

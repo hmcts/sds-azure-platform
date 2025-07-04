@@ -253,58 +253,6 @@ frontends = [
     ]
   },
   {
-    name           = "vh-test-web"
-    custom_domain  = "vh-test-web.test.platform.hmcts.net"
-    dns_zone_name  = "test.platform.hmcts.net"
-    backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
-    cache_enabled  = "false"
-
-    disabled_rules = {}
-
-    global_exclusions = [
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "code"
-      }
-    ]
-
-  },
-  {
-    name           = "vh-video-web"
-    custom_domain  = "vh-video-web.test.platform.hmcts.net"
-    dns_zone_name  = "test.platform.hmcts.net"
-    backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
-    cache_enabled  = "false"
-
-    disabled_rules = {}
-
-    global_exclusions = [
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "code"
-      }
-    ]
-  },
-  {
-    name           = "vh-admin-web"
-    custom_domain  = "vh-admin-web.test.platform.hmcts.net"
-    dns_zone_name  = "test.platform.hmcts.net"
-    backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
-    cache_enabled  = "false"
-
-    disabled_rules = {}
-
-    global_exclusions = [
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "code"
-      }
-    ]
-  },
-  {
     name             = "sds-api-mgmt"
     custom_domain    = "sds-api-mgmt.test.platform.hmcts.net"
     dns_zone_name    = "test.platform.hmcts.net"
