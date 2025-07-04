@@ -473,7 +473,23 @@ frontends = [
         ]
       }
     ]
+  },
+  {
+    name           = "opal-frontend"
+    custom_domain  = "opal-frontend.test.platform.hmcts.net"
+    dns_zone_name  = "test.platform.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
+    cache_enabled  = "false"
+    disabled_rules = {
+      SQLI = [
+        "942440",
+        "942430",
+        "942450"
+      ],
+    }
+    global_exclusions = []
   }
+  
 ]
 
 apim_appgw_exclusions = [
