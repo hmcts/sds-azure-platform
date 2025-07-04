@@ -489,7 +489,7 @@ frontends = [
     }
     global_exclusions = []
   }
-  
+
 ]
 
 apim_appgw_exclusions = [
