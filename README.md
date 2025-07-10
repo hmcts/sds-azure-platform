@@ -14,6 +14,7 @@ Within the variable `frontends` add the basic object to the array:
 }
 ```
 
+
 ### TLS
 By default it will use the Azure Frontdoor Managed Certificates, which will validate the URL against the DNS within the tenant then generate a certificate.
 
