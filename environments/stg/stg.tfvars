@@ -217,7 +217,6 @@ frontends = [
     ruleset_type  = "Microsoft_DefaultRuleSet"
     ruleset_value = "2.1"
 
-
     disabled_rules = {}
     global_exclusions = [
       {
