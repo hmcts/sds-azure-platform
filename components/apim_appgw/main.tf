@@ -27,7 +27,7 @@ module "app-gw" {
     azurerm.kv  = azurerm.kv
   }
 
-  source                                       = "git::https://github.com/hmcts/terraform-module-apim-application-gateway.git?ref=main"
+  source                                       = "git::https://github.com/hmcts/terraform-module-apim-application-gateway.git?ref=feat/support-ssl-policy"
   yaml_path                                    = "${path.cwd}/../../environments/${local.env}/apim_appgw_config.yaml"
   env                                          = local.dns_zone
   location                                     = var.location
@@ -47,6 +47,9 @@ module "app-gw" {
   project_name                                 = var.project
   min_capacity                                 = var.apim_appgw_min_capacity
   max_capacity                                 = var.apim_appgw_max_capacity
+
+  # Control the rollout of the TLS 1.0/1.1 deprecation, the ternary should be removed once the rollout is complete
+  ssl_policy = var.env == "sbox" ? var.ssl_policy : null
   trusted_client_certificate_data = {
     "lets_encrypt" = {
       path = file("${path.module}/merged.pem")
