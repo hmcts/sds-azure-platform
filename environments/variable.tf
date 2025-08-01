@@ -23,7 +23,6 @@ variable "apim_sku_name" { default = "Developer" }
 variable "hub" { default = "sbox" }
 variable "ssl_policy" { default = null }
 variable "ssl_certificate" {}
-variable "send_access_logs_to_log_analytics" { default = false }
 
 variable "key_vault_subscription" {
   default = []
