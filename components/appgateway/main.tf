@@ -20,7 +20,7 @@ module "appgateway" {
     azurerm.kv  = azurerm.kv
   }
 
-  source = "git::https://github.com/hmcts/terraform-module-applicationgateway.git?ref=master"
+  source = "git::https://github.com/hmcts/terraform-module-applicationgateway.git?ref=feat/setup-default-ssl-policy"
 
 
   env                                = var.env
@@ -40,4 +40,7 @@ module "appgateway" {
   vault_name                         = local.key_vault_name
   key_vault_resource_group           = local.key_vault_resource_group
   ssl_certificate_name               = var.ssl_certificate
+
+  # Control the rollout of the TLS 1.0/1.1 deprecation, the ternary should be removed once the rollout is complete
+  ssl_policy = var.env == "sbox" ? var.ssl_policy : local.current_ssl_policy
 }
