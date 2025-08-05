@@ -36,7 +36,7 @@ module "appgateway" {
   vnet_name                          = var.vnet_name
   log_analytics_workspace_id         = module.logworkspace.workspace_id
   diagnostics_storage_account_id     = data.azurerm_storage_account.diagnostics.id
-  enable_multiple_availability_zones = true
+  enable_multiple_availability_zones = var.env == "sbox" ? false : true
   vault_name                         = local.key_vault_name
   key_vault_resource_group           = local.key_vault_resource_group
   ssl_certificate_name               = var.ssl_certificate
