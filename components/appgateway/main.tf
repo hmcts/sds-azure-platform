@@ -36,7 +36,6 @@ module "appgateway" {
   vnet_name                                    = var.vnet_name
   log_analytics_workspace_id                   = module.logworkspace.workspace_id
   diagnostics_storage_account_id               = data.azurerm_storage_account.diagnostics.id
-  public_ip_enable_multiple_availability_zones = true
   enable_multiple_availability_zones           = true
   vault_name                                   = local.key_vault_name
   key_vault_resource_group                     = local.key_vault_resource_group
