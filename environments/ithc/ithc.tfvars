@@ -361,6 +361,21 @@ frontends = [
     ]
   },
   {
+    name           = "opal-frontend"
+    custom_domain  = "opal-frontend.ithc.platform.hmcts.net"
+    dns_zone_name  = "ithc.platform.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
+    cache_enabled  = "false"
+    disabled_rules = {
+      SQLI = [
+        "942440",
+        "942430",
+        "942450"
+      ],
+    }
+    global_exclusions = []
+  },
+  {
     product        = "darts-portal"
     name           = "darts-portal"
     custom_domain  = "darts.ithc.apps.hmcts.net"
