@@ -45,3 +45,7 @@ gateways:
       - product: pip
         component: account-management
         ssl_enabled: true
+      # Apps Reg
+      - product: appreg
+        component: api
+        ssl_enabled: true
