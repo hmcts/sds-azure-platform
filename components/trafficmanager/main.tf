@@ -7,7 +7,7 @@ module "ctags" {
 }
 
 module "traffic_manager" {
-  source = "git::https://github.com/hmcts/terraform-module-trafficmanager.git?ref=master"
+  source = "git::https://github.com/hmcts/terraform-module-trafficmanager.git?ref=fix-traffic-manager-routing-method"
 
   common_tags = module.ctags.common_tags
 
