@@ -88,4 +88,8 @@ gateways:
       - product: pdda
         component: public-display-manager
         ssl_enabled: true
+    # Apps Reg
+      - product: appreg
+        component: api
+        ssl_enabled: true
         
