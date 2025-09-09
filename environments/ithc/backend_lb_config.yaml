@@ -49,3 +49,13 @@ gateways:
       - product: appreg
         component: api
         ssl_enabled: true
+      # Opal
+      - product: opal
+        component: fines-service
+        ssl_enabled: true
+      - product: opal
+        component: legacy-db-stub
+        ssl_enabled: true
+      - product: opal
+        component: user-service
+        ssl_enabled: true
