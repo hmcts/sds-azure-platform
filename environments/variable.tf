@@ -76,3 +76,9 @@ variable "autoShutdown" {
 variable "ssl_mode" {
   default = "FrontDoor"
 }
+
+variable "send_access_logs_to_log_analytics" {
+  description = "Whether to send access logs to log analytics workspace"
+  type        = bool
+  default     = false
+}
