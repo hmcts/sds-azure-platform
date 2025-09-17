@@ -835,9 +835,9 @@ apim_appgw_exclusions = [
   },
   {
 
-    match_variable          = "RequestUri"
-    operator               = "Contains"
-    selector               = "prl-document-api"
+    match_variable = "RequestUri"
+    operator       = "Contains"
+    selector       = "prl-document-api"
     excluded_rule_set = {
       rule_set_type    = "OWASP"
       rule_set_version = "3.2"
