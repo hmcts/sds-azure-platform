@@ -835,7 +835,7 @@ apim_appgw_exclusions = [
   },
   {
 
-    match_variable = "RequestUri"
+    match_variable = "RequestArgNames"
     operator       = "Contains"
     selector       = "prl-document-api"
     excluded_rule_set = {
