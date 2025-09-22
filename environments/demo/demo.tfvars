@@ -518,8 +518,8 @@ frontends = [
   },
   {
     name           = "AppReg"
-    custom_domain  = "appreg.demo.apps.hmcts.net"
-    dns_zone_name  = "apps.hmcts.net"
+    custom_domain  = "appreg.demo.platform.hmcts.net"
+    dns_zone_name  = "demo.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
     disabled_rules = {}
   },

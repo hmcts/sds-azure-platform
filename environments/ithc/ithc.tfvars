@@ -421,8 +421,8 @@ frontends = [
   },
   {
     name           = "AppReg"
-    custom_domain  = "appreg.ithc.apps.hmcts.net"
-    dns_zone_name  = "apps.hmcts.net"
+    custom_domain  = "appreg.ithc.platform.hmcts.net"
+    dns_zone_name  = "ithc.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
     disabled_rules = {}
   },
