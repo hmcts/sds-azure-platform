@@ -145,6 +145,26 @@ frontends = [
         match_variable = "RequestCookieNames"
         operator       = "Equals"
         selector       = "connect.sid"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "english-caution-message"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "welsh-caution-message"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "english-no-list-message"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "welsh-no-list-message"
       }
     ]
   },
@@ -497,5 +517,10 @@ apim_appgw_exclusions = [
     match_variable = "RequestArgNames"
     operator       = "Equals"
     selector       = "iss"
+  },
+  {
+    match_variable = "RequestArgNames"
+    operator       = "Contains"
+    selector       = "prl-document-api"
   }
 ]
