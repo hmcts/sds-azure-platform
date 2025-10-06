@@ -818,6 +818,13 @@ frontends = [
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
     disabled_rules = {}
   },
+  {
+    name           = "appreg"
+    custom_domain  = "appreg.staging.apps.hmcts.net"
+    dns_zone_name  = "staging.apps.hmcts.net"
+    backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
+    disabled_rules = {}
+  },
 ]
 
 apim_appgw_exclusions = [
