@@ -9,7 +9,7 @@ resources:
   repositories:
   - repository: cnp-azuredevops-libraries
     type: github
-    ref: refs/heads/master
+    ref: refs/heads/fix-aks-manual-start-workflow-auth
     name: hmcts/cnp-azuredevops-libraries
     endpoint: 'hmcts'
 
