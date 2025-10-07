@@ -212,7 +212,7 @@ stages:
               overrideAction: ${{ parameters.action }}
               projectName: ${{ variables.businessArea }}
               environment: 'sbox'
-              runManualStart: false
+              runManualStart: true
 
   - ${{ each parameter in parameters.components }}:
       - stage: ${{ parameter.environment }}_${{ parameter.deployment }}
