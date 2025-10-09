@@ -19,7 +19,7 @@ steps:
     inputs:
       terraformVersion: ${{ parameters.tfversion }}
 
-  - task: TerraformCLI@0
+  - task: TerraformCLI@2
     displayName: terraform init
     inputs:
       command: init
@@ -35,7 +35,7 @@ steps:
       backendAzureRmKey: '${{ parameters.location }}/${{ parameters.project }}/${{ parameters.environment }}/${{ parameters.stack }}/terraform.tfstate'
       commandOptions: '-backend-config=subscription_id=${{ parameters.tfInitSub }}'
 
-  - task: TerraformCLI@0
+  - task: TerraformCLI@2
     displayName: terraform plan
     inputs:
       command: plan
@@ -54,7 +54,7 @@ steps:
     inputs:
       filePath: pipeline-scripts/file-check-changes.sh
 
-  - task: TerraformCLI@0
+  - task: TerraformCLI@2
     displayName: Apply-${{ parameters.stack }}
     condition: and(succeeded(), eq(variables.isMaster, true))
     inputs:
