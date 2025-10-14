@@ -105,6 +105,8 @@ jobs:
         uses: actions/github-script@v6
         env:
           COMMENT_ID: ${{ env.comment_id }}
+          
+      - uses: actions/github-script@v8
         with:
           script: |
             const body = process.env.response || '(no response content)';
