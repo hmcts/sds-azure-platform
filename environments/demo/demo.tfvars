@@ -96,7 +96,7 @@ frontends = [
 
     managed_rulesets = [
       {
-        ruleset_type    = "Microsoft_BotManagerRuleSet"
+        ruleset_type  = "Microsoft_BotManagerRuleSet"
         ruleset_value = "1.1"
       },
       {
