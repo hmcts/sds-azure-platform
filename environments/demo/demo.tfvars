@@ -98,6 +98,17 @@ frontends = [
       {
         ruleset_type  = "Microsoft_BotManagerRuleSet"
         ruleset_value = "1.1"
+
+        disabled_rules_action = "AnomalyScoring"
+        disabled_rules = {
+          General = [
+            "200002",
+            "200003"
+          ],
+          PROTOCOL-ENFORCEMENT = [
+            "920120"
+          ]
+        }
       },
       {
         ruleset_type  = "Microsoft_DefaultRuleSet"
