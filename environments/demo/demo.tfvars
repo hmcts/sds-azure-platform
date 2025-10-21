@@ -94,104 +94,96 @@ frontends = [
     backend_domain   = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
     certificate_name = "wildcard-demo-platform-hmcts-net"
 
-    managed_rulesets = [
+    ruleset_type  = "Microsoft_DefaultRuleSet"
+    ruleset_value = "2.1"
+
+    disabled_rules_action = "AnomalyScoring"
+    disabled_rules = {
+      General = [
+        "200002",
+        "200003"
+      ],
+      PROTOCOL-ENFORCEMENT = [
+        "920120"
+      ]
+    }
+
+    global_exclusions = [
+      ## Open ID response parameters
       {
-        ruleset_type  = "Microsoft_BotManagerRuleSet"
-        ruleset_value = "1.1"
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "code"
       },
       {
-        ruleset_type  = "Microsoft_DefaultRuleSet"
-        ruleset_value = "2.1"
-
-        disabled_rules_action = "AnomalyScoring"
-        disabled_rules = {
-          General = [
-            "200002",
-            "200003"
-          ],
-          PROTOCOL-ENFORCEMENT = [
-            "920120"
-          ]
-        }
-
-        global_exclusions = [
-          ## Open ID response parameters
-          {
-            match_variable = "RequestBodyPostArgNames"
-            operator       = "Equals"
-            selector       = "code"
-          },
-          {
-            match_variable = "RequestBodyPostArgNames"
-            operator       = "Equals"
-            selector       = "state"
-          },
-          {
-            match_variable = "RequestCookieNames"
-            operator       = "Equals"
-            selector       = "formCookie"
-          },
-          {
-            match_variable = "RequestCookieNames"
-            operator       = "Equals"
-            selector       = "session"
-          },
-          {
-            match_variable = "RequestCookieNames"
-            operator       = "Equals"
-            selector       = "dtSa"
-          },
-          {
-            match_variable = "RequestCookieNames"
-            operator       = "Equals"
-            selector       = "court-and-tribunal-hearings-cookie-preferences"
-          },
-          {
-            match_variable = "QueryStringArgNames"
-            operator       = "Equals"
-            selector       = "iss"
-          },
-          {
-            match_variable = "QueryStringArgNames"
-            operator       = "Equals"
-            selector       = "code"
-          },
-          {
-            match_variable = "RequestBodyPostArgNames"
-            operator       = "Equals"
-            selector       = "error_description"
-          },
-          {
-            match_variable = "RequestBodyPostArgNames"
-            operator       = "Equals"
-            selector       = "subscriptions"
-          },
-          {
-            match_variable = "RequestCookieNames"
-            operator       = "Equals"
-            selector       = "connect.sid"
-          },
-          {
-            match_variable = "RequestBodyPostArgNames"
-            operator       = "Equals"
-            selector       = "english-caution-message"
-          },
-          {
-            match_variable = "RequestBodyPostArgNames"
-            operator       = "Equals"
-            selector       = "welsh-caution-message"
-          },
-          {
-            match_variable = "RequestBodyPostArgNames"
-            operator       = "Equals"
-            selector       = "english-no-list-message"
-          },
-          {
-            match_variable = "RequestBodyPostArgNames"
-            operator       = "Equals"
-            selector       = "welsh-no-list-message"
-          }
-        ]
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "state"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "formCookie"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "session"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "dtSa"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "court-and-tribunal-hearings-cookie-preferences"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "iss"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "error_description"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "subscriptions"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "connect.sid"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "english-caution-message"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "welsh-caution-message"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "english-no-list-message"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "welsh-no-list-message"
       }
     ]
   },
