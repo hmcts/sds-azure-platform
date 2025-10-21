@@ -843,7 +843,13 @@ frontends = [
     custom_domain  = "appreg.staging.apps.hmcts.net"
     dns_zone_name  = "staging.apps.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
-    disabled_rules = {}
+    disabled_rules = {
+      SQLI = [
+        "942440",
+        "942430",
+        "942450"
+      ],
+    }
   },
 ]
 
