@@ -1,3 +1,4 @@
+name: "$(finalAction) - SDS Azure Platform"
 
 trigger:
   batch: true
@@ -195,6 +196,8 @@ variables:
       value: 'apply'
     ${{ else }}:
       value: ${{ parameters.action }}
+  - name: publishPlanResults
+    value: false
 
 stages:
   - stage: Precheck
@@ -232,6 +235,7 @@ stages:
                   component: ${{ parameter.deployment }}
                   serviceConnection: "OPS-APPROVAL-GATE-${{ upper(parameter.environment) }}-ENVS"
                   product: $(product)
+                  publishPlanResults: ${{ variables.publishPlanResults }}
                   terraformInitSubscription: ${{ variables.tfInitSub }}
                   planCommandOptions: >
                     -var environment=${{ parameter.environment }}
@@ -255,4 +259,15 @@ stages:
                   ${{ else }}:
                     test_pattern: pipeline.test.ts
 
-name: "$(finalAction) - SDS Azure Platform"
+  - stage: Analyse_plans
+    displayName: "Analyse terraform plan"
+    condition: and(eq('${{ variables.finalAction }}', 'Plan'), succeededOrFailed())
+    dependsOn:
+      - ${{ each parameter in parameters.components }}:
+        - ${{ parameter.environment }}_frontdoor
+    jobs:
+      - job: AnalysePlans
+        steps:
+          - template: steps/terraform-plan-analyse.yaml@cnp-azuredevops-libraries
+            parameters:
+              serviceConnection: DTS-CFTPTL-INTSVC
