@@ -798,11 +798,14 @@ traffic_manager_profiles = {
     endpoints = {
       fw-uksouth-prod-int-palo-mailrelay0-pip = {
         target_resource_id = "/subscriptions/0978315c-75fe-4ada-9d11-1eb5e0e0b214/resourceGroups/hmcts-hub-prod-int/providers/Microsoft.Network/publicIPAddresses/fw-uksouth-prod-int-palo-mailrelay0-pip",
+        weight             = 50
+        priority           = 2
       },
       fw-uksouth-prod-int-palo-mailrelay1-pip = {
         profile_name        = "ss-prod-mailrelay-tm",
         resource_group_name = "ss-prod-network-rg",
         target_resource_id  = "/subscriptions/0978315c-75fe-4ada-9d11-1eb5e0e0b214/resourceGroups/hmcts-hub-prod-int/providers/Microsoft.Network/publicIPAddresses/fw-uksouth-prod-int-palo-mailrelay1-pip",
+        weight              = 1
       }
     }
   }
