@@ -186,7 +186,6 @@ frontends = [
         ruleset_value = "1.1"
         action        = "Block"
 
-        disabled_rules_action = "AnomalyScoring"
         disabled_rules = {
           GoodBots = [
             "200100",
