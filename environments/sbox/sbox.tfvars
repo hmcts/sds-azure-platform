@@ -188,12 +188,12 @@ frontends = [
 
         disabled_rules = {
           GoodBots = [
-            "200100",
-            "200200"
+            "Bot200100",
+            "Bot200200"
           ],
           BadBots = [
-            "100100",
-            "100200"
+            "Bot100100",
+            "Bot100200"
           ]
         }
       },
