@@ -305,7 +305,13 @@ frontends = [
                 match_variable     = "RemoteAddr"
                 operator           = "IPMatch"
                 negation_condition = false
-                match_values       = ["0.0.0.0/0", "::/0"] # Match all IPs
+                match_values       = ["0.0.0.0/0"]
+              },
+              {
+                match_variable     = "RemoteAddr"
+                operator           = "IPMatch"
+                negation_condition = false
+                match_values       = ["::/0"]
               }
             ]
           }
