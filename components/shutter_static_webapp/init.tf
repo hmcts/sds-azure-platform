@@ -7,10 +7,6 @@ terraform {
       source  = "hashicorp/azurerm"
       version = ">= 3.65.0"
     }
-    github = {
-      source  = "integrations/github"
-      version = "6.1.0"
-    }
   }
 }
 provider "azurerm" {
