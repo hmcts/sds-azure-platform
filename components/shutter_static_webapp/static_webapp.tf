@@ -10,7 +10,7 @@ module "static_webapp" {
     azurerm.dnszone = azurerm.dnszone
     github          = github.module
   }
-  
+
   source              = "git::https://github.com/hmcts/terraform-module-shutter-static-webapp.git?ref=feature/testing"
   shutter_apps        = local.shutter_apps
   tags                = module.ctags.common_tags
