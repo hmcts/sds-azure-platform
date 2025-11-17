@@ -31,4 +31,3 @@ module "ctags" {
 output "debug_shutter" {
   value = local.shutter_apps
 }
-
