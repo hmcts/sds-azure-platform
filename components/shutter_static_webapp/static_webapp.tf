@@ -8,7 +8,7 @@ module "static_webapp" {
   providers = {
     azurerm         = azurerm
     azurerm.dnszone = azurerm.dnszone
-    github          = github
+    #github          = github
     #.module
   }
 
