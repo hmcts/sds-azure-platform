@@ -13,6 +13,7 @@ module "ctags" {
   autoShutdown = var.autoShutdown
 }
 
+
 module "appgateway" {
   providers = {
     azurerm     = azurerm
