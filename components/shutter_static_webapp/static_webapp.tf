@@ -4,6 +4,7 @@ locals {
     var.additional_shutter_apps
   )
 }
+
 module "static_webapp" {
   providers = {
     azurerm         = azurerm
