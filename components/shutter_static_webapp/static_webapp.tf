@@ -5,6 +5,7 @@ locals {
   )
 }
 
+
 module "static_webapp" {
   providers = {
     azurerm         = azurerm
