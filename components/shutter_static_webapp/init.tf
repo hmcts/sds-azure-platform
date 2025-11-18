@@ -15,7 +15,7 @@ terraform {
 }
 
 
-provider "github" {{
+provider "github" {
   token = ""
   owner = ""
 
