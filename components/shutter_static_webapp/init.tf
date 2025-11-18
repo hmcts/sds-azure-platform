@@ -13,6 +13,13 @@ terraform {
     }
   }
 }
+
+
+provider "github" {{
+  token = ""
+  owner = ""
+
+}
 provider "azurerm" {
   features {}
   skip_provider_registration = true
