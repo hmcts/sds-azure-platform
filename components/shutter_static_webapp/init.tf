@@ -18,8 +18,6 @@ provider "github" {
   owner = "hmcts"
 }
 
-
-
 provider "azurerm" {
   features {}
   skip_provider_registration = true
