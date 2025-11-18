@@ -13,6 +13,10 @@ terraform {
     }
   }
 }
+provider "github" {
+  token = data.azurerm_key_vault_secret.githubapi.value
+  owner = "hmcts"
+}
 
 
 
