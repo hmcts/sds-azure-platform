@@ -855,10 +855,9 @@ frontends = [
     product           = "pdda"
     name              = "pdda-public-display-data-aggregator"
     mode              = "Prevention"
-    custom_domain     = "pdda-public-display-data-aggregator.aat.platform.hmcts.net"
-    dns_zone_name     = "aat.platform.hmcts.net"
+    custom_domain     = "pdda-public-display-data-aggregator.staging.platform.hmcts.net"
+    dns_zone_name     = "staging.platform.hmcts.net"
     backend_domain    = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
-    certificate_name  = "wildcard-aat-platform-hmcts-net"
     global_exclusions = []
   },
 ]
