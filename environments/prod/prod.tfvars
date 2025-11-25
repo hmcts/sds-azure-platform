@@ -780,6 +780,15 @@ frontends = [
       },
     ]
   },
+  {
+    product           = "pdda"
+    name              = "pdda-public-display-data-aggregator"
+    mode              = "Prevention"
+    custom_domain     = "pdda-public-display-data-aggregator.platform.hmcts.net"
+    dns_zone_name     = "platform.hmcts.net"
+    backend_domain    = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    global_exclusions = []
+  }
 ]
 
 
