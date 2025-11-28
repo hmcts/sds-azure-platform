@@ -4,7 +4,7 @@ env                = "ithc"
 subscription       = "ithc"
 oms_env            = "ithc"
 private_ip_address = "10.143.32.132"
-destinations       = ["10.143.15.250", "10.143.31.250"]
+destinations       = ["10.143.15.250"]
 vnet_rg            = "ss-ithc-network-rg"
 vnet_name          = "ss-ithc-vnet"
 hub                = "nonprod"
@@ -438,6 +438,15 @@ frontends = [
     dns_zone_name  = "ithc.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
     disabled_rules = {}
+  },
+  {
+    product           = "pdda"
+    name              = "pdda-public-display-data-aggregator"
+    mode              = "Prevention"
+    custom_domain     = "pdda-public-display-data-aggregator.ithc.platform.hmcts.net"
+    dns_zone_name     = "ithc.platform.hmcts.net"
+    backend_domain    = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
+    global_exclusions = []
   },
 ]
 

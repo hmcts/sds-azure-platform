@@ -1,5 +1,4 @@
 ---
-
 gateways:
   - gateway_configuration:
       host_name_suffix: test.platform.hmcts.net
@@ -8,13 +7,13 @@ gateways:
       exclude_env_in_app_name: true
       private_ip_address: 10.141.32.134
     app_configuration:
-    # Toffee
+      # Toffee
       - product: toffee
         component: recipe-backend
-    # Publication and Information
-      - product: pip
-        component: frontend
-        ssl_enabled: true
+      # Publication and Information
+      # - product: pip
+      #   component: frontend
+      #   ssl_enabled: true
       - product: pip
         component: business-rules
         ssl_enabled: true
@@ -33,7 +32,7 @@ gateways:
         ssl_enabled: true
         health_path_override: "/services/themisgatewayapi?wsdl"
         request_timeout: 120
-    # Darts Modernisation
+      # Darts Modernisation
       - product: darts
         component: api
         ssl_enabled: true
@@ -46,14 +45,14 @@ gateways:
       - product: darts
         component: external-component-test-harness
         ssl_enabled: false
-     # Pre-Recorded Evidence
+      # Pre-Recorded Evidence
       - product: pre
         component: portal
         ssl_enabled: true
       - product: pre
         component: api
         ssl_enabled: true
-     # Juror
+      # Juror
       - product: juror
         component: scheduler-api
         ssl_enabled: true

@@ -7,8 +7,17 @@ terraform {
       source  = "hashicorp/azurerm"
       version = ">= 3.65.0"
     }
+    github = {
+      source = "integrations/github"
+
+    }
   }
 }
+provider "github" {
+  token = data.azurerm_key_vault_secret.githubapi.value
+  owner = "hmcts"
+}
+
 provider "azurerm" {
   features {}
   skip_provider_registration = true
@@ -23,3 +32,9 @@ provider "azurerm" {
   features {}
   subscription_id = "1baf5470-1c3e-40d3-a6f7-74bfbce4b348"
 }
+
+
+
+
+
+

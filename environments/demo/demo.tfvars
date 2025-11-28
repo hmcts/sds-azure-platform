@@ -536,6 +536,15 @@ frontends = [
     backend_domain = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
     disabled_rules = {}
   },
+  {
+    product           = "pdda"
+    name              = "pdda-public-display-data-aggregator"
+    mode              = "Prevention"
+    custom_domain     = "pdda-public-display-data-aggregator.demo.platform.hmcts.net"
+    dns_zone_name     = "demo.platform.hmcts.net"
+    backend_domain    = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
+    global_exclusions = []
+  },
 ]
 
 apim_appgw_exclusions = [

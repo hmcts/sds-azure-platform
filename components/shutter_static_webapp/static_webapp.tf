@@ -4,12 +4,13 @@ locals {
     var.additional_shutter_apps
   )
 }
+
+
 module "static_webapp" {
   providers = {
     azurerm         = azurerm
     azurerm.dnszone = azurerm.dnszone
   }
-
   source              = "git::https://github.com/hmcts/terraform-module-shutter-static-webapp.git?ref=master"
   shutter_apps        = local.shutter_apps
   tags                = module.ctags.common_tags
@@ -19,6 +20,7 @@ module "static_webapp" {
   sku_tier            = var.sku_tier
   sku_size            = var.sku_size
 }
+
 
 module "ctags" {
   source       = "git::https://github.com/hmcts/terraform-module-common-tags.git?ref=master"
