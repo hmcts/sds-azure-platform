@@ -788,8 +788,33 @@ frontends = [
     dns_zone_name     = "platform.hmcts.net"
     backend_domain    = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     global_exclusions = []
-  }
-]
+    custom_rules = [
+      {
+        name     = "IPMatchWhitelist"
+        priority = 1
+        type     = "MatchRule"
+        action   = "Block"
+        match_conditions = [
+          {
+            match_variable     = "RemoteAddr"
+            operator           = "IPMatch"
+            negation_condition = true
+            match_values = [
+              "128.77.75.64/26",
+              "194.33.248.0/24",
+              "194.33.249.0/24",
+              "51.149.249.0/27",
+              "51.149.249.32/27",
+              #Prod Hub IPs for Dynatrace Monitoring
+              "20.50.108.242/32",
+              "20.50.109.148/32"
+            ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
 
 
 traffic_manager_profiles = {
