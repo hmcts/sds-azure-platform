@@ -544,7 +544,66 @@ frontends = [
     dns_zone_name     = "demo.platform.hmcts.net"
     backend_domain    = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
     global_exclusions = []
+    custom_rules = [
+      {
+        name     = "IPMatchWhitelist"
+        priority = 1
+        type     = "MatchRule"
+        action   = "Block"
+        match_conditions = [
+          {
+            match_variable     = "RemoteAddr"
+            operator           = "IPMatch"
+            negation_condition = true
+            match_values = [
+              "128.77.75.64/26",
+              "194.33.248.0/24",
+              "194.33.249.0/24",
+              "51.149.249.0/27",
+              "51.149.249.32/27",
+              #NonProd Hub IPs for Dynatrace Monitoring
+              "20.49.168.141/32",
+              "20.49.168.17/32"
+            ]
+          }
+        ]
+      }
+    ]
   },
+  {
+    product           = "pdda"
+    name              = "pdda-public-display-manager"
+    mode              = "Prevention"
+    custom_domain     = "pdda-public-display-manager.demo.platform.hmcts.net"
+    dns_zone_name     = "demo.platform.hmcts.net"
+    backend_domain    = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
+    global_exclusions = []
+    custom_rules = [
+      {
+        name     = "IPMatchWhitelist"
+        priority = 1
+        type     = "MatchRule"
+        action   = "Block"
+        match_conditions = [
+          {
+            match_variable     = "RemoteAddr"
+            operator           = "IPMatch"
+            negation_condition = true
+            match_values = [
+              "128.77.75.64/26",
+              "194.33.248.0/24",
+              "194.33.249.0/24",
+              "51.149.249.0/27",
+              "51.149.249.32/27",
+              #NonProd Hub IPs for Dynatrace Monitoring
+              "20.49.168.141/32",
+              "20.49.168.17/32"
+            ]
+          }
+        ]
+      }
+    ]
+  }
 ]
 
 apim_appgw_exclusions = [
