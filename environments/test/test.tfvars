@@ -75,96 +75,136 @@ frontends = [
     dns_zone_name  = "test.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
 
-    ruleset_type  = "Microsoft_DefaultRuleSet"
-    ruleset_value = "2.1"
+    managed_rulesets = [
+      {
+        ruleset_type  = "Microsoft_BotManagerRuleSet"
+        ruleset_value = "1.1"
+        action        = "Block"
 
-    disabled_rules_action = "AnomalyScoring"
-    disabled_rules = {
-      General = [
-        "200002",
-        "200003"
-      ],
-      PROTOCOL-ENFORCEMENT = [
-        "920120"
-      ]
-    }
+        disabled_rules = {
+          GoodBots = [
+            "Bot200100",
+            "Bot200200"
+          ],
+          BadBots = [
+            "Bot100100",
+            "Bot100200"
+          ]
+        }
+      },
+      {
+        ruleset_type  = "Microsoft_DefaultRuleSet"
+        ruleset_value = "2.1"
 
-    global_exclusions = [
-      ## Open ID response parameters
+        disabled_rules_action = "AnomalyScoring"
+        disabled_rules = {
+          General = [
+            "200002",
+            "200003"
+          ],
+          PROTOCOL-ENFORCEMENT = [
+            "920120"
+          ]
+        }
+
+        global_exclusions = [
+          ## Open ID response parameters
+          {
+            match_variable = "RequestBodyPostArgNames"
+            operator       = "Equals"
+            selector       = "code"
+          },
+          {
+            match_variable = "RequestBodyPostArgNames"
+            operator       = "Equals"
+            selector       = "state"
+          },
+          {
+            match_variable = "RequestCookieNames"
+            operator       = "Equals"
+            selector       = "formCookie"
+          },
+          {
+            match_variable = "RequestCookieNames"
+            operator       = "Equals"
+            selector       = "session"
+          },
+          {
+            match_variable = "RequestCookieNames"
+            operator       = "Equals"
+            selector       = "dtSa"
+          },
+          {
+            match_variable = "RequestCookieNames"
+            operator       = "Equals"
+            selector       = "court-and-tribunal-hearings-cookie-preferences"
+          },
+          {
+            match_variable = "QueryStringArgNames"
+            operator       = "Equals"
+            selector       = "iss"
+          },
+          {
+            match_variable = "QueryStringArgNames"
+            operator       = "Equals"
+            selector       = "code"
+          },
+          {
+            match_variable = "RequestBodyPostArgNames"
+            operator       = "Equals"
+            selector       = "error_description"
+          },
+          {
+            match_variable = "RequestBodyPostArgNames"
+            operator       = "Equals"
+            selector       = "subscriptions"
+          },
+          {
+            match_variable = "RequestCookieNames"
+            operator       = "Equals"
+            selector       = "connect.sid"
+          },
+          {
+            match_variable = "RequestBodyPostArgNames"
+            operator       = "Equals"
+            selector       = "english-caution-message"
+          },
+          {
+            match_variable = "RequestBodyPostArgNames"
+            operator       = "Equals"
+            selector       = "welsh-caution-message"
+          },
+          {
+            match_variable = "RequestBodyPostArgNames"
+            operator       = "Equals"
+            selector       = "english-no-list-message"
+          },
+          {
+            match_variable = "RequestBodyPostArgNames"
+            operator       = "Equals"
+            selector       = "welsh-no-list-message"
+          }
+        ]
+      }
+    ]
+
+    custom_rules = [
       {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "code"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "state"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "formCookie"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "session"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "dtSa"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "court-and-tribunal-hearings-cookie-preferences"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "error_description"
-      },
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "iss"
-      },
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "code"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "subscriptions"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "connect.sid"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "english-caution-message"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "welsh-caution-message"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "english-no-list-message"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "welsh-no-list-message"
+        name                           = "RateLimitPerIP"
+        enabled                        = true
+        priority                       = 10
+        type                           = "RateLimitRule"
+        action                         = "Block"
+        rate_limit_duration_in_minutes = 1
+        rate_limit_threshold           = 100
+        match_conditions = [
+          {
+            match_variable     = "RemoteAddr"
+            operator           = "IPMatch"
+            negation_condition = false
+            match_values       = ["0.0.0.0/0", "::/0"] # Match all IPs
+          }
+        ]
       }
     ]
   },
