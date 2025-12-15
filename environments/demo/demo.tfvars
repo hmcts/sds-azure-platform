@@ -515,6 +515,55 @@ frontends = [
     ]
   },
   {
+    product        = "juror-er-portal"
+    name           = "juror-er-portal"
+    custom_domain  = "juror-er.demo.apps.hmcts.net"
+    dns_zone_name  = "apps.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
+    cache_enabled  = "false"
+    mode           = "Prevention"
+    custom_rules = [
+      {
+        name     = "IPMatchWhitelist"
+        priority = 1
+        type     = "MatchRule"
+        action   = "Block"
+        match_conditions = [
+          {
+            match_variable     = "RemoteAddr"
+            operator           = "IPMatch"
+            negation_condition = true
+            match_values = [
+              "20.26.11.71/32",
+              "20.26.11.108/32",
+              "20.49.214.199/32",
+              "20.49.214.228/32",
+              "20.58.23.145/32",
+              "51.149.249.0/27",
+              "51.149.249.32/27",
+              "51.149.250.0/23",
+              "128.77.75.64/26",
+              "194.33.192.0/24",
+              "194.33.196.0/24",
+              "194.33.200.0/21",
+              "194.33.216.0/23",
+              "194.33.218.0/24",
+              "194.33.248.0/24",
+              "194.33.249.0/24",
+              "195.59.75.0/24",
+              #Prod Hubs
+              "20.50.108.242/32",
+              "20.50.109.148/32",
+              #NonProd Hubs
+              "20.49.168.141/32",
+              "20.49.168.17/32",
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
     name           = "opal-frontend"
     custom_domain  = "opal-frontend.demo.platform.hmcts.net"
     dns_zone_name  = "demo.platform.hmcts.net"
