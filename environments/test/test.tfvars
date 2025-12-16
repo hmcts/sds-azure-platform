@@ -537,7 +537,7 @@ frontends = [
   {
     product        = "juror-er-portal"
     name           = "juror-er-portal"
-    custom_domain  = "juror-er.staging.apps.hmcts.net"
+    custom_domain  = "juror-er.test.apps.hmcts.net"
     dns_zone_name  = "apps.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
