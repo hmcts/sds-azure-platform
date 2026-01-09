@@ -126,12 +126,6 @@ frontends = [
         selector       = "court-and-tribunal-hearings-cookie-preferences"
       },
       {
-        ## To be removed following release
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "error_description"
-      },
-      {
         match_variable = "QueryStringArgNames"
         operator       = "Equals"
         selector       = "error_description"
