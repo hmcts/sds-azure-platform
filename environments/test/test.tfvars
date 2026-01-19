@@ -127,6 +127,11 @@ frontends = [
           {
             match_variable = "RequestCookieNames"
             operator       = "Equals"
+            selector       = "listTypeSensitivityCookie"
+          },
+          {
+            match_variable = "RequestCookieNames"
+            operator       = "Equals"
             selector       = "session"
           },
           {
