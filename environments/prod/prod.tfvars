@@ -896,7 +896,7 @@ frontends = [
         ]
       }
     ]
-  }
+  },
   {
     name           = "hmcts-courtfines"
     custom_domain  = "courtfines.justice.gov.uk"
