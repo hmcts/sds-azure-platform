@@ -897,6 +897,13 @@ frontends = [
       }
     ]
   }
+  {
+    name           = "hmcts-courtfines"
+    custom_domain  = "courtfines.justice.gov.uk"
+    dns_zone_name  = "courtfines.justice.gov.uk"
+    backend_domain = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    disabled_rules = {}
+  },  
 ]
 
 
