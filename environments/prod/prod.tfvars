@@ -903,7 +903,7 @@ frontends = [
     dns_zone_name  = "courtfines.justice.gov.uk"
     backend_domain = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     disabled_rules = {}
-  },  
+  },
 ]
 
 
