@@ -81,16 +81,22 @@ frontends = [
         ruleset_value = "1.1"
         action        = "Block"
 
-        disabled_rules = {
-          GoodBots = [
-            "Bot200100",
-            "Bot200200"
-          ],
-          BadBots = [
-            "Bot100100",
-            "Bot100200"
-          ]
-        }
+        rule_group_override = [
+          {
+            rule_group_name = "UnknownBots"
+
+            rules = [
+              {
+                rule_id = "Bot300200"
+                action  = "Block"
+              },
+              {
+                rule_id = "Bot300300"
+                action  = "Block"
+              }
+            ]
+          }
+        ]
       },
       {
         ruleset_type  = "Microsoft_DefaultRuleSet"
