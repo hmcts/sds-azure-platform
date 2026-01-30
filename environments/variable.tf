@@ -82,3 +82,9 @@ variable "send_access_logs_to_log_analytics" {
   type        = bool
   default     = false
 }
+
+variable "disable_trusted_service_connectivity" {
+  description = "Disable Trusted Service Connectivity for APIM"
+  type        = bool
+  default     = false
+}

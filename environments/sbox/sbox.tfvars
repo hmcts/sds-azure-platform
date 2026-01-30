@@ -263,3 +263,5 @@ apim_appgw_exclusions = [
   }
 ]
 
+disable_trusted_service_connectivity = true
+
