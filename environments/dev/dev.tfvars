@@ -457,3 +457,5 @@ traffic_manager_profiles = {
     }
   }
 }
+
+disable_trusted_service_connectivity = true
