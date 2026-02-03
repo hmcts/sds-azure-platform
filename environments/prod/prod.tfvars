@@ -899,6 +899,7 @@ frontends = [
   },
   {
     name           = "hmcts-courtfines"
+    mode           = "Prevention"
     custom_domain  = "courtfines.justice.gov.uk"
     dns_zone_name  = "courtfines.justice.gov.uk"
     backend_domain = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
@@ -906,17 +907,12 @@ frontends = [
 
     global_exclusions = [
       {
-        match_variable = "PostParamValue"
+        match_variable = "RequestCookieNames"
         operator       = "Equals"
         selector       = "_csrf"
       },
       {
-        match_variable = "CookieValue"
-        operator       = "Equals"
-        selector       = "hmcts_csrf"
-      },
-      {
-        match_variable = "CookieValue"
+        match_variable = "RequestCookieNames"
         operator       = "Equals"
         selector       = "hmctsCourtFines.sig"
       },
