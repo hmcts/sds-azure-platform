@@ -908,13 +908,8 @@ frontends = [
     global_exclusions = [
       {
         match_variable = "RequestCookieNames"
-        operator       = "Equals"
+        operator       = "Contains"
         selector       = "_csrf"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "hmctsCourtFines.sig"
       },
     ]
   },
