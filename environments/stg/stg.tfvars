@@ -982,3 +982,5 @@ apim_appgw_exclusions = [
     selector       = "prl-document-api"
   }
 ]
+
+disable_trusted_service_connectivity = true
