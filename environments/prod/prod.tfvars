@@ -918,7 +918,7 @@ frontends = [
       },
       {
         match_variable = "RequestBodyPostArgNames"
-        operator       = "contains"
+        operator       = "Contains"
         selector       = "_csrf"
       },
     ]
