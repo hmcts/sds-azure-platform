@@ -911,6 +911,16 @@ frontends = [
         operator       = "Contains"
         selector       = "_csrf"
       },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Contains"
+        selector       = "hmctsCourtFines"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Contains"
+        selector       = "_csrf"
+      },
     ]
   },
 ]
