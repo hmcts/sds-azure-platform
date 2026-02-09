@@ -522,6 +522,13 @@ frontends = [
     backend_domain = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
     mode           = "Prevention"
+    disabled_rules = {
+      SQLI = [
+        "942440",
+        "942430",
+        "942450"
+      ],
+    }
     custom_rules = [
       {
         name     = "IPMatchWhitelist"
