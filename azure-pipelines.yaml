@@ -133,10 +133,10 @@ parameters:
         environment: "stg"
         dependsOn: "sbox_apim"
         pipeline_tests: false
-      # - deployment: "apim"
-      #   environment: "prod"
-      #   dependsOn: "stg_apim"
-      #   pipeline_tests: false
+      - deployment: "apim"
+        environment: "prod"
+        dependsOn: "stg_apim"
+        pipeline_tests: false
       - deployment: "apim"
         environment: "test"
         dependsOn: "sbox_apim"
