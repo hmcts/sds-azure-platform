@@ -989,3 +989,5 @@ additional_shutter_apps = [
     dns_zone_name = "hmcts.net"
   }
 ]
+
+disable_trusted_service_connectivity = true
