@@ -547,6 +547,13 @@ frontends = [
     backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
     mode           = "Prevention"
+    disabled_rules = {
+      SQLI = [
+        "942440",
+        "942430",
+        "942450"
+      ],
+    }
     custom_rules = [
       {
         name     = "IPMatchWhitelist"
@@ -618,3 +625,5 @@ apim_appgw_exclusions = [
     selector       = "prl-document-api"
   }
 ]
+
+disable_trusted_service_connectivity = true
