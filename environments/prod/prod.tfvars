@@ -1003,7 +1003,7 @@ apim_custom_nsg_rules = {
     protocol                   = "Tcp"
     source_port_range          = "*"
     source_address_prefix      = "10.24.246.16/28"
-    destination_port_range     = "80,443"
+    destination_port_ranges    = ["80", "443"]
     destination_address_prefix = "*"
   }
 }
