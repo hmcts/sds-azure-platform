@@ -996,3 +996,16 @@ apim_appgw_exclusions = [
 ]
 
 disable_trusted_service_connectivity = true
+
+apim_custom_nsg_rules = {
+  crime-portal-stg = {
+    priority                   = 110
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    source_address_prefix      = "10.25.246.16/28"
+    destination_port_range     = "80,443"
+    destination_address_prefix = "*"
+  }
+}

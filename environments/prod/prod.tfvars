@@ -994,3 +994,16 @@ additional_shutter_apps = [
     dns_zone_name = "hmcts.net"
   }
 ]
+
+apim_custom_nsg_rules = {
+  crime-portal-prod = {
+    priority                   = 110
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    source_address_prefix      = "10.24.246.16/28"
+    destination_port_range     = "80,443"
+    destination_address_prefix = "*"
+  }
+}
