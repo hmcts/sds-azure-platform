@@ -38,6 +38,12 @@ additional_routes_apim = [
     address_prefix         = "10.25.33.0/27"
     next_hop_type          = "VirtualAppliance"
     next_hop_in_ip_address = "10.11.72.37"
+  },
+  {
+    name                   = "crime-portal-stg"
+    address_prefix         = "10.25.246.16/28"
+    next_hop_type          = "VirtualAppliance"
+    next_hop_in_ip_address = "10.11.72.36"
   }
 ]
 
