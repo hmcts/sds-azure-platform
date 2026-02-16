@@ -151,7 +151,7 @@ frontends = [
         selector       = "code"
       },
       {
-        match_variable = "RequestBodyPostArgNames"
+        match_variable = "QueryStringArgNames"
         operator       = "Equals"
         selector       = "error_description"
       },
@@ -236,6 +236,11 @@ frontends = [
         match_variable = "RequestBodyJsonArgNames"
         operator       = "Contains"
         selector       = "entries.scripts"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "dtSa"
       }
     ]
   },
@@ -522,6 +527,13 @@ frontends = [
     backend_domain = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
     mode           = "Prevention"
+    disabled_rules = {
+      SQLI = [
+        "942440",
+        "942430",
+        "942450"
+      ],
+    }
     custom_rules = [
       {
         name     = "IPMatchWhitelist"
@@ -667,3 +679,5 @@ apim_appgw_exclusions = [
     selector       = "prl-document-api"
   }
 ]
+
+disable_trusted_service_connectivity = true

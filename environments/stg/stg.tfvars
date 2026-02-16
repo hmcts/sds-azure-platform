@@ -38,6 +38,12 @@ additional_routes_apim = [
     address_prefix         = "10.25.33.0/27"
     next_hop_type          = "VirtualAppliance"
     next_hop_in_ip_address = "10.11.72.37"
+  },
+  {
+    name                   = "crime-portal-stg"
+    address_prefix         = "10.25.246.16/28"
+    next_hop_type          = "VirtualAppliance"
+    next_hop_in_ip_address = "10.11.72.36"
   }
 ]
 
@@ -126,7 +132,7 @@ frontends = [
         selector       = "court-and-tribunal-hearings-cookie-preferences"
       },
       {
-        match_variable = "RequestBodyPostArgNames"
+        match_variable = "QueryStringArgNames"
         operator       = "Equals"
         selector       = "error_description"
       },
@@ -221,7 +227,12 @@ frontends = [
         match_variable = "RequestBodyJsonArgNames"
         operator       = "Contains"
         selector       = "entries.scripts"
-      }
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "dtSa"
+      },
     ]
   },
   {
@@ -809,6 +820,13 @@ frontends = [
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
     mode           = "Prevention"
+    disabled_rules = {
+      SQLI = [
+        "942440",
+        "942430",
+        "942450"
+      ],
+    }
     custom_rules = [
       {
         name     = "IPMatchWhitelist"
@@ -982,3 +1000,18 @@ apim_appgw_exclusions = [
     selector       = "prl-document-api"
   }
 ]
+
+disable_trusted_service_connectivity = true
+
+apim_custom_nsg_rules = {
+  crime-portal-stg = {
+    priority                   = 110
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    source_address_prefix      = "10.25.246.16/28"
+    destination_port_ranges    = ["80", "443"]
+    destination_address_prefix = "*"
+  }
+}

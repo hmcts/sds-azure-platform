@@ -331,7 +331,7 @@ frontends = [
         selector       = "code"
       },
       {
-        match_variable = "RequestBodyPostArgNames"
+        match_variable = "QueryStringArgNames"
         operator       = "Equals"
         selector       = "error_description"
       },
@@ -417,7 +417,12 @@ frontends = [
         match_variable = "RequestBodyJsonArgNames"
         operator       = "Contains"
         selector       = "entries.scripts"
-      }
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "dtSa"
+      },
     ]
   },
   {
@@ -703,6 +708,13 @@ frontends = [
     backend_domain = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
     mode           = "Prevention"
+    disabled_rules = {
+      SQLI = [
+        "942440",
+        "942430",
+        "942450"
+      ],
+    }
     custom_rules = [
       {
         name     = "IPMatchWhitelist"
@@ -899,13 +911,31 @@ frontends = [
   },
   {
     name           = "hmcts-courtfines"
+    mode           = "Prevention"
     custom_domain  = "courtfines.justice.gov.uk"
     dns_zone_name  = "courtfines.justice.gov.uk"
     backend_domain = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     disabled_rules = {}
+
+    global_exclusions = [
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Contains"
+        selector       = "_csrf"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Contains"
+        selector       = "hmctsCourtFines"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Contains"
+        selector       = "_csrf"
+      },
+    ]
   },
 ]
-
 
 traffic_manager_profiles = {
   ss-prod-mailrelay-tm = {
@@ -964,3 +994,16 @@ additional_shutter_apps = [
     dns_zone_name = "hmcts.net"
   }
 ]
+
+apim_custom_nsg_rules = {
+  crime-portal-prod = {
+    priority                   = 110
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    source_address_prefix      = "10.24.246.16/28"
+    destination_port_ranges    = ["80", "443"]
+    destination_address_prefix = "*"
+  }
+}
