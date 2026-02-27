@@ -288,6 +288,162 @@ frontends = [
     ]
   },
   {
+    name           = "cath-web"
+    custom_domain  = "cath-web.staging.platform.hmcts.net"
+    dns_zone_name  = "staging.platform.hmcts.net"
+    backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
+
+    ruleset_type  = "Microsoft_DefaultRuleSet"
+    ruleset_value = "2.1"
+
+    disabled_rules_action = "AnomalyScoring"
+    disabled_rules = {
+      General = [
+        "200002",
+        "200003"
+      ],
+      PROTOCOL-ENFORCEMENT = [
+        "920120"
+      ]
+    }
+
+    global_exclusions = [
+      ## Open ID response parameters
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "state"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "formCookie"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "session"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "dtSa"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "court-and-tribunal-hearings-cookie-preferences"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "iss"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "error_description"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "subscriptions"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "connect.sid"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "english-caution-message"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "welsh-caution-message"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "english-no-list-message"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "welsh-no-list-message"
+      }
+    ]
+  },
+  {
+    name                = "cath-web-b2c-sign-in"
+    custom_domain       = "sign-in.cath-web.staging.platform.hmcts.net"
+    dns_zone_name       = "staging.platform.hmcts.net"
+    backend_domain      = ["hmctspipnonprod.b2clogin.com"]
+    host_header         = "hmctspipnonprod.b2clogin.com"
+    forwarding_protocol = "HttpsOnly"
+    cache_enabled       = false
+    shutter_app         = false
+
+    ruleset_type  = "Microsoft_DefaultRuleSet"
+    ruleset_value = "2.1"
+
+    disabled_rules = {}
+    global_exclusions = [
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "redirect_uri"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "redirect_uri"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "diags"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "post_logout_redirect_uri"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "StartsWith"
+        selector       = "x-ms-cpim-"
+      },
+      {
+        match_variable = "RequestBodyJsonArgNames"
+        operator       = "Contains"
+        selector       = "entries.name"
+      },
+      {
+        match_variable = "RequestBodyJsonArgNames"
+        operator       = "Contains"
+        selector       = "entries.scripts"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "dtSa"
+      },
+    ]
+  },
+  {
     name           = "pre-portal"
     custom_domain  = "pre-portal.staging.platform.hmcts.net"
     dns_zone_name  = "staging.platform.hmcts.net"
