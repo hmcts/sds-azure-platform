@@ -444,58 +444,6 @@ frontends = [
     ]
   },
   {
-    name                = "cath-web-b2c-staff"
-    custom_domain       = "staff.cath-web.staging.platform.hmcts.net"
-    dns_zone_name       = "staging.platform.hmcts.net"
-    backend_domain      = ["hmctspipnonprod.b2clogin.com"]
-    host_header         = "hmctspipnonprod.b2clogin.com"
-    forwarding_protocol = "HttpsOnly"
-    cache_enabled       = false
-    shutter_app         = false
-
-    ruleset_type  = "Microsoft_DefaultRuleSet"
-    ruleset_value = "2.1"
-
-    disabled_rules = {}
-    global_exclusions = [
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "redirect_uri"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "redirect_uri"
-      },
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "diags"
-      },
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "post_logout_redirect_uri"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "StartsWith"
-        selector       = "x-ms-cpim-"
-      },
-      {
-        match_variable = "RequestBodyJsonArgNames"
-        operator       = "Contains"
-        selector       = "entries.name"
-      },
-      {
-        match_variable = "RequestBodyJsonArgNames"
-        operator       = "Contains"
-        selector       = "entries.scripts"
-      }
-    ]
-  },
-  {
     name           = "pre-portal"
     custom_domain  = "pre-portal.staging.platform.hmcts.net"
     dns_zone_name  = "staging.platform.hmcts.net"
