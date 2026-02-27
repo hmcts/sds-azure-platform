@@ -77,6 +77,13 @@ gateways:
       - product: opal
         component: user-service
         ssl_enabled: true
+    # Court and Tribunal Hearings
+      - product: cath
+        component: web
+        ssl_enabled: true
+      - product: cath
+        component: api
+        ssl_enabled: true
      # PDDA
       - product: pdda
         component: public-display-data-aggregator
