@@ -88,10 +88,12 @@ frontends = [
             rules = [
               {
                 rule_id = "Bot300200"
+                enabled = true
                 action  = "Block"
               },
               {
                 rule_id = "Bot300300"
+                enabled = true
                 action  = "Block"
               }
             ]
