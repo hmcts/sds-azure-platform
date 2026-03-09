@@ -423,8 +423,6 @@ frontends = [
             ]
           }
         ]
-
-        negation_condition = false
       },
       {
         name     = "RateLimit_All_Other_Pages"
@@ -439,6 +437,7 @@ frontends = [
           {
             match_variable = "RequestUri"
             operator       = "Contains"
+            negation_condition = true
             match_values = [
               "/",
               "/home",
@@ -450,8 +449,6 @@ frontends = [
               "/cookie-policy",
               "/accessibility-statement"
             ]
-
-            negation_condition = true
           }
         ]
       }
