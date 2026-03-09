@@ -193,26 +193,6 @@ frontends = [
         ]
       }
     ]
-
-    custom_rules = [
-      {
-        name                           = "RateLimitPerIP"
-        enabled                        = true
-        priority                       = 10
-        type                           = "RateLimitRule"
-        action                         = "Block"
-        rate_limit_duration_in_minutes = 1
-        rate_limit_threshold           = 100
-        match_conditions = [
-          {
-            match_variable     = "RemoteAddr"
-            operator           = "IPMatch"
-            negation_condition = false
-            match_values       = ["0.0.0.0/0", "::/0"] # Match all IPs
-          }
-        ]
-      }
-    ]
   },
   {
     name                = "pip-frontend-b2c-sign-in"

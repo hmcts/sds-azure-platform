@@ -53,96 +53,124 @@ frontends = [
     dns_zone_name  = "ithc.platform.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
 
-    ruleset_type  = "Microsoft_DefaultRuleSet"
-    ruleset_value = "2.1"
+    managed_rulesets = [
+      {
+        ruleset_type  = "Microsoft_BotManagerRuleSet"
+        ruleset_value = "1.1"
+        action        = "Block"
 
-    disabled_rules_action = "AnomalyScoring"
-    disabled_rules = {
-      General = [
-        "200002",
-        "200003"
-      ],
-      PROTOCOL-ENFORCEMENT = [
-        "920120"
-      ]
-    }
+        rule_group_override = [
+          {
+            rule_group_name = "UnknownBots"
 
-    global_exclusions = [
-      ## Open ID response parameters
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "code"
+            rules = [
+              {
+                rule_id = "Bot300200"
+                enabled = true
+                action  = "Block"
+              },
+              {
+                rule_id = "Bot300300"
+                enabled = true
+                action  = "Block"
+              }
+            ]
+          }
+        ]
       },
       {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "state"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "formCookie"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "session"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "dtSa"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "court-and-tribunal-hearings-cookie-preferences"
-      },
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "error_description"
-      },
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "iss"
-      },
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "code"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "subscriptions"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "connect.sid"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "english-caution-message"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "welsh-caution-message"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "english-no-list-message"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "welsh-no-list-message"
+        ruleset_type  = "Microsoft_DefaultRuleSet"
+        ruleset_value = "2.1"
+
+        disabled_rules_action = "AnomalyScoring"
+        disabled_rules = {
+          General = [
+            "200002",
+            "200003"
+          ],
+          PROTOCOL-ENFORCEMENT = [
+            "920120"
+          ]
+        }
+
+        global_exclusions = [
+          ## Open ID response parameters
+          {
+            match_variable = "RequestBodyPostArgNames"
+            operator       = "Equals"
+            selector       = "code"
+          },
+          {
+            match_variable = "RequestBodyPostArgNames"
+            operator       = "Equals"
+            selector       = "state"
+          },
+          {
+            match_variable = "RequestCookieNames"
+            operator       = "Equals"
+            selector       = "formCookie"
+          },
+          {
+            match_variable = "RequestCookieNames"
+            operator       = "Equals"
+            selector       = "session"
+          },
+          {
+            match_variable = "RequestCookieNames"
+            operator       = "Equals"
+            selector       = "dtSa"
+          },
+          {
+            match_variable = "RequestCookieNames"
+            operator       = "Equals"
+            selector       = "court-and-tribunal-hearings-cookie-preferences"
+          },
+          {
+            match_variable = "QueryStringArgNames"
+            operator       = "Equals"
+            selector       = "iss"
+          },
+          {
+            match_variable = "QueryStringArgNames"
+            operator       = "Equals"
+            selector       = "code"
+          },
+          {
+            match_variable = "QueryStringArgNames"
+            operator       = "Equals"
+            selector       = "error_description"
+          },
+          {
+            match_variable = "RequestBodyPostArgNames"
+            operator       = "Equals"
+            selector       = "subscriptions"
+          },
+          {
+            match_variable = "RequestCookieNames"
+            operator       = "Equals"
+            selector       = "connect.sid"
+          },
+          {
+            match_variable = "RequestBodyPostArgNames"
+            operator       = "Equals"
+            selector       = "english-caution-message"
+          },
+          {
+            match_variable = "RequestBodyPostArgNames"
+            operator       = "Equals"
+            selector       = "welsh-caution-message"
+          },
+          {
+            match_variable = "RequestBodyPostArgNames"
+            operator       = "Equals"
+            selector       = "english-no-list-message"
+          },
+          {
+            match_variable = "RequestBodyPostArgNames"
+            operator       = "Equals"
+            selector       = "welsh-no-list-message"
+          }
+        ]
       }
     ]
   },
