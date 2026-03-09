@@ -196,19 +196,59 @@ frontends = [
 
     custom_rules = [
       {
-        name                           = "RateLimitPerIP"
-        enabled                        = true
-        priority                       = 10
-        type                           = "RateLimitRule"
+        name     = "RateLimit_General_Pages"
+        priority = 20
+        type     = "RateLimitRule"
+
         action                         = "Block"
         rate_limit_duration_in_minutes = 1
-        rate_limit_threshold           = 100
+        rate_limit_threshold           = 350
+
         match_conditions = [
           {
-            match_variable     = "RemoteAddr"
-            operator           = "IPMatch"
+            match_variable     = "RequestUri"
+            operator           = "Contains"
             negation_condition = false
-            match_values       = ["0.0.0.0/0", "::/0"] # Match all IPs
+            match_values = [
+              "/",
+              "/home",
+              "/view-option",
+              "/search",
+              "/alphabetical-search",
+              "/summary-of-publications",
+              "/sign-in",
+              "/create-media-account",
+              "/cookie-policy",
+              "/accessibility-statement"
+            ]
+          }
+        ]
+      },
+      {
+        name     = "RateLimit_All_Other_Pages"
+        priority = 30
+        type     = "RateLimitRule"
+
+        action                         = "Block"
+        rate_limit_duration_in_minutes = 1
+        rate_limit_threshold           = 300
+
+        match_conditions = [
+          {
+            match_variable     = "RequestUri"
+            operator           = "Contains"
+            negation_condition = true
+            match_values = [
+              "/",
+              "/home",
+              "/view-option",
+              "/search",
+              "/alphabetical-search",
+              "/summary-of-publications",
+              "/sign-in",
+              "/cookie-policy",
+              "/accessibility-statement"
+            ]
           }
         ]
       }
