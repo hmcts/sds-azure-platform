@@ -417,6 +417,7 @@ frontends = [
               "/alphabetical-search",
               "/summary-of-publications",
               "/sign-in",
+              "/create-media-account",
               "/cookie-policy",
               "/accessibility-statement"
             ]
