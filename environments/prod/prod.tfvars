@@ -409,6 +409,7 @@ frontends = [
           {
             match_variable = "RequestUri"
             operator       = "Contains"
+            negation_condition = false
             match_values = [
               "/",
               "/home",
