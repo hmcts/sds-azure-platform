@@ -198,7 +198,7 @@ frontends = [
       {
         name      = "RateLimit_General_Pages"
         priority  = 20
-        rule_type = "RateLimitRule"
+        type = "RateLimitRule"
 
         action                         = "Block"
         rate_limit_duration_in_minutes = 1
@@ -228,7 +228,7 @@ frontends = [
       {
         name      = "RateLimit_All_Other_Pages"
         priority  = 30
-        rule_type = "RateLimitRule"
+        type = "RateLimitRule"
 
         action                         = "Block"
         rate_limit_duration_in_minutes = 1
