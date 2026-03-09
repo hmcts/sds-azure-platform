@@ -208,7 +208,7 @@ frontends = [
           {
             match_variable = "RequestUri"
             operator       = "Contains"
-            match_values   = [
+            match_values = [
               "/",
               "/home",
               "/view-option",
@@ -238,7 +238,7 @@ frontends = [
           {
             match_variable = "RequestUri"
             operator       = "Contains"
-            match_values   = [
+            match_values = [
               "/",
               "/home",
               "/view-option",
