@@ -234,8 +234,8 @@ frontends = [
 
         match_conditions = [
           {
-            match_variable = "RequestUri"
-            operator       = "Contains"
+            match_variable     = "RequestUri"
+            operator           = "Contains"
             negation_condition = true
             match_values = [
               "/",
