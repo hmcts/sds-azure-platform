@@ -397,9 +397,9 @@ frontends = [
 
     custom_rules = [
       {
-        name      = "RateLimit_General_Pages"
-        priority  = 20
-        type = "RateLimitRule"
+        name     = "RateLimit_General_Pages"
+        priority = 20
+        type     = "RateLimitRule"
 
         action                         = "Block"
         rate_limit_duration_in_minutes = 1
@@ -427,9 +427,9 @@ frontends = [
         negation_condition = false
       },
       {
-        name      = "RateLimit_All_Other_Pages"
-        priority  = 30
-        type = "RateLimitRule"
+        name     = "RateLimit_All_Other_Pages"
+        priority = 30
+        type     = "RateLimitRule"
 
         action                         = "Block"
         rate_limit_duration_in_minutes = 1
