@@ -678,6 +678,7 @@ frontends = [
       ],
     }
   },
+]
 
 apim_appgw_exclusions = [
   {
