@@ -148,16 +148,6 @@ frontends = [
           {
             match_variable = "RequestCookieNames"
             operator       = "Equals"
-            selector       = "listTypeSensitivityCookie"
-          },
-          {
-            match_variable = "RequestCookieNames"
-            operator       = "Equals"
-            selector       = "thirdPartySubscriberCookie"
-          },
-          {
-            match_variable = "RequestCookieNames"
-            operator       = "Equals"
             selector       = "dtSa"
           },
           {
