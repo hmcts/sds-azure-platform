@@ -211,6 +211,16 @@ frontends = [
             match_variable = "RequestBodyPostArgNames"
             operator       = "Equals"
             selector       = "welsh-no-list-message"
+          },
+          {
+            match_variable = "RequestBodyPostArgNames"
+            operator       = "Equals"
+            selector       = "destinationUrl"
+          },
+          {
+            match_variable = "RequestBodyPostArgNames"
+            operator       = "Equals"
+            selector       = "tokenUrl"
           }
         ]
       }
