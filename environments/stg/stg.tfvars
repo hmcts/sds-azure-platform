@@ -1075,12 +1075,12 @@ frontends = [
     }
 
     global_exclusions = [
-        {
-          match_variable = "QueryStringArgNames"
-          operator       = "Equals"
-          selector       = "clientdata"
-        }
-      ]
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "clientdata"
+      }
+    ]
   },
   {
     product           = "pdda"
