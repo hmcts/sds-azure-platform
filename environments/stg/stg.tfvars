@@ -1073,6 +1073,14 @@ frontends = [
         "942450"
       ],
     }
+
+    global_exclusions = [
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "clientdata"
+      }
+    ]
   },
   {
     product           = "pdda"
