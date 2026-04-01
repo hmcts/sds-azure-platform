@@ -579,7 +579,8 @@ frontends = [
       SQLI = [
         "942440",
         "942430",
-        "942450"
+        "942450",
+        "942120"
       ],
     }
     custom_rules = [
@@ -725,6 +726,14 @@ frontends = [
         "942450"
       ],
     }
+
+    global_exclusions = [
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "clientdata"
+      }
+    ]
   },
 ]
 
