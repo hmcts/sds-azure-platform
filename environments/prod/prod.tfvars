@@ -274,96 +274,204 @@ frontends = [
     certificate_name = "wildcard-platform-hmcts-net"
     dns_zone_name    = "court-tribunal-hearings.service.gov.uk"
 
-    ruleset_type  = "Microsoft_DefaultRuleSet"
-    ruleset_value = "2.1"
+    managed_rulesets = [
+      {
+        ruleset_type  = "Microsoft_BotManagerRuleSet"
+        ruleset_value = "1.1"
+        action        = "Block"
 
-    disabled_rules_action = "AnomalyScoring"
-    disabled_rules = {
-      General = [
-        "200002",
-        "200003"
-      ],
-      PROTOCOL-ENFORCEMENT = [
-        "920120"
-      ]
-    }
+        rule_group_override = [
+          {
+            rule_group_name = "UnknownBots"
 
-    global_exclusions = [
-      ## Open ID response parameters
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "code"
+            rules = [
+              {
+                rule_id = "Bot300200"
+                enabled = true
+                action  = "Block"
+              },
+              {
+                rule_id = "Bot300300"
+                enabled = true
+                action  = "Block"
+              }
+            ]
+          }
+        ]
       },
       {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "state"
+        ruleset_type  = "Microsoft_DefaultRuleSet"
+        ruleset_value = "2.1"
+
+        disabled_rules_action = "AnomalyScoring"
+        disabled_rules = {
+          General = [
+            "200002",
+            "200003"
+          ],
+          PROTOCOL-ENFORCEMENT = [
+            "920120"
+          ]
+        }
+
+        global_exclusions = [
+          ## Open ID response parameters
+          {
+            match_variable = "RequestBodyPostArgNames"
+            operator       = "Equals"
+            selector       = "code"
+          },
+          {
+            match_variable = "RequestBodyPostArgNames"
+            operator       = "Equals"
+            selector       = "state"
+          },
+          {
+            match_variable = "RequestCookieNames"
+            operator       = "Equals"
+            selector       = "formCookie"
+          },
+          {
+            match_variable = "RequestCookieNames"
+            operator       = "Equals"
+            selector       = "listTypeSensitivityCookie"
+          },
+          {
+            match_variable = "RequestCookieNames"
+            operator       = "Equals"
+            selector       = "thirdPartySubscriberCookie"
+          },
+          {
+            match_variable = "RequestCookieNames"
+            operator       = "Equals"
+            selector       = "session"
+          },
+          {
+            match_variable = "RequestCookieNames"
+            operator       = "Equals"
+            selector       = "dtSa"
+          },
+          {
+            match_variable = "RequestCookieNames"
+            operator       = "Equals"
+            selector       = "court-and-tribunal-hearings-cookie-preferences"
+          },
+          {
+            match_variable = "QueryStringArgNames"
+            operator       = "Equals"
+            selector       = "iss"
+          },
+          {
+            match_variable = "QueryStringArgNames"
+            operator       = "Equals"
+            selector       = "code"
+          },
+          {
+            match_variable = "QueryStringArgNames"
+            operator       = "Equals"
+            selector       = "error_description"
+          },
+          {
+            match_variable = "RequestBodyPostArgNames"
+            operator       = "Equals"
+            selector       = "subscriptions"
+          },
+          {
+            match_variable = "RequestCookieNames"
+            operator       = "Equals"
+            selector       = "connect.sid"
+          },
+          {
+            match_variable = "RequestBodyPostArgNames"
+            operator       = "Equals"
+            selector       = "english-caution-message"
+          },
+          {
+            match_variable = "RequestBodyPostArgNames"
+            operator       = "Equals"
+            selector       = "welsh-caution-message"
+          },
+          {
+            match_variable = "RequestBodyPostArgNames"
+            operator       = "Equals"
+            selector       = "english-no-list-message"
+          },
+          {
+            match_variable = "RequestBodyPostArgNames"
+            operator       = "Equals"
+            selector       = "welsh-no-list-message"
+          },
+          {
+            match_variable = "RequestBodyPostArgNames"
+            operator       = "Equals"
+            selector       = "destinationUrl"
+          },
+          {
+            match_variable = "RequestBodyPostArgNames"
+            operator       = "Equals"
+            selector       = "tokenUrl"
+          }
+        ]
+      }
+    ]
+
+    custom_rules = [
+      {
+        name     = "RateLimit_General_Pages"
+        priority = 20
+        type     = "RateLimitRule"
+
+        action                         = "Block"
+        rate_limit_duration_in_minutes = 1
+        rate_limit_threshold           = 350
+
+        match_conditions = [
+          {
+            match_variable     = "RequestUri"
+            operator           = "Contains"
+            negation_condition = false
+            match_values = [
+              "/",
+              "/home",
+              "/view-option",
+              "/search",
+              "/alphabetical-search",
+              "/summary-of-publications",
+              "/sign-in",
+              "/create-media-account",
+              "/cookie-policy",
+              "/accessibility-statement"
+            ]
+          }
+        ]
       },
       {
-        match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "formCookie"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "session"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "dtSa"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "court-and-tribunal-hearings-cookie-preferences"
-      },
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "iss"
-      },
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "code"
-      },
-      {
-        match_variable = "QueryStringArgNames"
-        operator       = "Equals"
-        selector       = "error_description"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "subscriptions"
-      },
-      {
-        match_variable = "RequestCookieNames"
-        operator       = "Equals"
-        selector       = "connect.sid"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "english-caution-message"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "welsh-caution-message"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "english-no-list-message"
-      },
-      {
-        match_variable = "RequestBodyPostArgNames"
-        operator       = "Equals"
-        selector       = "welsh-no-list-message"
+        name     = "RateLimit_All_Other_Pages"
+        priority = 30
+        type     = "RateLimitRule"
+
+        action                         = "Block"
+        rate_limit_duration_in_minutes = 1
+        rate_limit_threshold           = 300
+
+        match_conditions = [
+          {
+            match_variable     = "RequestUri"
+            operator           = "Contains"
+            negation_condition = true
+            match_values = [
+              "/",
+              "/home",
+              "/view-option",
+              "/search",
+              "/alphabetical-search",
+              "/summary-of-publications",
+              "/sign-in",
+              "/cookie-policy",
+              "/accessibility-statement"
+            ]
+          }
+        ]
       }
     ]
   },
