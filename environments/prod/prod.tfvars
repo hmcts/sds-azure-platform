@@ -417,7 +417,7 @@ frontends = [
 
     custom_rules = [
       {
-        name     = "RateLimit_General_Pages"
+        name     = "RateLimitGeneralPages"
         priority = 20
         type     = "RateLimitRule"
 
@@ -446,7 +446,7 @@ frontends = [
         ]
       },
       {
-        name     = "RateLimit_All_Other_Pages"
+        name     = "RateLimitAllOtherPages"
         priority = 30
         type     = "RateLimitRule"
 
