@@ -640,6 +640,21 @@ frontends = [
     global_exclusions = []
   },
   {
+    name           = "opal-rm-frontend"
+    custom_domain  = "opal-rm-frontend.demo.apps.hmcts.net"
+    dns_zone_name  = "demo.apps.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
+    cache_enabled  = "false"
+    disabled_rules = {
+      SQLI = [
+        "942440",
+        "942430",
+        "942450"
+      ],
+    }
+    global_exclusions = []
+  },
+  {
     name           = "hmcts-courtfines-demo"
     custom_domain  = "courtfines-app.demo.platform.hmcts.net"
     dns_zone_name  = "demo.platform.hmcts.net"
