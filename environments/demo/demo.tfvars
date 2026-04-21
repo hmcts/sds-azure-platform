@@ -626,8 +626,8 @@ frontends = [
   },
   {
     name           = "opal-frontend"
-    custom_domain  = "opal-frontend.demo.platform.hmcts.net"
-    dns_zone_name  = "demo.platform.hmcts.net"
+    custom_domain  = "opal-frontend.demo.apps.hmcts.net"
+    dns_zone_name  = "demo.apps.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsdemoappgateway.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
     disabled_rules = {

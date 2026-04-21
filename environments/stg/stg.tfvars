@@ -1075,8 +1075,8 @@ frontends = [
   },
   {
     name           = "opal-frontend"
-    custom_domain  = "opal-frontend.staging.platform.hmcts.net"
-    dns_zone_name  = "staging.platform.hmcts.net"
+    custom_domain  = "opal-frontend.staging.apps.hmcts.net"
+    dns_zone_name  = "staging.apps.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
     disabled_rules = {
@@ -1090,8 +1090,8 @@ frontends = [
   },
   {
     name           = "opal-frontend-test"
-    custom_domain  = "opal-frontend-test.staging.platform.hmcts.net"
-    dns_zone_name  = "staging.platform.hmcts.net"
+    custom_domain  = "opal-frontend-test.staging.apps.hmcts.net"
+    dns_zone_name  = "staging.apps.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
     disabled_rules = {
