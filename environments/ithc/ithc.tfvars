@@ -492,8 +492,8 @@ frontends = [
   },
   {
     name           = "opal-frontend"
-    custom_domain  = "opal-frontend.ithc.platform.hmcts.net"
-    dns_zone_name  = "ithc.platform.hmcts.net"
+    custom_domain  = "opal-frontend.ithc.apps.hmcts.net"
+    dns_zone_name  = "ithc.apps.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
     disabled_rules = {
