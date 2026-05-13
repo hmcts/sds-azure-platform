@@ -388,6 +388,11 @@ frontends = [
         selector       = "court-and-tribunal-hearings-cookie-preferences"
       },
       {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "cookie_policy"
+      },
+      {
         match_variable = "QueryStringArgNames"
         operator       = "Equals"
         selector       = "iss"
