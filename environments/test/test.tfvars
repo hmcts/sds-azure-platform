@@ -504,6 +504,13 @@ frontends = [
         "930110"
       ],
     }
+    global_exclusions = [
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "notes"
+      }
+    ]
     custom_rules = [
       {
         name     = "IPMatchWhitelist"
