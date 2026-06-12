@@ -5,7 +5,7 @@ data "azurerm_storage_account" "diagnostics" {
 
 resource "azurerm_monitor_diagnostic_setting" "appgateway" {
   name                       = "appgw-diagnostics-${var.env}"
-  target_resource_id         = module.appgateway.application_gateway_id
+  target_resource_id         = azurerm_application_gateway.ag[0].id
   storage_account_id         = data.azurerm_storage_account.diagnostics.id
   log_analytics_workspace_id = module.logworkspace.workspace_id
 
