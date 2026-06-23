@@ -4,7 +4,7 @@ env                               = "demo"
 subscription                      = "demo"
 oms_env                           = "demo"
 private_ip_address                = "10.51.96.133"
-destinations                      = ["10.51.79.250", "10.51.95.250"]
+destinations                      = ["10.51.95.250"]
 vnet_rg                           = "ss-demo-network-rg"
 vnet_name                         = "ss-demo-vnet"
 hub                               = "nonprod"
@@ -719,7 +719,7 @@ frontends = [
               #NonProd Hubs
               "20.49.168.141/32",
               "20.49.168.17/32",
-              #Liam Murray 
+              #Liam Murray
               "147.161.167.2/32",
               #Chiren Makwana
               "81.111.92.6/32"
