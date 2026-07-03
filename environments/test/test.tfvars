@@ -9,6 +9,7 @@ vnet_rg            = "ss-test-network-rg"
 vnet_name          = "ss-test-vnet"
 hub                = "nonprod"
 autoShutdown       = true
+send_access_logs_to_log_analytics = true
 ssl_policy = {
   policy_type          = "Predefined"
   policy_name          = "AppGwSslPolicy20220101S"
