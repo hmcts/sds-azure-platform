@@ -798,6 +798,27 @@ frontends = [
       ],
     }
     global_exclusions = []
+  },
+  {
+    name           = "appreg"
+    custom_domain  = "appreg.test.apps.hmcts.net"
+    dns_zone_name  = "test.apps.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdstest.uksouth.cloudapp.azure.com"]
+    disabled_rules = {
+      SQLI = [
+        "942440",
+        "942430",
+        "942450"
+      ],
+    }
+
+    global_exclusions = [
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "clientdata"
+      }
+    ]
   }
 
 ]

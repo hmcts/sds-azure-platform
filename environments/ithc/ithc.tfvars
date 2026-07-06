@@ -799,6 +799,27 @@ frontends = [
         ]
       }
     ]
+  },
+  {
+    name           = "appreg"
+    custom_domain  = "appreg.ithc.apps.hmcts.net"
+    dns_zone_name  = "ithc.apps.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
+    disabled_rules = {
+      SQLI = [
+        "942440",
+        "942430",
+        "942450"
+      ],
+    }
+
+    global_exclusions = [
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "clientdata"
+      }
+    ]
   }
 ]
 
