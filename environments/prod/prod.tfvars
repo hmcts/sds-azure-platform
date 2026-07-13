@@ -962,7 +962,7 @@ frontends = [
         name     = "IPMatchWhitelist"
         priority = 1
         type     = "MatchRule"
-        action   = "Block"
+        action   = "Allow"
         match_conditions = [
           {
             match_variable     = "RemoteAddr"
