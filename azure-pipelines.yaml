@@ -5,6 +5,29 @@ trigger:
   branches:
     include:
       - master
+  paths:
+    include:
+      - azure-pipelines.yaml
+      - ci/**
+      - components/**
+      - environments/**
+      - pipeline-scripts/**
+      - pipeline-templates/**
+      - scripts/**
+
+pr:
+  branches:
+    include:
+      - refs/heads/master
+  paths:
+    include:
+      - azure-pipelines.yaml
+      - ci/**
+      - components/**
+      - environments/**
+      - pipeline-scripts/**
+      - pipeline-templates/**
+      - scripts/**
 
 resources:
   repositories:
@@ -30,6 +53,14 @@ parameters:
     values:
       - "UK South"
       - "UK West"
+
+  - name: agentPoolType
+    displayName: Agent Type
+    type: string
+    default: hosted
+    values:
+      - hosted
+      - self-hosted
 
   - name: components
     displayName: Component to Run
@@ -178,8 +209,10 @@ parameters:
 variables:
   - name: project
     value: application
-  - name: agentPool
+  - name: hostedVmImage
     value: 'ubuntu-latest'
+  - name: selfHostedAgentPool
+    value: 'hmcts-cftptl-agent-pool'
   - name: build
     value: $(Build.BuildNumber)
   - name: businessArea
@@ -204,7 +237,10 @@ stages:
     jobs:
       - job: Validate
         pool:
-          vmImage: ${{ variables.agentPool }}
+          ${{ if eq(parameters.agentPoolType, 'hosted') }}:
+            vmImage: ${{ variables.hostedVmImage }}
+          ${{ else }}:
+            name: ${{ variables.selfHostedAgentPool }}
         timeoutInMinutes: ${{ variables.timeoutInMinutes }}
         steps:
           - template: steps/terraform-precheck.yaml@cnp-azuredevops-libraries
@@ -224,7 +260,10 @@ stages:
         jobs:
           - job: TerraformPlanApply
             pool:
-              vmImage: ${{ variables.agentPool }}
+              ${{ if eq(parameters.agentPoolType, 'hosted') }}:
+                vmImage: ${{ variables.hostedVmImage }}
+              ${{ else }}:
+                name: ${{ variables.selfHostedAgentPool }}
             timeoutInMinutes: ${{ variables.timeoutInMinutes }}
             steps:
               - template: steps/terraform.yaml@cnp-azuredevops-libraries
@@ -242,7 +281,10 @@ stages:
                     -var project=$(project)
           - job: PipelineTests
             pool:
-              vmImage: ${{ variables.agentPool }}
+              ${{ if eq(parameters.agentPoolType, 'hosted') }}:
+                vmImage: ${{ variables.hostedVmImage }}
+              ${{ else }}:
+                name: ${{ variables.selfHostedAgentPool }}
             timeoutInMinutes: ${{ variables.timeoutInMinutes }}
             dependsOn: TerraformPlanApply
             condition: and(succeeded(), eq(variables['isMain'], true), eq('${{ parameter.pipeline_tests }}', 'true'))
