@@ -950,13 +950,19 @@ frontends = [
     ]
   },
   {
-    product           = "pdda"
-    name              = "pdda-public-display-manager"
-    mode              = "Prevention"
-    custom_domain     = "pdda-public-display-manager.platform.hmcts.net"
-    dns_zone_name     = "platform.hmcts.net"
-    backend_domain    = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-    global_exclusions = []
+    product        = "pdda"
+    name           = "pdda-public-display-manager"
+    mode           = "Prevention"
+    custom_domain  = "pdda-public-display-manager.platform.hmcts.net"
+    dns_zone_name  = "platform.hmcts.net"
+    backend_domain = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    global_exclusions = [
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      }
+    ],
     custom_rules = [
       {
         name     = "IPMatchWhitelist"
