@@ -3,5 +3,6 @@
   "extends": [
     "github>hmcts/.github//renovate/automerge-minor",
     "local>hmcts/.github:renovate-config"
-  ]
+  ],
+  "rebaseWhen": "conflicted"
 }
