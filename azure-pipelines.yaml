@@ -243,6 +243,16 @@ stages:
             name: ${{ variables.selfHostedAgentPool }}
         timeoutInMinutes: ${{ variables.timeoutInMinutes }}
         steps:
+          - checkout: self
+
+          - ${{ if eq(variables['Build.Reason'], 'PullRequest') }}:
+              - checkout: cnp-azuredevops-libraries
+              - task: ShellScript@2
+                name: detect_pr_envs
+                displayName: Detect PR target environments
+                inputs:
+                  scriptPath: '$(Build.SourcesDirectory)/cnp-azuredevops-libraries/scripts/detect-pr-envs.sh'
+
           - template: steps/terraform-precheck.yaml@cnp-azuredevops-libraries
             parameters:
               keyvaultName: 'infra-vault-nonprod'
@@ -257,6 +267,7 @@ stages:
       - stage: ${{ parameter.environment }}_${{ parameter.deployment }}
         displayName: ${{ parameter.environment }}_${{ parameter.deployment }}
         dependsOn: ${{ parameter.dependsOn }}
+        condition: and(succeeded(), or(ne(variables['Build.Reason'], 'PullRequest'), eq(dependencies.Precheck.outputs['Validate.detect_pr_envs.prRunAllEnvs'], 'true'), contains(dependencies.Precheck.outputs['Validate.detect_pr_envs.prTargetEnvs'], ',${{ parameter.environment }},')))
         jobs:
           - job: TerraformPlanApply
             pool:
