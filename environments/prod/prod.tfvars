@@ -1057,6 +1057,16 @@ apim_appgw_exclusions = [
 
 additional_shutter_apps = [
   {
+    name          = "opal-frontend"
+    custom_domain = "opal-frontend.apps.hmcts.net"
+    dns_zone_name = "apps.hmcts.net"
+  },
+  {
+    name          = "opal-rm-frontend"
+    custom_domain = "opal-rm-frontend.apps.hmcts.net"
+    dns_zone_name = "apps.hmcts.net"
+  },
+  {
     name          = "tools-atlassian"
     shutter_app   = true
     custom_domain = "tools.hmcts.net"
