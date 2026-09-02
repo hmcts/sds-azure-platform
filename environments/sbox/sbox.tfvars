@@ -328,6 +328,19 @@ frontends = [
   },
 ]
 
+additional_shutter_apps = [
+  {
+    name          = "opal-frontend"
+    custom_domain = "opal-frontend.sandbox.apps.hmcts.net"
+    dns_zone_name = "sandbox.apps.hmcts.net"
+  },
+  {
+    name          = "opal-rm-frontend"
+    custom_domain = "opal-rm-frontend.sandbox.apps.hmcts.net"
+    dns_zone_name = "sandbox.apps.hmcts.net"
+  }
+]
+
 apim_appgw_exclusions = [
   {
     match_variable = "RequestArgNames"
@@ -342,4 +355,3 @@ apim_appgw_exclusions = [
 ]
 
 disable_trusted_service_connectivity = true
-
