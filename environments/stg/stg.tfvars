@@ -1208,7 +1208,24 @@ frontends = [
         ]
       }
     ]
-  }
+  },
+  # Existing staging-only test frontend; no production equivalent.
+  {
+    name           = "opal-frontend-test"
+    shutter_app    = false
+    custom_domain  = "opal-frontend-test.staging.apps.hmcts.net"
+    dns_zone_name  = "staging.apps.hmcts.net"
+    backend_domain = ["firewall-prod-int-palo-sdsstg.uksouth.cloudapp.azure.com"]
+    cache_enabled  = "false"
+    disabled_rules = {
+      SQLI = [
+        "942440",
+        "942430",
+        "942450"
+      ],
+    }
+    global_exclusions = []
+  },
 ]
 
 apim_appgw_exclusions = [
