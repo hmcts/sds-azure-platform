@@ -61,3 +61,20 @@ gateways:
         component: api
         ssl_enabled: true
         health_path_override: /health
+      # Additional Opal routes; append to preserve existing rule priorities.
+      # file-handler-service and external-api await separate Flux enablement.
+      - product: opal
+        component: fines-service
+        ssl_enabled: true
+      - product: opal
+        component: logging-service
+        ssl_enabled: true
+      - product: opal
+        component: user-service
+        ssl_enabled: true
+      - product: opal
+        component: file-handler-service
+        ssl_enabled: true
+      - product: opal
+        component: external-api
+        ssl_enabled: true
