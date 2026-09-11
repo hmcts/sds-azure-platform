@@ -62,7 +62,6 @@ gateways:
       - product: opal
         component: user-service
         ssl_enabled: true
-      # Additional Opal routes; append to preserve existing rule priorities.
       - product: opal
         component: file-handler-service
         ssl_enabled: true

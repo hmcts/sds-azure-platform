@@ -1016,8 +1016,6 @@ frontends = [
       },
     ]
   },
-  # Opal routes retain the existing name-keyed shutter resources.
-  # RM remains disabled in Flux until its separate application rollout.
   {
     name              = "opal-frontend"
     custom_domain     = "opal-frontend.apps.hmcts.net"

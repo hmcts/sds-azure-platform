@@ -92,7 +92,6 @@ gateways:
       - product: appreg
         component: api
         ssl_enabled: true
-      # Additional Opal routes; append to preserve existing rule priorities.
       - product: opal
         component: file-handler-service
         ssl_enabled: true

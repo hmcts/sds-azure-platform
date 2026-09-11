@@ -1209,7 +1209,6 @@ frontends = [
       }
     ]
   },
-  # Existing staging-only test frontend; no production equivalent.
   {
     name           = "opal-frontend-test"
     shutter_app    = false
