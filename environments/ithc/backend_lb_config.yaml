@@ -62,3 +62,9 @@ gateways:
       - product: opal
         component: user-service
         ssl_enabled: true
+      - product: opal
+        component: file-handler-service
+        ssl_enabled: true
+      - product: opal
+        component: maintenance-service
+        ssl_enabled: true

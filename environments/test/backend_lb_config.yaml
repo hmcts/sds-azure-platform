@@ -83,3 +83,9 @@ gateways:
       - product: appreg
         component: api
         ssl_enabled: true
+      - product: opal
+        component: file-handler-service
+        ssl_enabled: true
+      - product: opal
+        component: maintenance-service
+        ssl_enabled: true

@@ -1016,6 +1016,26 @@ frontends = [
       },
     ]
   },
+  {
+    name              = "opal-frontend"
+    custom_domain     = "opal-frontend.apps.hmcts.net"
+    dns_zone_name     = "apps.hmcts.net"
+    backend_domain    = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    cache_enabled     = "false"
+    shutter_app       = true
+    disabled_rules    = {}
+    global_exclusions = []
+  },
+  {
+    name              = "opal-rm-frontend"
+    custom_domain     = "opal-rm-frontend.apps.hmcts.net"
+    dns_zone_name     = "apps.hmcts.net"
+    backend_domain    = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    cache_enabled     = "false"
+    shutter_app       = true
+    disabled_rules    = {}
+    global_exclusions = []
+  },
 ]
 
 traffic_manager_profiles = {
@@ -1056,16 +1076,6 @@ apim_appgw_exclusions = [
 ]
 
 additional_shutter_apps = [
-  {
-    name          = "opal-frontend"
-    custom_domain = "opal-frontend.apps.hmcts.net"
-    dns_zone_name = "apps.hmcts.net"
-  },
-  {
-    name          = "opal-rm-frontend"
-    custom_domain = "opal-rm-frontend.apps.hmcts.net"
-    dns_zone_name = "apps.hmcts.net"
-  },
   {
     name          = "tools-atlassian"
     shutter_app   = true
