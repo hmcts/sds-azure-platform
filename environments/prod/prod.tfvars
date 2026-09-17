@@ -1017,14 +1017,20 @@ frontends = [
     ]
   },
   {
-    name              = "opal-frontend"
-    custom_domain     = "opal-frontend.apps.hmcts.net"
-    dns_zone_name     = "apps.hmcts.net"
-    backend_domain    = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-    cache_enabled     = "false"
-    shutter_app       = true
-    disabled_rules    = {}
-    global_exclusions = []
+    name           = "opal-frontend"
+    custom_domain  = "opal-frontend.apps.hmcts.net"
+    dns_zone_name  = "apps.hmcts.net"
+    backend_domain = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    cache_enabled  = "false"
+    shutter_app    = false
+    disabled_rules = {}
+    global_exclusions = [
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      }
+    ]
   },
   {
     name              = "opal-rm-frontend"
