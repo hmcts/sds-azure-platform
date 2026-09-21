@@ -1022,7 +1022,7 @@ frontends = [
     dns_zone_name  = "apps.hmcts.net"
     backend_domain = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
-    shutter_app    = false
+    shutter_app    = true
     disabled_rules = {}
     global_exclusions = [
       {
