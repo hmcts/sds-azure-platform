@@ -5,13 +5,12 @@ on:
       - master
   workflow_dispatch:
 
-jobs: 
+jobs:
   review:
     runs-on: ubuntu-latest
-    env: 
+    env:
       X_API_KEY: ${{ secrets.SYSTEM_API_KEY }}
       X_API_CONSUMER: ${{ secrets.SYSTEM_CONSUMER_UUID }}
-      API_HOST: "https://app-gippi-api-s-latest-uksouth.azurewebsites.net/"
       WORKING_DIRECTORY: ${{ github.workspace }}/
     steps:
       - name: Checkout code
@@ -25,7 +24,6 @@ jobs:
 
       - name: Generate a response
         run: |
-          API_HOST=$(printenv API_HOST)
           WORKING_DIRECTORY=$(printenv WORKING_DIRECTORY)
           X_API_CONSUMER=$(printenv X_API_CONSUMER)
           X_API_KEY=$(printenv X_API_KEY)
@@ -39,12 +37,6 @@ jobs:
 
           file_contents=$(cat "${WORKING_DIRECTORY}${DIFF_FILE}")
           json_body=$(jq -n --arg pt "pullrequest-review" --arg p "$file_contents" '{prompt_type: $pt, prompt: $p}')
-
-          response=$(curl -s -i -X POST "${API_HOST}/predefined" \
-              -H "Content-Type: application/json" \
-              -H "X-API-CONSUMER: ${X_API_CONSUMER}" \
-              -H "X-API-KEY: ${X_API_KEY}" \
-              -d "$json_body")
 
           echo "Response: $response"
 
@@ -76,8 +68,8 @@ jobs:
               echo "Error writing to file in ${WORKING_DIRECTORY}."
               exit 1
           fi
-          
-      - name: Get the response as a variable 
+
+      - name: Get the response as a variable
         id: get_response
         run: |
           {
