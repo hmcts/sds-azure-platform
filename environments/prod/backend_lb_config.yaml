@@ -76,3 +76,7 @@ gateways:
       - product: opal
         component: external-api
         ssl_enabled: true
+      # Application Register
+      - product: appreg
+        component: api
+        ssl_enabled: true

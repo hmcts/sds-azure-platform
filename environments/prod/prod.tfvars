@@ -1042,6 +1042,23 @@ frontends = [
     disabled_rules    = {}
     global_exclusions = []
   },
+  {
+    name           = "appreg"
+    custom_domain  = "appreg.apps.hmcts.net"
+    dns_zone_name  = "apps.hmcts.net"
+    backend_domain = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
+    cache_enabled  = "false"
+    disabled_rules = {
+      SQLI = [
+        "942440",
+        "942430",
+        "942450",
+        "942110",
+        "942330"
+      ],
+    }
+    global_exclusions = []
+  },
 ]
 
 traffic_manager_profiles = {
