@@ -1051,9 +1051,9 @@ frontends = [
     shutter_app    = false
     managed_rulesets = [
       {
-        ruleset_type          = "Microsoft_DefaultRuleSet"
-        ruleset_value         = "2.1"
-        action                = "AnomalyScoring"
+        ruleset_type  = "Microsoft_DefaultRuleSet"
+        ruleset_value = "2.1"
+        action                = "Block"
         disabled_rules_action = "AnomalyScoring"
         disabled_rules = {
           SQLI = [
