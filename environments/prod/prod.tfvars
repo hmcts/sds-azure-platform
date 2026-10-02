@@ -1049,19 +1049,24 @@ frontends = [
     backend_domain = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
     shutter_app    = false
-    ruleset_type   = "Microsoft_DefaultRuleSet"
-    ruleset_value  = "2.1"
-
-    disabled_rules = {
-      SQLI = [
-        "942440",
-        "942430",
-        "942450",
-        "942110",
-        "942330"
-      ],
-    }
-    global_exclusions = []
+    managed_rulesets = [
+      {
+        ruleset_type          = "Microsoft_DefaultRuleSet"
+        ruleset_value         = "2.1"
+        action                = "Block"
+        disabled_rules_action = "AnomalyScoring"
+        disabled_rules = {
+          SQLI = [
+            "942440",
+            "942430",
+            "942450",
+            "942110",
+            "942330"
+          ],
+        }
+        global_exclusions = []
+      }
+    ]
   },
 ]
 
