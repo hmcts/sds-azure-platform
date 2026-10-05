@@ -1064,7 +1064,13 @@ frontends = [
             "942330"
           ],
         }
-        global_exclusions = []
+        global_exclusions = [
+          {
+            match_variable = "QueryStringArgNames"
+            operator       = "Equals"
+            selector       = "clientdata"
+          }
+        ]
       }
     ]
   },
