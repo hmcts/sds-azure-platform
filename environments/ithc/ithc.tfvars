@@ -726,6 +726,43 @@ frontends = [
     ]
   },
   {
+    product        = "darts-magistrates-portal"
+    name           = "darts-magistrates-portal"
+    custom_domain  = "darts-magistrates.ithc.apps.hmcts.net"
+    dns_zone_name  = "apps.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
+    cache_enabled  = "false"
+
+    global_exclusions = [
+      ## Open ID response parameters
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      },
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "error_description"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "darts_session"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "cookie_policy"
+      },
+      {
+        match_variable = "QueryStringArgNames"
+        operator       = "Equals"
+        selector       = "user_ids"
+      },
+    ]
+  },
+  {
     name           = "hmcts-courtfines-ithc"
     custom_domain  = "courtfines-app.ithc.platform.hmcts.net"
     dns_zone_name  = "ithc.platform.hmcts.net"

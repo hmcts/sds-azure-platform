@@ -45,6 +45,16 @@ gateways:
       - product: darts
         component: external-component-test-harness
         ssl_enabled: false
+      # Darts Magistrates
+      - product: darts-magistrates
+        component: api
+        ssl_enabled: true
+      - product: darts-magistrates
+        component: gateway
+        ssl_enabled: false
+      - product: darts-magistrates
+        component: external-component-test-harness
+        ssl_enabled: false
       # Pre-Recorded Evidence
       - product: pre
         component: portal
