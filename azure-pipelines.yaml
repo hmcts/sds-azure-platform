@@ -33,7 +33,7 @@ resources:
   repositories:
   - repository: cnp-azuredevops-libraries
     type: github
-    ref: refs/heads/master
+    ref: refs/heads/dev/roger/terrafrom-report-additions) 
     name: hmcts/cnp-azuredevops-libraries
     endpoint: 'hmcts'
 
