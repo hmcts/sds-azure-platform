@@ -21,6 +21,16 @@ gateways:
       - product: darts
         component: stub-services
         ssl_enabled: false
+      # Darts Magistrates
+      - product: darts-magistrates
+        component: api
+        ssl_enabled: true
+      - product: darts-magistrates
+        component: gateway
+        ssl_enabled: false
+      - product: darts-magistrates
+        component: external-component-test-harness
+        ssl_enabled: false
       # Juror
       - product: juror
         component: scheduler-api
