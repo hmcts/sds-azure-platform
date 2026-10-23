@@ -24,6 +24,23 @@ key_vault_subscription        = "5ca62022-6aa2-4cee-aaa7-e7536c8d566c"
 hub_app_gw_private_ip_address = ["10.11.8.200"]
 apim_appgw_backend_pool_fqdns = ["firewall-prod-int-palo-sdsapimgmtprod.uksouth.cloudapp.azure.com"]
 
+global_blocklist = [
+  {
+    name   = "DetectBrotliRequests"
+    action = "Log"
+    match_conditions = [
+      {
+        match_variable     = "RequestHeader"
+        selector           = "Content-Encoding"
+        operator           = "Equal"
+        negation_condition = false
+        match_values       = ["br"]
+        transforms         = ["Lowercase", "Trim"]
+      }
+    ]
+  }
+]
+
 frontends = [
   {
     name           = "dts-legacy-apps---certificatedbailiffs"
