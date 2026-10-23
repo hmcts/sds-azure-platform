@@ -31,10 +31,10 @@ global_blocklist = [
       {
         match_variable     = "RequestHeader"
         selector           = "Content-Encoding"
-        operator           = "Equal"
+        operator           = "RegEx"
         negation_condition = false
-        match_values       = ["br"]
-        transforms         = ["Lowercase", "Trim"]
+        match_values       = ["(?:^|,)[[:space:]]*br[[:space:]]*(?:,|$)"]
+        transforms         = ["Lowercase"]
       }
     ]
   }
