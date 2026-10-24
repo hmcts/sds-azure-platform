@@ -24,6 +24,23 @@ key_vault_subscription        = "a8140a9e-f1b0-481f-a4de-09e2ee23f7ab"
 hub_app_gw_private_ip_address = ["10.10.200.222"]
 apim_appgw_backend_pool_fqdns = ["firewall-sbox-int-palo-sdsapimgmt.uksouth.cloudapp.azure.com"]
 
+global_blocklist = [
+  {
+    name   = "DetectBrotliRequests"
+    action = "Log"
+    match_conditions = [
+      {
+        match_variable     = "RequestHeader"
+        selector           = "Content-Encoding"
+        operator           = "RegEx"
+        negation_condition = false
+        match_values       = ["(?:^|,)[[:space:]]*br[[:space:]]*(?:,|$)"]
+        transforms         = ["Lowercase"]
+      }
+    ]
+  }
+]
+
 frontends = [
   {
 

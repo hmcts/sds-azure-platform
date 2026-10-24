@@ -5,6 +5,7 @@ variable "destinations" {}
 variable "env" {}
 variable "environment" {}
 variable "frontends" {}
+variable "global_blocklist" { default = [] }
 variable "location" {}
 variable "oms_env" {}
 variable "private_ip_address" {}

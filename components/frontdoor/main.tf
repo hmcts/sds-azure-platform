@@ -29,13 +29,14 @@ moved {
   to   = module.premium_front_door
 }
 module "premium_front_door" {
-  source = "git::https://github.com/hmcts/terraform-module-frontdoor.git?ref=master"
+  source = "git::https://github.com/hmcts/terraform-module-frontdoor.git?ref=addglobalrulesupport"
 
   common_tags                = module.ctags.common_tags
   env                        = var.env
   project                    = var.project
   location                   = var.location
   frontends                  = var.frontends
+  global_blocklist           = var.global_blocklist
   ssl_mode                   = var.ssl_mode
   resource_group             = azurerm_resource_group.fd_rg.name
   subscription_id            = data.azurerm_subscription.current.subscription_id

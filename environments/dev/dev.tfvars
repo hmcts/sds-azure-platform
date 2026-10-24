@@ -22,6 +22,23 @@ apim_appgw_backend_pool_fqdns = ["firewall-nonprodi-palo-sdsapimgmtdev.uksouth.c
 apim_appgw_min_capacity       = 1
 apim_appgw_max_capacity       = 2
 
+global_blocklist = [
+  {
+    name   = "DetectBrotliRequests"
+    action = "Log"
+    match_conditions = [
+      {
+        match_variable     = "RequestHeader"
+        selector           = "Content-Encoding"
+        operator           = "RegEx"
+        negation_condition = false
+        match_values       = ["(?:^|,)[[:space:]]*br[[:space:]]*(?:,|$)"]
+        transforms         = ["Lowercase"]
+      }
+    ]
+  }
+]
+
 frontends = [
 
   {
