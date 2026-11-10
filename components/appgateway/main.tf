@@ -21,7 +21,7 @@ module "appgateway" {
     azurerm.kv  = azurerm.kv
   }
 
-  source = "git::https://github.com/hmcts/terraform-module-applicationgateway.git?ref=master"
+  source = "git::https://github.com/hmcts/terraform-module-applicationgateway.git?ref=feat/global-buffering-configuration"
 
 
   env                                = var.env
