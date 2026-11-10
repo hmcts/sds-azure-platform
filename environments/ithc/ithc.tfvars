@@ -746,7 +746,7 @@ frontends = [
     product        = "darts-magistrates-portal"
     name           = "darts-magistrates-portal"
     custom_domain  = "darts-magistrates.ithc.apps.hmcts.net"
-    dns_zone_name  = "apps.hmcts.net"
+    dns_zone_name  = "ithc.apps.hmcts.net"
     backend_domain = ["firewall-nonprodi-palo-sdsithc.uksouth.cloudapp.azure.com"]
     cache_enabled  = "false"
 
