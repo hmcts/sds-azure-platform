@@ -257,7 +257,7 @@ stages:
             parameters:
               keyvaultName: 'infra-vault-nonprod'
               keyvaultSecret: 'azure-devops-sp-token'
-              serviceConnection: 'DCD-CFTAPPS-STG'
+              serviceConnection: 'DCD-CFT-Sandbox-WIF'
               overrideAction: ${{ parameters.action }}
               projectName: ${{ variables.businessArea }}
               environment: 'sbox'
@@ -283,7 +283,7 @@ stages:
                   environment: ${{ parameter.environment }}
                   location: ${{ parameters.location }}
                   component: ${{ parameter.deployment }}
-                  serviceConnection: "OPS-APPROVAL-GATE-${{ upper(parameter.environment) }}-ENVS"
+                  serviceConnection: "DTS-SHAREDSERVICES-${{ upper(parameter.environment) }}-WIF"
                   product: $(product)
                   publishPlanResults: ${{ variables.publishPlanResults }}
                   terraformInitSubscription: ${{ variables.tfInitSub }}
@@ -323,4 +323,4 @@ stages:
         steps:
           - template: steps/terraform-plan-analyse.yaml@cnp-azuredevops-libraries
             parameters:
-              serviceConnection: DTS-CFTPTL-INTSVC
+              serviceConnection: DTS-CFTPTL-INTSVC-WIF
