@@ -83,23 +83,6 @@ frontends = [
     shutter_app       = false
     hosted_externally = true
   },
-
-  #{
-  #  name                         = "jd-reply-jury-summons"
-  #  custom_domain                = "reply-jury-summons.service.gov.uk"
-  #  dns_zone_name                = "reply-jury-summons.service.gov.uk"
-  #  backend_domain               = ["firewall-prod-int-palo-sdsprod.uksouth.cloudapp.azure.com"]
-  #  shutter_app                  = true
-  #  ssl_mode                     = "AzureKeyVault"
-  #  certificate_name             = "reply-jury-summons-service-gov-uk"
-  #  session_affinity             = true
-  #  session_affinity_ttl_seconds = 14400
-  #  appgw_cookie_based_affinity  = "Enabled"
-
-  #  mode           = "Detection"
-  #  health_path    = "/"
-  #  disabled_rules = {}
-  #},
   {
     name             = "court-tribunal-hearings"
     custom_domain    = "www.court-tribunal-hearings.service.gov.uk"
