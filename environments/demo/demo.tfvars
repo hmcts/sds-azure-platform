@@ -744,6 +744,13 @@ frontends = [
         "930110"
       ],
     }
+    global_exclusions = [
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "dtSa"
+      }
+    ]
     custom_rules = [
       {
         name     = "IPMatchWhitelist"
