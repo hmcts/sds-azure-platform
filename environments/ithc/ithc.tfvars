@@ -696,6 +696,32 @@ frontends = [
       ],
     }
     global_exclusions = []
+    custom_rules = [
+      {
+        name                           = "RateLimitDraftAccountCreation"
+        priority                       = 20
+        type                           = "RateLimitRule"
+        action                         = "Block"
+        rate_limit_duration_in_minutes = 5
+        # Provisional ITHC limit; tune against legitimate draft-creation activity.
+        rate_limit_threshold           = 30
+
+        match_conditions = [
+          {
+            match_variable     = "RequestUri"
+            operator           = "RegEx"
+            negation_condition = false
+            match_values       = ["/opal-fines-service/draft-accounts/?(?:\\?.*)?$"]
+          },
+          {
+            match_variable     = "RequestMethod"
+            operator           = "Equal"
+            negation_condition = false
+            match_values       = ["POST"]
+          }
+        ]
+      }
+    ]
   },
   {
     name           = "opal-rm-frontend"
