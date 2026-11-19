@@ -704,7 +704,7 @@ frontends = [
         action                         = "Block"
         rate_limit_duration_in_minutes = 5
         # Provisional ITHC limit; tune against legitimate draft-creation activity.
-        rate_limit_threshold           = 30
+        rate_limit_threshold = 30
 
         match_conditions = [
           {
