@@ -868,7 +868,18 @@ frontends = [
     cache_enabled     = "false"
     shutter_app       = true
     disabled_rules    = {}
-    global_exclusions = []
+    global_exclusions = [
+      {
+        match_variable = "RequestBodyPostArgNames"
+        operator       = "Equals"
+        selector       = "code"
+      },
+      {
+        match_variable = "RequestCookieNames"
+        operator       = "Equals"
+        selector       = "opal-session"
+      }
+    ]
   },
   {
     name           = "appreg"
